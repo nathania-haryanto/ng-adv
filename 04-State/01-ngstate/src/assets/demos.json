@@ -1,0 +1,38 @@
+[
+  {
+    "url": "statefull",
+    "title": "Statefull",
+    "component": "StatefullComponent",
+    "id": 1,
+    "topicid": 1,
+    "visible": true,
+    "sortOrder": 0
+  },
+  {
+    "url": "ebus",
+    "title": "Eventbus",
+    "component": "EventbusComponent",
+    "id": 2,
+    "topicid": 1,
+    "visible": true,
+    "sortOrder": 2
+  },
+  {
+    "url": "ngrx-curd",
+    "title": "NgRX CRUD",
+    "component": "NgrxCrudComponent",
+    "id": 3,
+    "topicid": 1,
+    "visible": true,
+    "sortOrder": 3
+  },
+  {
+    "url": "facades",
+    "title": "NgRX Facades",
+    "component": "NgrxFacadesComponent",
+    "id": 3,
+    "topicid": 1,
+    "visible": true,
+    "sortOrder": 3
+  }
+]

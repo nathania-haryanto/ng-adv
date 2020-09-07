@@ -1,0 +1,45 @@
+<app-markdown-renderer [md]="'subjects'"></app-markdown-renderer>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Subjects
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="emitNext()">Emit next()</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Behaviour Subjects
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="emitNextBS()">Emit next()</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Replay Subjects
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="emitNextRS()">Emit next()</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Async Subjects
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="emitNextAS()">Emit next()</button>
+  </mat-card-content>
+</mat-card>

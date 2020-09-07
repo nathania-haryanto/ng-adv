@@ -1,0 +1,16 @@
+[
+  { "id": 1, "name": "Cleo", "breed": "Whippet", "image": "assets/cleo.png" },
+  {
+    "id": 2,
+    "name": "Flora",
+    "breed": "Italian Greyhound",
+    "image": "assets/flora.png"
+  },
+  { "id": 2, "name": "Soi", "breed": "Whippet", "image": "assets/soi.png" },
+  {
+    "id": 3,
+    "name": "Giro",
+    "breed": "Galgo Espanol",
+    "image": "assets/giro.png"
+  }
+]

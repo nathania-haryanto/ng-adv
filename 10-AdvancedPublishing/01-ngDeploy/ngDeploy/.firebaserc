@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ng-deploy-ap"
+  },
+  "targets": {
+    "ng-deploy-ap": {
+      "hosting": {
+        "ngDeploy": [
+          "ng-deploy-ap"
+        ]
+      }
+    }
+  }
+}

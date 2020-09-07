@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input
+        matInput
+        (keyup)="applyFilter($event.target.value)"
+        placeholder="Filter"
+      />
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="topicId">
+      <mat-header-cell *matHeaderCellDef> Topic</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.topicId }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Text </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="hours">
+      <mat-header-cell *matHeaderCellDef> Hours </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.hours }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="completed">
+      <mat-header-cell *matHeaderCellDef> completed </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.completed }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="duedate">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.duedate | date: "longDate" }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="editItem">
+      <th mat-header-cell *matHeaderCellDef class="icon-cell"></th>
+      <td mat-cell *matCellDef="let element" class="icon-cell">
+        <a (click)="editItem(element)">
+          <mat-icon class="mat-18" matTooltip="Bearbeiten">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</mat-card>

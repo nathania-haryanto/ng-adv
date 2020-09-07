@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "projects": {
+    "skills": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/skills",
+      "sourceRoot": "apps/skills/src",
+      "prefix": "nx-skills",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/skills",
+            "index": "apps/skills/src/index.html",
+            "main": "apps/skills/src/main.ts",
+            "polyfills": "apps/skills/src/polyfills.ts",
+            "tsConfig": "apps/skills/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/skills/src/favicon.ico", "apps/skills/src/assets"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "apps/skills/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/skills/src/environments/environment.ts",
+                  "with": "apps/skills/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "skills:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "skills:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "skills:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/skills/tsconfig.app.json",
+              "apps/skills/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/skills/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/skills/jest.config.js",
+            "tsConfig": "apps/skills/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/skills/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "skills-e2e": {
+      "root": "apps/skills-e2e",
+      "sourceRoot": "apps/skills-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/skills-e2e/cypress.json",
+            "tsConfig": "apps/skills-e2e/tsconfig.e2e.json",
+            "devServerTarget": "skills:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "skills:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/skills-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/skills-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "toggle-sidenav": {
+      "projectType": "library",
+      "root": "libs/toggle-sidenav",
+      "sourceRoot": "libs/toggle-sidenav/src",
+      "prefix": "nx-skills",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/toggle-sidenav/tsconfig.lib.json",
+              "libs/toggle-sidenav/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/toggle-sidenav/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/toggle-sidenav/jest.config.js",
+            "tsConfig": "libs/toggle-sidenav/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/toggle-sidenav/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "skills"
+}

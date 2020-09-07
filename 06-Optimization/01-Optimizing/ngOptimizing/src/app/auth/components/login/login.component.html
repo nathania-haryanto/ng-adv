@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header fxLayoutAlign="center center">
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="column">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Email Address"
+        [(ngModel)]="login.email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="login.pwd"
+      />
+    </mat-form-field>
+    <mat-slide-toggle [(ngModel)]="login.remember">Merken</mat-slide-toggle>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="logIn()">LOGIN</button>
+  </mat-card-actions>
+</mat-card>

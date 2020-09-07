@@ -1,0 +1,16 @@
+<app-markdown-renderer [md]="'filter'"></app-markdown-renderer>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Filter Demos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter Filter partial"
+        [formControl]="fcFilter"
+      />
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

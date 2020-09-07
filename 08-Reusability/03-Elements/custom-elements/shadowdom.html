@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="shadowdom.js" type="application/javascript"></script>
+  </head>
+  <body>
+    <div id="shadowHost">Hello</div>
+    <div class="x">Outer Element</div>
+
+    <a href="#" onclick="createShowDOM()">Create Shadow DOM</a>
+
+    <hr />
+
+    <div id="shadowHostTwo">Hello</div>
+    <template id="tmpl">
+      <style>
+        * {
+          color: red;
+        }
+      </style>
+      <div>Hello <span class="name">I am a shodow Element</span></div>
+    </template>
+
+    <a href="#" onclick="createShadowDomTwo()">Create Shadow DOM</a>
+  </body>
+</html>

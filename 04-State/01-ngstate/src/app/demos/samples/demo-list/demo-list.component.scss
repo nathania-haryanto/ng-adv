@@ -1,0 +1,16 @@
+@import "stylevars.scss";
+@import "theme.scss";
+
+.list {
+  background: mat-color($app-primary);
+  min-height: 60px;
+}
+
+.box {
+  padding: $small-gap;
+  border-bottom: solid 1px #ccc;
+  color: mat-color($app-fg);
+  cursor: move;
+  background: mat-color($app-accent);
+  font-size: 1rem;
+}

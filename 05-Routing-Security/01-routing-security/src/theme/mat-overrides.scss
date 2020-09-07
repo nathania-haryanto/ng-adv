@@ -1,0 +1,59 @@
+@import 'stylevars';
+@import 'theme.scss';
+
+//Card
+// Uncomment to see changes: padding: 0 !important;
+//ToDo: Fix Card theme
+.mat-card {
+  background-color: mat-color($app-fg);
+  margin-bottom: $big-gap;
+  padding: 0 !important;
+}
+
+.mat-card-header {
+  min-height: $medium-toolbar;
+  padding-top: $small-gap;
+}
+
+.mat-card-content {
+  padding: $medium-gap;
+  margin-bottom: 0 !important;
+}
+
+.mat-card-actions {
+  padding: $medium-gap;
+  margin-left: $medium-gap !important;
+  margin-right: $medium-gap !important;
+  padding-bottom: $medium-gap !important;
+
+  //Uncomment to see changes
+  button {
+    background-color: mat-color($app-bg, 700);
+    color: mat-color($app-fg);
+  }
+}
+
+//Sidenav
+
+.mat-sidenav {
+  width: 220px;
+  background-color: mat-color($app-fg);
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+//Table
+//Note: Table Format
+mat-header-row {
+  background-color: mat-color($app-primary);
+}
+
+mat-row {
+  background-color: mat-color($app-fg);
+}
+
+mat-header-cell {
+  color: mat-color($app-fg) !important;
+}

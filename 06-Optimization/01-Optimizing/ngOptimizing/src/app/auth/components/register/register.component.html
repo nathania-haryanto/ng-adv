@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header fxLayoutAlign="center center">
+    <mat-card-title>Registrierung</mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="column">
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Email Address"
+        [(ngModel)]="login.email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Enter Password"
+        [(ngModel)]="login.pwd"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Re-Enter Password"
+        [(ngModel)]="login.pwdRepeat"
+      />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="registerUser()">REGISTER</button>
+  </mat-card-actions>
+</mat-card>

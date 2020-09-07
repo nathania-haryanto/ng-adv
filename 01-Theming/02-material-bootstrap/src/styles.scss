@@ -1,0 +1,39 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/utilities";
+
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$primary-palette: mat-palette($mat-indigo);
+$accent-palette: mat-palette($mat-pink, A200, A100, A400);
+$warn-palette: mat-palette($mat-red);
+
+$app-theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
+
+@include angular-material-theme($app-theme);
+
+// Moved to another file -> clearer when theming more than one component
+
+// @mixin classic-theming-theme($theme) {
+//   $primary: map-get($theme, primary);
+//   $accent: map-get($theme, accent);
+
+//   .classic-theming {
+//     background-color: mat-color($accent, 50);
+//     color: mat-color($accent, 900);
+//     border-color: mat-color($primary, 100);
+//   }
+// }
+
+// @include classic-theming-theme($app-theme);
+
+@import "theme/classic-theming.component.theme.scss";
+
+@import "theme/alternative-theming.components.theme.scss";

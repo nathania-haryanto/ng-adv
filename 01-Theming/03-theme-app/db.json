@@ -1,0 +1,66 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "skills": [
+    {
+      "id": 1,
+      "topicId": 1,
+      "title": "Custom Theme",
+      "hours": 4,
+      "completed": true,
+      "duedate": "2019-09-07T20:35:24.6106949",
+      "sortOrder": 0
+    },
+    {
+      "id": 2,
+      "topicId": 1,
+      "title": "Theme Mixins",
+      "hours": 3,
+      "completed": false,
+      "duedate": "2019-08-07T20:35:24.6119663",
+      "sortOrder": 0
+    },
+    {
+      "id": 3,
+      "topicId": 1,
+      "title": "Light & Dark Theme",
+      "hours": 2,
+      "completed": false,
+      "duedate": "2019-12-07T20:35:24.6119678",
+      "sortOrder": 0
+    },
+    {
+      "id": 4,
+      "topicId": 2,
+      "title": "RxJS Operators",
+      "hours": 5,
+      "completed": true,
+      "duedate": "2019-10-09T20:35:24.6119685",
+      "sortOrder": 0
+    },
+    {
+      "id": 5,
+      "topicId": 2,
+      "title": "Custom Operators",
+      "hours": 1,
+      "completed": false,
+      "duedate": "2020-10-07T20:35:24.6119691",
+      "sortOrder": 0
+    }
+  ]
+}

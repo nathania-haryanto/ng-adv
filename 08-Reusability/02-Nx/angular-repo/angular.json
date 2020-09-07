@@ -1,0 +1,322 @@
+{
+  "version": 1,
+  "projects": {
+    "ng-skills": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ng-skills",
+      "sourceRoot": "apps/ng-skills/src",
+      "prefix": "angular-repo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ng-skills",
+            "index": "apps/ng-skills/src/index.html",
+            "main": "apps/ng-skills/src/main.ts",
+            "polyfills": "apps/ng-skills/src/polyfills.ts",
+            "tsConfig": "apps/ng-skills/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ng-skills/src/favicon.ico",
+              "apps/ng-skills/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "apps/ng-skills/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-skills/src/environments/environment.ts",
+                  "with": "apps/ng-skills/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-skills:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-skills:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-skills:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ng-skills/tsconfig.app.json",
+              "apps/ng-skills/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-skills/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ng-skills/jest.config.js",
+            "tsConfig": "apps/ng-skills/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/ng-skills/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ng-skills-e2e": {
+      "root": "apps/ng-skills-e2e",
+      "sourceRoot": "apps/ng-skills-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ng-skills-e2e/cypress.json",
+            "tsConfig": "apps/ng-skills-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ng-skills:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-skills:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ng-skills-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-skills-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "ux-controls": {
+      "projectType": "library",
+      "root": "libs/ux-controls",
+      "sourceRoot": "libs/ux-controls/src",
+      "prefix": "angular-repo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ux-controls/tsconfig.lib.json",
+              "libs/ux-controls/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ux-controls/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ux-controls/jest.config.js",
+            "tsConfig": "libs/ux-controls/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ux-controls/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "sass"
+        }
+      }
+    },
+    "ng-otherapp": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ng-otherapp",
+      "sourceRoot": "apps/ng-otherapp/src",
+      "prefix": "angular-repo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ng-otherapp",
+            "index": "apps/ng-otherapp/src/index.html",
+            "main": "apps/ng-otherapp/src/main.ts",
+            "polyfills": "apps/ng-otherapp/src/polyfills.ts",
+            "tsConfig": "apps/ng-otherapp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ng-otherapp/src/favicon.ico",
+              "apps/ng-otherapp/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "apps/ng-otherapp/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ng-otherapp/src/environments/environment.ts",
+                  "with": "apps/ng-otherapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-otherapp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-otherapp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-otherapp:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ng-otherapp/tsconfig.app.json",
+              "apps/ng-otherapp/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-otherapp/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ng-otherapp/jest.config.js",
+            "tsConfig": "apps/ng-otherapp/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/ng-otherapp/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ng-otherapp-e2e": {
+      "root": "apps/ng-otherapp-e2e",
+      "sourceRoot": "apps/ng-otherapp-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ng-otherapp-e2e/cypress.json",
+            "tsConfig": "apps/ng-otherapp-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ng-otherapp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-otherapp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ng-otherapp-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-otherapp-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "3786e1bf-4e72-470a-b721-0abdd6c891be"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ng-skills"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ux-controls",
+  "version": "0.0.1",
+  "author": {
+    "name": "Alexander Pajer",
+    "email": "alexander.pajer@integrations.at",
+    "url": "https://www.integrations.at"
+  },
+  "description": "Sample using an Angular Lib",
+  "peerDependencies": {
+    "@angular/common": "^10.0.3",
+    "@angular/core": "^10.0.3",
+    "@angular/animations": "~10.0.3",
+    "@angular/flex-layout": "^10.0.0-beta.32",
+    "@angular/material": "^10.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

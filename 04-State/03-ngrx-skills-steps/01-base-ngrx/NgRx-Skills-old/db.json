@@ -1,0 +1,6 @@
+{
+  "skills": [
+    { "id": "123", "name": "rxjs", "completed": true },
+    { "id": "456", "name": "ngrx", "completed": false }
+  ]
+}

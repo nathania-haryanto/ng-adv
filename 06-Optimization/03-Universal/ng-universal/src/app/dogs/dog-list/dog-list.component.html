@@ -1,0 +1,6 @@
+<div>
+  <h1>Doglist</h1>
+  <div class="item" *ngFor="let d of dogs | async" [routerLink]="['/', d.id]">
+    {{ d.name }}
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "hosting": [
+    {
+      "app": {
+        "project": "ngDeploy",
+        "target": "build",
+        "configuration": "production",
+        "path": "dist/ngDeploy"
+      },
+      "azureHosting": {
+        "subscription": "78033352-805c-4acd-af80-f8f95083268d",
+        "resourceGroupName": "ng-deploy",
+        "account": "ng-deploy-app"
+      }
+    }
+  ]
+}

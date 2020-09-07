@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Observable Basics - Mock Data
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content fxLayout="column" fxLayoutGap="10px">
+    <a mat-raised-button color="accent" (click)="subscribingObservables()"
+      >Subscribing Observables</a
+    >
+    <a mat-raised-button color="accent" (click)="useNewObs()"
+      >new Observable()</a
+    >
+    <a mat-raised-button color="accent" (click)="useObsFrom()">from()</a>
+    <a mat-raised-button color="accent" (click)="useOf()">of()</a>
+    <a mat-raised-button color="accent" (click)="useOfwithSpread()"
+      >of() with spread()</a
+    >
+    <a mat-raised-button color="accent" (click)="wrappingCallbacks()"
+      >Wrapping Callbacks</a
+    >
+    <a mat-raised-button color="accent" (click)="usePromiseToObs()"
+      >Wrapping Promises</a
+    >
+    <a mat-raised-button color="accent" (click)="useOperator()"
+      >filter() - A simple Operator</a
+    >
+  </mat-card-content>
+</mat-card>

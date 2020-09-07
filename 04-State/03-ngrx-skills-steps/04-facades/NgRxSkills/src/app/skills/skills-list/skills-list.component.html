@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div>Skills App</div>
+    <div fxLayoutGap="10px">
+      <button mat-raised-button (click)="addItem()">Add</button>
+      <mat-slide-toggle color="accent">ShowAll</mat-slide-toggle>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card color="accent">
+  <mat-card-header>
+    <mat-card-title>The Skills</mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="column" fxLayoutGap="10px">
+    <div
+      *ngFor="let s of skills$ | async"
+      class="item"
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      fxFill
+    >
+      <div fxFlex="3 1 auto" style="padding-left: 2rem">{{ s.name }}</div>
+      <div fxFlex="1 1 140px">
+        <mat-slide-toggle
+          color="primary"
+          (change)="sf.toggleComplete(s)"
+          [checked]="s.completed"
+          >Completed</mat-slide-toggle
+        >
+      </div>
+      <div fxFlex="1 1 80px">
+        <button mat-raised-button color="primary" (click)="sf.deleteSkill(s)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

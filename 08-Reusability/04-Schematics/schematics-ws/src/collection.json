@@ -1,0 +1,21 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "schematics-ws": {
+      "description": "A blank schematic.",
+      "factory": "./schematics-ws/index#schematicsWs"
+    },
+    "create-file": {
+      "description": "A blank schematic.",
+      "factory": "./create-file/index#createFile"
+    },
+    "create-file-withparam": {
+      "description": "A blank schematic.",
+      "factory": "./create-file-withparam/index#createFileWithparam"
+    },
+    "create-comp": {
+      "description": "A blank schematic.",
+      "factory": "./create-comp/index#createComp"
+    }
+  }
+}

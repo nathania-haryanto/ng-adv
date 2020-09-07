@@ -1,0 +1,14 @@
+@mixin set-colors($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .my-text {
+    color: mat-color($primary);
+  }
+
+  .my-background {
+    background-color: mat-color($accent);
+  }
+}
+
+@include set-colors($app-theme);

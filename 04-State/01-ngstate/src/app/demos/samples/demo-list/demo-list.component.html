@@ -1,0 +1,28 @@
+<app-markdown-renderer [md]="'list'"></app-markdown-renderer>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Demos List
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div
+      cdkDropList
+      (cdkDropListDropped)="drop($event)"
+      fxLayout="column"
+      fxLayoutGap="5px"
+      class="list"
+    >
+      <app-demo-row
+        *ngFor="let d of view$ | async"
+        [item]="d"
+        (onDelete)="deleteItem($event)"
+        (onSlide)="changeVisibility($event)"
+        (dblclick)="selectItem(d)"
+        (onEdit)="editItem($event)"
+        cdkDrag
+        class="box"
+      ></app-demo-row>
+    </div>
+  </mat-card-content>
+</mat-card>

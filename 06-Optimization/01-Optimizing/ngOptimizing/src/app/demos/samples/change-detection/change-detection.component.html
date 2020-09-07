@@ -1,0 +1,15 @@
+<app-markdown-renderer [md]="'change-detection'"></app-markdown-renderer>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    Press the button
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="changeTitle()">Change Title</button>
+  </mat-card-actions>
+</mat-card>
+
+<app-skills-list [skills]="skills | async"></app-skills-list>

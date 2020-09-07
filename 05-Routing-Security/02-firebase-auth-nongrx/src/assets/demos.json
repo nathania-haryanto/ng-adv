@@ -1,0 +1,17 @@
+[
+  {
+    "url": "firebase",
+    "title": "Firebase Auth ",
+    "component": "FirebaseComponent"
+  },
+  {
+    "url": "msal",
+    "title": "Azure AD Auth - MSAL",
+    "component": "AzureADComponent"
+  },
+  {
+    "url": "adal",
+    "title": "Azure AD Auth - ADAL",
+    "component": "AdalComponent"
+  }
+]

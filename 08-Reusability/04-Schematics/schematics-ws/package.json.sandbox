@@ -1,0 +1,29 @@
+{
+  "name": "schematics-ws",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run sandbox:ng-add && npm run test:sandbox",
+    "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
+    "link:schematic": "npm link && cd sandbox && npm link schematics-ws",
+    "launch:create-file": "cd sandbox && ng g schematics-ws:create-file",
+    "launch:create-file-withparam": "cd sandbox && ng g schematics-ws:create-file-withparam --greeting Szia --name Emese --dry-run false"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^10.0.6",
+    "@angular-devkit/schematics": "^10.0.6",
+    "typescript": "~3.9.7"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.1",
+    "@types/jasmine": "~3.5.0",
+    "jasmine": "^3.5.0"
+  }
+}

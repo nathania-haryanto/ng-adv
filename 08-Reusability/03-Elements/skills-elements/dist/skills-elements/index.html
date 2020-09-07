@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SkillsElements</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        const element = document.getElementsByTagName("ng-skills")[0];
+        if (element) {
+          // pass data
+          const data = [
+            { id: 1, name: "node.js", hours: 2, completed: false },
+            { id: 2, name: "type script", hours: 2, completed: false },
+            { id: 3, name: "java script", hours: 1, completed: false },
+          ];
+          element.skills = data;
+          // handle event
+          element.addEventListener("skillsSaved", (data) =>
+            console.log("Data received from ng-skills:", data.detail)
+          );
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <ng-skills></ng-skills>
+    <script src="polyfills.js" defer></script>
+    <script src="main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+@import 'stylevars.scss';
+@import 'theme.scss';
+
+mat-card {
+  margin-top: $small-gap;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.row {
+  margin: 0.2rem;
+  padding: 0.4rem;
+  background-color: mat-color($app-accent);
+  min-height: 2rem;
+}
