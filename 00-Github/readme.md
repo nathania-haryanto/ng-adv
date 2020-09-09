@@ -119,7 +119,17 @@ git merge [branch_to_merge]
 
 ## Dealing with special Commits
 
-Get a spcific Commit: `git checkout <sha1>`
+Get a spcific Commit:
+
+```
+git checkout <sha1>
+```
+
+sha1:
+
+![commits](_images/commits.png)
+
+![sha1](_images/sha1.png)
 
 > Note: This will result in a detached Head.
 
