@@ -78,6 +78,22 @@ describe('Service - HttpTest -FoodService', () => {
     });
   });
 
+  it('isEquivalent works as expected', () => {
+    expect(
+      service.isEquivalent(
+        { name: 'Gulasch', rating: 2 },
+        { name: 'Gulasch', rating: 2 }
+      )
+    ).toBe(true);
+
+    expect(
+      service.isEquivalent(
+        { name: 'Gulasch', rating: 3 },
+        { name: 'Gulasch', rating: 2 }
+      )
+    ).toBe(false);
+  });
+
   it('should have the correct number of items after delete', (done) => {
     const reh: FoodItem = { name: 'Rehgulasch', rating: 2 };
     service.deleteItem(reh);
