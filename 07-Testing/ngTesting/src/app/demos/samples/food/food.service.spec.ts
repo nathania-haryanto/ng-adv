@@ -6,6 +6,7 @@ import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FoodService } from './food.service';
+import { FoodItem } from './food.model';
 
 describe('Service - HttpTest -FoodService', () => {
   let service: FoodService;
@@ -66,27 +67,25 @@ describe('Service - HttpTest -FoodService', () => {
     });
   });
 
-  // it('should return the correct amount of items', (done) => {
-  //   service.addItem({ name: 'Gulasch', rating: 2 });
-  //   service.addItem({ name: 'Panierter Kabeljau', rating: 3 });
+  it('should return the correct amount of items', (done) => {
+    service.addItem({ name: 'Gulasch', rating: 2 });
+    service.addItem({ name: 'Panierter Kabeljau', rating: 3 });
 
-  //   service.getItems().subscribe((items) => {
-  //     expect(items.length).toEqual(2);
-  //     expect(items[1].name).toEqual('Panierter Kabeljau');
-  //     done();
-  //   });
-  // });
+    service.getItems().subscribe((items) => {
+      expect(items.length).toEqual(4);
+      expect(items[1].name).toEqual('Leberkäse');
+      done();
+    });
+  });
 
-  // it('should have the correct number of items after delete', (done) => {
-  //   const gulasch: FoodItem = { name: 'Gulasch', rating: 2 };
-  //   service.addItem(gulasch);
-  //   service.addItem({ name: 'Panierter Kabeljau', rating: 3 });
-  //   service.deleteItem(gulasch);
+  it('should have the correct number of items after delete', (done) => {
+    const reh: FoodItem = { name: 'Rehgulasch', rating: 2 };
+    service.deleteItem(reh);
 
-  //   service.getItems().subscribe((items) => {
-  //     expect(items.length).toEqual(1);
-  //     expect(items).toEqual([{ name: 'Panierter Kabeljau', rating: 3 }]);
-  //     done();
-  //   });
-  // });
+    service.getItems().subscribe((items) => {
+      expect(items.length).toEqual(1);
+      expect(items).toEqual([{ name: 'Leberkäse', rating: 2 }]);
+      done();
+    });
+  });
 });

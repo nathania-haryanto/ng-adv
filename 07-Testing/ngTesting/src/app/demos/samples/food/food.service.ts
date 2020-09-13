@@ -33,9 +33,24 @@ export class FoodService {
   }
 
   deleteItem(item: FoodItem): Observable<boolean> {
-    this.items = this.items.filter((f) => f != item);
+    this.items = this.items.filter((f) => this.isEquivalent(f, item) == false);
     this.Items.next(this.items);
     return of(true);
+  }
+
+  isEquivalent(a, b) {
+    const aProps = Object.getOwnPropertyNames(a);
+    const bProps = Object.getOwnPropertyNames(b);
+    if (aProps.length != bProps.length) {
+      return false;
+    }
+
+    for (const prop of aProps) {
+      if (a[prop] !== b[prop]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   addItem(item: FoodItem): Observable<boolean> {
