@@ -2,8 +2,10 @@
 
 ## Tasks
 
+- Refactor the "food"-folder to be a lazy loaded feature module
 - Use the guide to get started to migrate to NgRx
-- Implement as much functionality as you can using NgRx
+- Refactor MenuService to use ngrx
+- Implement as much of the "food" functionality (CRUD) using NgRx
 
 ## Guide
 
@@ -258,7 +260,3 @@ export class FoodContainerComponent implements OnInit {
     .select(getAllFood)
     .pipe(tap(data => console.log('data received from store', data)));
 ```
-
-## Further Tasks
-
-- Refactor MenuService to use ngrx
