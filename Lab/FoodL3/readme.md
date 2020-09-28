@@ -5,7 +5,7 @@
 - Refactor the "food"-folder to be a lazy loaded feature module
 - Use the guide to get started to migrate to NgRx
 - Refactor MenuService to use ngrx
-- Implement as much functionality as you can using NgRx
+- Implement as much of the "food" functionality (CRUD) as you can using NgRx
 
 ## Guide
 
