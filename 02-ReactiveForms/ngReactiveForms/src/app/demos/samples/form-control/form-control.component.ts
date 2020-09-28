@@ -9,12 +9,22 @@ import { FormControl, Validators } from '@angular/forms';
 export class FormControlComponent implements OnInit {
   constructor() {}
 
-  name = new FormControl('Giro', [Validators.required]);
-  postal = new FormControl('3544');
-  city = new FormControl('Idolsberg', [Validators.maxLength(15)]);
+  name: FormControl;
+  postal: FormControl;
+  city: FormControl;
 
   ngOnInit() {
+    this.initForm();
     this.subscribeNameChanges();
+  }
+
+  initForm() {
+    this.name = new FormControl('Giro', [
+      Validators.required,
+      Validators.minLength(4),
+    ]);
+    this.postal = new FormControl('3544');
+    this.city = new FormControl('Idolsberg', [Validators.maxLength(15)]);
   }
 
   subscribeNameChanges() {

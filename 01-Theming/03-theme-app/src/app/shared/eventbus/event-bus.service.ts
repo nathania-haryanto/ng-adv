@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-import { SidebarActions } from "../sidebar/sidebar-actions";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { SidebarActions } from '../sidebar/sidebar-actions';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class EventBusService {
   private commands: BehaviorSubject<SidebarActions> = new BehaviorSubject(
     SidebarActions.HIDE_MARKDOWN

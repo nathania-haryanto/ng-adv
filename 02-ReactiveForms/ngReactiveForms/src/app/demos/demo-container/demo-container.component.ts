@@ -23,10 +23,10 @@ export class DemoContainerComponent implements OnInit {
   ) {}
 
   title: string = environment.title;
-  header: string = 'Please select a demo';
+  header = 'Please select a demo';
   workbench: any;
 
-  showEditor: boolean = false;
+  showEditor = false;
 
   filter: string;
   private filterSubject = new BehaviorSubject<string>('');
@@ -79,7 +79,7 @@ export class DemoContainerComponent implements OnInit {
       .pipe(
         filter((evt: Event) => evt instanceof NavigationEnd),
         flatMap((evt: NavigationEnd) => {
-          let childroute = evt.url.substr(evt.url.lastIndexOf('/') + 1);
+          const childroute = evt.url.substr(evt.url.lastIndexOf('/') + 1);
           return this.demos$.pipe(
             map((items) => items.find((i) => i.url.includes(childroute)))
           );
