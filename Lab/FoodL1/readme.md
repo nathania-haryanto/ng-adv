@@ -41,8 +41,6 @@
 
 ![buttons](_images/buttons.png)
 
-- Implement a Custom Material Theme with a Custom Color Scheme
+- Implement a Custom Material Theme with a Custom Color Scheme. Create a Theme Mixin for Toolbar, Card and Table
 
-- Refactor the Filter to use its own component. Fix the optical bug in the filter bar
-
-![buttons](_images/filter.png)
+![buttons](_images/food-design.png)

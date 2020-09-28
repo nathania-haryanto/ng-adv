@@ -28,13 +28,13 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
   $accent: map-get($theme, accent);
 
   .mat-card {
-    background-color: mat-color($primary, 400);
+    background-color: mat-color($accent, 400);
     margin-bottom: $big-gap;
     padding: 0 !important;
   }
 
   .mat-card-header {
-    background-color: mat-color($accent, 400);
+    background-color: mat-color($primary, 400);
     color: white;
     min-height: $medium-toolbar;
     padding-top: $small-gap;
