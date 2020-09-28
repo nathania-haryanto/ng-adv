@@ -2,8 +2,17 @@
   <app-navbar></app-navbar>
 </div>
 <div class="mainrow">
-  <div class="sidebar">
-    <app-sidebar></app-sidebar>
-  </div>
-  <div class="main"><router-outlet></router-outlet></div>
+  <mat-sidenav-container style="width: 100%">
+    <mat-sidenav
+      #sidenav
+      [opened]="ms.visible$ | async"
+      [mode]="ms.position$ | async"
+      class="sidebar"
+    >
+      Sidenav content
+    </mat-sidenav>
+    <mat-sidenav-content class="workbench">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

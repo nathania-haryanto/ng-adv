@@ -17,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FoodModule } from './food/food.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { FoodModule } from './food/food.module';
     SidebarComponent,
     MainComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,19 +35,20 @@ import { FoodModule } from './food/food.module';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     MaterialModule,
     FoodModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
-        strictActionImmutability: true
-      }
+        strictActionImmutability: true,
+      },
     }),
     EffectsModule.forRoot([]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

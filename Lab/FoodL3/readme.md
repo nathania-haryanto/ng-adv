@@ -258,3 +258,7 @@ export class FoodContainerComponent implements OnInit {
     .select(getAllFood)
     .pipe(tap(data => console.log('data received from store', data)));
 ```
+
+## Further Tasks
+
+- Refactor MenuService to use ngrx
