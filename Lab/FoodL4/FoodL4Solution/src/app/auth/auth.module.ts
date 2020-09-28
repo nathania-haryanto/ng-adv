@@ -12,8 +12,14 @@ import { authFeatureKey, AuthReducer } from './store/reducers/auth.reducer';
 import { AuthEffects } from './store/effects/auth.effects';
 import { MaterialModule } from '../material.module';
 import { LogoutComponent } from './components/logout/logout.component';
+import { LoginSplashComponent } from './components/login-splash/login-splash.component';
 
-const comps = [LoginComponent, RegisterComponent, LogoutComponent];
+const comps = [
+  LoginComponent,
+  RegisterComponent,
+  LogoutComponent,
+  LoginSplashComponent,
+];
 
 @NgModule({
   declarations: comps,
@@ -26,7 +32,7 @@ const comps = [LoginComponent, RegisterComponent, LogoutComponent];
     AngularFireAuthModule,
     MaterialModule,
     StoreModule.forFeature(authFeatureKey, AuthReducer),
-    EffectsModule.forFeature([AuthEffects])
-  ]
+    EffectsModule.forFeature([AuthEffects]),
+  ],
 })
 export class AuthModule {}
