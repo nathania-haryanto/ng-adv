@@ -1,4 +1,4 @@
-@import "stylevars";
+@import 'stylevars';
 
 //Card
 // Uncomment to see changes: padding: 0 !important;
@@ -10,8 +10,10 @@
 }
 
 .mat-card-header {
-  background-color: $medium-col;
+  background-color: mat-color($primary, 400);
   min-height: $medium-toolbar;
+  color: white;
+  font-size: 1rem;
   padding-top: $small-gap;
 }
 

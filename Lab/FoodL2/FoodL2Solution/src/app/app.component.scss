@@ -1,16 +1,17 @@
+@import 'theme.scss';
+
 .navbar {
-  background-color: lightblue;
   height: 10vh;
 }
 
 .sidebar {
-  background-color: lightgrey;
+  background-color: mat-color($app-primary, 200);
   width: 240px;
+  padding: 1rem;
 }
 
 .main {
   width: 80vw;
-  margin: 2rem;
 }
 
 .mainrow {
@@ -22,5 +23,7 @@
 .workbench {
   min-width: 80%;
   height: 100%;
-  padding: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

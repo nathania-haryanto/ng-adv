@@ -1,4 +1,4 @@
-# Food App Project
+# Food App Project - Lab 1
 
 ## Tasks
 

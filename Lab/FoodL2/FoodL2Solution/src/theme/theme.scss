@@ -28,13 +28,14 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
   $accent: map-get($theme, accent);
 
   .mat-card {
-    background-color: mat-color($accent, 400);
+    background-color: mat-color($primary, 400);
     margin-bottom: $big-gap;
     padding: 0 !important;
   }
 
   .mat-card-header {
     background-color: mat-color($accent, 400);
+    color: white;
     min-height: $medium-toolbar;
     padding-top: $small-gap;
   }
@@ -50,9 +51,6 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
     margin-right: $medium-gap !important;
     padding-bottom: $medium-gap !important;
 
-    //Uncomment to see changes
-    //ToDo: Fix color in second theme
-
     button {
       background-color: mat-color($app-bg, 700);
       color: mat-color($app-fg);
@@ -61,3 +59,21 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 }
 
 @include mat-card-theme($app-theme);
+
+@mixin mat-table-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .mat-table {
+    background: mat-color($accent);
+  }
+
+  .mat-header-cell {
+    background-color: mat-color($primary);
+    color: white;
+    font-size: 1rem;
+    padding-top: 1rem !important;
+  }
+}
+
+@include mat-table-theme($app-theme);
