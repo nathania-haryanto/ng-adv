@@ -5,8 +5,8 @@
   <mat-sidenav-container style="width: 100%">
     <mat-sidenav
       #sidenav
-      [opened]="ms.visible$ | async"
-      [mode]="ms.position$ | async"
+      [opened]="menuVisible$ | async"
+      [mode]="menuPosition$ | async"
       class="sidebar"
     >
       Sidenav content

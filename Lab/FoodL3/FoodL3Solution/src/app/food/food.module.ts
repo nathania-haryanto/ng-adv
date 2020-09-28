@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { foodFeatureKey, FoodReducer } from './store/reducers/food.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { FoodEffects } from './store/effects/food.effects';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const comps = [FoodContainerComponent, FoodListComponent, FoodEditComponent];
 
@@ -18,6 +19,7 @@ const comps = [FoodContainerComponent, FoodListComponent, FoodEditComponent];
   imports: [
     CommonModule,
     MaterialModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     StoreModule.forFeature(foodFeatureKey, FoodReducer),
     EffectsModule.forFeature([FoodEffects]),

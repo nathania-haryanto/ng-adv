@@ -1,13 +1,13 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { FoodReducer, FoodState } from '../food/store/reducers/food.reducer';
+import { AppReducer, AppState } from './reducers/app.reducer';
 
 export interface State {
-  food: FoodState;
+  app: AppState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  food: FoodReducer,
+  app: AppReducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production
