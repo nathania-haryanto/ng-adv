@@ -1,17 +1,18 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { NavbarComponent } from "./shared/navbar/navbar.component";
-import { SidebarComponent } from "./shared/sidebar/sidebar.component";
-import { MainComponent } from "./main/main.component";
-import { HomeComponent } from "./home/home.component";
-import { AboutComponent } from "./about/about.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MaterialModule } from "./material.module";
-import { FoodModule } from "./food/food.module";
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutComponent } from './about/about.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FoodModule } from './food/food.module';
+import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
+import { MaterialModule } from './material.module';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FoodModule } from "./food/food.module";
     SidebarComponent,
     MainComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +31,10 @@ import { FoodModule } from "./food/food.module";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FoodModule
+    FoodModule,
+    FlexLayoutModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
