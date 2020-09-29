@@ -1,8 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>
-      Classic View Model
-    </mat-card-title>
+    <mat-card-title> Classic View Model </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let t of tasks">{{ t.id }} - {{ t.title }}</div>
@@ -11,9 +9,7 @@
 
 <mat-card>
   <mat-card-header>
-    <mat-card-title>
-      Using async pipe
-    </mat-card-title>
+    <mat-card-title> Using async pipe </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let t of tasks$ | async">{{ t.id }} - {{ t.title }}</div>
@@ -22,9 +18,7 @@
 
 <mat-card>
   <mat-card-header>
-    <mat-card-title>
-      Completed task with ngModel & async pipe
-    </mat-card-title>
+    <mat-card-title> Completed task with ngModel & async pipe </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <pre>{{ completed$ | async | json }}</pre>
@@ -33,9 +27,7 @@
 
 <mat-card *ngIf="tasks$ | async as arTasks; else loading">
   <mat-card-header>
-    <mat-card-title>
-      Aliasing
-    </mat-card-title>
+    <mat-card-title> Aliasing </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let t of arTasks">
@@ -46,15 +38,15 @@
 
 <ng-template #loading>
   <mat-card>
-    I am loading ...
+    <mat-card-content>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-content>
   </mat-card>
 </ng-template>
 
 <mat-card>
   <mat-card-header>
-    <mat-card-title>
-      ngModel on prop & async - One way binding
-    </mat-card-title>
+    <mat-card-title> ngModel on prop & async - One way binding </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
