@@ -53,7 +53,7 @@ export class StatefullComponent implements OnInit {
   }
 
   deleteItem(item: DemoItem) {
-    console.log('deleting item', item);
+    this.ds.delete(item);
   }
 
   changeVisibility(item: DemoItem) {

@@ -32,12 +32,14 @@ export class StatefulDemoService {
 
   delete(item: DemoItem): Observable<any> {
     this.arrDemos = this.arrDemos.filter((d) => d.id != item.id);
+    // Emmit a marble containing the current array
     this.demos.next(this.arrDemos);
     return EMPTY;
   }
 
   insert(item: DemoItem): Observable<any> {
     this.arrDemos.push(item);
+    // Emmit a marble containing the current array
     this.demos.next(this.arrDemos);
     return EMPTY;
   }

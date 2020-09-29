@@ -1,11 +1,6 @@
-import { ActionReducerMap, MetaReducer } from "@ngrx/store";
+import { AppActions, AppActionTypes } from '../actions/app.actions';
 
-import { environment } from "src/environments/environment";
-import { AppActionTypes, AppActions } from "../actions/app.actions";
-
-//TODO: Notice Root Reducer
-
-export const appFeatureKey = "app";
+export const appFeatureKey = 'app';
 
 export interface AppState {
   title: string;
@@ -13,8 +8,8 @@ export interface AppState {
 }
 
 export const initialAppState: AppState = {
-  title: "Advanced Angular Development",
-  sideNav: { Enabled: true, Visible: true, Position: "over" }
+  title: 'Advanced Angular Development',
+  sideNav: { Enabled: true, Visible: true, Position: 'over' },
 };
 
 export function AppReducer(
@@ -28,22 +23,22 @@ export function AppReducer(
       return {
         ...state,
         sideNavEnabled: action.payload,
-        sideNavVisible: action.payload
+        sideNavVisible: action.payload,
       };
     case AppActionTypes.ToggleSideNavVisible:
       return {
         ...state,
-        sideNav: { ...state.sideNav, Visible: !state.sideNav.Visible }
+        sideNav: { ...state.sideNav, Visible: !state.sideNav.Visible },
       };
     case AppActionTypes.ChangeSideNavVisible:
       return {
         ...state,
-        sideNav: { ...state.sideNav, Visible: action.payload }
+        sideNav: { ...state.sideNav, Visible: action.payload },
       };
     case AppActionTypes.ChangeSideNavPosition:
       return {
         ...state,
-        sideNav: { ...state.sideNav, Position: action.payload }
+        sideNav: { ...state.sideNav, Position: action.payload },
       };
     default:
       return state;

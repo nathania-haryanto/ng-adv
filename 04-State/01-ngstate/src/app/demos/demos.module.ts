@@ -21,6 +21,7 @@ import { NgrxShowcaseComponent } from './samples/ngrx-showcase/ngrx-showcase.com
 import { StatefullComponent } from './samples/statefull/container/statefull.component';
 import { DemosEffects } from './store/effects/demos.effects';
 import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
+import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 
 const demoRoutes: Routes = [
   {
@@ -46,6 +47,7 @@ const demoRoutes: Routes = [
     DemoEditComponent,
     DemoListComponent,
     NgrxShowcaseComponent,
+    KpiComponent,
   ],
   imports: [
     CommonModule,
