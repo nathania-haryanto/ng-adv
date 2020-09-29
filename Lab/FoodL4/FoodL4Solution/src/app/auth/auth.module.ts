@@ -13,6 +13,7 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { MaterialModule } from '../material.module';
 import { LogoutComponent } from './components/logout/logout.component';
 import { LoginSplashComponent } from './components/login-splash/login-splash.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const comps = [
   LoginComponent,
@@ -30,6 +31,7 @@ const comps = [
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    FlexLayoutModule,
     MaterialModule,
     StoreModule.forFeature(authFeatureKey, AuthReducer),
     EffectsModule.forFeature([AuthEffects]),

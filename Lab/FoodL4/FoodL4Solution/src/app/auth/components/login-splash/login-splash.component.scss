@@ -2,6 +2,11 @@ mat-card img {
   object-fit: none;
 }
 
+mat-card-title {
+  text-align: center;
+  width: 400px;
+}
+
 mat-card-subtitle {
   text-align: center;
 }
@@ -15,7 +20,7 @@ mat-card {
 }
 
 .switch {
-  height: 394.89px;
+  height: 420px;
 }
 
 .mat-card-header {

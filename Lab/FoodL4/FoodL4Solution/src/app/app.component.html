@@ -1,21 +1,23 @@
 <div *ngIf="(loggedIn$ | async) == true">
-  logged
-  <app-navbar></app-navbar>
-</div>
-<div class="mainrow">
-  <mat-sidenav-container style="width: 100%">
-    <mat-sidenav
-      #sidenav
-      [opened]="menuVisible$ | async"
-      [mode]="menuPosition$ | async"
-      class="sidebar"
-    >
-      Sidenav content
-    </mat-sidenav>
-    <mat-sidenav-content class="workbench">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <div>
+    <app-navbar></app-navbar>
+  </div>
+  <div class="mainrow">
+    <mat-sidenav-container style="width: 100%">
+      <mat-sidenav
+        #sidenav
+        [opened]="menuVisible$ | async"
+        [mode]="menuPosition$ | async"
+        class="sidebar"
+      >
+        Sidenav content
+      </mat-sidenav>
+      <mat-sidenav-content class="workbench">
+        sdfa
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 </div>
 
 <div
@@ -24,7 +26,6 @@
   fxLayoutAlign="center center"
   class="loginsplash"
 >
-  here
   <app-login-splash>
     <div class="login">
       <app-login></app-login>
