@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FoodModule } from './food/food.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     MaterialModule,
     FoodModule,
+    AuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

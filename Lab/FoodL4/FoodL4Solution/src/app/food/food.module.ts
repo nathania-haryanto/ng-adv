@@ -10,6 +10,7 @@ import { foodFeatureKey, FoodReducer } from './store/reducers/food.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { FoodEffects } from './store/effects/food.effects';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FoodRoutingModule } from './food-routing.module';
 
 const comps = [FoodContainerComponent, FoodListComponent, FoodEditComponent];
 
@@ -21,6 +22,7 @@ const comps = [FoodContainerComponent, FoodListComponent, FoodEditComponent];
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    FoodRoutingModule,
     StoreModule.forFeature(foodFeatureKey, FoodReducer),
     EffectsModule.forFeature([FoodEffects]),
   ],

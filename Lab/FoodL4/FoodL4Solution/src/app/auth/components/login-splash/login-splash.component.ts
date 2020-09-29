@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginSplashComponent implements OnInit {
   constructor() {}
 
-  entryPic = '/assets/images/ng-dev.png';
+  entryPic = '/assets/images/burger.png';
   view = 'entry';
 
   ngOnInit(): void {}
