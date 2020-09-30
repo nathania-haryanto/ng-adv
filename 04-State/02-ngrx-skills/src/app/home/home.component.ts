@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   constructor(public store: Store<AppState>) {}
 
   creditsVisible = this.store.select(getCreditsVisible);
-
   menuVisible = this.store.select(getMenuVisible);
 
   ngOnInit(): void {}

@@ -71,10 +71,14 @@ Add to `app.reducer.ts`
 
 ```typescript
 export interface AppState {
+  creditsVisible: boolean;
+  authors: Author[];
   menuVisible: boolean;
 }
 
 export const initialState: AppState = {
+  creditsVisible: false,
+  authors: [],
   menuVisible: true,
 };
 ```
@@ -95,13 +99,9 @@ Add to `home.component.html`, also implement an empty `toggleCredits()` in the \
 
 ```html
 <div fxLayout="column" fxLayoutAlign="center center">
-  <h1>
-    Skills Home
-  </h1>
+  <h1>Skills Home</h1>
 
-  <button mat-raised-button (click)="toggleCredits()">
-    Toggle Credits
-  </button>
+  <button mat-raised-button (click)="toggleCredits()">Toggle Credits</button>
 </div>
 ```
 
@@ -127,7 +127,7 @@ export class ToggleCredits implements Action {
 export type AppActions = ToggleCredits;
 ```
 
-Create Feature & MenuVisible Selector:
+Create Selectors:
 
 ```
  ng g se store/app --group
@@ -140,9 +140,14 @@ import { AppState, appFeatureKey } from '../reducers/app.reducer';
 
 export const getAppState = createFeatureSelector<AppState>(appFeatureKey);
 
-export const getCreditsVisible = createSelector(
+export const getMenuVisible = createSelector(
   getAppState,
-  (state: AppState) => state.creditsVisible
+  (state: AppState) => state.menuVisible
+);
+
+export const getAuthors = createSelector(
+  getAppState,
+  (state: AppState) => state.authors
 );
 ```
 
@@ -151,8 +156,16 @@ Implement the Reducer:
 ```typescript
 export function reducer(state = initialState, action: Action): AppState {
   switch (action.type) {
+    case AppActionTypes.ToggleMenu:
+      return { ...state, menuVisible: !state.menuVisible };
     case AppActionTypes.ToggleCredits:
       return { ...state, creditsVisible: !state.creditsVisible };
+    case AppActionTypes.SetCreditsVisible:
+      return { ...state, creditsVisible: action.payload };
+    case AppActionTypes.LoadAuthorsSuccess:
+      return { ...state, authors: action.payload };
+    case AppActionTypes.LoadAuthorsFailure:
+      return { ...state };
     default:
       return state;
   }
@@ -162,21 +175,26 @@ export function reducer(state = initialState, action: Action): AppState {
 Use in `home.component.ts`:
 
 ```typescript
-constructor(private store: Store<AppState>) {}
+  constructor(public store: Store<AppState>) {}
 
-menuVisible: Observable<boolean> = this.store.select(getCreditsVisible);
+  creditsVisible = this.store.select(getCreditsVisible);
+  menuVisible = this.store.select(getMenuVisible);
 
-ngOnInit(): void {}
+  ngOnInit(): void {}
 
-toggleMenu(): void {
-  this.store.dispatch(new ToggleCredits());
-}
+  toggleCredits(): void {
+    this.store.dispatch(new ToggleCredits());
+  }
+
+  tobbleMenu(): void {
+    this.store.dispatch(new ToggleMenu());
+  }
 ```
 
 Add a div to `home.component.ts`
 
 ```
-<div *ngIf="menuVisible | async">
+<div *ngIf="creditsVisible | async">
   CREDITS
 </div>
 ```
@@ -209,13 +227,25 @@ Add author actions:
 ```typescript
 export enum AppActionTypes {
   ToggleCredits = '[App] ToggleCredits',
+  ToggleMenu = '[App] ToggleMenu',
+  SetCreditsVisible = '[App] SetCreditsVisible',
   LoadAuthors = '[App] LoadAuthors',
   LoadAuthorsSuccess = '[App] LoadAuthorsSuccess',
   LoadAuthorsFailure = '[App] LoadAuthorsFailure',
+  DeleteAuthorsFailure = '[App] DeleteAuthorsFailure',
 }
 
 export class ToggleCredits implements Action {
   readonly type = AppActionTypes.ToggleCredits;
+}
+
+export class ToggleMenu implements Action {
+  readonly type = AppActionTypes.ToggleMenu;
+}
+
+export class SetCreditsVisible implements Action {
+  readonly type = AppActionTypes.SetCreditsVisible;
+  constructor(public payload: boolean) {}
 }
 
 export class LoadAuthors implements Action {
@@ -232,22 +262,21 @@ export class LoadAuthorsFailure implements Action {
   constructor(public payload: Error) {}
 }
 
+export class DeleteAuthorsFailure implements Action {
+  readonly type = AppActionTypes.LoadAuthorsFailure;
+  constructor(public payload: Error) {}
+}
+
 // First pipe create by Prettier
 
 export type AppActions =
   | ToggleCredits
+  | ToggleMenu
+  | SetCreditsVisible
   | LoadAuthors
   | LoadAuthorsSuccess
+  | DeleteAuthorsFailure
   | LoadAuthorsFailure;
-```
-
-Extend AppState:
-
-```typescript
-export interface AppState {
-  creditsVisible: boolean;
-  authors: Author[];
-}
 ```
 
 Extend `app.selectors.ts`:
@@ -294,9 +323,7 @@ Add the following html & \*.ts:
 ```html
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
   <h2>Credits:</h2>
-  <div *ngFor="let a of authors | async">
-    {{ a.mail }}
-  </div>
+  <div *ngFor="let a of authors | async">{{ a.mail }}</div>
 </div>
 ```
 
