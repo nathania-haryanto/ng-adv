@@ -2,7 +2,7 @@
 
 ## Implement Firbase Auth using NgRx
 
-- Extend environment.ts to provide the Firebase Config
+- Extend environment.ts to provide the Firebase Config and the ability to turn off authentication
 - Implement Firebase Loging & Register
 - Modifiy `app.component.ts` to show a Login-Splash or the app
 
