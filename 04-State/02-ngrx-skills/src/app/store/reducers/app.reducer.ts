@@ -1,6 +1,5 @@
-import { Action } from '@ngrx/store';
-import { AppActionTypes, AppActions, ToggleMenu } from '../actions/app.actions';
 import { Author } from '../../authors/author.model';
+import { AppActions, AppActionTypes } from '../actions/app.actions';
 
 // TODO: 1 Define State
 

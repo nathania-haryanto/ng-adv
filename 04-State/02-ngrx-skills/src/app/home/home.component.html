@@ -1,7 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
-  <h1>
-    Skills Home
-  </h1>
+  <h1>Skills Home</h1>
 
   <button mat-raised-button (click)="toggleCredits()" color="primary">
     Toggle Credits
@@ -13,14 +11,12 @@
     fxLayoutAlign="center center"
     fxLayoutGap="16px"
   >
-    <div><app-authors-list></app-authors-list></div>
+    <app-authors-list></app-authors-list>
   </div>
 
   <button mat-raised-button (click)="tobbleMenu()" color="primary">
     Toggle menu
   </button>
 
-  <div *ngIf="menuVisible | async">
-    My super Menu
-  </div>
+  <div *ngIf="menuVisible | async">My super Menu</div>
 </div>
