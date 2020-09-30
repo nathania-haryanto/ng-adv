@@ -2,18 +2,16 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   constructor() {}
-
-  private theme = 'default';
-  private currTheme: BehaviorSubject<string> = new BehaviorSubject(this.theme);
+  private currTheme: BehaviorSubject<string> = new BehaviorSubject('default');
 
   toggleTheme() {
-    this.theme = this.theme === 'default' ? 'dark' : 'default';
-    console.log('curr theme:', this.theme);
-    this.currTheme.next(this.theme);
+    const theme = this.currTheme.getValue() === 'default' ? 'dark' : 'default';
+    console.log('curr theme:', theme);
+    this.currTheme.next(theme);
   }
 
   getTheme(): Observable<string> {

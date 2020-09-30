@@ -12,17 +12,13 @@ export class StatefulDemoService {
     this.initData();
   }
 
-  private arrDemos: DemoItem[] = [];
-  private demos: BehaviorSubject<DemoItem[]> = new BehaviorSubject(
-    this.arrDemos
-  );
+  private demos: BehaviorSubject<DemoItem[]> = new BehaviorSubject([]);
 
   private initData() {
     this.httpClient
       .get<DemoItem[]>(`${environment.apiUrl}demos`)
       .subscribe((data) => {
-        this.arrDemos = data;
-        this.demos.next(this.arrDemos);
+        this.demos.next(data);
       });
   }
 
@@ -31,16 +27,17 @@ export class StatefulDemoService {
   }
 
   delete(item: DemoItem): Observable<any> {
-    this.arrDemos = this.arrDemos.filter((d) => d.id != item.id);
+    const arr = this.demos.getValue().filter((d) => d.id != item.id);
     // Emmit a marble containing the current array
-    this.demos.next(this.arrDemos);
+    this.demos.next(arr);
     return EMPTY;
   }
 
   insert(item: DemoItem): Observable<any> {
-    this.arrDemos.push(item);
+    const arr = this.demos.getValue();
+    arr.push(item);
     // Emmit a marble containing the current array
-    this.demos.next(this.arrDemos);
+    this.demos.next(arr);
     return EMPTY;
   }
 }

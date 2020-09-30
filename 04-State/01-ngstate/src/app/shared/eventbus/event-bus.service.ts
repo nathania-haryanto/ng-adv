@@ -7,7 +7,6 @@ export class EventBusService {
   private commands: BehaviorSubject<SidebarActions> = new BehaviorSubject(
     SidebarActions.HIDE_MARKDOWN
   );
-
   Commands: Observable<SidebarActions> = this.commands.asObservable();
 
   constructor() {}
