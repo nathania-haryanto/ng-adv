@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center">
-    <div fxHide.gt-xs (click)="toggleMenu()" class="clickable">
+    <div fxHide.gt-md (click)="toggleMenu()">
       <mat-icon color="accent">menu</mat-icon>
     </div>
     <div [routerLink]="['/']">Home</div>

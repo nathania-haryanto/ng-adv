@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { MenuFacade } from './store/facades/menu.facade';
-import { AuthFacade } from './auth/store/facades/auth.facade';
+import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { AuthFacade } from './auth/store/facades/auth.facade';
+import { MenuFacade } from './store/facades/menu.facade';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,15 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'FirstAngular';
+  title = 'Food-App';
+
   menuVisible$ = this.mf.sideNavVisible;
   menuPosition$ = this.mf.sideNavPosition;
-  loggedIn$ = this.af
-    .isLoggedIn()
-    .pipe(tap((loggedin) => console.log('logged in', loggedin)));
+  loggedIn$ = !environment.authEnabled
+    ? of(true)
+    : this.af
+        .isLoggedIn()
+        .pipe(tap((loggedin) => console.log('logged in', loggedin)));
 
   constructor(public mf: MenuFacade, public af: AuthFacade) {}
 }
