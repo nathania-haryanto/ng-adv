@@ -43,8 +43,8 @@ import { AuthModule } from './auth/auth.module';
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
+        strictStateImmutability: false,
+        strictActionImmutability: false,
       },
     }),
     EffectsModule.forRoot([]),
