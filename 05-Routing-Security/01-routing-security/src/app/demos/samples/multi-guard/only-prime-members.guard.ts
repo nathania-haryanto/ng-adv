@@ -7,12 +7,13 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SimpleAuthService } from './simple-auth.service';
+import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OnlyPrimeMembersGuard implements CanActivate {
-  constructor(private as: SimpleAuthService) {}
+  constructor(private as: SimpleAuthService, private sns: SnackbarService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -27,7 +28,7 @@ export class OnlyPrimeMembersGuard implements CanActivate {
     if (this.as.hasPrimeSubscription()) {
       return true;
     } else {
-      window.alert("You don't have permission to view this page");
+      this.sns.displayAlert('Problem', 'Zahlen oder draußen bleiben');
 
       return false;
     }

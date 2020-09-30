@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleAuthTwoService } from './simple-auth-two.service';
+import { SnackbarService } from '../shared/snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthInterceptorService {
-  constructor(public auth: SimpleAuthTwoService) {}
+  constructor(
+    public auth: SimpleAuthTwoService,
+    private sns: SnackbarService
+  ) {}
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
@@ -21,7 +25,7 @@ export class AuthInterceptorService {
         ),
       });
     } else {
-      //  this.router.navigate(['LoginPage']);
+      this.sns.displayAlert('Problem', 'You must be logged in to ...');
     }
 
     return next.handle(request);
