@@ -29,7 +29,7 @@ export class FoodService {
   }
 
   getItems(): Observable<FoodItem[]> {
-    return this.Items;
+    return this.Items.asObservable();
   }
 
   deleteItem(item: FoodItem): Observable<boolean> {

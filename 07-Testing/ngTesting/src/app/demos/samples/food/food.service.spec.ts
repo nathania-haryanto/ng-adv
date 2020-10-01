@@ -3,7 +3,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FoodService } from './food.service';
 import { FoodItem } from './food.model';
@@ -48,7 +48,9 @@ describe('Service - HttpTest -FoodService', () => {
 
   it('should be created and correctly setup', () => {
     expect(service).toBeTruthy();
-    // expect(service.getItems()).toBeObservable(of(data));
+    service.getItems().subscribe((items) => {
+      expect(items).toBe(data);
+    });
   });
 
   it('should return initialized the data', (done) => {
