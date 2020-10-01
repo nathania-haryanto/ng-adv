@@ -25,7 +25,7 @@ az aks get-credentials -g $grp -n $aks
 
 kubectl get nodes
 
-# Apply the yaml
+# Apply the yaml - Make sure you uploaded foodui.yaml to CloudShell
 
 kubectl apply -f foodui.yaml
 
