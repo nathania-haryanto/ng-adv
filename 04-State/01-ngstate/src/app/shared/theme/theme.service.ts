@@ -6,15 +6,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ThemeService {
   constructor() {}
-  private currTheme: BehaviorSubject<string> = new BehaviorSubject('default');
+  private theme: BehaviorSubject<string> = new BehaviorSubject('default');
 
   toggleTheme() {
-    const theme = this.currTheme.getValue() === 'default' ? 'dark' : 'default';
-    console.log('curr theme:', theme);
-    this.currTheme.next(theme);
+    const t = this.theme.getValue() === 'default' ? 'dark' : 'default';
+    console.log('curr theme:', t);
+    this.theme.next(t);
   }
 
   getTheme(): Observable<string> {
-    return this.currTheme;
+    return this.theme;
   }
 }
