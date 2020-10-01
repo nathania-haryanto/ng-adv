@@ -1,6 +1,6 @@
 # Angular DevOps
 
-Use [this repo](https://github.com/ARambazamba/ng-devops)
+Use [ng-devops Sample](https://github.com/ARambazamba/ng-devops)
 
 ## Instructions
 
