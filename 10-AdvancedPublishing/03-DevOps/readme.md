@@ -51,6 +51,8 @@ stages:
             displayName: 'deploy to firebase'
 ```
 
+> Note: In real life you would get the token from a Key Vault and access it using a variable
+
 Run & Check the pipeline:
 
 ![fb-token](_images/run-pipeline.png)
