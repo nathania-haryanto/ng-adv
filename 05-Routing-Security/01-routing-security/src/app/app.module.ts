@@ -6,7 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {
   StoreRouterConnectingModule,
   RouterStateSerializer,
-  DefaultRouterStateSerializer,
+  // DefaultRouterStateSerializer,
   RouterState,
 } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -17,14 +17,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
-import { reducers } from './store';
-import { AuthModule } from './auth/auth.module';
-import { FBAuthInterceptor } from './auth/fbauth.interceptor';
+import { reducers, metaReducers } from './store';
 import { ErrPageComponent } from './error/err-page/err-page.component';
-import { GlobalErrHandler } from './error/global-err-handler';
-import { HttpErrorInterceptor } from './error/globle-http-err-handler';
-// import { interceptorProvider } from './interceptors/interceptor-provider';
+import { AuthModule } from './auth/auth.module';
 import { CustomRouterSerializer } from './store/reducers/custom-serializer';
+// import { FBAuthInterceptor } from './auth/fbauth.interceptor';
+// import { GlobalErrHandler } from './error/global-err-handler';
+// import { HttpErrorInterceptor } from './error/globle-http-err-handler';
+// import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
+// import { FormatInterceptorService } from './interceptors/format-interceptor.service';
+// import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrPageComponent],
@@ -36,7 +38,14 @@ import { CustomRouterSerializer } from './store/reducers/custom-serializer';
     HttpClientModule,
     SharedModule,
     AuthModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      // Needed to avoid TypeError: Cannot freeze with firebase lib
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      },
+    }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       name: 'ngDemoApp',
@@ -49,14 +58,36 @@ import { CustomRouterSerializer } from './store/reducers/custom-serializer';
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomRouterSerializer },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: FBAuthInterceptor,
-      multi: true,
-    },
-    // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    // { provide: ErrorHandler, useClass: GlobalErrHandler },
-    // ,interceptorProvider,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: FBAuthInterceptor,
+    //   multi: true,
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpErrorInterceptor,
+    //   multi: true,
+    // },
+    // {
+    //   provide: ErrorHandler,
+    //   useClass: GlobalErrHandler,
+    //   multi: true,
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptorService,
+    //   multi: true,
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: FormatInterceptorService,
+    //   multi: true,
+    // },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: RetryInterceptorService,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })
