@@ -10,11 +10,13 @@ Get Firebase CI Token:
 firebase login:ci
 ```
 
+> Note: Make sure Firebase CLI is installed
+
 Copy the token:
 
 ![fb-token](_images/fb-token.png)
 
-Create a `build-project.yml` and copy the following conten:
+Create a `deploy-to-firebase.yml` and copy the following content:
 
 ```yml
 trigger:
