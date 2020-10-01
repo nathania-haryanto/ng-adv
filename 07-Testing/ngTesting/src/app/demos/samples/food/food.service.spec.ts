@@ -3,10 +3,9 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { of, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { FoodService } from './food.service';
 import { FoodItem } from './food.model';
+import { FoodService } from './food.service';
 
 describe('Service - HttpTest -FoodService', () => {
   let service: FoodService;
