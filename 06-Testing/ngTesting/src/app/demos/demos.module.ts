@@ -46,6 +46,7 @@ import { DirectiveComponent } from './samples/directive/directive.component';
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 import { ComponentEventsComponent } from './samples/component-events/component-events.component';
 import { CypressComponent } from './samples/cypress/cypress.component';
+import { ComponentWriteComponent } from './samples/component-write/component-write.component';
 
 const demoRoutes: Routes = [
   {
@@ -54,6 +55,7 @@ const demoRoutes: Routes = [
     children: [
       { path: 'unittesting', component: UnitTestingComponent },
       { path: 'component-events', component: ComponentEventsComponent },
+      { path: 'component-write', component: ComponentWriteComponent },
       { path: 'testpipe', component: TestPipeComponent },
       { path: 'directive', component: DirectiveComponent },
       { path: 'simpleservice', component: SimpleServiceComponent },
@@ -106,6 +108,7 @@ const demoRoutes: Routes = [
     CapitalizeDirective,
     ComponentEventsComponent,
     CypressComponent,
+    ComponentWriteComponent,
   ],
   imports: [
     CommonModule,

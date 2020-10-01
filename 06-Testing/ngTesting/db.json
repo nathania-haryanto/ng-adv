@@ -50,6 +50,14 @@
       "sortOrder": 0
     },
     {
+      "url": "component-write",
+      "title": "Component Write",
+      "id": 63,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "component-events",
       "title": "Component Events",
       "id": 89,
