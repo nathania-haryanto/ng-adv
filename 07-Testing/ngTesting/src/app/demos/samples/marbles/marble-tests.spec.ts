@@ -3,8 +3,7 @@ import { map, tap } from 'rxjs/operators';
 
 describe('Marbles - Operators', () => {
   it('Should multiply by "2" each value emitted', () => {
-    const sourceVals = { a: 1, b: 2, c: 3 };
-    const source = cold('-a-b-c-|', sourceVals);
+    const source = cold('-a-b-c-|', { a: 1, b: 2, c: 3 });
 
     // this is the operation to be tested
     const result = source.pipe(
