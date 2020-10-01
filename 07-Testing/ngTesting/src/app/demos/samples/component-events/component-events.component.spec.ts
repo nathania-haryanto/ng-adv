@@ -1,5 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ComponentEventsComponent } from './component-events.component';
 import { By } from '@angular/platform-browser';
 
@@ -7,16 +6,17 @@ describe('Component - Events - EventsComponent', () => {
   let component: ComponentEventsComponent;
   let fixture: ComponentFixture<ComponentEventsComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ComponentEventsComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ComponentEventsComponent],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ComponentEventsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -24,7 +24,7 @@ describe('Component - Events - EventsComponent', () => {
   });
 
   it('should increment the count - triggerEventHandler', () => {
-    const divClick = fixture.debugElement.query(By.css('.clickable'));
+    const divClick = fixture.debugElement.query(By.css('#clickable'));
     divClick.triggerEventHandler('click', {});
     fixture.detectChanges();
 
@@ -36,7 +36,7 @@ describe('Component - Events - EventsComponent', () => {
   });
 
   it('should increment the count - Native Api', () => {
-    const divClick = fixture.debugElement.query(By.css('.clickable'));
+    const divClick = fixture.debugElement.query(By.css('#clickable'));
     divClick.nativeElement.click();
     fixture.detectChanges();
 

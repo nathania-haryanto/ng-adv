@@ -16,26 +16,26 @@ describe('Component - Directive - CapitalizeDirective', () => {
   });
 
   it('should create component', () => {
-    expect(component).toBeDefined();
+    expect(component).toBeTruthy();
   });
 
   it('should capitalize text when initially clicked', () => {
     const debugEl: HTMLElement = fixture.debugElement.nativeElement;
-    const p: HTMLElement = debugEl.querySelector('div');
-    p.click();
+    const div: HTMLElement = debugEl.querySelector('div');
+    div.click();
     fixture.detectChanges();
 
-    expect(p.style.textTransform).toBe('uppercase');
+    expect(div.style.textTransform).toBe('uppercase');
   });
 
   it('should lowercase when clicked twice', () => {
     const debugEl: HTMLElement = fixture.debugElement.nativeElement;
-    const p: HTMLElement = debugEl.querySelector('div');
-    p.click();
+    const div: HTMLElement = debugEl.querySelector('div');
+    div.click();
     fixture.detectChanges();
-    p.click();
+    div.click();
     fixture.detectChanges();
 
-    expect(p.style.textTransform).toBe('lowercase');
+    expect(div.style.textTransform).toBe('lowercase');
   });
 });

@@ -19,5 +19,9 @@ describe('Pipe - RatingPipe', () => {
     expect(() => {
       p.transform(-1);
     }).toThrowError('Invalid param');
+
+    expect(() => {
+      p.transform(6);
+    }).toThrowError('Argument out of range');
   });
 });

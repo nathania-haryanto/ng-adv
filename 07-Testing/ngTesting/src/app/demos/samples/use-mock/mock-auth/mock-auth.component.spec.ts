@@ -1,7 +1,8 @@
 import { MockAuthComponent } from './mock-auth.component';
+import { AuthService } from '../auth.service';
 
-class MockAuthService {
-  isAuth = true;
+class MockAuthService extends AuthService {
+  protected isAuth = true;
 
   isAuthenticated(): boolean {
     return this.isAuth;

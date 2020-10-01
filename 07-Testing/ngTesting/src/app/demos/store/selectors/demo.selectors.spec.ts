@@ -1,6 +1,6 @@
 import { DemoState, defaultDemoItemState } from '../reducers/demos.reducer';
 import { Store } from '@ngrx/store';
-import { getSelectedDemo } from './demo.selectors';
+// import { getSelectedDemo } from './demo.selectors';
 
 describe('NgRx - Selectors', () => {
   //   it('should return the selected Demo', () => {
