@@ -35,7 +35,7 @@
     {
       "url": "validation",
       "topicid": 4,
-      "title": "Custom Validators",
+      "title": "Custom Reactive Validators",
       "component": "ReactiveValidationComponent",
       "visible": true,
       "sortOrder": 4
