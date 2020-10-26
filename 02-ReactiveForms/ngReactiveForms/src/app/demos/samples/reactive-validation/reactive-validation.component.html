@@ -28,26 +28,10 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Error by observables -->
-      <!-- 
+      <!--Form Error Object -->
+      
+    <!--
       <mat-form-field>
-        <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
-        <ng-container *ngIf="personForm.get('lastname').invalid && 
-                   (personForm.get('lastname').dirty || personForm.get('lastname').touched)">
-          <mat-error *ngIf="personForm.get('lastname').errors.required">
-            Lastname is required
-          </mat-error>
-          <mat-error *ngIf="personForm.get('lastname').errors.nameError">
-            This name is not allowed
-          </mat-error>
-          <mat-error *ngIf="personForm.get('lastname').errors.lengthError">
-            Length must be between 4 and 10 characters 
-          </mat-error>
-        </ng-container>
-      </mat-form-field>
-    -->
-
-    <mat-form-field>
       <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
       <mat-error *ngIf="errors.lastname?.required">
         Lastname is required
@@ -60,6 +44,25 @@
       </mat-error>
     
     </mat-form-field>
+  -->
+
+    <!--Form Error Observable -->
+    
+      <mat-form-field>
+        <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
+        <mat-error *ngIf="(errors$|async)?.lastname?.required">
+          Lastname is required
+        </mat-error>
+        <mat-error *ngIf="(errors$|async)?.lastname?.nameError">
+          This name is not allowed
+        </mat-error>
+        <mat-error *ngIf="(errors$|async)?.lastname?.lengthError">
+          Length must be between 4 and 15 characters 
+        </mat-error>
+      
+      </mat-form-field>
+    
+    
 
 
       <mat-form-field>
