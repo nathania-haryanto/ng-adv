@@ -311,6 +311,14 @@ export const reducer = createReducer(
 
 ```
 
+REMARK: 
+Using createReducer before Ivy with AOT (View Engine AOT) in production mode,
+this can cause errors like this: https://angular.io/guide/aot-metadata-errors#function-calls-are-not-supported
+
+Ways around this:
+https://medium.com/@emilyxiong/how-to-use-ngrxs-combinereducers-in-aot-10eae758c495
+https://ngrx.io/api/store/createReducer - At the end of page
+
 # Skills Facade
 
 add new file to store/skills-facade.service.ts
@@ -535,6 +543,10 @@ export class SkillsListWithRowComponent implements OnInit {
 }
 ```
 
+# Lab
+
+- Implement Skills CRUD Actions, Effects and extend Reducer
+- Implement Error and Loading strategy as discussed.
 
 
 
