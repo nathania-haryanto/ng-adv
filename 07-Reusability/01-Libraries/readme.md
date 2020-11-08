@@ -67,6 +67,17 @@ Update PeerDependencies in `package.json` of the library:
 
 Implement the Component:
 
+```
+> ng g c controls/split --project=ux-controls
+CREATE projects/ux-controls/src/lib/split/split.component.html (20 bytes)
+CREATE projects/ux-controls/src/lib/split/split.component.spec.ts (619 bytes)
+CREATE projects/ux-controls/src/lib/split/split.component.ts (270 bytes)
+CREATE projects/ux-controls/src/lib/split/split.component.css (0 bytes)
+``` 
+
+REMARK: The "ng g c ..." cli call does not register the component in the module.
+This must be done manually as seen abouve.
+
 split.component.ts
 
 ```typescript
@@ -176,8 +187,6 @@ Add it to `app.component.ts` and run `ng s -o`:
 export class AppComponent {
   constructor() {}
 
-  isDisabled: boolean = true;
-
   ngOnInit() {}
 }
 ```
@@ -189,3 +198,20 @@ export class AppComponent {
 - Create a production build using the `--prod` flag
 - Login to npm using `npm login`
 - Run `npm publish` from lib folder
+
+REMARK 1:
+It is not recommended to publish Ivy libraries to NPM repositories.
+Read more here: https://v9.angular.io/guide/ivy#maintaining-library-compatibility
+
+This is about compatibility pre Ivy apps with your component.
+At least write it in a remark that yours is an Ivy component.
+
+REMARK 2:
+There are local npm registries like:
+
+[Verdaccio](https://verdaccio.org/)
+[local-npm](https://www.npmjs.com/package/local-npm)
+
+
+
+

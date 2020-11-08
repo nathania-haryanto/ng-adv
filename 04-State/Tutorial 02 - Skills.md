@@ -23,7 +23,7 @@ Creator Functions:
 Add skills module
 
 ```
-ng g module skills --route skills --module app.module.ts --skipTests
+ng g module skills --route skills --module app.module.ts 
 ``` 
 
 Add [Angular Flex Layout](https://github.com/angular/flex-layout)
@@ -125,7 +125,7 @@ Or on [dev.to](https://dev.to/nickraphael/angular-s-providedin-root-what-if-two-
 
 ```
 > ng g r skills/store/skills --skipTests --group=false --api=true --creators=true  --module skills
-CREATE src/app/store/app.reducer.ts (284 bytes)
+CREATE src/app/skills/store/skills.reducer.ts (284 bytes)
 ```
 
 Then add the state skills data.
@@ -354,7 +354,7 @@ export class SkillsFacadeService {
   }
 
   addSkill(skill:Skill):void {
-    return this.store.dispatch(addSkill({skill}))
+    this.store.dispatch(addSkill({skill}))
   }
 
   // ...
@@ -548,6 +548,33 @@ export class SkillsListWithRowComponent implements OnInit {
 - Implement Skills CRUD Actions, Effects and extend Reducer
 - Implement Error and Loading strategy as discussed.
 
+# Perfect - But....
 
+In implementing the CRUD Actions there is always the same code for searching inside the Skills Array for the correct id for delete, update, ...
 
+Therefore it is a good idea to build the store otherwise:
 
+```json
+{
+  "skills": {
+    "ids": [456,123],
+    "entities": {
+       "123":{
+        "id": "123",
+        "name": "rxjs",
+        "completed": true
+      },
+      "456":{
+        "id": "456",
+        "name": "ngrx",
+        "completed": false
+      } 
+    }
+  }
+}
+```
+
+With this structure it is possible to access the entities very fast by its id,
+and the ids list can be sorted as liked.
+
+This is called the Entity State format and it is used inside the ngrx entity Library.

@@ -253,6 +253,186 @@ export class BooksEffects {
 }
 ```
 
+# Books Selector - not the same...
+
+Create a file "src/app/books/store/books.selectors.ts"
+
+Use predefined selectors and rename it by deconstruction 
+
+```typescript
+import { booksAdapter, booksFeatureKey, BooksState } from './books.reducer';
+
+export const selectBooksState = createFeatureSelector<BooksState>(booksFeatureKey)
+
+export const {
+    selectAll:getBooks,
+    selectTotal:getBooksCount,
+    selectEntities:getBooksDict,
+    selectIds: getBooksIds
+} = booksAdapter.getSelectors(selectBooksState)
+```
+
+# Extend Books Reducer using adapter
+
+```typescript
+. . .
+
+import * as BooksActions from './books.actions';
+
+. . .
+
+export const reducer = createReducer(
+  initialState,
+  on(
+    BooksActions.loadBooks, 
+    BooksActions.addBook, (state) => ({
+    ...state,
+    booksIsLoading: true,
+  })),
+  on(BooksActions.loadBooksSuccess, (state, { books }) =>
+    booksAdapter.setAll(books, state)
+  ),
+  on(BooksActions.addBookSuccess, (state, { book }) =>
+    booksAdapter.addOne(book, state)
+  )
+);
+
+```
+
+# Books Facade
+
+add new file to store/books-facade.service.ts
+
+```
+> ng g s books/store/books-facade --skipTests   
+CREATE src/app/books/store/books-facade.service.ts (140 bytes)
+```
+
+```typescript
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Book } from '../model/book.model';
+import { addBook, loadBooks } from './books.actions';
+import { BooksState } from './books.reducer';
+import { getBooks } from './books.selectors';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BooksFacadeService {
+
+  constructor(private store:Store<BooksState>) { }
+
+  initBooks():void {
+    this.store.dispatch(loadBooks())
+  }
+
+  getBooks():Observable<Book[]> {
+    return this.store.select(getBooks)
+  }
+
+  addBook(book:Book):void {
+    this.store.dispatch(addBook({book}))
+  }
+}
+
+```
 
 
+# Books List UI
 
+```
+> ng add @angular/material
+```
+
+add material to books.module.ts
+
+```typescript
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
+
+. . .
+
+@NgModule({
+  declarations: [BooksComponent],
+  imports: [
+    CommonModule,
+    BooksRoutingModule,
+    
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+
+    MatCardModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    MatIconModule,
+
+    . . .
+```
+
+on errors reset npm modules
+ 
+```
+npm ci 
+```
+
+## Implement List
+
+Open file src/app/books/books.component.ts
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Book } from './model/book.model';
+import { BooksFacadeService } from './store/books-facade.service';
+
+@Component({
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.scss']
+})
+export class BooksComponent implements OnInit {
+
+  constructor(private booksFacade:BooksFacadeService) { }
+
+  view$ = this.booksFacade.getBooks();
+  
+  ngOnInit(): void {
+    this.booksFacade.initBooks()
+  }
+
+  addItem():void {
+    const newBook: Book = { id:null, name:'New Book Name', completed:false}
+    this.booksFacade.addBook(newBook)
+  }
+
+}
+```
+
+Open file src/app/books/books.component.html
+
+```html
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div>SPA Books</div>
+    <div fxLayoutGap="10px">
+        <button mat-raised-button (click)="addItem()">Add</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content fxLayout="column">
+    <ng-container *ngFor="let book of view$ | async" class="item">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill class="row">
+            <div fxFlex="3 1 auto" style="padding-left: 2rem">{{ book?.name }}</div>
+         </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+```
