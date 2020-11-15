@@ -28,6 +28,43 @@
         </mat-error>
       </mat-form-field>
 
+      <!--Form Error Object -->
+      
+    <!--
+      <mat-form-field>
+      <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
+      <mat-error *ngIf="errors.lastname?.required">
+        Lastname is required
+      </mat-error>
+      <mat-error *ngIf="errors.lastname?.nameError">
+        This name is not allowed
+      </mat-error>
+      <mat-error *ngIf="errors.lastname?.lengthError">
+        Length must be between 4 and 15 characters 
+      </mat-error>
+    
+    </mat-form-field>
+  -->
+
+    <!--Form Error Observable -->
+    
+      <mat-form-field>
+        <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
+        <mat-error *ngIf="(errors$|async)?.lastname?.required">
+          Lastname is required
+        </mat-error>
+        <mat-error *ngIf="(errors$|async)?.lastname?.nameError">
+          This name is not allowed
+        </mat-error>
+        <mat-error *ngIf="(errors$|async)?.lastname?.lengthError">
+          Length must be between 4 and 15 characters 
+        </mat-error>
+      
+      </mat-form-field>
+    
+    
+
+
       <mat-form-field>
         <input matInput type="number" placeholder="Age" formControlName="age" />
         <mat-error *ngIf="personForm.controls['age'].errors != undefined">

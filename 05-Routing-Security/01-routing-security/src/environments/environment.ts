@@ -5,13 +5,12 @@ export const environment = {
   markdownPath: '/assets/markdown/',
   apiUrl: 'http://localhost:3000/',
   firebaseConfig: {
-    apiKey: 'AIzaSyCPVyyPlzg6I1LQrhQ1pnQQZreD6Zfm2rk',
-    authDomain: 'ngbrz-2b0a0.firebaseapp.com',
-    databaseURL: 'https://ngbrz-2b0a0.firebaseio.com',
-    projectId: 'ngbrz-2b0a0',
-    storageBucket: 'ngbrz-2b0a0.appspot.com',
-    messagingSenderId: '267374428010',
-    appId: '1:267374428010:web:5d928d87f2570eec4f6f13',
-    measurementId: 'G-2SN4WRC54N',
+    apiKey: "AIzaSyANuhe0585hdB8fdkiPedhJq0QMCuai6so",
+    authDomain: "angular-c6f6e.firebaseapp.com",
+    databaseURL: "https://angular-c6f6e.firebaseio.com",
+    projectId: "angular-c6f6e",
+    storageBucket: "angular-c6f6e.appspot.com",
+    messagingSenderId: "1065242827410",
+    appId: "1:1065242827410:web:0658b9d075e68032"
   },
 };

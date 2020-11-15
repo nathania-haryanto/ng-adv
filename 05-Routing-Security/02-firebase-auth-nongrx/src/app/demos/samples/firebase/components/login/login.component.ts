@@ -23,6 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(form: FormGroup) {
-    this.as.logOn(form.value);
+    this.as.logOn({email:form.value.email,pwd:form.value.password});
   }
 }

@@ -12,10 +12,12 @@ import { getUser } from './store/selectors/auth.selectors';
 export class FBAuthGuard implements CanLoad {
   constructor(private store: Store<AuthState>) {}
 
+  // this is a canLoad Guard - it does not prevent access after a logout
+  // therefore another Guard is needed too! 
   canLoad(): boolean | Observable<boolean> | Promise<boolean> {
     return this.store.select(getUser).pipe(
       map(fbUser => {
-        if (!fbUser) {
+        if (!(fbUser && fbUser.email)) {
           this.store.dispatch(new LoginRedirect());
           return false;
         }

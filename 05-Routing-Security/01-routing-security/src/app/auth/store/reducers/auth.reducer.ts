@@ -21,7 +21,6 @@ export function AuthReducer(
   switch (action.type) {
     case AuthActionTypes.RegisterSuccess: {
       // add your code
-
       return {
         ...state,
         isLoggedIn: true,

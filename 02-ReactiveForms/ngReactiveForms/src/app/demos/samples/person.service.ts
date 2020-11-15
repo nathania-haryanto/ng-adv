@@ -13,6 +13,7 @@ export class PersonService {
   getPerson(): Observable<Person> {
     return of({
       name: 'Heinz',
+      lastname: 'Hödelberg-Moser',
       gender: 'male',
       age: 20,
       email: 'derschoeneheinz@xyz.at',

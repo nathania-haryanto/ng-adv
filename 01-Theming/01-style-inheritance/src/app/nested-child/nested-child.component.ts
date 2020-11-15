@@ -9,8 +9,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
         border: black 4px solid;
       }
 
-      :host-context(.theme-light) {
-        background-color: lightgreen;
+      :host-context(.seehowctxworks) {
+        color: blue;
       }
     `,
   ],

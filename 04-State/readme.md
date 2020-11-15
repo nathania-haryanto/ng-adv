@@ -34,11 +34,29 @@ General Syntax: ng g TYPE PATH/NAME --group
 
 ## Store & App State
 
-Create Store:
+Create Model Author interface: 
+- create new folder "app/model"
+- create file "author.ts"
+
+```
+export interface Author {
+    id:number,
+    mail:string
+  }
+```
+
+Create Store - enter "." for the path question to point to the app module.
 
 ```
  ng g store State --root true --statePath store
+
+? To which module (path) should the state be registered in? .
+CREATE src/app/store/index.ts (360 bytes)
+UPDATE src/app/app.module.ts (727 bytes)
 ```
+
+If no path is set for the question the store must be added manually
+Runtime checks must be added manually anyway.
 
 Add Store to app.module.ts
 
@@ -64,7 +82,11 @@ StoreModule.forRoot(reducers, {
 Implement AppState:
 
 ```
-ng g r store/app --group
+> ng g r store/app --group
+? Should we add success and failure actions to the reducer? No
+? Do you want to use the create function? No
+CREATE src/app/store/reducers/app.reducer.spec.ts (324 bytes)
+CREATE src/app/store/reducers/app.reducer.ts (284 bytes)
 ```
 
 Add to `app.reducer.ts`
@@ -83,17 +105,64 @@ export const initialState: AppState = {
 };
 ```
 
+Correct the reducers result type to AppState
+
+```typescript
+export function reducer(state = initialState, action: Action): AppState {
+  switch (action.type) {
+
+    default:
+      return state;
+  }
+}
+```
+
+
 Add the `AppState` slice to the composed Root State in `app/store/index.ts`
 
-```
+```typescript
+import { appFeatureKey, AppState, reducer as AppReducer } from './reducers/app.reducer';
+
 export interface State {
-  app: AppState;
+  [appFeatureKey]: AppState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  app: AppReducer,
+  [appFeatureKey]: AppReducer,
 };
 ```
+
+Add a new home component 
+
+```
+ng g c home --skipTests -d
+```
+
+Add [Angular Flex Layout](https://github.com/angular/flex-layout)
+
+```
+npm i -s @angular/flex-layout @angular/cdk
+```
+
+Import Angular Flex Layout to app.module
+
+```typescript
+. . .
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FlexLayoutModule, 
+    . . .
+```
+
+Clean the app.component.html and set the app-home component as content
 
 Add to `home.component.html`, also implement an empty `toggleCredits()` in the \*.ts
 
@@ -105,6 +174,8 @@ Add to `home.component.html`, also implement an empty `toggleCredits()` in the \
 </div>
 ```
 
+
+
 Add Actions:
 
 ```
@@ -113,18 +184,25 @@ ng g action store/app --group=true --creators=false
 
 > Note: Answer all Schematic Params with No
 
-Implement the Action:
+Implement the first Actions ToggleCredits and ToggleMenu:
 
 ```typescript
 export enum AppActionTypes {
   ToggleCredits = '[App] ToggleCredits',
+  ToggleMenu =  '[App] ToggleMenu',
+  
 }
 
 export class ToggleCredits implements Action {
   readonly type = AppActionTypes.ToggleCredits;
 }
 
-export type AppActions = ToggleCredits;
+export class ToggleMenu implements Action {
+  readonly type = AppActionTypes.ToggleMenu;
+}
+
+
+export type AppActions = ToggleCredits | ToggleMenu;
 ```
 
 Create Selectors:
@@ -145,10 +223,10 @@ export const getMenuVisible = createSelector(
   (state: AppState) => state.menuVisible
 );
 
-export const getAuthors = createSelector(
-  getAppState,
-  (state: AppState) => state.authors
-);
+export const getCreditsVisible = createSelector(
+    getAppState,
+    (state:AppState)=>state.creditsVisible
+)
 ```
 
 Implement the Reducer:
@@ -156,16 +234,10 @@ Implement the Reducer:
 ```typescript
 export function reducer(state = initialState, action: Action): AppState {
   switch (action.type) {
-    case AppActionTypes.ToggleMenu:
-      return { ...state, menuVisible: !state.menuVisible };
     case AppActionTypes.ToggleCredits:
       return { ...state, creditsVisible: !state.creditsVisible };
-    case AppActionTypes.SetCreditsVisible:
-      return { ...state, creditsVisible: action.payload };
-    case AppActionTypes.LoadAuthorsSuccess:
-      return { ...state, authors: action.payload };
-    case AppActionTypes.LoadAuthorsFailure:
-      return { ...state };
+    case AppActionTypes.ToggleMenu:
+      return { ...state, menuVisible: !state.menuVisible}
     default:
       return state;
   }
@@ -175,6 +247,11 @@ export function reducer(state = initialState, action: Action): AppState {
 Use in `home.component.ts`:
 
 ```typescript
+. . .
+import { getCreditsVisible, getMenuVisible } from '../store/selectors/app.selectors';
+
+. . .
+export class HomeComponent implements OnInit {
   constructor(public store: Store<AppState>) {}
 
   creditsVisible = this.store.select(getCreditsVisible);
@@ -186,7 +263,7 @@ Use in `home.component.ts`:
     this.store.dispatch(new ToggleCredits());
   }
 
-  tobbleMenu(): void {
+  toggleMenu(): void {
     this.store.dispatch(new ToggleMenu());
   }
 ```
@@ -203,6 +280,8 @@ You should be able to toggle the credits now:
 
 ![toggle-menu](./_images/toggle-credits.png)
 
+Install Redux DevTools Chrome Browser Extension and view the Actions and State Diff.
+
 ## Effects
 
 Install Effects Lib:
@@ -211,18 +290,18 @@ Install Effects Lib:
 npm install @ngrx/effects --save
 ```
 
-Add data to db.json:
+Add data to db.json at project root level:
 
 ```json
 {
   "authors": [
     { "id": 1, "mail": "alexander.pajer@integrations.at" },
-    { "id": 2, "mail": "andreas.lengauer@integrations.at" }
+    { "id": 2, "mail": "alengauer.training@gmail.com" }
   ]
 }
 ```
 
-Add author actions:
+### Add author actions:
 
 ```typescript
 export enum AppActionTypes {
@@ -279,7 +358,7 @@ export type AppActions =
   | LoadAuthorsFailure;
 ```
 
-Extend `app.selectors.ts`:
+### Extend `app.selectors.ts`:
 
 ```typescript
 export const getAuthors = createSelector(
@@ -288,10 +367,72 @@ export const getAuthors = createSelector(
 );
 ```
 
-Implement LoadAuthors Effect:
+
+### Extend Reducer
+
+Extend Reducer with LoadAuthorSuccess Action and retype the action Parameter Type to AppActons
+
+```typescript
+export function reducer(state = initialState, action: AppActions): AppState {
+  switch (action.type) {
+    case AppActionTypes.ToggleCredits:
+      return { ...state, creditsVisible: !state.creditsVisible}
+    case AppActionTypes.ToggleMenu:
+      return { ...state, menuVisible: !state.menuVisible}
+
+    case AppActionTypes.LoadAuthorsSuccess:
+      return { ...state, authors: action.payload}
+    default:
+      return state;
+  }
+}
+```
+
+### Implement Authors Service
+
+```
+ ng g s model/authors --skipTests
+```
+
+```typescript
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { Author } from './author';
+import { tap } from "rxjs/operators";
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthorsService {
+
+  constructor(private httpClient: HttpClient) { }
+
+  getAuthors(): Observable<Author[]> {
+    return this.httpClient
+      .get<Author[]>(environment.apiUrl + "authors")
+      .pipe(tap(data => console.log("data from api", data)));
+  }
+}
+```
+
+To make this working:
+- add apiUrl in environment.ts with value 'http://localhost:3000/'
+- add HttpClientModule in app.module
+
+
+### Implement LoadAuthors Effect:
 
 ```
 ng g ef store/app --group
+
+? To which module (path) should the effect be registered in? .
+? Should we wire up success and failure actions? No
+? Do you want to use the create function? No
+CREATE src/app/store/effects/app.effects.spec.ts (566 bytes)
+CREATE src/app/store/effects/app.effects.ts (186 bytes)
+UPDATE src/app/app.module.ts (1140 bytes)
 ```
 
 ```typescript
@@ -312,10 +453,15 @@ export class AppEffects {
 }
 ```
 
-Add an authors list & add it to `home.component.ts`:
+### Add an authors list & add it to `home.component.ts`:
 
 ```
-ng g c authors/authors-list -m app
+ng g c authors/authors-list -m app --flat --skipTests 
+
+CREATE src/app/authors/authors-list.component.html (27 bytes)
+CREATE src/app/authors/authors-list.component.ts (299 bytes)
+CREATE src/app/authors/authors-list.component.scss (0 bytes)
+UPDATE src/app/app.module.ts (1239 bytes)
 ```
 
 Add the following html & \*.ts:
@@ -367,7 +513,7 @@ Add Food Data to db.json & create a skill.model.ts:
 ]
 ```
 
-### Schematic Scaffolding
+### Creator Functions
 
 Add NgRx Entity:
 
@@ -381,18 +527,25 @@ Add Skill-Components:
 ng g c skills/skills-container
 ng g c skills/skills-list-with-row
 ng g c skills/skill-row
-ng g c skills/skills-kpi
 ```
 
 Add Skill State & Reducer:
 
 ```
 ng g r skills/store/skills --group
+? Should we add success and failure actions to the reducer? Yes
+? Do you want to use the create function? Yes
+CREATE src/app/skills/store/reducers/skills.reducer.spec.ts (336 bytes)
+CREATE src/app/skills/store/reducers/skills.reducer.ts (239 bytes)
 ```
+
+Then add the state skills data.
 
 Our State should look like this:
 
 ```typescript
+export const skillsFeatureKey = 'skills';
+
 export interface SkillsState {
   skills: Skill[];
 }
@@ -400,12 +553,24 @@ export interface SkillsState {
 export const initialState: SkillsState = {
   skills: [],
 };
+
+export const reducer = createReducer(
+  initialState,
+
+);
 ```
 
 Add Skill Effect:
 
 ```
 ng g ef skills/store/skills --group
+
+? To which module (path) should the effect be registered in? skills
+? Should we wire up success and failure actions? No
+? Do you want to use the create function? No
+CREATE src/app/skills/store/effects/skills.effects.spec.ts (584 bytes)
+CREATE src/app/skills/store/effects/skills.effects.ts (189 bytes)
+UPDATE src/app/skills/skills.module.ts (819 bytes)
 ```
 
 Check the skills.module.ts to make sure the skills state is loaded:
@@ -436,12 +601,51 @@ ng g s skills/store/facades/skills-facade
 
 > Note: You will need to implement the service CRUD using `http://localhost:3000/skills`
 
+```
+ng g s skills/model/skills
+```
+
+```typescript
+import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { Skill } from './skill.model';
+
+@Injectable({
+  providedIn: 'root'  // if only used in lazy loaded module means the service is also lazy loaded.
+})
+export class SkillsService {
+
+  constructor(private httpClient: HttpClient) { }
+
+  getSkills(): Observable<Skill[]> {
+    return this.httpClient
+      .get<Skill[]>(environment.apiUrl + "authors")
+      .pipe(tap(data => console.log("data from api", data)));
+  }
+}
+```
+
+Remark about providedIn: 'root'
+
+See further docs:
+https://angular.io/guide/providers#providing-a-service
+
+https://dev.to/nickraphael/angular-s-providedin-root-what-if-two-lazy-modules-provided-the-same-service-166p
+
+
+
+
 ### Skills Feature Module Implementation
 
 Add the Skill Actions & answer Schematic Params accodingly:
 
 ```
 ng g a skills/store/skills --group
+
+? Should we generate success and failure actions? Yes
+? Do you want to use the create function? Yes
+CREATE src/app/skills/store/actions/skills.actions.spec.ts (204 bytes)
+CREATE src/app/skills/store/actions/skills.actions.ts (347 bytes)
 ```
 
 ![creator-functions](./_images/creator-functions.png)
@@ -453,20 +657,25 @@ export const loadSkills = createAction('[Skills] Load Skills');
 
 export const loadSkillsSuccess = createAction(
   '[Skills] Load Skills Success',
-  props<{ data: Skill[] }>()
+  props<{ skills: Skill[] }>()
 );
 
 export const loadSkillsFailure = createAction(
   '[Skills] Load Skills Failure',
   props<{ error: Error }>()
 );
+```
+
+Other needed actions can be created using the ngrx code snippets:
+
+```
 
 // addSkill action -> easy creation using: ngrx-create-action-props
 export const addSkill = createAction('[Skills] Add', props<{ data: Skill }>());
 
 export const addSkillsSuccess = createAction(
   '[Skills] Add Skills Success',
-  props<{ data: Skill }>()
+  props<{ skill: Skill }>()
 );
 
 export const addSkillsFailure = createAction(
@@ -474,16 +683,17 @@ export const addSkillsFailure = createAction(
   props<{ error: Error }>()
 );
 
+/*
 // just a mock to save time - not persisted
 export const toggleSkillComplete = createAction(
   '[Skill] Toggle Skill Complete',
-  props<{ data: Skill }>()
+  props<{ skill: Skill }>()
 );
 
 // just a mock to save time - not persisted
 export const deleteSkill = createAction(
   '[Skills] Delete Skill',
-  props<{ data: Skill }>()
+  props<{ skill: Skill }>()
 );
 
 //  just a mock to save time - not persisted
@@ -491,9 +701,12 @@ export const deleteSkillsFailure = createAction(
   '[Skills] Delete Skills Failure',
   props<{ error: Error }>()
 );
+*/
 ```
 
-Create Effect:
+### Create / implement Effect:
+
+--Remark: Effect already generated above 
 
 ```
 ng g ef skills/store/skills --group
@@ -502,30 +715,65 @@ ng g ef skills/store/skills --group
 > Note: To implement the Effect you could use the `ngrx-effect` Snippet
 
 ```typescript
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { SkillsService } from '../../model/skills.service';
+import * as SkillsActions from '../actions/skills.actions'
+
+@Injectable()
+export class SkillsEffects {
+  constructor(private actions$: Actions, private service: SkillsService) {}
+
   @Effect()
   loadSkills$ = this.actions$.pipe(
-    ofType(loadSkills),
-    switchMap((action) => {
+    ofType(SkillsActions.loadSkills),
+    switchMap(() => {
       return this.service.getSkills().pipe(
-        map((data) => loadSkillsSuccess({ data })),
-        catchError((error) => error)
+        map((skills) => SkillsActions.loadSkillsSuccess({ skills })),
+        catchError((error) =>SkillsActions.loadSkillsFailure({error}))
       );
     })
   );
 
   @Effect()
   addSkill$ = this.actions$.pipe(
-    ofType(addSkill),
+    ofType(SkillsActions.addSkill),
     switchMap((action) => {
       return this.service.addSkill(action.data).pipe(
-        map((sk) => addSkillsSuccess({ data: sk })),
-        catchError((error) => error)
+        map((data) => SkillsActions.addSkillSuccess({ data })),
+        catchError((error) => SkillsActions.addSkillFailure({error}))
       );
     })
   );
+}
 ```
 
-Skills Facade:
+### Skills Selectors
+
+Open app/skills/store/selectors/skills.selectors.ts
+
+```typescript
+import { skillsFeatureKey, SkillState } from '../reducers/skills.reducer';
+
+export const getSkillState = createFeatureSelector<SkillState>(skillsFeatureKey)
+
+export const getSkills = createSelector(
+    getSkillState,
+    (state:SkillState) => state.skills
+)
+```
+
+### Implement Skills reducer
+
+```
+import { Skill } from '../../model/skill.model';
+import * as SkillsActions from '../actions/skills.actions'
+. . .
+
+```
+
+### Skills Facade:
 
 ```typescript
 export class SkillsFacadeService {
@@ -553,7 +801,47 @@ export class SkillsFacadeService {
 }
 ```
 
-Implement Skills-List
+
+### Import Material to skills list or create Material shared Module
+
+```
+ ng add @angular/material
+```
+
+
+```typescript
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
+. . .
+
+@NgModule({
+  declarations: [SkillsComponent, SkillsListWithRowComponent, SkillsRowComponent, SkillsKpiComponent],
+  imports: [
+    CommonModule,
+    SkillsRoutingModule,
+    
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    MatIconModule,
+
+    . . .
+```
+
+on errors reset npm modules
+ 
+```
+npm ci 
+```
+
+### Implement Skills-List
+
 
 \*.html:
 

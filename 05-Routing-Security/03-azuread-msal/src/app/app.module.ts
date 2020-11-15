@@ -34,7 +34,7 @@ const isIE =
 function MSALConfigFactory(): Configuration {
   return {
     auth: {
-      clientId: '4e60c128-a813-4031-bd99-cf4327cce885',
+      clientId: '345997e5-7c57-4d1e-905e-a1a189baea95',
       authority: 'https://login.microsoftonline.com/common/',
       validateAuthority: true,
       redirectUri: 'http://localhost:4200/',
@@ -52,10 +52,7 @@ function MSALAngularConfigFactory(): MsalAngularConfiguration {
   return {
     popUp: !isIE,
     consentScopes: [
-      'user.read',
-      'openid',
-      'profile',
-      'api://a88bb933-319c-41b5-9f04-eff36d985612/access_as_user',
+      'user.read'
     ],
     unprotectedResources: ['https://www.microsoft.com/en-us/'],
     protectedResourceMap,
