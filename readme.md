@@ -1,57 +1,22 @@
 ﻿# Advanced Angular Development
 
-Im Seminar "Advanced Angular Development" bringen wir Ihre Angular Kenntnisse auf den Experten Level. Großes Augenmerk legen wir dabei auf Reactive Programming & State Management mit NgRX, Advanced Routing, Testing & Security, Optimierung und vor allem auch die Darstellung des Angular Developments Prozesses in Bezug auf DevOps, Cloud & Container
+Companion Material for Class Delivery by [Alexander Pajer](https://www.integrations.at/kontakt.aspx) containing:
 
-## Themen
+- [Requirements / Tooling](./Tooling)
+  - [Register Azure Pass](./Tooling/05-AzurePass)
+  - [Git & GitHub Basics](./Tooling/01-Github)
+  - [Visual Studio Code Intro](./Tooling/02-VSCode)
+  - [Document Repos using Markdown](./Tooling/03-Markdown)
+  - [Using Azure CLI](./Tooling/04-CLI)
+- [Instructor Demos](./Demos)
+- [Guided Scripts to setup an Azure hosted Development & Lab VM](./Setup)
+  - [Base Dev Environment Setup inkluding Visual Studio Code Extensions](./Setup/#basics)
+  - [Setup Windows Subsystem for Linux 2 - WSL2](./Setup/#wsl)
+  - [Setup Docker & Kubernetes](./Setup/#docker-wsl)
+  - [Use Teams in VM](./Setup/#teams)
+- [Labs](./Labs)
 
-- Theming & Visual Feedback (Animations)
-- Advanced Observables & Reactive Programming
-- State Management using NgRx
-- Optimizing & Building Applications
-- Understanding Ivy and what it means for future Angular Releases
-- Reactive Forms Deep Dive
-- Advanced Routing Concepts
-- Securing Angular using oAuth, OpenID Connect & NgRx
-- Advanced Testing including Jest & Cypress
-- Scaffolding & Automation using Angular Schematics
-- Reusability using Angular Libraries
-- Introduction to Maintaining Monorepos using nrwl nx
-- Web Components using Angular Elements
-- Implementing Installable & Offline Ready Apps using Progressive Web Apps
-- Server Side Rendering using Angular Universal
-- Advanced Hosting using Docker & Kubernetes
-- Introduction to Angular DevOps using GitHub Actions
-
-# Vortragsart
-
-Neue Themengebiete werden anhand von Folien und Demos erarbeitet. Am Ende der Module werden die erlernten Inhalte in eine durchgängige Anwendung integriert, welches am Ende in die Cloud publiziert werden kann. Wir empfehlen Visual Studio Code als Cross Platform Editor.
-
-## Zielgruppe
-
-Angular Entwickler welche ihre Kenntnisse vertiefen wollen.
-
-## Voraussetzungen
-
-Kenntnisse in folgenden Angular Themen werden vorausgesetzt:
-
-- Environment & Tools Setup and Introduction
-- TypeScript Fundamentals
-- Angular Projektkonfiguration & CLI
-- Understanding Fundamentals & Completing Basic Tasks
-- Routing & Modularity
-- Basics of Building a Responsive User Interface using Material
-- Form Design & Validation
-- Data Access
-- Observables Basic Understanding
-- Basic Unit Testing
-
-Diese werden im Seminar "Angular Single Page Application Development" vermittelt.
-
-Kenntnisse im Umgang mit Git
-
-> Dauer: 5 Tage
-
-# Module
+## Topics
 
 ## Theming & Visual Feedback (Animations)
 
@@ -143,11 +108,11 @@ Kenntnisse im Umgang mit Git
 - Setting up Mock Data
 - Shallow / Deep Component Integration Tests
 - Async Component Testing (done, fakeAsync, async whenStable)
-- Http Testing 
+- Http Testing
 - Introduction to Marble Testing
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
 - Using Jest for Unit Testing (Setup, Changes in spec, Snapshot Tests)
-- End-2-End Testing using Cypress 
+- End-2-End Testing using Cypress
 - Integrate Angular Testing in DevOps Pipelines
 
 ## Scaffolding & Automation using Angular Schematics
