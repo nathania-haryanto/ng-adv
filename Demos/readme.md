@@ -146,4 +146,5 @@
 - Building an Angular Multi-Stage Docker Image
 - Azure Hosting Options: Static Web App, CDN, Container Solutions
 - Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
-- Deploying an Angular App to Kubernetes 
+- Building & Deploying an Angular App to Kubernetes 
+- Implementing and using Unit- UI-Tests & Code Coverage in DevOps pipelines
