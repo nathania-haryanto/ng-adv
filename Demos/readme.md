@@ -138,7 +138,7 @@
 - Implementing Push Notifications
 - Using App Shell
 
-## Advanced Hosting using Docker & Angular DevOps
+## Advanced Publishing using Containers & Angular DevOps
 
 - Deployment Overview & Hosting Options
 - Publishing using ngDeploy
