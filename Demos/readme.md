@@ -52,7 +52,6 @@
 - Using Effects, Facades & Action Creators
 - Scaffolding using NgRx Schematics
 - NgRx Entity Adapters
-- Using NgRX Data for larger Datasets
 
 ## Building & Optimizing Applications
 
