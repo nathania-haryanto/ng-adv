@@ -147,4 +147,4 @@
 - Azure Hosting Options: Static Web App, CDN, Container Solutions
 - Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
 - Building & Deploying an Angular App to Kubernetes 
-- Implementing and using Unit- UI-Tests & Code Coverage in DevOps pipelines
+- Implementing and using Unit-Tests, UI-Tests & Code Coverage in DevOps pipelines
