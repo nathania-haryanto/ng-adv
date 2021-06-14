@@ -31,6 +31,15 @@
 - Data Caching & Invalidation
 - Implementing Custom Observable Operators
 
+## Reactive Forms Deep Dive
+
+- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, Forms Array)
+- Form Validation
+- Implementing Custom Validators
+- Cascading Form Controls
+- Dynamic Form Generation & Validation (Manual & ngx-formly)
+- Declarative Binding in Reactive Forms using RxJS
+
 ## Advanced State Management using NgRx
 
 - Overview State Management Patterns
@@ -56,15 +65,6 @@
 - Code-Splitting and Module Pre-Loading
 - Understaning & Optimizing Angular Change Detection
 - Optimize Change Detection using @ngrx/component & ngrxPush
-
-## Reactive Forms Deep Dive
-
-- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, Forms Array)
-- Form Validation
-- Implementing Custom Validators
-- Cascading Form Controls
-- Dynamic Form Generation & Validation (Manual & ngx-formly)
-- Declarative Binding in Reactive Forms using RxJS
 
 ## Routing & Securing Angular using NgRx
 
@@ -141,12 +141,10 @@
 ## Advanced Hosting using Docker & Angular DevOps
 
 - Deployment Overview & Hosting Options
-- Blob Storages & URL Rewriting
 - Publishing using ngDeploy
-- Injecting Configuration to enable Multi Stage DevOps
+- Angular DevOps optimized Configuration Management
 - Docker & Kubernetes Introduction
 - Building an Angular Multi-Stage Docker Image
-- Implementing a 3-Tier Application
-- Implementing Configuration Management for Containers
-- Implementing a Helm Chart for Kubernetes
-- Introduction to Angular DevOps using GitHub Actions
+- Azure Hosting Options: Static Web App, CDN, Container Solutions
+- Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
+- Deploying an Angular App to Kubernetes 
