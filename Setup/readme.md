@@ -1,12 +1,12 @@
 # Setup
 
-Class Setup
+Execute `setup-angular-dev.ps1` on any Windows machine. It installs
 
-- Windows Dev Machine Setup located in Folder `Windows`
-- Windows Subsystem Linux 2 (WSL 2) automated Setup using `setup-angular-wsl-dev.sh`
+- [Chocolatey- THE PACKAGE MANAGER FOR WINDOWS](https://chocolatey.org/)
+- Basic Git Support
+- VS Code and basic extensions
+- [Node Version Manager](https://github.com/coreybutler/nvm-windows) with Node 12.x and 14.x
+- Angular CLI
 
-Allow Chrome to server unsafe localhost:
 
-```
-chrome://flags/#allow-insecure-localhost
-```
+
