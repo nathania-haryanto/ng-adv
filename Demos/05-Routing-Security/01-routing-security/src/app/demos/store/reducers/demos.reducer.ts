@@ -16,9 +16,8 @@ export interface DemoState extends EntityState<DemoItem> {
   filter: string;
 }
 
-export const demosAdapter: EntityAdapter<DemoItem> = createEntityAdapter<
-  DemoItem
->();
+export const demosAdapter: EntityAdapter<DemoItem> =
+  createEntityAdapter<DemoItem>();
 
 export const defaultDemoItemState: DemoState = {
   ids: [],
@@ -45,7 +44,7 @@ export function DemosReducer(
 ): DemoState {
   switch (action.type) {
     case DemosActionTypes.LoadDemosSuccess: {
-      return demosAdapter.addAll(action.payload, {
+      return demosAdapter.addMany(action.payload, {
         ...state,
       });
     }
