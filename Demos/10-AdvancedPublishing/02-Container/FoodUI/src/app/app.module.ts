@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, APP_INITIALIZER } from "@angular/core";
+import { NgModule, APP_INITIALIZER, ErrorHandler } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
@@ -20,6 +20,8 @@ import { FoodModule } from "./food/food.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { ConfigService } from "./shared/config/config.service";
+import { ScanComponent } from "./scan/scan/scan.component";
+import { ErrHandlerService } from "./shared/err-handler/err-handler.service";
 
 export function appInit(configsrv: ConfigService) {
   return () => configsrv.init();
@@ -34,6 +36,7 @@ export function appInit(configsrv: ConfigService) {
     HomeComponent,
     AboutComponent,
     FooterComponent,
+    ScanComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ export function appInit(configsrv: ConfigService) {
       multi: true,
       deps: [ConfigService],
     },
+    { provide: ErrorHandler, useClass: ErrHandlerService },
   ],
   bootstrap: [AppComponent],
 })

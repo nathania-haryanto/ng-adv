@@ -6,6 +6,7 @@ export enum FoodActionTypes {
   LoadFood_Success = "[Food] LoadFood_Success",
   LoadFood_Error = "[Food] LoadFood_Error",
   SelectFood = "[Food] SelectFood",
+  MailFood = "[Food] MailFood",
 }
 
 export class LoadFood implements Action {
@@ -27,8 +28,14 @@ export class SelectFood implements Action {
   constructor(public payload: FoodItem) {}
 }
 
+export class MailFood implements Action {
+  readonly type = FoodActionTypes.MailFood;
+  constructor(public payload: FoodItem) {}
+}
+
 export type FoodActions =
   | LoadFood
   | LoadFood_Success
   | LoadFood_Error
-  | SelectFood;
+  | SelectFood
+  | MailFood;

@@ -21,4 +21,15 @@ export class FoodEffects {
       )
     )
   );
+
+  @Effect()
+  mailFood$: Observable<Action> = this.actions$.pipe(
+    ofType(foodActions.FoodActionTypes.MailFood),
+    mergeMap((action) =>
+      this.fs.getFood().pipe(
+        map((food: FoodItem[]) => new foodActions.LoadFood_Success(food)),
+        catchError((err) => of(new foodActions.LoadFood_Error(err)))
+      )
+    )
+  );
 }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FoodService } from './food.service';
+import { ErrHandlerService } from './err-handler.service';
 
-describe('FoodService', () => {
-  let service: FoodService;
+describe('ErrHandlerService', () => {
+  let service: ErrHandlerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FoodService);
+    service = TestBed.inject(ErrHandlerService);
   });
 
   it('should be created', () => {

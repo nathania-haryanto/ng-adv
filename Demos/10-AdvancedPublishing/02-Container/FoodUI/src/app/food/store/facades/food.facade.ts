@@ -4,7 +4,7 @@ import { FoodState } from "../reducers/food.reducer";
 import { getAllFood, getSelected } from "../selectors/food.selectors";
 import { tap } from "rxjs/operators";
 import { FoodItem } from "../../food.model";
-import { SelectFood, LoadFood } from "../actions/food.actions";
+import { SelectFood, LoadFood, MailFood } from "../actions/food.actions";
 import { AppInsightsService } from "src/app/shared/app-insights/app-insights.service";
 
 @Injectable({
@@ -40,12 +40,11 @@ export class FoodFacade {
   }
 
   saveFood(f: FoodItem) {
-    console.log("saving ", f);
     this.ai.logEvent("Saving", f);
   }
 
   mailFood(f: FoodItem) {
-    console.log("saving ", f);
-    this.ai.logEvent("Saving", f);
+    this.store.dispatch(new MailFood(f));
+    this.ai.logEvent("mailto", f);
   }
 }

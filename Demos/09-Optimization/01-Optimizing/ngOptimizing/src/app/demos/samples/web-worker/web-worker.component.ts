@@ -13,7 +13,7 @@ export class WebWorkerComponent implements OnInit {
   ngOnInit() {}
 
   runWorker() {
-    const worker = new Worker('./prime-calculations.worker', {
+    const worker = new Worker(new URL('./prime-calculations.worker', import.meta.url), {
       type: 'module'
     });
     worker.onmessage = ({ data }) => {
