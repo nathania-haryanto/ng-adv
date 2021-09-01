@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "stylevars";
 
 //Card
@@ -25,8 +26,8 @@
   margin-right: $medium-gap !important;
   padding-bottom: $medium-gap !important;
   button {
-    background-color: mat-color($app-bg, 700);
-    color: mat-color($app-fg);
+    background-color: mat.get-color-from-palette($app-bg, 700);
+    color: mat.get-color-from-palette($app-fg);
   }
 }
 
@@ -34,7 +35,7 @@
 
 .mat-sidenav {
   width: 220px;
-  background-color: mat-color($app-bg);
+  background-color: mat.get-color-from-palette($app-bg);
 }
 
 .mat-sidenav-container {

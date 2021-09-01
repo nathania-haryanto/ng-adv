@@ -12,8 +12,8 @@ export class FirebaseAuthService {
 
   private Token: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  private fbUser: firebase.User = null;
-  public User: BehaviorSubject<firebase.User> = new BehaviorSubject(
+  private fbUser: firebase.default.User = null;
+  public User: BehaviorSubject<firebase.default.User> = new BehaviorSubject(
     this.fbUser
   );
 
@@ -47,7 +47,7 @@ export class FirebaseAuthService {
   registerUser(
     email: string,
     password: string
-  ): Promise<firebase.auth.UserCredential> {
+  ): Promise<firebase.default.auth.UserCredential> {
     return this.fireAuth
       .createUserWithEmailAndPassword(email, password)
       .catch((err) => {
@@ -56,7 +56,9 @@ export class FirebaseAuthService {
       });
   }
 
-  logOn(loginvm: LoginCredentials): Promise<firebase.auth.UserCredential> {
+  logOn(
+    loginvm: LoginCredentials
+  ): Promise<firebase.default.auth.UserCredential> {
     return this.fireAuth
       .signInWithEmailAndPassword(loginvm.email, loginvm.pwd)
       .catch((err) => {

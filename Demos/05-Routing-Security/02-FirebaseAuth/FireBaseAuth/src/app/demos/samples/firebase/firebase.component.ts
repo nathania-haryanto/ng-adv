@@ -10,7 +10,7 @@ import { FirebaseAuthService } from './firebase-auth.service';
 export class FirebaseComponent implements OnInit {
   constructor(private httpClient: HttpClient, public as: FirebaseAuthService) {}
 
-  currentUser: firebase.User;
+  currentUser: firebase.default.User;
 
   resp: any;
 
