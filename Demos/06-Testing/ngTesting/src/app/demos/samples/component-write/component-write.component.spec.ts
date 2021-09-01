@@ -1,9 +1,4 @@
-import {
-  ComponentFixture,
-  TestBed,
-  async,
-  waitForAsync,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, waitForAsync, } from '@angular/core/testing';
 
 import { ComponentWriteComponent } from './component-write.component';
 import { FormsModule } from '@angular/forms';

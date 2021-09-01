@@ -1,10 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import {
-  ComponentFixture,
-  TestBed,
-  async,
-  waitForAsync,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, waitForAsync, } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { SimpleAuthService } from '../simple-auth.service';
