@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "stylevars.scss";
 @import "theme.scss";
 
@@ -15,16 +16,16 @@ mat-form-field {
 }
 
 .list {
-  background: mat-color($app-primary);
+  background: mat.get-color-from-palette($app-primary);
   min-height: 60px;
 }
 
 .box {
   padding: $small-gap;
   border-bottom: solid 1px #ccc;
-  color: mat-color($app-fg);
+  color: mat.get-color-from-palette($app-fg);
   cursor: move;
-  background: mat-color($app-accent);
+  background: mat.get-color-from-palette($app-accent);
   font-size: 1rem;
 }
 
