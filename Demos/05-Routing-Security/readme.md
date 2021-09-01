@@ -2,45 +2,11 @@
 
 ## Demos
 
-- 01-routing-security: Main Demo of this Module
-- 02-firebase-auth-nongrx: Revisit Tokenbased Auth without NgRx
-- 03-azuread-msal: Using MSAL and Microsoft Identity (akn AzureAD)
-
-## Routing
-
-### Routing and NgRx
-
-Add Routing:
-
-```
-ng add @ngrx/router-store
-```
+- Routing & Security with NgRx
+- Optional: Revisit Tokenbased Auth without NgRx - firebase-auth-nongrx
+- AzureAD-MSAL: Using MSAL and Microsoft Identity
 
 ## Security
-
-### Configure SSL in Angular
-
-- Execute `bash generate.sh` `create-certs\` in Git Bash to create certs.
-- Copy `server.crt`and `server.key` to newly created `ssl` folder of Angular project.`
-- Register in `angular.json`
-
-```typescript
-"serve": {
-    "builder": "@angular-devkit/build-angular:dev-server",
-    "options": {
-        "browserTarget": "HelloSSL:build",
-        "ssl": true,
-        "sslKey": "/ssl/server.key",
-        "sslCert": "/ssl/server.crt"
-    },
-```
-
-Get Chrome to trust self signed localhost:
-
-```
-chrome://flags/#allow-insecure-localhost
-```
-
 ### Token based Authentication
 
 [JSON Web Tokens - Jwt](https://jwt.io/)
