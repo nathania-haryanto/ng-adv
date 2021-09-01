@@ -88,14 +88,14 @@ export class CreatingObservableComponent implements OnInit {
   }
 
   // Wraps an Object that uses Callbacks
-  getGeolocation$(): Observable<Position> {
+  getGeolocation$(): Observable<any> {
     return new Observable((observer) => {
       navigator.geolocation.getCurrentPosition(
-        (pos: Position) => {
+        (pos: any) => {
           observer.next(pos);
           observer.complete();
         },
-        (err: PositionError) => {
+        (err: any) => {
           observer.error(err);
         }
       );

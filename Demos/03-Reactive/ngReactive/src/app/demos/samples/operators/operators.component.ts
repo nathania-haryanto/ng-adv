@@ -14,7 +14,6 @@ import {
   take,
   tap,
 } from 'rxjs/operators';
-import { isArray } from 'util';
 import { Voucher } from '../model';
 import { VouchersService } from '../voucher.service';
 
@@ -43,7 +42,10 @@ export class OperatorsComponent implements OnInit {
   setLabel = (v) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
   log = (msg: string, data: any) =>
-    console.log(`executing: ${msg}, 'data' is Array: ${isArray(data)}`, data);
+    console.log(
+      `executing: ${msg}, 'data' is Array: ${Array.isArray(data)}`,
+      data
+    );
 
   useMap() {
     const source = from([1, 2, 3, 4, 5]);
