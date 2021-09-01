@@ -5,19 +5,16 @@ import { Skill } from '../model';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss'],
+  styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
   skills: Skill[];
   skillToAdd: string;
 
-  constructor(private service: SkillsService) {
-    this.skills = [];
-    this.skillToAdd = '';
-  }
+  constructor(private service: SkillsService) {}
 
   ngOnInit() {
-    this.service.getSkills().subscribe((data) => (this.skills = data));
+    this.service.getSkills().subscribe(data => (this.skills = data));
   }
 
   removeSkill(s: Skill) {

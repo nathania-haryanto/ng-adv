@@ -8,7 +8,12 @@ import { HelloComponent } from './hello/hello.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MessagingService } from './shared/messaging.service';
 import { AsyncPipe } from '@angular/common';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
@@ -19,12 +24,16 @@ import { MaterialModule } from './material.module';
     FormsModule,
     HttpClientModule,
     MaterialModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
+      enabled: environment.production
     }),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
-  providers: [AsyncPipe],
-  bootstrap: [AppComponent],
+  providers: [MessagingService, AsyncPipe],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

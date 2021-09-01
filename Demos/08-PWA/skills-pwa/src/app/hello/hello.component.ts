@@ -1,14 +1,16 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: "app-hello",
-  templateUrl: "./hello.component.html",
-  styleUrls: ["./hello.component.scss"]
+  selector: 'app-hello',
+  templateUrl: './hello.component.html',
+  styleUrls: ['./hello.component.scss'],
 })
 export class HelloComponent implements OnInit {
   @Input() greeting: string;
 
-  constructor() {}
+  constructor() {
+    this.greeting = '';
+  }
 
   ngOnInit() {}
 }

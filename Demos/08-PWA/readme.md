@@ -29,9 +29,9 @@ chrome://flags/#allow-insecure-localhost
 #### Create Project with Service Worker
 
 ```
-ng new skillsPWA
-cd skillsPWA
-ng add @angular/pwa --project skillsPWA
+ng new skills-pwa
+cd skills-pwa
+ng add @angular/pwa --project skills-pwa
 ```
 
 Make sure you adjust your `environment.prod` to match IP config of your dev machine
@@ -39,7 +39,7 @@ Make sure you adjust your `environment.prod` to match IP config of your dev mach
 ```
 export const environment = {
   production: false,
-  appName: 'smart Sammler',
+  appName: 'skills-pwa',
   googleApiKey: 'AIzaSyBIhPL-ZRldsuzXJoclj-********-0IeY',
   apiURL: 'https://YOURIP:5000/api/',
   userID: 'user001',
@@ -59,7 +59,7 @@ export const environment = {
 #### Create a prod build
 
 ```
-ng build --prod [--delete-output-path false]
+ng build [--delete-output-path false]
 ```
 
 > Note: Make sure your envirenment.prod.ts matches environment.ts
@@ -70,8 +70,8 @@ To serve the build you need an http-server. Use `angular-http-server` or `http-s
 
 ```
 npm install -g angular-http-server
-ng build --prod
-cd .\dist\skillspwa\
+ng build
+cd .\dist\skills-pwa\
 angular-http-server
 ```
 
