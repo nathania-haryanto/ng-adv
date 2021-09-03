@@ -8,6 +8,11 @@ export const getUser = createSelector(
   (state: AuthState) => state.user
 );
 
+export const getEMail = createSelector(
+  getUser,
+  (user: firebase.default.User) => user.email
+);
+
 export const getToken = createSelector(
   getAuthState,
   (state: AuthState) => state.token
@@ -16,4 +21,9 @@ export const getToken = createSelector(
 export const getLoggedIn = createSelector(
   getAuthState,
   (state: AuthState) => state.isLoggedIn
+);
+
+export const hasToken = createSelector(
+  getAuthState,
+  (state: AuthState) => state.token != ''
 );
