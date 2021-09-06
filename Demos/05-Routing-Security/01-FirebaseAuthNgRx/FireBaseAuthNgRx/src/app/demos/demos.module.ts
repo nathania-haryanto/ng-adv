@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MarkdownModule } from 'ngx-markdown';
-import { AuthModule } from '../auth/auth.module';
+import { FBAuthModule } from '../auth/fbauth.module';
 import { LoginComponent } from '../auth/components/login/login.component';
 import { LogoutComponent } from '../auth/components/logout/logout.component';
 import { RegisterComponent } from '../auth/components/register/register.component';
@@ -30,7 +30,6 @@ import { RoutingComponent } from './samples/routing/routing/routing.component';
 import { DemosEffects } from './store/effects/demos.effects';
 import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
-import { DemoService } from './demo.service';
 
 const demoRoutes: Routes = [
   {
@@ -110,7 +109,7 @@ const demoRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
-    AuthModule,
+    FBAuthModule,
     MaterialModule,
     HttpClientModule,
     MarkdownModule.forRoot({

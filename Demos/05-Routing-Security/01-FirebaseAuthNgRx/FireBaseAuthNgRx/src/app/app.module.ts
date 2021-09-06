@@ -19,7 +19,7 @@ import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers, metaReducers } from './store';
 import { ErrPageComponent } from './error/err-page/err-page.component';
-import { AuthModule } from './auth/auth.module';
+import { FBAuthModule } from './auth/fbauth.module';
 import { CustomRouterSerializer } from './store/reducers/custom-serializer';
 // import { FBAuthInterceptor } from './auth/fbauth.interceptor';
 // import { GlobalErrHandler } from './error/global-err-handler';
@@ -37,7 +37,7 @@ import { CustomRouterSerializer } from './store/reducers/custom-serializer';
     MaterialModule,
     HttpClientModule,
     SharedModule,
-    AuthModule,
+    FBAuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       // Needed to avoid TypeError: Cannot freeze with firebase lib
