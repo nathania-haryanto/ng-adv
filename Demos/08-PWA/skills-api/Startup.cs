@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,37 +12,32 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SkillsApi {
     public class Startup {
+        
+        public IConfiguration Configuration { get; }
         private readonly IWebHostEnvironment env;
 
-        public Startup (IWebHostEnvironment environment) {
+        public Startup (IWebHostEnvironment environment, IConfiguration configuration) {
+            Configuration = configuration;
             env = environment;
         }
 
         public void ConfigureServices (IServiceCollection services) {
-            IConfigurationBuilder cfgBuilder = new ConfigurationBuilder ()
-                .SetBasePath (env.ContentRootPath)
-                .AddJsonFile ("appsettings.json");
-            IConfigurationRoot configuration = cfgBuilder.Build ();
-
-            services.AddSingleton (typeof (IConfigurationRoot), configuration);
-            var conStr = configuration["ConnectionStrings:SQLiteDBConnection"];
+            services.AddSingleton < IConfiguration > (Configuration);  
 
             //EF
 
             // SQL Server ... use "SQLServerDBConnection" ConString
-            // var conStr = configuration["ConnectionStrings:SQLServerDBConnection"];
+            // var conStr = Configuration["ConnectionStrings:SQLServerDBConnection"];
             // services.AddEntityFrameworkSqlServer ()
             //     .AddDbContext<SkillDBContext> (options => options.UseSqlServer(conStr));
 
             // SQLite ... use "SQLiteDBConnection" ConString
-            var conStrLite = configuration["ConnectionStrings:SQLiteDBConnection"];
+            var conStrLite = Configuration["ConnectionStrings:SQLiteDBConnection"];
             services.AddEntityFrameworkSqlite ().AddDbContext<SkillDBContext> (options => options.UseSqlite (conStrLite));
-
-            //SignalR
-            services.AddSignalR();
 
             // Cors
             services.AddCors (options => {
@@ -55,7 +51,7 @@ namespace SkillsApi {
 
             //Firebase
 
-            var fbProjectId = configuration["Firebase:ProjectId"];
+            var fbProjectId = Configuration["Firebase:ProjectId"];
 
             services
                 .AddAuthentication (JwtBearerDefaults.AuthenticationScheme)
@@ -111,7 +107,6 @@ namespace SkillsApi {
 
             app.UseEndpoints (endpoints => {
                 endpoints.MapControllers ();
-                endpoints.MapHub<SkillHub>("/skillhub");
             });
         }
     }

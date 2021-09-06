@@ -2,9 +2,8 @@
 
 ## Prerequisites: Skills Api
 
-Requires [.NET Core SDK v3.1.6](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.302-windows-x64-installer) If you want to use another db engine change connection string in appsettings.json.
-
-Don't forget to create SQL Login `angular` with pwd `angular` as Sysadmin.
+- Requires [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0).
+- If you want to use another db engine change connection string in appsettings.json.
 
 Go to folder where `*.csproj` is located, open console and run:
 
@@ -56,7 +55,7 @@ export const environment = {
 };
 ```
 
-#### Create a prod build
+#### Create a build
 
 ```
 ng build [--delete-output-path false]
@@ -119,18 +118,6 @@ Publish to Firebase
 ```
 firebase deploy
 ```
-
-#### Other Tools
-
-[Google Maps Key](https://developers.google.com/maps/documentation/javascript/get-api-key)
-
-[Open Port Detection Tool](https://www.yougetsignal.com/tools/open-ports/)
-
-[Getting Started with Lighthouse](https://developers.google.com/web/tools/lighthouse/)
-
-[Web-Push-Libs](https://github.com/web-push-libs/web-push)
-
----
 
 ### Links & Readings
 

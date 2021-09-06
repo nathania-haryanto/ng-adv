@@ -4,7 +4,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace SkillsApi
@@ -14,26 +13,11 @@ namespace SkillsApi
     public class SkillsController : Microsoft.AspNetCore.Mvc.Controller
     {
         private SkillDBContext ctx;
-        private IHubContext<SkillHub> skillHub;
 
-        public SkillsController(SkillDBContext dbctx, IHubContext<SkillHub> hub)
+        public SkillsController(SkillDBContext dbctx)
         {
+            // skillHub = hub;
             ctx = dbctx;
-            skillHub = hub;
-        }
-
-        [HttpGet]
-        [Route("init")]
-        public IActionResult Init()
-        {
-            BroadcastMarkers();
-            return Ok();
-        }
-
-        private void BroadcastMarkers()
-        {
-            Skill[] markers = this.ctx.Skills.ToArray();
-            skillHub.Clients.All.SendAsync("skillsChanged", markers);
         }
 
         // http://localhost:5000/api/skills
@@ -50,6 +34,13 @@ namespace SkillsApi
             return ctx.Skills.FirstOrDefault(v => v.Id == id);
         }
 
+        [HttpGet]
+        [Route("init")]
+        public IActionResult Init()
+        {
+            return Ok();
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Skill m)
         {
@@ -64,7 +55,6 @@ namespace SkillsApi
             }
 
             ctx.SaveChanges();
-             BroadcastMarkers();
             return Ok();
         }
 
@@ -78,7 +68,6 @@ namespace SkillsApi
                 ctx.Remove(v);
                 ctx.SaveChanges();
             }
-             BroadcastMarkers();
             return Ok();
         }
     }
