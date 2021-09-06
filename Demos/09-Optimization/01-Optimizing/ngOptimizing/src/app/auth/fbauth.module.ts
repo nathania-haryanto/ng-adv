@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './components/login/login.component';
@@ -23,10 +23,10 @@ const comps = [LoginComponent, RegisterComponent, LogoutComponent];
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
+    AuthModule,
     MaterialModule,
     StoreModule.forFeature(authFeatureKey, AuthReducer),
-    EffectsModule.forFeature([AuthEffects])
-  ]
+    EffectsModule.forFeature([AuthEffects]),
+  ],
 })
-export class AuthModule {}
+export class FBAuthModule {}

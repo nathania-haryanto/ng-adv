@@ -10,7 +10,7 @@ export enum AuthActionTypes {
   LoginErr = '[Auth] LoginErr',
   Logout = '[Auth] Logout',
   LogoutComplete = '[Auth] LogoutComplete',
-  SetToken = '[Auth] SetToken'
+  SetToken = '[Auth] SetToken',
 }
 
 export class Register implements Action {
@@ -22,7 +22,7 @@ export class Register implements Action {
 export class RegisterSuccess implements Action {
   readonly type = AuthActionTypes.RegisterSuccess;
 
-  constructor(public payload: firebase.User) {}
+  constructor(public payload: firebase.default.User) {}
 }
 
 export class RegisterErr implements Action {
@@ -38,7 +38,7 @@ export class Login implements Action {
 
 export class LoginSuccess implements Action {
   readonly type = AuthActionTypes.LoginSuccess;
-  constructor(public payload: firebase.User) {}
+  constructor(public payload: firebase.default.User) {}
 }
 
 export class LoginErr implements Action {

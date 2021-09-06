@@ -4,7 +4,7 @@ import {
   EntityState,
   EntityAdapter,
   createEntityAdapter,
-  Update
+  Update,
 } from '@ngrx/entity';
 import { DemosActionTypes, DemosActions } from '../actions/demos.actions';
 
@@ -17,9 +17,8 @@ export interface DemoState extends EntityState<DemoItem> {
   filter: string;
 }
 
-export const demosAdapter: EntityAdapter<DemoItem> = createEntityAdapter<
-  DemoItem
->();
+export const demosAdapter: EntityAdapter<DemoItem> =
+  createEntityAdapter<DemoItem>();
 
 export const defaultDemoItemState: DemoState = {
   ids: [],
@@ -32,8 +31,8 @@ export const defaultDemoItemState: DemoState = {
     sortOrder: 0,
     visible: true,
     url: '',
-    topicid: 1
-  }
+    topicid: 1,
+  },
 };
 
 export const initialState = demosAdapter.getInitialState(defaultDemoItemState);
@@ -49,12 +48,9 @@ export const getDemoEntities = createSelector(
 );
 
 //Note: Make this structure iterable again for the template
-export const getAllDemos = createSelector(
-  getDemoEntities,
-  entities => {
-    return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
-  }
-);
+export const getAllDemos = createSelector(getDemoEntities, (entities) => {
+  return Object.keys(entities).map((id) => entities[parseInt(id, 10)]);
+});
 
 //Reducer
 
@@ -64,8 +60,8 @@ export function DemosReducer(
 ): DemoState {
   switch (action.type) {
     case DemosActionTypes.LoadDemosSuccess: {
-      return demosAdapter.addAll(action.payload, {
-        ...state
+      return demosAdapter.addMany(action.payload, {
+        ...state,
       });
     }
     case DemosActionTypes.LoadDemosError: {
@@ -84,7 +80,7 @@ export function DemosReducer(
     case DemosActionTypes.ToggleVisiblity: {
       let item: Update<DemoItem> = {
         id: action.payload.id,
-        changes: { visible: action.payload.visible }
+        changes: { visible: action.payload.visible },
       };
       return demosAdapter.updateOne(item, { ...state });
     }

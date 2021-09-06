@@ -3,7 +3,7 @@ import { AuthActions, AuthActionTypes } from '../actions/auth.actions';
 export const authFeatureKey = 'auth';
 
 export interface AuthState {
-  user: firebase.User;
+  user: firebase.default.User;
   token: string | null;
   isLoggedIn: boolean;
 }
@@ -11,7 +11,7 @@ export interface AuthState {
 export const initialState: AuthState = {
   user: null,
   token: '',
-  isLoggedIn: false
+  isLoggedIn: false,
 };
 
 export function AuthReducer(
@@ -24,7 +24,7 @@ export function AuthReducer(
       return {
         ...state,
         isLoggedIn: true,
-        user: action.payload as firebase.User
+        user: action.payload as firebase.default.User,
       };
     }
     case AuthActionTypes.RegisterErr: {

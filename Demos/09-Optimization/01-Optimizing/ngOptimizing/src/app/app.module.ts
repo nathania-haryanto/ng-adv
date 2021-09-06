@@ -15,7 +15,6 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
@@ -23,6 +22,7 @@ import { reducers } from './store';
 import { CustomSerializer } from './store/reducers/router.reducer';
 import { configFactory } from './shared/config/config.factory';
 import { ConfigService } from './shared/config/config.service';
+import { FBAuthModule } from './auth/fbauth.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -33,7 +33,7 @@ import { ConfigService } from './shared/config/config.service';
     MaterialModule,
     HttpClientModule,
     SharedModule,
-    AuthModule,
+    FBAuthModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

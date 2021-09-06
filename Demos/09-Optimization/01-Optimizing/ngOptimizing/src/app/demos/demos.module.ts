@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { DemosEffects } from './store/effects/demos.effects';
-import { AuthModule } from '../auth/auth.module';
 import { LoggerComponent } from './samples/logger/logger.component';
 import { BundlesComponent } from './samples/bundles/bundles.component';
 import { ConsoleComponent } from './samples/console/console.component';
@@ -30,6 +29,8 @@ import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.
 import { NgforComponent } from './samples/ngfor/ngfor.component';
 import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
+import { FBAuthModule } from '../auth/fbauth.module';
+import { SimpleComponent } from './samples/dynamic-loading/simple.component';
 
 const demoRoutes: Routes = [
   {
@@ -72,6 +73,7 @@ const demoRoutes: Routes = [
     VirtualScrollComponent,
     NgforComponent,
     DynamicLoadingComponent,
+    SimpleComponent,
     CodeSplittingComponent,
   ],
   imports: [
@@ -80,7 +82,7 @@ const demoRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
-    AuthModule,
+    FBAuthModule,
     MaterialModule,
     HttpClientModule,
     MarkdownModule.forRoot({
