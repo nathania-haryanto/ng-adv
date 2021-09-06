@@ -8,7 +8,7 @@ import {
   LoginSuccess,
   LogoutComplete,
   RegisterErr,
-  RegisterSuccess
+  RegisterSuccess,
 } from '../actions/auth.actions';
 import { LoginVM } from '../../login-credential.model';
 
@@ -23,8 +23,8 @@ export class AuthEffects {
     exhaustMap((pl: LoginVM) =>
       this.as
         .logOn(pl.email, pl.password)
-        .then(usr => new LoginSuccess(usr))
-        .catch(err => new LoginErr(err))
+        .then((cred) => new LoginSuccess(cred.user))
+        .catch((err) => new LoginErr(err))
     )
   );
 
@@ -35,8 +35,8 @@ export class AuthEffects {
     exhaustMap((pl: LoginVM) =>
       this.as
         .createUser(pl.email, pl.password)
-        .then(usr => new RegisterSuccess(usr))
-        .catch(err => new RegisterErr(err))
+        .then((usr) => new RegisterSuccess(usr))
+        .catch((err) => new RegisterErr(err))
     )
   );
 

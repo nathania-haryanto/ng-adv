@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Store } from '@ngrx/store';
 import { SetToken } from './store/actions/auth.actions';
 import { AuthState } from './store/reducers/auth.reducer';
@@ -14,7 +14,7 @@ export class FBAuthService {
     this.onUserChanged();
   }
 
-  private fbUser: firebase.User = null;
+  private fbUser: firebase.default.User = null;
 
   private onUserChanged() {
     this.fireAuth.authState.subscribe((user) => {
