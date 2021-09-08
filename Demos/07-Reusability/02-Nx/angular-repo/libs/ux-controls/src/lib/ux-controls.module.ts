@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UxButtonComponent } from './ux-button/ux-button.component';
 import { UxSplitComponent } from './ux-split/ux-split.component';
 import { MaterialModule } from './material/material.module';
+import { UxButtonComponent } from './ux-button/ux-button.component';
 
 @NgModule({
   imports: [CommonModule, MaterialModule],
-  declarations: [UxButtonComponent, UxSplitComponent],
+  declarations: [UxSplitComponent, UxButtonComponent],
   exports: [UxSplitComponent, UxButtonComponent],
 })
 export class UxControlsModule {}

@@ -4,14 +4,11 @@
     "defaultBase": "master"
   },
   "implicitDependencies": {
-    "angular.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
-    "tsconfig.base.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
+    ".eslintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -21,7 +18,22 @@
       }
     }
   },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
   "projects": {
+    "ng-otherapp": {
+      "tags": []
+    },
+    "ng-otherapp-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ng-otherapp"]
+    },
     "ng-skills": {
       "tags": []
     },
@@ -31,13 +43,6 @@
     },
     "ux-controls": {
       "tags": []
-    },
-    "ng-otherapp": {
-      "tags": []
-    },
-    "ng-otherapp-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ng-otherapp"]
     }
   }
 }

@@ -53,7 +53,7 @@ Add a lib project and a button and a split component to it:
 
 ```typescript
 ng g @nrwl/angular:lib ux-controls --style=sass
-ng g @nrwl/angular:component ux-button --project=ux-controls
+ng g component ux-button --project=ux-controls --export --selector=ux-button
 ng g component ux-split --project=ux-controls --export --selector=ux-split
 ```
 
@@ -125,19 +125,24 @@ ux-button.ts & ux-button.html
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'ux-button',
   templateUrl: './ux-button.component.html',
-  styleUrls: ['./ux-button.component.sass'],
+  styleUrls: ['./ux-button.component.scss'],
 })
 export class UxButtonComponent implements OnInit {
   @Input() disabled = false;
   @Input() label = '';
-  @Input() icon: string;
+  @Input() icon = '';
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onClick: EventEmitter<void> = new EventEmitter();
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.icon = '';
+  }
 
   buttonClicked() {
     this.onClick.emit();

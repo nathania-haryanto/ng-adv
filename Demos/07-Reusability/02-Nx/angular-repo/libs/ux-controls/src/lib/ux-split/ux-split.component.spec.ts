@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UxSplitComponent } from './ux-split.component';
 
@@ -6,12 +6,12 @@ describe('UxSplitComponent', () => {
   let component: UxSplitComponent;
   let fixture: ComponentFixture<UxSplitComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ UxSplitComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UxSplitComponent);
