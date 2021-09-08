@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Skill } from './skill.model';
+import { Skill } from './skills.model';
 @Component({
   selector: 'app-skills-list',
   templateUrl: './skills-list.component.html',

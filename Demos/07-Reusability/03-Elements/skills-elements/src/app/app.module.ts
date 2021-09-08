@@ -1,36 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { createCustomElement } from '@angular/elements';
 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { SkillsListComponent } from './skills-list/skills-list.component';
 
-// Use this when developing:
-
-// import { AppComponent } from './app.component';
-// @NgModule({
-//   declarations: [AppComponent, SkillsListComponent],
-//   imports: [BrowserModule, FormsModule],
-//   providers: [],
-//   bootstrap: [AppComponent],
-// })
-// export class AppModule {}
-
-// Use this when building:
-
 @NgModule({
-  declarations: [SkillsListComponent],
-  imports: [BrowserModule, FormsModule],
-  entryComponents: [SkillsListComponent],
+  declarations: [AppComponent, SkillsListComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-  constructor(private injector: Injector) {}
-
-  ngDoBootstrap(): void {
-    const el = createCustomElement(SkillsListComponent, {
-      injector: this.injector,
-    });
-
-    customElements.define('ng-skills', el);
-  }
-}
+export class AppModule {}
