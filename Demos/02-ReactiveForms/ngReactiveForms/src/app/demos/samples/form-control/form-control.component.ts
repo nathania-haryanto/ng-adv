@@ -29,11 +29,13 @@ export class FormControlComponent implements OnInit {
 
   subscribeNameChanges() {
     this.name.valueChanges.subscribe((data) =>
-      console.log('Form values changed', data)
+      console.log('Form Control values changed', data)
     );
-    this.name.statusChanges.subscribe((data) =>
-      console.log('Form status changed', data)
-    );
+    this.name.statusChanges.subscribe((data) => {
+      console.log('Form Control status changed', data),
+        console.log('Form Control dirty', this.name.dirty);
+    });
+
     if (this.name.errors) {
       this.name.errors.subscribe((data) => console.log('Form errors:', data));
     }
