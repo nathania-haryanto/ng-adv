@@ -28,6 +28,7 @@ export class ReactiveFormsComponent implements OnInit {
 
     this.personForm = new FormGroup({
       name: new FormControl(this.person.name, Validators.required),
+      lastname: new FormControl(this.person.lastname, Validators.required),
       age: new FormControl(this.person.age),
       email: new FormControl(this.person.email),
       gender: new FormControl(this.person.gender),

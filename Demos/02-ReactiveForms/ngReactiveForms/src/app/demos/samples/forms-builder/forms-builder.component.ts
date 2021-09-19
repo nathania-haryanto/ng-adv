@@ -25,6 +25,7 @@ export class FormsBuilderComponent implements OnInit {
 
     this.personForm = this.fb.group({
       name: [this.person.name, Validators.required],
+      lastname: [this.person.lastname, Validators.required],
       age: [this.person.age],
       gender: [this.person.gender],
       email: [this.person.email],
