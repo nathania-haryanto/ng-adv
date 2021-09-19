@@ -7,22 +7,22 @@
   <mat-card-content>
     <form [formGroup]="profileForm">
       <h1>Profile Form</h1>
-
       <div>
-        <label for="first-name-input">First Name</label>
-        <input
+      <mat-form-field>        
+        <input matInput
           type="text"
-          id="first-name-input"
+          placeholder="First Name"
           formControlName="firstNameInput"
         />
-      </div>
-      <div>
-        <label for="last-name-input">Last Name</label>
-        <input
-          type="text"
-          id="last-name-input"
-          formControlName="lastNameInput"
-        />
+        </mat-form-field>
+
+        <mat-form-field>        
+          <input matInput
+            type="text"
+            placeholder="Last Name"
+            formControlName="lastNameInput"
+          />
+          </mat-form-field>
       </div>
 
       <div formArrayName="optionGroups">
@@ -30,33 +30,35 @@
           *ngFor="let optionGroup of getOptionGroups(); let i = index"
           [formGroup]="optionGroup"
         >
-          <h4>Option {{ i + 1 }}</h4>
-
+          <h4>Skill {{ i + 1 }}</h4>
           <div>
-            <label for="select-input">Criteria</label>
-            <select id="select-input" formControlName="selectInput">
-              <option value="0" disabled selected>Select a Criteria</option>
-              <option
-                *ngFor="let select of selectValues"
-                [value]="select.type"
-                >{{ select.type }}</option
-              >
-            </select>
-
-            <label for="where-input">Option</label>
-            <select id="where-input" formControlName="whereInput">
-              <option value="0" disabled selected>Select an Option</option>
-              <option
-                *ngFor="
-                  let where of getCriteria(
-                    (profileForm.controls['optionGroups']?.value)[i]
-                      ?.selectInput
-                  )
-                "
-                value="{{ where }}"
-                >{{ where }}</option
-              >
-            </select>
+            <mat-form-field>
+              <mat-label>Select a Criteria</mat-label>
+              <mat-select  id="select-input" formControlName="selectInput">
+                <mat-option value="0" disabled selected>Select a Criteria</mat-option>
+                <mat-option
+                  *ngFor="let select of selectValues"
+                  [value]="select.type"
+                  >{{ select.type }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Select an Option</mat-label>
+              <mat-select id="where-input" formControlName="whereInput">
+                <mat-option value="0" disabled selected>Select an Option</mat-option>
+                <mat-option
+                  *ngFor="
+                    let where of getCriteria(
+                      (profileForm.controls['optionGroups']?.value)[i]
+                        ?.selectInput
+                    )
+                  "
+                  value="{{ where }}"
+                  >{{ where }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
       </div>

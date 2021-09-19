@@ -55,13 +55,6 @@
       "component": "AsyncPipeComponent",
       "visible": true,
       "sortOrder": 3
-    },
-    {
-      "url": "ngx-formly",
-      "title": "ngx-formly",
-      "component": "NgxFormlyComponent",
-      "visible": true,
-      "sortOrder": 5
     }
   ],
   "skills": [
