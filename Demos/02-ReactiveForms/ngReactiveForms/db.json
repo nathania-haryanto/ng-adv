@@ -9,14 +9,6 @@
       "sortOrder": 3
     },
     {
-      "url": "actionstream",
-      "topicid": 3,
-      "title": "Action Stream V2",
-      "component": "ActionStreamsComponent",
-      "visible": true,
-      "sortOrder": 3
-    },
-    {
       "url": "reactiveforms",
       "topicid": 2,
       "title": "Reactive Forms",

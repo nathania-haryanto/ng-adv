@@ -6,6 +6,8 @@
 
 [Material Color Tool](https://material.io/tools/color/)
 
+[Angular Flex Layout](https://github.com/angular/flex-layout/wiki)
+
 [Bootstrap](https://getbootstrap.com/)
 
 ## Demos

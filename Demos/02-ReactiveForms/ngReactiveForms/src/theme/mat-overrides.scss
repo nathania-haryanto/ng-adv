@@ -11,7 +11,7 @@
 }
 
 .mat-card-header {
-  //background-color: mat-color($primary, 400);
+  background-color: mat.get-color-from-palette($app-primary, 400);
   min-height: $medium-toolbar;
   color: white;
   font-size: 1rem;
