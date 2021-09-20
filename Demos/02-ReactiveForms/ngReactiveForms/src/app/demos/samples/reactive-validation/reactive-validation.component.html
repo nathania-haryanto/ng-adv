@@ -27,26 +27,6 @@
           Name is required (minimum 4 characters).
         </mat-error>
       </mat-form-field>
-
-      <!--Form Error Object -->
-      
-    <!--
-      <mat-form-field>
-      <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
-      <mat-error *ngIf="errors.lastname?.required">
-        Lastname is required
-      </mat-error>
-      <mat-error *ngIf="errors.lastname?.nameError">
-        This name is not allowed
-      </mat-error>
-      <mat-error *ngIf="errors.lastname?.lengthError">
-        Length must be between 4 and 15 characters 
-      </mat-error>
-    
-    </mat-form-field>
-  -->
-
-    <!--Form Error Observable -->
     
       <mat-form-field>
         <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
@@ -62,9 +42,6 @@
       
       </mat-form-field>
     
-    
-
-
       <mat-form-field>
         <input matInput type="number" placeholder="Age" formControlName="age" />
         <mat-error *ngIf="personForm.controls['age'].errors != undefined">
@@ -108,7 +85,7 @@
       <button mat-raised-button color="accent" (click)="validateForm()">
         Validate
       </button>
-      <button mat-raised-button color="accent" type="submit">Submit</button>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!personForm.valid" >Submit</button>
     </form>
   </mat-card-content>
 </mat-card>

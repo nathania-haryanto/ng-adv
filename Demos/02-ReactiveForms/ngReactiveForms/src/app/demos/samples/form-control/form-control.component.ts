@@ -45,6 +45,7 @@ export class FormControlComponent implements OnInit {
     this.name.setValue('Soi - Gladdenfields Beeing Verry Pretty');
   }
 
+  //not used - reset is set in template
   resetName() {
     this.name.reset();
   }

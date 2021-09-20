@@ -6,8 +6,21 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { BehaviorSubject, combineLatest, merge, Observable, Subject } from 'rxjs';
-import { distinct, distinctUntilChanged, map, mergeAll, mergeMap, tap } from 'rxjs/operators';
+import {
+  BehaviorSubject,
+  combineLatest,
+  merge,
+  Observable,
+  Subject,
+} from 'rxjs';
+import {
+  distinct,
+  distinctUntilChanged,
+  map,
+  mergeAll,
+  mergeMap,
+  tap,
+} from 'rxjs/operators';
 import { emptyPerson, wealthOpts } from '../empty-person';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
@@ -21,14 +34,14 @@ import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
 export class ReactiveValidationComponent implements OnInit {
   person: Person = { ...emptyPerson, lastname: null };
   wealthOpts = wealthOpts;
-
+  errors$: Observable<any>;
   personForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private ps: PersonService,
     private mailExistsValidator: AsyncMailExistsValidator
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.loadData();
@@ -62,90 +75,41 @@ export class ReactiveValidationComponent implements OnInit {
       ],
       wealth: [this.person.wealth],
     });
-
   }
-
-
-  // private subscribeChanges() {
-  //   this.personForm.valueChanges.subscribe((vals) => {
-  //     console.log('changes happening @form: ', vals);
-  //   });
-  // }
-
-  // <!--Form Error Object -->
-  /* 
-  errors :any = {lastname:{}};
 
   private subscribeChanges() {
-   combineLatest(
-     [
-       this.personForm.valueChanges,
-       this.personForm.statusChanges.pipe(distinct())
-     ]
-   ).subscribe(el=>this.checkFormErrors(el))  // unsubscribe missing!
-  }
-
-  private checkFormErrors(val_stat_changes:[{Person},string]) {
-    let state = val_stat_changes[1]
-    let person = val_stat_changes[0]
-    if(state === 'INVALID') {
-      let mod_fields = Object.keys(this.personForm.controls)
-      for(let el of mod_fields) {
-        let fp = this.personForm.get(el)
-        console.log(fp)
-        if(fp && fp.invalid && (fp.dirty || fp.touched)) {  // touched is true after first blur
-          this.errors[el] = fp.errors
-        }
-      }
-    } 
-  }
-  */
-  // END <!--Form Error Object -->
-
-
-  
-
-  // <!--Form Error Observable -->
-  errors$: Observable<any>; // = new Subject().asObservable();
-
-  private subscribeChanges() {
-    this.errors$ = combineLatest(
-      [
-        this.personForm.valueChanges,
-        this.personForm.statusChanges.pipe(distinct())
-      ]
-    ).pipe(
-      map(el => this.checkFormErrors(el))
-    )
+    this.errors$ = combineLatest([
+      this.personForm.valueChanges,
+      this.personForm.statusChanges.pipe(distinct()),
+    ]).pipe(map((el) => this.checkFormErrors(el)));
   }
 
   private checkFormErrors(val_stat_changes: [{ Person }, string]) {
-    let state = val_stat_changes[1]
-    let person = val_stat_changes[0]
+    let state = val_stat_changes[1];
+    let person = val_stat_changes[0];
     let errors: any = { lastname: {} };
     if (state === 'INVALID') {
-      let mod_fields = Object.keys(this.personForm.controls)
+      let mod_fields = Object.keys(this.personForm.controls);
       for (let el of mod_fields) {
-        let fp = this.personForm.get(el)
-
-        //this.logControl(el, fp)
+        let fp = this.personForm.get(el);
         if (fp && fp.invalid && (fp.dirty || fp.touched)) {
-          errors[el] = fp.errors
+          errors[el] = fp.errors;
         }
       }
     }
-    //console.log(JSON.stringify(errors))
-    return errors
+    return errors;
   }
-
-  //-- END <!--Form Error Observable -->
 
   private logControl(name, control) {
-    // if (name != 'lastname') return;
-    let s = `${name} - pristine:${control.pristine} - dirty:${control.dirty} - touched:${control.touched} - untouched:${control.untouched} - value:${control.value} - status:${control.status} - valid:${control.valid} - invalid:${control.invalid} - errors:${JSON.stringify(control.errors)}`
-    console.log(s)
+    let s = `${name} - pristine:${control.pristine} - dirty:${
+      control.dirty
+    } - touched:${control.touched} - untouched:${control.untouched} - value:${
+      control.value
+    } - status:${control.status} - valid:${control.valid} - invalid:${
+      control.invalid
+    } - errors:${JSON.stringify(control.errors)}`;
+    console.log(s);
   }
-
 
   savePerson(personForm): void {
     this.ps.save(personForm);
@@ -165,7 +129,7 @@ export class ReactiveValidationComponent implements OnInit {
       return { nameError: true };
     }
     if (control.value?.length < 4 || control.value?.length > 15) {
-      return { lengthError: true }
+      return { lengthError: true };
     }
     return null;
   }
