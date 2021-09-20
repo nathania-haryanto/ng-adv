@@ -12,17 +12,9 @@ export class AppComponent implements OnInit {
   constructor(private titleService: Title, private ts: ThemeService) {}
 
   title: string = environment.title;
-  selectedTheme = 'default';
+  selectedTheme = this.ts.getTheme();
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    this.ts.getTheme().subscribe((t) => {
-      this.selectedTheme = t;
-    });
-  }
-
-  toggleTheme() {
-    this.selectedTheme = this.selectedTheme == 'default' ? 'dark' : 'default';
-    console.log(this.selectedTheme);
   }
 }

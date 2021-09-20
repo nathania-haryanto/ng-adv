@@ -6,7 +6,7 @@
   gdColumns="auto 80px"
   gdColumns.lt-md="100%"
   class="grid"
-  [ngClass]="selectedTheme"
+  [ngClass]="selectedTheme | async"
 >
   <div gdArea="navbar" class="navbar"><app-navbar></app-navbar></div>
   <div gdArea="main" class="main"><router-outlet></router-outlet></div>
