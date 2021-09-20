@@ -1,7 +1,10 @@
+<app-markdown-renderer [md]="'caching'"></app-markdown-renderer>
+
 <mat-card>
   <mat-card-header>
     <mat-card-title>Caching</mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    Demos: {{ demos$ | async | json}}
+  </mat-card-content>
 </mat-card>
-
-<app-markdown-renderer [md]="'caching'"></app-markdown-renderer>

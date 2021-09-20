@@ -34,6 +34,7 @@ export class CombiningComponent implements OnInit {
       take(arrA.length),
       map((i) => arrA[i])
     );
+
     const arrB = ['a', 'b', 'c'];
     const sourceB$ = interval(300).pipe(
       take(arrB.length),

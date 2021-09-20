@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DemoService } from '../../demo.service';
 
 @Component({
   selector: 'app-caching',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./caching.component.scss'],
 })
 export class CachingComponent implements OnInit {
-  constructor() {}
+  constructor(private ds: DemoService) {}
 
   mdPath = '/assets/markdown/caching.md';
+
+  demos$ = this.ds.getItems();
 
   ngOnInit() {}
 }

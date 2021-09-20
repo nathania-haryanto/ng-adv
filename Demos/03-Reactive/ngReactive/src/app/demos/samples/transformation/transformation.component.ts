@@ -28,6 +28,33 @@ export class TransformationComponent implements OnInit {
     clicks.pipe(mapTo('You clicked the button')).subscribe(console.log);
   }
 
+  useSwitchMap() {
+    fromEvent(document, 'click')
+      .pipe(
+        // restart counter on every click
+        switchMap(() => interval(1000))
+      )
+      .subscribe(console.log);
+  }
+
+  useConcatMap() {
+    const source = of('Hello', 'Goodbye');
+    //example with promise
+    const examplePromise = (val) =>
+      new Promise((resolve) => resolve(`${val} World!`));
+    //result of first param passed to second param selector function before being  returned
+    const example = source.pipe(
+      concatMap(
+        (val) => examplePromise(val),
+        (result) => `${result} w/ selector!`
+      )
+    );
+    //output: 'Example w/ Selector: 'Hello w/ Selector', Example w/ Selector: 'Goodbye w/ Selector'
+    const subscribe = example.subscribe((val) =>
+      console.log('Example w/ Selector:', val)
+    );
+  }
+
   //mergeMap is also know under its alias: flatMap
   useMergeMap() {
     // faking network request for save
@@ -48,52 +75,22 @@ export class TransformationComponent implements OnInit {
           });
         })
       )
-      // Saved! {x: 98, y: 170, ...}
       .subscribe((r) => console.log('Saved!', r));
   }
 
-  useConcatMap() {
-    //emit delay value
-    const source = of(2000, 1000);
-    // map value from source into inner observable, when complete emit result and move to next
-    const example = source.pipe(
-      concatMap((val) => of(`Delayed by: ${val}ms`).pipe(delay(val)))
-    );
-    //output: With concatMap: Delayed by: 2000ms, With concatMap: Delayed by: 1000ms
-    const subscribe = example.subscribe((val) =>
-      console.log(`With concatMap: ${val}`)
-    );
-
-    // showing the difference between concatMap and mergeMap
-    const mergeMapExample = source
-      .pipe(
-        // just so we can log this after the first example has run
-        delay(5000),
-        mergeMap((val) => of(`Delayed by: ${val}ms`).pipe(delay(val)))
-      )
-      .subscribe((val) => console.log(`With mergeMap: ${val}`));
-  }
-
-  useSwitchMap() {
-    fromEvent(document, 'click')
-      .pipe(
-        // restart counter on every click
-        switchMap(() => interval(1000))
-      )
-      .subscribe(console.log);
-  }
-
   useExhaustMap() {
-    const firstInterval = interval(1000).pipe(take(10));
-    const secondInterval = interval(1000).pipe(take(2));
-
-    const exhaustSub = firstInterval
-      .pipe(
-        exhaustMap((f) => {
-          console.log(`Emission Corrected of first interval: ${f}`);
-          return secondInterval;
-        })
-      )
-      .subscribe((s) => console.log(s));
+    // @Effect()
+    // login$ = this.actions$.pipe(
+    //   ofType(AuthActionTypes.Login),
+    //   map((action: Login) => action.payload),
+    //   exhaustMap((auth: Authenticate) =>
+    //     this.authService
+    //       .login(auth)
+    //       .pipe(
+    //         map(user => new LoginSuccess({ user })),
+    //         catchError(error => of(new LoginFailure(error)))
+    //       )
+    //   )
+    // );
   }
 }

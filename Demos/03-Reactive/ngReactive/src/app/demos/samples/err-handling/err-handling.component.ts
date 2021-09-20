@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { EMPTY, of, throwError, timer } from 'rxjs';
+import { EMPTY, of, throwError, timer, interval } from 'rxjs';
 import {
   catchError,
   finalize,
@@ -10,8 +9,9 @@ import {
   tap,
 } from 'rxjs/operators';
 import { SubSink } from 'subsink';
-import { VouchersService } from '../voucher.service';
 import { DemoService } from '../../demo.service';
+import { VouchersService } from '../voucher.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-err-handling',
@@ -32,7 +32,7 @@ export class ErrHandlingComponent implements OnInit {
         return name.toUpperCase();
       }),
       catchError((err) => {
-        console.log('catcherr', err);
+        console.log('handled in catchError', err);
         return of('');
       })
     );
@@ -40,7 +40,7 @@ export class ErrHandlingComponent implements OnInit {
     // or here???
     obs.subscribe(
       (val) => console.log(val),
-      (err) => console.log('subscribe-error', err)
+      (err) => console.log('handled in subscribe-error', err)
     );
   }
 
@@ -121,53 +121,24 @@ export class ErrHandlingComponent implements OnInit {
   }
 
   useRetryWhen() {
-    let thrown = false;
-
-    const fakeTimeout = (data) => {
-      setTimeout(() => {
-        if (!thrown) {
-          console.log('fake starting service');
-        }
-        thrown = true;
-      }, 1000);
-      if (!thrown) {
-        console.log('catch err');
-        throw new Error('Error, timeout');
-      }
-    };
-
-    const obs = of(['cleo', 'soi', 'giro']).pipe(
-      tap(fakeTimeout),
-      retryWhen(() => timer(2000))
-    );
-
-    obs.subscribe(
-      (v) => console.log(v),
-      (e) => console.error(e)
-    );
-  }
-
-  catchRethrowReplace() {
-    const obs = of('cleo', 'flora', 'giro', 'soi', 3).pipe(
-      map((name: string) => {
-        return name.toUpperCase();
-      }),
-      catchError((err) => {
-        if (err.status === 401) {
-          console.log('refreshing token');
-          // throw or throwError result both in obs<err>
-          // throw 'invalid credentials'
-          return throwError('invalid credentials');
-        } else {
-          return EMPTY;
-        }
-      })
-    );
-
-    obs.subscribe(
-      (v) => console.log(v),
-      (e) => console.error(e),
-      () => console.log('complete')
-    );
+    interval(1000)
+      .pipe(
+        map((val) => {
+          if (val > 2) throw new Error('Invalid Value');
+          return val;
+        }),
+        retryWhen((error) =>
+          error.pipe(
+            tap(() => console.log('error occurred ')),
+            delay(2000),
+            tap(() => console.log('Retrying ...'))
+          )
+        )
+      )
+      .subscribe(
+        (val) => console.log(val),
+        (err) => console.log(err),
+        () => console.log('Complete')
+      );
   }
 }

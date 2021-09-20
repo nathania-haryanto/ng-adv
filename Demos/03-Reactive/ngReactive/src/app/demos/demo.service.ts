@@ -12,6 +12,8 @@ export class DemoService {
   constructor(private httpClient: HttpClient) {}
 
   getItems(): Observable<DemoItem[]> {
-    return this.httpClient.get<DemoItem[]>(`${environment.apiUrl}demos`);
+    return this.httpClient
+      .get<DemoItem[]>(`${environment.apiUrl}demos`)
+      .pipe(shareReplay());
   }
 }
