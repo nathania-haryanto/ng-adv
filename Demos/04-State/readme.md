@@ -482,7 +482,7 @@ ngOnInit(): void {
 }
 ```
 
-Replace the HTML in home.components.html:
+Add the following HTML to home.components.html:
 
 ```html
 <div
@@ -625,15 +625,7 @@ export class SkillsService {
 }
 ```
 
-Remark about providedIn: 'root'
-
-See further docs:
-https://angular.io/guide/providers#providing-a-service
-
-https://dev.to/nickraphael/angular-s-providedin-root-what-if-two-lazy-modules-provided-the-same-service-166p
-
-
-
+> Note: Read more about [providedIn: 'root'](https://angular.io/guide/providers#providing-a-service) and [this blog post](https://dev.to/nickraphael/angular-s-providedin-root-what-if-two-lazy-modules-provided-the-same-service-166p)
 
 ### Skills Feature Module Implementation
 
@@ -808,7 +800,6 @@ export class SkillsFacadeService {
  ng add @angular/material
 ```
 
-
 ```typescript
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -830,8 +821,6 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     MatSlideToggleModule,
     MatIconModule,
-
-    . . .
 ```
 
 on errors reset npm modules
@@ -841,7 +830,6 @@ npm ci
 ```
 
 ### Implement Skills-List
-
 
 \*.html:
 
