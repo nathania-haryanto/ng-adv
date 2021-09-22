@@ -8,16 +8,19 @@ import { UserService } from './user.service';
 describe('Marbles - Component', () => {
   let userService: any;
 
-  beforeEach(waitForAsync(() => {
-    userService = jasmine.createSpy('UserService');
-    userService.getUsers = cold('a-b-c', { a: 'Mike', b: 'Flo', c: 'Rolf' });
+  beforeEach(
+    waitForAsync(() => {
+      userService = jasmine.createSpy('UserService');
+      userService.getUsers = () =>
+        cold('a-b-c', { a: 'Mike', b: 'Flo', c: 'Rolf' });
 
-    TestBed.configureTestingModule({
-      declarations: [UserMarblesComponent],
-      imports: [MaterialModule],
-      providers: [{ provide: UserService, useValue: userService }],
-    }).compileComponents();
-  }));
+      TestBed.configureTestingModule({
+        declarations: [UserMarblesComponent],
+        imports: [MaterialModule],
+        providers: [{ provide: UserService, useValue: userService }],
+      }).compileComponents();
+    })
+  );
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(UserMarblesComponent);
@@ -27,18 +30,18 @@ describe('Marbles - Component', () => {
 
   // TODO: Fix service mock
 
-  // it('should correctly show all user names', async () => {
-  //   const fixture = TestBed.createComponent(UserMarblesComponent);
-  //   fixture.detectChanges();
+  it('should correctly show all user names', async () => {
+    const fixture = TestBed.createComponent(UserMarblesComponent);
+    fixture.detectChanges();
 
-  //   getTestScheduler().flush();
-  //   fixture.detectChanges();
+    getTestScheduler().flush();
+    fixture.detectChanges();
 
-  //   const divs = fixture.debugElement.queryAll(By.css('div'));
-  //   expect(divs.length).toBe(3);
+    const divUser = fixture.debugElement.queryAll(By.css('.user'));
+    expect(divUser.length).toBe(3);
 
-  //   expect(divs[0].nativeElement.innerText).toBe('Mike');
-  //   expect(divs[1].nativeElement.innerText).toBe('Flo');
-  //   expect(divs[2].nativeElement.innerText).toBe('Rolf');
-  // });
+    expect(divUser[0].nativeElement.innerText).toBe('Mike');
+    expect(divUser[1].nativeElement.innerText).toBe('Flo');
+    expect(divUser[2].nativeElement.innerText).toBe('Rolf');
+  });
 });
