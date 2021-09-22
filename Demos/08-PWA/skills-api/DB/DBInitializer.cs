@@ -17,11 +17,11 @@ namespace SkillsApi
 
                 context.Topics.AddRange(t1, t2);
 
-                var sk1 = new Skill { Title = "Custom Theme", Completed = true, Hours = 4, DueDate = DateTime.Now.AddMonths(-1) };
-                var sk2 = new Skill { Title = "Theme Mixins", Completed = false, Hours = 3, DueDate = DateTime.Now.AddMonths(-2) };
-                var sk3 = new Skill { Title = "Light & Dark Theme", Completed = false, Hours = 2, DueDate = DateTime.Now.AddMonths(2) };
-                var sk4 = new Skill { Title = "RxJS Operators", Completed = true, Hours = 5, DueDate = DateTime.Now.AddDays(2)};
-                var sk5 = new Skill { Title = "Custom Operators", Completed = false, Hours = 1, DueDate = DateTime.Now.AddYears(1)};
+                var sk1 = new Skill { Name = "Custom Theme", Completed = true, Hours = 4, DueDate = DateTime.Now.AddMonths(-1) };
+                var sk2 = new Skill { Name = "Theme Mixins", Completed = false, Hours = 3, DueDate = DateTime.Now.AddMonths(-2) };
+                var sk3 = new Skill { Name = "Light & Dark Theme", Completed = false, Hours = 2, DueDate = DateTime.Now.AddMonths(2) };
+                var sk4 = new Skill { Name = "RxJS Operators", Completed = true, Hours = 5, DueDate = DateTime.Now.AddDays(2)};
+                var sk5 = new Skill { Name = "Custom Operators", Completed = false, Hours = 1, DueDate = DateTime.Now.AddYears(1)};
 
                 context.Skills.AddRange(sk1, sk2, sk3, sk4, sk5);
 

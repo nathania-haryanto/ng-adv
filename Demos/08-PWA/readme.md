@@ -37,11 +37,8 @@ Make sure you adjust your `environment.prod` to match IP config of your dev mach
 
 ```
 export const environment = {
-  production: false,
-  apiUrl: 'https://localhost:5001/api/',
-  firebase: {
-   ...
-  },
+  production: true,
+  api: 'https://localhost:5001/api/',
 };
 ```
 
