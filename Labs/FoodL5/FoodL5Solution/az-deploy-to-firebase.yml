@@ -1,24 +1,3 @@
-# Angular DevOps
-
-Use [ng-devops Sample](https://github.com/ARambazamba/ng-devops)
-
-## Instructions
-
-Get Firebase CI Token:
-
-```
-firebase login:ci
-```
-
-> Note: Make sure Firebase CLI is installed
-
-Copy the token:
-
-![fb-token](_images/fb-token.png)
-
-Create a `deploy-to-firebase.yml` and copy the following content:
-
-```yml
 trigger:
   branches:
     include:
@@ -64,10 +43,3 @@ stages:
               ArtifactName: "ngapp"
               publishLocation: "Container"
             displayName: "Publish Artifacts"
-```
-
-> Note: In real life you would get the token from a Key Vault and access it using a variable
-
-Run & Check the pipeline:
-
-![fb-token](_images/run-pipeline.png)
