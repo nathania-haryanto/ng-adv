@@ -107,14 +107,6 @@
       "sortOrder": 0
     },
     {
-      "url": "mockstore",
-      "title": "NgRx Mock Store",
-      "id": 12,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "cypress",
       "title": "Cypress",
       "id": 66,
