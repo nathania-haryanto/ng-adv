@@ -38,20 +38,10 @@ Make sure you adjust your `environment.prod` to match IP config of your dev mach
 ```
 export const environment = {
   production: false,
-  appName: 'skills-pwa',
-  googleApiKey: 'AIzaSyBIhPL-ZRldsuzXJoclj-********-0IeY',
-  apiURL: 'https://YOURIP:5000/api/',
-  userID: 'user001',
+  apiUrl: 'https://localhost:5001/api/',
   firebase: {
-    apiKey: '*****',
-    authDomain: 'ngskills.firebaseapp.com',
-    databaseURL: 'https://:********:.firebaseio.com',
-    projectId: 'ngskills',
-    storageBucket: '',
-    messagingSenderId: ':********:',
-    appId: '1:********:web:6144104923e88db27ab2d8',
-    measurementId: 'G-:********:'
-  }
+   ...
+  },
 };
 ```
 
@@ -84,40 +74,6 @@ ngrok.exe http 8080
 ```
 
 ![ngrok](_images/ngrok.png)
-
-### Tools
-
-#### Firebase Hosting
-
-Register [Firebase Project](https://console.firebase.google.com) and add an App
-
-Copy App Configuration to environment:
-
-![config](_images/firebase-config.png)
-
-Install Firebase Tools
-
-```
-npm install -g firebase-tools
-```
-
-Login to Firebase:
-
-```
-firebase login
-```
-
-Init Project for Firebase
-
-```
-firebase init
-```
-
-Publish to Firebase
-
-```
-firebase deploy
-```
 
 ### Links & Readings
 
