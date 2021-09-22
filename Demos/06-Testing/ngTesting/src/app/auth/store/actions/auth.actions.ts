@@ -24,7 +24,7 @@ export class Register implements Action {
 export class RegisterSuccess implements Action {
   readonly type = AuthActionTypes.RegisterSuccess;
 
-  constructor(public payload: firebase.default.User) {}
+  constructor(public payload: any) {}
 }
 
 export class RegisterErr implements Action {
@@ -40,7 +40,7 @@ export class Login implements Action {
 
 export class LoginSuccess implements Action {
   readonly type = AuthActionTypes.LoginSuccess;
-  constructor(public payload: firebase.default.User) {}
+  constructor(public payload: any) {}
 }
 
 export class LoginErr implements Action {

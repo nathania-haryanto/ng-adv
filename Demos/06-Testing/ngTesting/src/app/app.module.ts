@@ -13,7 +13,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
+import { FBAuthModule } from './auth/auth.module';
 import { FBAuthInterceptor } from './auth/fbauth.interceptor';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
@@ -35,7 +35,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
     MaterialModule,
     HttpClientModule,
     SharedModule,
-    AuthModule,
+    FBAuthModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

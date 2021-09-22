@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MarkdownModule } from 'ngx-markdown';
-import { AuthModule } from '../auth/auth.module';
+import { FBAuthModule } from '../auth/auth.module';
 import { MaterialModule } from '../material.module';
 import { SkillsService } from '../model/skills/skills.service';
 import { SharedModule } from '../shared/shared.module';
@@ -116,7 +116,7 @@ const demoRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
-    AuthModule,
+    FBAuthModule,
     MaterialModule,
     HttpClientModule,
     MarkdownModule.forRoot({
