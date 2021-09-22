@@ -24,33 +24,46 @@ trigger:
     include:
       - master
 
+variables:
+  name: fbtoken
+  value: "1//03n1UzyzgiAL6CgYIARAAGAMSNwF-L9IrdQOMVtV_cWa2aJ0aPCQbrgBs4970n7TmOg4JRWFcJxYqvc9LwiKp4nQi1qhPursS4kA"
+
 stages:
   - stage: default
 
     jobs:
       - job: Job
         pool:
-          vmImage: 'ubuntu-latest'
+          vmImage: "ubuntu-latest"
 
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: '12.x'
-            displayName: 'Install Node.js'
+              versionSpec: "14.x"
+            displayName: "Install Node.js"
 
-          - bash: |
+          - script: |
               npm install -g firebase-tools
-            displayName: 'install firebase cli'
+            displayName: "install firebase cli"
 
           - script: |
               npm install -g @angular/cli
               npm install
               ng build --prod
-            displayName: 'npm install and build'
+            displayName: "npm install and build"
 
           - script: |
-              firebase deploy --token '1//03n1UzyzgiAL6CgYIARAAGAMSNwF-L9IrdQOMVtV_cWa2aJ0aPCQbrgBs4970n7TmOg4JRWFcJxYqvc9LwiKp4nQi1qhPursS4kA'
-            displayName: 'deploy to firebase'
+              firebase deploy --token $TOKEN
+            env:
+              TOKEN: $(fbtoken)
+            displayName: "deploy to firebase"
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: "dist/ng-devops"
+              ArtifactName: "ngapp"
+              publishLocation: "Container"
+            displayName: "Publish Artifacts"
 ```
 
 > Note: In real life you would get the token from a Key Vault and access it using a variable
