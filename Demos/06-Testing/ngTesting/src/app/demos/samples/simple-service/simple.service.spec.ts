@@ -1,4 +1,5 @@
 import { SimpleMessageService } from './simple.service';
+import { msgs } from './test-data';
 
 describe('Service - No Injection - SimpleMessageService', () => {
   let service: SimpleMessageService;
@@ -28,11 +29,7 @@ describe('Service - No Injection - SimpleMessageService', () => {
 
   it('should delete the correct item', () => {
     service = new SimpleMessageService();
-    service.messages = [
-      'Hello World',
-      'Servas die Buam',
-      'Griaß eich die Madln',
-    ];
+    service.messages = msgs;
     service.delete('Hello World');
 
     expect(service.messages.length).toBe(2);

@@ -10,16 +10,17 @@ import { FoodService } from './food.service';
 describe('Service - HttpTest -FoodService', () => {
   let service: FoodService;
   let controller: HttpTestingController;
-  const data = [
-    { name: 'Rehgulasch', rating: 2 },
-    { name: 'Leberkäse', rating: 2 },
-  ];
+  let data = [];
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [FoodService],
-    });
+    (data = [
+      { name: 'Rehgulasch', rating: 2 },
+      { name: 'Leberkäse', rating: 2 },
+    ]),
+      TestBed.configureTestingModule({
+        imports: [HttpClientTestingModule],
+        providers: [FoodService],
+      });
 
     service = TestBed.inject(FoodService);
     controller = TestBed.inject(HttpTestingController);
