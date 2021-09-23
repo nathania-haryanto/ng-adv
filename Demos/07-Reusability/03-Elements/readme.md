@@ -166,7 +166,6 @@ To set the `@Input()` and handle the `@Output()` add the following script `index
 Contents of `index.js`:
 
 ```javascript
-<script>
   document.addEventListener("DOMContentLoaded", function (event) {
     const element = document.getElementsByTagName("ng-skills")[0];
     if (element) {
@@ -183,7 +182,6 @@ Contents of `index.js`:
       );
     }
   });
-</script>
 ```
 
 Install a tool that can serve static pages, ie `angular-http-server`:
