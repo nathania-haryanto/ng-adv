@@ -191,29 +191,3 @@ angular-http-server -p 9000
 ```
 
 Navigate to: `http://localhost:9000/`
-
-#### Create a Single File Bundle - Optional
-
-If you want to create `ONE SINGLE FILE` you can use an older approach to concat the files:
-
-Install `npm install --save-dev concat fs-extra`
-
-Add `elements-build.js` to root folder
-
-```javascript
-const fs = require('fs-extra');
-const concat = require('concat');
-
-(async function build() {
-  const files = [
-    './dist/nge-skills/runtime.js',
-    './dist/nge-skills/polyfills.js',
-    './dist/nge-skills/scripts.js',
-    './dist/nge-skills/main.js',
-  ];
-
-  await fs.ensureDir('elements');
-  await concat(files, 'elements/nge-skills.js');
-  await fs.copyFile('./dist/nge-skills/styles.css', 'elements/styles.css');
-})();
-```
