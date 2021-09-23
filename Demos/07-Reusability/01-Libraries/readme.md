@@ -199,19 +199,4 @@ export class AppComponent {
 - Login to npm using `npm login`
 - Run `npm publish` from lib folder
 
-REMARK 1:
-It is not recommended to publish Ivy libraries to NPM repositories.
-Read more here: https://v9.angular.io/guide/ivy#maintaining-library-compatibility
-
-This is about compatibility pre Ivy apps with your component.
-At least write it in a remark that yours is an Ivy component.
-
-REMARK 2:
-There are local npm registries like:
-
-[Verdaccio](https://verdaccio.org/)
-[local-npm](https://www.npmjs.com/package/local-npm)
-
-
-
-
+> Note: It is not recommended to publish Ivy libraries to NPM repositories. Read more here: https://v9.angular.io/guide/ivy#maintaining-library-compatibility
