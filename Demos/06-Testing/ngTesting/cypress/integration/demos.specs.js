@@ -10,7 +10,7 @@ context('Demos', () => {
       cy.get('.clickable').first().click();
     });
 
-    it('Has six options in Testing menu', () => {
+    it('Has 14 options in Testing menu', () => {
       cy.get('.clickable').first().click();
       cy.get('button.mat-raised-button').should('have.length', 14);
     });

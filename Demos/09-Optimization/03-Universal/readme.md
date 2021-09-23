@@ -14,7 +14,7 @@ cd ng-universal
 ng add @nguniversal/express-engine
 ```
 
-Add a script to track First Contenful Pain (FCP):
+Add a script to track First Contenful Pain (FCP) to `index.html`:
 
 ```
 <script>
