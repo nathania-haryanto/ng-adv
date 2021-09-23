@@ -1,6 +1,18 @@
 # Progressive Web Apps
 
-## Prerequisites: Skills Api
+## Links & Readings
+
+[Progressive Web Apps @Google](https://web.dev/progressive-web-apps/)
+
+[Angular Service Workers](https://angular.io/guide/service-worker-intro)
+
+[How to make PWAs installable](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installable_PWAs)
+
+[Debugging Service Workers](https://developers.google.com/web/tools/workbox/guides/troubleshoot-and-debug)
+
+## Demo
+
+### Prerequisites: Skills Api
 
 - Requires [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0).
 - If you want to use another db engine change connection string in appsettings.json.
@@ -72,12 +84,3 @@ ngrok.exe http 8080
 
 ![ngrok](_images/ngrok.png)
 
-### Links & Readings
-
-[manifest.json Reference](https://developers.google.com/web/fundamentals/web-app-manifest/)
-
-[Fine Tuning PWAs](https://medium.com/progressive-web-apps/2018-state-of-progressive-web-apps-f7517d43ba70)
-
-[Turn exisitung Angular App into PWA](https://blog.angular-university.io/angular-service-worker/)
-
-[Debugging Service Workers](https://developers.google.com/web/fundamentals/codelabs/debugging-service-workers/)
