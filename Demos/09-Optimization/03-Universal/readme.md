@@ -1,8 +1,10 @@
 # Angular Universal
 
+[AppShell](https://angular.io/guide/app-shell)
+
 [Angular Universal](https://angular.io/guide/universal)
 
-[AppShell](https://angular.io/guide/app-shell)
+[Prerendering](https://angular.io/guide/prerendering)
 
 ## Configure Angular Universal
 

@@ -193,7 +193,7 @@ export class AppComponent {
 
 ## Publish to NPM
 
-[Publish to NPM](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)
+[Creating and publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)
 
 - Create a production build using the `--prod` flag
 - Login to npm using `npm login`

@@ -157,8 +157,11 @@ Modify the HTML in `./dist/skills-elements/index.html` for Testing:
 </html>
 ```
 
-To set the `@Input()` and handle the `@Output()` add the following script to the head of the `index.html`:
+To set the `@Input()` and handle the `@Output()` add the following script `index.js` to  `index.html`:
 
+<script src="index.js" defer></script>
+
+Contents of `index.js`:
 ```javascript
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
