@@ -57,7 +57,7 @@ export const environment = {
 #### Create a build
 
 ```
-ng build [--delete-output-path false]
+ng build --prod [--delete-output-path false]
 ```
 
 > Note: Make sure your envirenment.prod.ts matches environment.ts
