@@ -191,7 +191,7 @@ export class AppComponent {
 }
 ```
 
-### Publish to NPM
+## Publish to NPM
 
 [Publish to NPM](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)
 
@@ -199,4 +199,4 @@ export class AppComponent {
 - Login to npm using `npm login`
 - Run `npm publish` from lib folder
 
-> Note: It is not recommended to publish Ivy libraries to NPM repositories. Read more here: https://v9.angular.io/guide/ivy#maintaining-library-compatibility
+> Note: It is not recommended to publish Ivy libraries to NPM repositories. Read more here: https://v9.angular.io/guide/ivy#maintaining-library-compatibility. You can also publish your npm packages to [GitHub](https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages)
