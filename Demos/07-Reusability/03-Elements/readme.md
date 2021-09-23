@@ -141,18 +141,17 @@ Modify the HTML in `./dist/skills-elements/index.html` for Testing:
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>NgSkillsCE</title>
+    <title>SkillsElements</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <ng-skills></ng-skills>
-    <script src="polyfills-es5.js" nomodule defer></script>
-    <script src="polyfills-es2015.js" type="module"></script>
-    <script src="scripts.js" defer></script>
-    <script src="main-es2015.js" type="module"></script>
-    <script src="main-es5.js" nomodule defer></script>
+    <script src="index.js" defer></script>
+    <script src="polyfills.js" defer></script>
+    <script src="main.js" defer></script>
   </body>
 </html>
 ```
