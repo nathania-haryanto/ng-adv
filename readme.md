@@ -20,6 +20,8 @@ Companion Material for Class Delivery by [Alexander Pajer](https://www.integrati
 
 [Firebase Account](https://firebase.google.com/)
 
+[Azure Trial Account](https://azure.microsoft.com/en-us/free/)
+
 ## Contributing
 
 Feel free to contribute. When contribute implement your changes / additions on a feature branch in your fork and issue a pull request after completion. An introduction video into forks and pull requests can be found [here](https://www.youtube.com/watch?v=nT8KGYVurIU)
