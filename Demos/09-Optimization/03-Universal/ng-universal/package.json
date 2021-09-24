@@ -12,7 +12,6 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "dev:ssr": "ng run ng-universal:serve-ssr",
     "serve:ssr": "node dist/ng-universal/server/main.js",
     "build:ssr": "ng build --configuration production && ng run ng-universal:server:production",
