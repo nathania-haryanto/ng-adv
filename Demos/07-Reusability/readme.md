@@ -1,6 +1,6 @@
 # Reusability
 
 - Angular Libraries
-- Schematics
-- Angular Elements
-- Monorepos & Nx
+- Implementing Libraries using Nx
+- Implementing WebComponents using Angular Elements
+- Understanding and Implementing Schematics
