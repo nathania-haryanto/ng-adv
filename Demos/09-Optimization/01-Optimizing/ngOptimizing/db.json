@@ -91,16 +91,6 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
-    },
-
-    {
-      "url": "webworker",
-      "title": "Web Worker",
-      "component": "WebWorkerComponent",
-      "id": 9,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
     }
   ],
   "food": [
