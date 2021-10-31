@@ -1,5 +1,5 @@
 # Advanded Publishing
 
-- Using ng deploy
-- Containers: Docker & Kubernetes
+- Angular Hosting Options & Deployment
+- Optimizing Angualr for Containers: Docker & Kubernetes
 - Introduction to Angular DevOps
