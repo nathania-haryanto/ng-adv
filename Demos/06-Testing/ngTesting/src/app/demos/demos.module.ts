@@ -47,6 +47,8 @@ import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 import { ComponentEventsComponent } from './samples/component-events/component-events.component';
 import { CypressComponent } from './samples/cypress/cypress.component';
 import { ComponentWriteComponent } from './samples/component-write/component-write.component';
+import { MaterialComponent } from './samples/material/material.component';
+import { MaterialAsyncComponent } from './samples/material-async/material-async.component';
 
 const demoRoutes: Routes = [
   {
@@ -64,6 +66,8 @@ const demoRoutes: Routes = [
       { path: 'mock', component: UseMockComponent },
       { path: 'httptests', component: HttpTestsComponent },
       { path: 'async', component: AsyncComponent },
+      { path: 'material-async', component: MaterialAsyncComponent },
+      { path: 'material', component: MaterialComponent },
       { path: 'marbles', component: MarblesComponent },
       { path: 'ngrx', component: NgrxComponent },
       { path: 'mockstore', component: MockStoreComponent },
@@ -109,6 +113,8 @@ const demoRoutes: Routes = [
     ComponentEventsComponent,
     CypressComponent,
     ComponentWriteComponent,
+    MaterialComponent,
+    MaterialAsyncComponent,
   ],
   imports: [
     CommonModule,
