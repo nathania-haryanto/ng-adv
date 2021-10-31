@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-material',
   templateUrl: './material.component.html',
-  styleUrls: ['./material.component.scss']
+  styleUrls: ['./material.component.scss'],
 })
-export class MaterialComponent implements OnInit {
+export class MaterialComponent {
+  value = 50;
+  slidervalue;
+  validated = false;
+  sliderForm: FormGroup;
 
-  constructor() { }
+  constructor() {
+    this.sliderForm = new FormGroup({
+      slider: new FormControl(this.value, Validators.min(1)),
+    });
 
-  ngOnInit(): void {
+    this.sliderForm.valueChanges.subscribe(
+      (data: any) => (this.value = data.slider)
+    );
   }
 
+  resetSlider() {
+    this.sliderForm.controls['slider'].setValue(1);
+  }
 }
