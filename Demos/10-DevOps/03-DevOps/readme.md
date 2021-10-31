@@ -1,8 +1,14 @@
 # Angular DevOps
 
-Use [ng-devops Sample](https://github.com/ARambazamba/ng-devops)
+## Demos
 
-## Instructions
+- Config Injection - Explain `config.service.ts` of FoodUI
+- Deploy Angular App to Firebase using Azure DevOps
+
+
+### Deploy Angular App to Firebase using Azure DevOps
+
+Use [ng-devops Sample](https://github.com/ARambazamba/ng-devops)
 
 Get Firebase CI Token:
 
