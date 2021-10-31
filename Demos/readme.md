@@ -142,11 +142,13 @@
 
 - Deployment Overview & Hosting Options
 - Publishing using ngDeploy
-- DevOps optimized Configuration Management using Config Injection
-- Docker & Kubernetes Introduction
-- Building an Angular Multi-Stage Docker Image
 - Azure Hosting Options: Static Web App, CDN, Container Solutions
+- DevOps optimized Configuration Management using Config Injection
+- Docker Introduction
+- Building an Angular Multi-Stage Docker Image
 - Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
+- Kubernetes Introduction
+- Kubernetes Optimized Configuration Management
 - Building & Deploying an Angular App to Azure Kubernetes Services
 - DevOps Gates using Unit-Tests, UI-Tests & Code Coverage
 - Implementing Feature Flags / Toggles using LaunchDarkly (optional)
