@@ -4,9 +4,13 @@
 
 ## Demos:
 
-- 01-ngstate: Stateful Service, EventBus, NgRx Demo Showcase
+- 01-ngstate: Stateful Service, EventBus
+- 02-ngstate: Explain Root State without creator functions
+- 03-ngstate: Refactor `menu.service.ts` into the Root State - live demo
+- 04-ngstate: Explain Demos Feature Module State with creator functions
 - 02-ngrx-skills: NgRx Implementation with Detailed Guide
 - 03-ngrx-skills-steps: Older Sample with 5 steps in seperate folders
+- 04-tutorials (optional)
 
 ## Installation:
 
