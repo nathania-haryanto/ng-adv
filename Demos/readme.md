@@ -89,6 +89,7 @@
 - Setting up Mock Data
 - Shallow / Deep Component Integration Tests
 - Async Component Testing (done, fakeAsync, async whenStable)
+- Material Testing using component harnesses
 - Http Testing
 - Introduction to Marble Testing
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
