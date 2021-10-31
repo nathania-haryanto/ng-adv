@@ -20,7 +20,6 @@ trigger:
       - FoodUI/*
 
 variables:
-  provision: true
   fld: FoodUI/
   conACR: acrDefault
   conKube: "conKube"
@@ -36,7 +35,7 @@ variables:
 
 stages:
   - stage: "Prepare"
-    displayName: "Build Img and IaC"    
+    displayName: "Build Img"    
     jobs:
       
       - job: BuildImg
@@ -45,19 +44,7 @@ stages:
             parameters:
               con: $(conACR)
               img: $(img)
-              path: $(fld)
-        
-      - job: IaC
-        condition: eq(variables.provision, true)
-        steps:        
-        - task: AzureCLI@2
-          displayName: 'Provision K8s'
-          inputs:
-            azureSubscription: '$(subs)'
-            scriptType: 'bash'
-            scriptLocation: 'scriptPath'
-            scriptPath: '$(System.DefaultWorkingDirectory)/az-cli/create-ui-k8s.sh'
-            arguments: '$(rnd)'        
+              path: $(fld)      
 
   - stage: Deploy
     displayName: Deploy stage
