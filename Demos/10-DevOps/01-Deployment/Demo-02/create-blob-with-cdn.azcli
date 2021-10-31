@@ -1,0 +1,49 @@
+rnd=$RANDOM
+grp=az204-m13-cdn-$rnd
+loc=westeurope
+acct=staticwebsite$rnd
+path='../food-app/FoodUI/dist/FoodUI'
+profile=ngapp
+epname=ngendpoint
+
+az group create -n $grp -l $loc
+
+az storage account create -l $loc -n $acct -g $grp --sku Standard_LRS
+
+key=$(az storage account keys list -n $acct --query "[0].[value][0]")
+
+echo "Website Key: " $key
+
+ep=$(az storage account show -g $grp -n $acct --query "primaryEndpoints.web")
+
+echo "Primary Endpoint for Static Web: " $ep
+
+# Enable static webstie on storage acct
+
+az storage blob service-properties update --account-name $acct --static-website --404-document error.html --index-document index.html
+
+az storage blob upload-batch --account-name $acct --account-key $key -s $path -d '$web'
+
+az storage account show --name $acct -g $grp --query "primaryEndpoints.web" --output tsv
+
+# Create CDN
+
+az cdn profile create -g $grp --name $profile --sku Standard_Microsoft
+
+host=$acct'.z6.web.core.windows.net'
+
+az cdn endpoint create -g $grp --name $epname --profile-name $profile --origin $host --origin-host-header $host
+
+# Url ReWrite
+az cdn endpoint rule add -n $epname -g $grp --profile-name $profile --rule-name sparewrite --order 1 --action-name "UrlRewrite" --source-pattern '/' --destination /index.html --preserve-unmatched-path false --match-variable UrlFileExtension --operator LessThan --match-value 1
+
+# Enforce Https
+az cdn endpoint rule add -n $epname -g $grp --profile-name $profile --rule-name enforcehttps --order 2 --action-name "UrlRedirect"  --redirect-type Found --redirect-protocol HTTPS --match-variable RequestScheme --operator Equal --match-value HTTP
+
+# Preload Endpoint on Higher Level SKUs as Replication might take hours
+
+az cdn endpoint load -g $grp -n $epname --profile-name $profile --content-paths $content'index.html'
+
+# Purge 
+
+az cdn endpoint purge -g $grp -n $epname --profile-name $profile --content-paths $content'index.html'
