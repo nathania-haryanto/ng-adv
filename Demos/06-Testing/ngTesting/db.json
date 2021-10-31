@@ -16,7 +16,6 @@
       "visible": true,
       "sortOrder": 0
     },
-
     {
       "url": "directive",
       "title": "Test Directive",
@@ -86,6 +85,22 @@
       "url": "async",
       "title": "Async Tests",
       "id": 9,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "material-async",
+      "title": "Material Async",
+      "id": 12,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "material",
+      "title": "Material Harness",
+      "id": 19,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0

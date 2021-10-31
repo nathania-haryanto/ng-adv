@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Material Harness</mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+       
+        <form [formGroup]="sliderForm"  fxLayout="column" fxLayoutGap="16px">
+            
+                <div>
+                    <mat-slider formControlName="slider"  min="1" max="100" step="1"></mat-slider>
+                </div>
+                <div>
+                    <button mat-raised-button
+                    color="accent" (click)="resetSlider()" type="button">Reset</button>
+                </div>
+                <div>
+                    <button mat-raised-button
+                    color="accent" type="button">Just there to have 2 buttons</button>
+                </div>
+    
+                <div *ngIf="sliderForm.invalid">
+                    slider has <b><i>invalid </i> </b> value and choose value greater than 10.
+                </div>
+                <div *ngIf="sliderForm.valid">
+                    Slider has a <b><i>valid </i> </b> value {{value}}.
+                </div><br/>
+                <div *ngIf="sliderForm.pristine">
+                    Slider having state <b><i>pristine.</i></b> Slider value not yet changed by user.
+                </div>
+                <div *ngIf="sliderForm.dirty">
+                    Slider having state <b><i>dirty.</i> </b> Slider value changed by user.
+                </div><br/>
+                <div *ngIf="sliderForm.untouched">
+                    Slider having state <b><i>untouched.</i></b> Slider has not visited by user.
+                </div>
+                <div *ngIf="sliderForm.touched">
+                    Slider having state <b><i>touched.</i> </b> Slider has been visited by user.
+                </div>
+        </form>
+
+    </mat-card-content>
+  </mat-card>
