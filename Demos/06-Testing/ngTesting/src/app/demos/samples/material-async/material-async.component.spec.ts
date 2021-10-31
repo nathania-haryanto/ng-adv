@@ -1,21 +1,14 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '../../../material.module';
 import { MaterialAsyncComponent } from './material-async.component';
 import { User } from './user-model';
-import { MaterialModule } from '../../../material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { usersdata } from './users-data';
 
 describe('MaterialAsyncComponent', () => {
   let fixture;
   let component;
-  let testUsers: User[] = [
-    { email: 'dummy@mail.com', created: '01-01-2020', roles: 'admin,standard' },
-    { email: 'hello@mail.com', created: '01-01-2022', roles: 'admin' },
-    {
-      email: 'yes@mail.com',
-      created: '01-01-2033',
-      roles: 'admin,standard,restricted',
-    },
-  ];
+  let testUsers: User[] = usersdata;
 
   beforeEach(
     waitForAsync(() => {
