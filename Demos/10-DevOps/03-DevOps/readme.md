@@ -2,9 +2,8 @@
 
 ## Demos
 
-- Config Injection - Explain `config.service.ts` of FoodUI
+- Config Injection - Explain `config.service.ts` of `../food-app/food-ui`
 - Deploy Angular App to Firebase using Azure DevOps
-
 
 ### Deploy Angular App to Firebase using Azure DevOps
 

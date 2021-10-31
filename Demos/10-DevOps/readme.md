@@ -1,5 +1,5 @@
-# Advanded Publishing
+# Advanced Angular Publishing & DevOps using Containers
 
 - Angular Hosting Options & Deployment
-- Optimizing Angualr for Containers: Docker & Kubernetes
+- Optimizing Angular for Docker & Kubernetes
 - Introduction to Angular DevOps
