@@ -138,13 +138,15 @@
 - Implementing Push Notifications
 - Using App Shell
 
-## Advanced Publishing using Containers & Angular DevOps
+## Advanced Angular Publishing & DevOps using Containers
 
 - Deployment Overview & Hosting Options
 - Publishing using ngDeploy
-- Angular DevOps optimized Configuration Management
+- Angular DevOps optimized Configuration Management using config injection
 - Docker & Kubernetes Introduction
+- Angular Config and 
 - Building an Angular Multi-Stage Docker Image
+- Implementing Feature Flags / Toggles using LaunchDarkly
 - Azure Hosting Options: Static Web App, CDN, Container Solutions
 - Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
 - Building & Deploying an Angular App to Kubernetes 
