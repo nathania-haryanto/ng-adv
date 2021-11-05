@@ -6,11 +6,12 @@
 
 - 01-ngstate: Stateful Service, EventBus
 - 02-ngstate: Explain Root State without creator functions
-- 03-ngstate: Refactor `menu.service.ts` into the Root State - live demo
-- 04-ngstate: Explain Demos Feature Module State with creator functions
-- 02-ngrx-skills: NgRx Implementation with Detailed Guide
-- 03-ngrx-skills-steps: Older Sample with 5 steps in seperate folders
-- 04-tutorials (optional)
+- 03-ngstate: Exchange `menu.service.ts` with  `menu.facade.ts` in `demo-container.component.ts` and `navbar.component.ts`
+- 04-ngstate: Refactor `toggleEditor()` `in side-bar.component.ts` to the root state
+- 05-ngstate: Explain Demos Feature Module State with creator functions
+- 06-ngrx-skills: NgRx Implementation with Detailed Guide
+- 07-ngrx-skills-steps: Older Sample with 5 steps in seperate folders
+- 08-tutorials (optional)
 
 ## Installation:
 
