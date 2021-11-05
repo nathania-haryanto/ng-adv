@@ -2,7 +2,7 @@ import { tick } from '@angular/core/testing';
 
 describe('Component - AsyncTest - Intro', () => {
   // Comment after understanding
-  //   it('shoult not be reached or does not pass', () => {
+  //   it('should not be reached or does not pass', () => {
   //     let pass = false;
 
   //     setTimeout(() => {
@@ -15,7 +15,7 @@ describe('Component - AsyncTest - Intro', () => {
   //     expect(pass).toBeTruthy();
   //   });
 
-  it('shoult not be reached or does not pass', (done) => {
+  it('should not be reached or does not pass', (done) => {
     let pass = false;
 
     setTimeout(() => {
