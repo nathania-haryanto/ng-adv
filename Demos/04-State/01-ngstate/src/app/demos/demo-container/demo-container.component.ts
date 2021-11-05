@@ -7,6 +7,7 @@ import { MenuFacade } from 'src/app/store/facades/menu.facade';
 import { environment } from 'src/environments/environment';
 import { DemoItem } from '../demo-item.model';
 import { DemoFacade } from '../store/facades/demo.facade';
+import { MenuService } from '../../shared/menu/menu.service';
 
 @Component({
   selector: 'app-demo-container',
@@ -15,7 +16,7 @@ import { DemoFacade } from '../store/facades/demo.facade';
 })
 export class DemoContainerComponent implements OnInit {
   constructor(
-    public mf: MenuFacade,
+    public ms: MenuService,
     private router: Router,
     private df: DemoFacade,
     private eb: EventBusService
@@ -26,8 +27,10 @@ export class DemoContainerComponent implements OnInit {
 
   demos$ = this.df.getDemos();
   current: DemoItem = this.demos$ != null ? this.demos$[0] : null;
-  menuVisible$ = this.mf.sideNavVisible;
-  menuPosition$ = this.mf.sideNavPosition;
+
+  menuVisible$ = this.ms.sideNavVisible;
+  menuPosition$ = this.ms.sideNavPosition;
+
   showEditor$ = this.eb.Commands.pipe(
     map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
   );
@@ -40,7 +43,7 @@ export class DemoContainerComponent implements OnInit {
 
   getWorbenchStyle() {
     let result = {};
-    this.mf.sideNavVisible.subscribe((visible) => {
+    this.ms.sideNavVisible.subscribe((visible) => {
       result = visible
         ? {
             'margin-left': '10px',

@@ -4,7 +4,6 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 import { MenuService } from '../menu/menu.service';
 import { Observable } from 'rxjs';
 import { MenuItem } from '../menu/MenuItem';
-import { MenuFacade } from 'src/app/store/facades/menu.facade';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +13,6 @@ import { MenuFacade } from 'src/app/store/facades/menu.facade';
 export class NavbarComponent implements OnInit {
   constructor(
     private router: Router,
-    public mf: MenuFacade,
     private ms: MenuService,
     private sns: SnackbarService
   ) {}
@@ -30,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleMenu() {
-    this.mf.toggleMenuVisibility();
+    this.ms.toggleMenuVisibility();
   }
 
   toggleApps() {

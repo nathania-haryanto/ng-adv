@@ -12,8 +12,8 @@ export class MenuService {
     this.handleChange();
   }
 
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  position$: BehaviorSubject<string> = new BehaviorSubject('side');
+  sideNavVisible: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  sideNavPosition: BehaviorSubject<string> = new BehaviorSubject('side');
 
   private handleChange() {
     this.mediaObserver
@@ -23,8 +23,8 @@ export class MenuService {
         map((changes: MediaChange[]) => changes[0])
       )
       .subscribe((change) => {
-        this.visible$.next(change.mqAlias === 'xs' ? false : true);
-        this.position$.next(change.mqAlias === 'xs' ? 'over' : 'side');
+        this.sideNavVisible.next(change.mqAlias === 'xs' ? false : true);
+        this.sideNavPosition.next(change.mqAlias === 'xs' ? 'over' : 'side');
       });
   }
 
@@ -35,8 +35,8 @@ export class MenuService {
     ]);
   }
 
-  toggleMenu() {
-    const visible = !this.visible$.getValue();
-    this.visible$.next(visible);
+  toggleMenuVisibility() {
+    const visible = !this.sideNavVisible.getValue();
+    this.sideNavVisible.next(visible);
   }
 }
