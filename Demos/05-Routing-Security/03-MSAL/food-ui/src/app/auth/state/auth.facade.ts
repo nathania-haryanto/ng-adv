@@ -76,15 +76,7 @@ export class MsalAuthFacade {
   }
 }
 
-//app module statics
-export const isIE =
-  window.navigator.userAgent.indexOf('MSIE ') > -1 ||
-  window.navigator.userAgent.indexOf('Trident/') > -1;
-
-export const loggerCallback = (logLevel: LogLevel, message: string) => {
-  console.log(logLevel, message);
-};
-
+// factories used in module
 export function MSALInstanceFactory(): IPublicClientApplication {
   let config = {
     auth: {
@@ -131,3 +123,11 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     },
   };
 }
+
+export const isIE =
+  window.navigator.userAgent.indexOf('MSIE ') > -1 ||
+  window.navigator.userAgent.indexOf('Trident/') > -1;
+
+export const loggerCallback = (logLevel: LogLevel, message: string) => {
+  console.log(logLevel, message);
+};

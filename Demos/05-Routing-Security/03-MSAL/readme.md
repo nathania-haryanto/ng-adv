@@ -1,9 +1,9 @@
 # Using Microsoft Authentication Library - MSAL and NgRx
 
-Sample taken from [Food App](https://github.com/arambazamba/food-app)
+[Food App](https://github.com/arambazamba/food-app)
 
 - .NET 6 Api 
-- Angular 13 UI
+- Angular 13 UI using NgRx 
 
 [Microsoft identity platform documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/)
 
@@ -38,7 +38,100 @@ Check AppRegistration:
 
 ### Configure Angular MSAL Auth
 
+`package.json`:
 
+```
+"@azure/msal-angular": "^2.0.6",
+"@azure/msal-browser": "^2.20.0",
+```
+
+Most of the msal activity is implemented in `auth.facade.ts` and `auth.module.ts`. `auth.module.ts` is imported into `app.module.ts`
+
+![ng-layout.png](./_images/ng-layout.png)
+
+`auth.module.ts`:
+
+```typescript
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MsalModule,
+    StoreModule.forFeature(authFeatureKey, authReducer),
+  ],
+  providers: [
+    MsalAuthFacade,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true,
+    },
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory,
+    },
+    {
+      provide: MSAL_GUARD_CONFIG,
+      useFactory: MSALGuardConfigFactory,
+    },
+    {
+      provide: MSAL_INTERCEPTOR_CONFIG,
+      useFactory: MSALInterceptorConfigFactory,
+    },
+    MsalService,
+    MsalGuard,
+    MsalBroadcastService,
+  ],
+})
+export class MsalAuthUtilModule {}
+```
+
+`auth.facade.ts`:
+
+```typescript
+@Injectable()
+export class MsalAuthFacade {
+  constructor(
+    @Inject(forwardRef(() => ConfigService)) private cs: ConfigService,
+    private msalBC: MsalBroadcastService,
+    private store: Store<MsalAuthState>
+  ) {
+    this.handleLoginSuccess(this.msalBC);
+  }
+
+  getAuthState() {...
+   
+  getUser() {...
+
+  isInitAndAuthenticated() {...
+
+  handleLoginSuccess = (broadcast: MsalBroadcastService) => {...
+
+  logout() {...
+}
+
+// factories used in module
+export function MSALInstanceFactory(): IPublicClientApplication {
+  let config = {
+    auth: {
+      clientId: 'd23642f7-...',
+      authority: 'https://login.microsoftonline.com/d92b247e-...',
+      redirectUri: '/',
+    },
+    ...
+  };
+  return new PublicClientApplication(config);
+}
+
+export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
+  const protectedResourceMap = new Map<string, Array<string>>();
+  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read',]);
+  protectedResourceMap.set('https://localhost:5001/food', ['api://b509d389-.../access_as_user',]);
+  return {interactionType: InteractionType.Redirect, protectedResourceMap,};
+}
+...
+```
 ### Configure .NET Api MSAL Auth
 
 `appsettings.json`:
