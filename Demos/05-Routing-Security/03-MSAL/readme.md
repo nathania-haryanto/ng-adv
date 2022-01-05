@@ -5,6 +5,12 @@ Sample taken from [Food App](https://github.com/arambazamba/food-app)
 - .NET 6 Api 
 - Angular 13 UI
 
+[Microsoft identity platform documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/)
+
+[MSAL Auth Flows](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows)
+
+[.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
+
 ## Demo
 
 - Requirements
@@ -14,13 +20,13 @@ Sample taken from [Food App](https://github.com/arambazamba/food-app)
 
 ### Requirements
 
-[Azure Trial Account](https://azure.microsoft.com/en-us/free/)
+- [Azure Trial Account](https://azure.microsoft.com/en-us/free/)
 
-[Azure CLI Installation Guide](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-[Getting Started with Azure CLI](https://github.com/arambazamba/ng-adv/tree/feature/msal-auth/Tooling/04-CLI)
+- [Getting Started with Azure CLI](https://github.com/arambazamba/ng-adv/tree/feature/msal-auth/Tooling/04-CLI)
 
-> Note: For smoothe execution in VS Code install [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) and [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+    > Note: For Visual Studio Code integration install [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) and [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### Create 2 App Registrations
 
@@ -35,18 +41,13 @@ Check AppRegistration:
 
 ### Configure .NET Api MSAL Auth
 
-[Microsoft identity platform documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/)
-
-[.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
-
-
 `appsettings.json`:
 
 ```json
 {
   "AzureAd": {
-      "TenantId": "d92b247e-90e0-4469-a129-6a32866c0d0a",
-      "ClientId": "b509d389-361a-447b-afb2-97cc8131dad6",
+      "TenantId": "d92b247e-...",
+      "ClientId": "b509d389-...",
       "Instance": "https://login.microsoftonline.com/",
       "cacheLocation": "localStorage",
   },
@@ -82,6 +83,8 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 [Route ("[controller]")]
 [ApiController]
 public class FoodController : ControllerBase {
+
+  static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
   [HttpGet ()]
   public IEnumerable<FoodItem> GetFood () {
