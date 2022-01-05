@@ -3,15 +3,19 @@
 ## Demos
 
 - Routing & Security with NgRx
-- Optional: Revisit Tokenbased Auth without NgRx - firebase-auth-nongrx
+- Tokenbased Auth Basics without NgRx - firebase-auth-nongrx - Optional
+- Firebase Auth with NgRx 
 - AzureAD-MSAL: Using MSAL and Microsoft Identity
 
 ## Security
+
 ### Token based Authentication
 
 [JSON Web Tokens - Jwt](https://jwt.io/)
 
 [OpenID Connect](https://connect2id.com/learn/openid-connect)
+
+[]()
 
 ### Firebase
 
@@ -24,8 +28,6 @@
 [MSAL for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 
 [MSAL for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular)
-
-[MSAL Excample](https://docs.microsoft.com/en-us/samples/azure-samples/active-directory-javascript-singlepageapp-angular/active-directory-javascript-singlepageapp-angular/)
 
 #### AzureAD-MSAL Sample
 
@@ -73,3 +75,53 @@ function MSALConfigFactory(): Configuration {
 [.NET Core Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-2.2&tabs=visual-studio)
 
 [.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-2.2)
+
+`appsettings.json`:
+
+```json
+{
+  "AzureAd": {
+      "TenantId": "d92b247e-90e0-4469-a129-6a32866c0d0a",
+      "ClientId": "b509d389-361a-447b-afb2-97cc8131dad6",
+      "Instance": "https://login.microsoftonline.com/",
+      "cacheLocation": "localStorage",
+  },
+```
+
+`Startup.cs`:
+
+```c#
+public void ConfigureServices(IServiceCollection services)
+
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+      .AddMicrosoftIdentityWebApi(Configuration)
+      .EnableTokenAcquisitionToCallDownstreamApi()
+      .AddInMemoryTokenCaches();
+
+  services.AddAuthorization();
+```
+
+```c#
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+  app.UseCors("default");
+  app.UseHttpsRedirection();
+  app.UseRouting();
+  app.UseAuthentication();
+  app.UseAuthorization();
+```
+
+`FoodController.cs`:
+
+```c#
+[Authorize]
+[Route ("[controller]")]
+[ApiController]
+public class FoodController : ControllerBase {
+
+  [HttpGet ()]
+  public IEnumerable<FoodItem> GetFood () {
+      HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+      return ctx.Food.ToArray ();
+  }
+```

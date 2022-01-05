@@ -51,10 +51,6 @@ namespace FoodApi
                 .AddDbContext<FoodDBContext>(options => options.UseSqlServer(conStr));
             }
 
-            //AzureAD auth
-            // services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-            // .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAD"));
-
             var cfg = Configuration.GetSection("AzureAd");
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
