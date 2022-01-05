@@ -38,3 +38,54 @@ Check AppRegistration:
 [Microsoft identity platform documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/)
 
 [.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
+
+
+`appsettings.json`:
+
+```json
+{
+  "AzureAd": {
+      "TenantId": "d92b247e-90e0-4469-a129-6a32866c0d0a",
+      "ClientId": "b509d389-361a-447b-afb2-97cc8131dad6",
+      "Instance": "https://login.microsoftonline.com/",
+      "cacheLocation": "localStorage",
+  },
+```
+
+`Startup.cs`:
+
+```c#
+public void ConfigureServices(IServiceCollection services)
+
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+      .AddMicrosoftIdentityWebApi(Configuration)
+      .EnableTokenAcquisitionToCallDownstreamApi()
+      .AddInMemoryTokenCaches();
+
+  services.AddAuthorization();
+```
+
+```c#
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+  app.UseCors("default");
+  app.UseHttpsRedirection();
+  app.UseRouting();
+  app.UseAuthentication();
+  app.UseAuthorization();
+```
+
+`FoodController.cs`:
+
+```c#
+[Authorize]
+[Route ("[controller]")]
+[ApiController]
+public class FoodController : ControllerBase {
+
+  [HttpGet ()]
+  public IEnumerable<FoodItem> GetFood () {
+      HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+      return ctx.Food.ToArray ();
+  }
+```
