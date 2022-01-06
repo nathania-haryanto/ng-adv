@@ -40,6 +40,30 @@ Sample taken from [Food App](https://github.com/arambazamba/food-app)
 
 Create using `create-msal-app-reg.azcli`.
 
+```bash
+app=food-app-test
+urlApi=https://localhost:5001
+urlUI=http://localhost:4200
+# generate unique guid using: guid=$(uuidgen)
+apiIdentifierUri="api://32d734c2-393e-4592-97c2-4db5867b57ce"
+
+az config set extension.use_dynamic_install=yes_without_prompt
+tenantId=$(az account tenant list --query [0].tenantId)
+idApi=$(az ad app create --display-name $app-api --required-resource-accesses @manifest-api.json --oauth2-allow-implicit-flow true --query appId -o tsv)  
+
+echo "*** tenantID:" $tenantId
+echo "*** clientId api:" $idApi
+
+az ad app list --app-id $idApi
+
+idUI=$(az ad app create --display-name $app-ui --required-resource-accesses @manifest-ui.json \
+    --oauth2-allow-implicit-flow true \
+    --reply-urls $urlUI --query appId -o tsv)    
+
+az ad app permission admin-consent --id $idApi    
+az ad app permission admin-consent --id $idUI
+
+```
 ### Configure Angular MSAL Auth
 
 `package.json`:
