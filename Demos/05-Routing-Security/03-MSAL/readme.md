@@ -1,6 +1,6 @@
 # Using Microsoft Authentication Library - MSAL and NgRx
 
-[Food App](https://github.com/arambazamba/food-app)
+Sample taken from [Food App](https://github.com/arambazamba/food-app)
 
 - .NET 6 Api 
 - Angular 13 UI using NgRx 
@@ -10,6 +10,8 @@
 [MSAL Auth Flows](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows)
 
 [.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-6.0)
+
+[Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-angular-auth-code)
 
 ## Demo
 
@@ -30,11 +32,13 @@
 
 ### Create 2 App Registrations
 
-Execute `create-msal-app-reg.azcli`.
+[az ad app](https://docs.microsoft.com/en-us/cli/azure/ad/app?view=azure-cli-latest)
 
-Check AppRegistration:
+- Requires two app registrations: one for the api - one for the ng ui.
 
 ![app-reg](./_images/msal-app.png)
+
+Create using `create-msal-app-reg.azcli`.
 
 ### Configure Angular MSAL Auth
 
@@ -45,7 +49,18 @@ Check AppRegistration:
 "@azure/msal-browser": "^2.20.0",
 ```
 
-Most of the msal activity is implemented in `auth.facade.ts` and `auth.module.ts`. `auth.module.ts` is imported into `app.module.ts`
+To keep the root module clean, most of the msal activity is implemented in `auth.module.ts` and `auth.facade.ts`. auth.module.ts is imported into `app.module.ts`:
+
+```typescript
+@NgModule({
+  declarations: [...],
+  imports: [
+    ...
+    MsalAuthHelperModule,
+  ],
+```
+
+`MsalAuthHelperModule`:
 
 ![ng-layout.png](./_images/ng-layout.png)
 
@@ -84,7 +99,7 @@ Most of the msal activity is implemented in `auth.facade.ts` and `auth.module.ts
     MsalBroadcastService,
   ],
 })
-export class MsalAuthUtilModule {}
+export class MsalAuthHelperModule {}
 ```
 
 `auth.facade.ts`:
@@ -99,12 +114,10 @@ export class MsalAuthFacade {
   ) {
     this.handleLoginSuccess(this.msalBC);
   }
-
-  getAuthState() {...
    
   getUser() {...
 
-  isInitAndAuthenticated() {...
+  cfgInitAndAuthenticated() {...
 
   handleLoginSuccess = (broadcast: MsalBroadcastService) => {...
 
@@ -113,6 +126,7 @@ export class MsalAuthFacade {
 
 // factories used in module
 export function MSALInstanceFactory(): IPublicClientApplication {
+  // update clientId and authority from ui app registration
   let config = {
     auth: {
       clientId: 'd23642f7-...',
@@ -127,11 +141,38 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
   protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read',]);
+  // custom scope taken from api app registration
   protectedResourceMap.set('https://localhost:5001/food', ['api://b509d389-.../access_as_user',]);
   return {interactionType: InteractionType.Redirect, protectedResourceMap,};
 }
 ...
 ```
+
+`MSALInterceptorConfigFactory` is used to configure the MSAL Interceptor. `MSALGuardConfigFactory` defines `InteractionType` and is used in the Route Guard:
+
+```typescript
+export declare enum InteractionType {
+    Redirect = "redirect",
+    Popup = "popup",
+    Silent = "silent"
+}
+
+...
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'about', component: AboutComponent, canActivate: [MsalGuard] },
+  {
+    path: 'food',
+    loadChildren: () => import('./food/food.module').then((m) => m.FoodModule),
+    canLoad: [MsalGuard],
+  },
+];
+```
+
+>Note: Additional docs [https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/configuration.md](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/configuration.md).
+
 ### Configure .NET Api MSAL Auth
 
 `appsettings.json`:

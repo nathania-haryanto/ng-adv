@@ -14,9 +14,8 @@ import {
   PublicClientApplication,
 } from '@azure/msal-browser';
 import { Store } from '@ngrx/store';
-import { combineLatest, Subject } from 'rxjs';
+import { combineLatest } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { ConfigService } from '../../core/config/config.service';
 import { MsalAuthResponse } from '../auth.model';
 import { loginSuccess, logout } from './auth.actions';
@@ -25,8 +24,6 @@ import { getUser, isAuthenticated } from './auth.selectors';
 
 @Injectable()
 export class MsalAuthFacade {
-  private readonly _destroying$ = new Subject<void>();
-
   constructor(
     @Inject(forwardRef(() => ConfigService)) private cs: ConfigService,
     private msalBC: MsalBroadcastService,
@@ -35,20 +32,11 @@ export class MsalAuthFacade {
     this.handleLoginSuccess(this.msalBC);
   }
 
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
-  }
-
-  getAuthState() {
-    return !environment.authEnabled;
-  }
-
   getUser() {
     return this.store.select(getUser);
   }
 
-  isInitAndAuthenticated() {
+  cfgInitAndAuthenticated() {
     return combineLatest(
       [this.store.select(isAuthenticated), this.cs.cfgInit],
       (isAuth: boolean, isInit: boolean) => isAuth && isInit

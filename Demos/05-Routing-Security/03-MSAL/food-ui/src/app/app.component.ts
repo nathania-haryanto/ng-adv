@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       (mode) => (this.sidenavMode = mode as MatDrawerMode)
     );
 
-    this.af.isInitAndAuthenticated().subscribe((proceed) => {
+    this.af.cfgInitAndAuthenticated().subscribe((proceed) => {
       if (proceed) {
         this.authenticated = proceed;
       }
