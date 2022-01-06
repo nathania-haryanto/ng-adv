@@ -3,15 +3,19 @@
 ## Demos
 
 - Routing & Security with NgRx
-- Optional: Revisit Tokenbased Auth without NgRx - firebase-auth-nongrx
+- Tokenbased Auth Basics without NgRx - firebase-auth-nongrx - Optional
+- Firebase Auth with NgRx 
 - AzureAD-MSAL: Using MSAL and Microsoft Identity
 
 ## Security
+
 ### Token based Authentication
 
 [JSON Web Tokens - Jwt](https://jwt.io/)
 
 [OpenID Connect](https://connect2id.com/learn/openid-connect)
+
+[]()
 
 ### Firebase
 
@@ -24,8 +28,6 @@
 [MSAL for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 
 [MSAL for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular)
-
-[MSAL Excample](https://docs.microsoft.com/en-us/samples/azure-samples/active-directory-javascript-singlepageapp-angular/active-directory-javascript-singlepageapp-angular/)
 
 #### AzureAD-MSAL Sample
 
@@ -69,7 +71,3 @@ function MSALConfigFactory(): Configuration {
 ```
 
 ### .NET Core Auth
-
-[.NET Core Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-2.2&tabs=visual-studio)
-
-[.NET Core Authentication Snippets](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/microsoft-logins?view=aspnetcore-2.2)
