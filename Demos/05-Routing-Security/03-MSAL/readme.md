@@ -30,9 +30,9 @@ Sample taken from [Food App](https://github.com/arambazamba/food-app)
 
     > Note: For Visual Studio Code integration install [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) and [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### Create 2 App Registrations
+- [az ad app](https://docs.microsoft.com/en-us/cli/azure/ad/app?view=azure-cli-latest)    
 
-[az ad app](https://docs.microsoft.com/en-us/cli/azure/ad/app?view=azure-cli-latest)
+### Create 2 App Registrations
 
 - Requires two app registrations: one for the api - one for the ng ui.
 
