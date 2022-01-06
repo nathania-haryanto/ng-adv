@@ -1,4 +1,4 @@
-# Using Microsoft Authentication Library - MSAL and NgRx
+# Using Microsoft Authentication Library - MSAL Auth Code Grant and NgRx
 
 Sample taken from [Food App](https://github.com/arambazamba/food-app)
 
