@@ -38,32 +38,24 @@ Sample taken from [Food App](https://github.com/arambazamba/food-app)
 
 ![app-reg](./_images/msal-app.png)
 
-Create using `create-msal-app-reg.azcli`.
+Create app registration base using `create-msal-app-reg.azcli`.
 
-```bash
-app=food-app-test
-urlApi=https://localhost:5001
-urlUI=http://localhost:4200
-# generate unique guid using: guid=$(uuidgen)
-apiIdentifierUri="api://32d734c2-393e-4592-97c2-4db5867b57ce"
+>Note: The current state of Azure CLI does not allow setting all props of the app registration. Please check and complete them manually
 
-az config set extension.use_dynamic_install=yes_without_prompt
-tenantId=$(az account tenant list --query [0].tenantId)
-idApi=$(az ad app create --display-name $app-api --required-resource-accesses @manifest-api.json --oauth2-allow-implicit-flow true --query appId -o tsv)  
+API App Registration:
 
-echo "*** tenantID:" $tenantId
-echo "*** clientId api:" $idApi
+![api-auth](./_images/api-auth.png)
 
-az ad app list --app-id $idApi
+![api-expose](./_images/api-expose.png)
 
-idUI=$(az ad app create --display-name $app-ui --required-resource-accesses @manifest-ui.json \
-    --oauth2-allow-implicit-flow true \
-    --reply-urls $urlUI --query appId -o tsv)    
+![api-scope](./_images/api-scope.png)
 
-az ad app permission admin-consent --id $idApi    
-az ad app permission admin-consent --id $idUI
+UI App Registration:
 
-```
+![ui-auth](./_images/ui-auth.png)
+
+![ui-permissions](./_images/ui-permissions.png)
+
 ### Configure Angular MSAL Auth
 
 `package.json`:

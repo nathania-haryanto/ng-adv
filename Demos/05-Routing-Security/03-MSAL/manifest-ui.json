@@ -7,16 +7,15 @@
                 "type": "Scope"
             },
             {
-                "id": "205e70e5-aba6-4c52-a976-6d2d46c48043",
+                "id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
                 "type": "Scope"
-            }
-        ]
-    },
-    {
-        "resourceAppId": "00000003-0000-0ff1-ce00-000000000000",
-        "resourceAccess": [
+            },
             {
-                "id": "4e0d77b0-96ba-4398-af14-3baa780278f4",
+                "id": "37f7f235-527c-4136-accd-4a02d197296e",
+                "type": "Scope"
+            },
+            {
+                "id": "14dad69e-099b-42c9-810b-d002981feec1",
                 "type": "Scope"
             }
         ]
