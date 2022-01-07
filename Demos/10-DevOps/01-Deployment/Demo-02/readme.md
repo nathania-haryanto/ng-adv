@@ -4,4 +4,5 @@
 
 ## Demos
 
-- Deploy to Azure Storage Account using `create-blob-with-cdn.sh`
+- Deploy to Azure Storage Account using `create-blob-with-cdn.azcli`
+- Deploy to Azure App Service. Create AppService using `create-appservice.azcli`
