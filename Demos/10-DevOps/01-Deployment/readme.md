@@ -2,5 +2,6 @@
 
 ## Demos
 
-- Using firebase tools and ng deploy to deploy to Firebase
+- Using firebase tools and to deploy to Firebase
 - Azure Deployment Options & Deploy to Azure Storage Account
+- Configuration Management: Config Injection & Using Environment Variables
