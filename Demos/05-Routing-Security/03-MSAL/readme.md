@@ -58,6 +58,32 @@ UI App Registration:
 
 ### Configure Angular MSAL Auth
 
+Update `environment.ts`:
+
+```json
+export const environment = {
+  production: false,
+  authEnabled: true,
+  apiUrl: 'https://localhost:5001/',
+  azure: {
+    applicationInsights: 'a196d36f-...',
+    appReg: {
+      clientId: 'd23642f7-...',
+      authority:
+        'https://login.microsoftonline.com/d92b247e-.../',
+      redirectUri: 'http://localhost:4200/',
+      scopes: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']],
+        [
+          'https://localhost:5001/food',
+          ['api://b509d389-.../access_as_user'],
+        ],
+      ],
+    },
+  },
+};
+```
+
 `package.json`:
 
 ```
