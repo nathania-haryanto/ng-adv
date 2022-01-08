@@ -1,4 +1,7 @@
-# Firebase Authentication using NgRx - Lab 4
+# Authentication using NgRx - Lab 4
+
+- Implement Firbase Auth using NgRx - Option A
+- Implement Azure AD Auth using NgRx - Option B
 
 ## Implement Firbase Auth using NgRx
 
@@ -50,3 +53,7 @@ Example:
 Sample Login Splash:
 
 ![login-splash](_images/login-splash.png)
+
+## Implement Azure AD Auth using NgRx
+
+Use Module 05-Routing-Security/03-MSAL as Solution

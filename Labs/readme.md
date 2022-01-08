@@ -8,6 +8,6 @@
 - Lab 3
     - Client Side State with NgRx
 - Lab 4
-    - Firbase Auth using NgRx
+    - Auth using NgRx   
 - Lab 5
     - Container & DevOps        
