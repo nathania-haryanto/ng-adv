@@ -1,3 +1,13 @@
-# Labs
+# Labs: Food App (L1 to L5)
 
-- Food App (L1 to L4)
+- Lab 1
+    - Theming
+    - Reactive Forms
+- Lab 2
+    - Reactive Programming
+- Lab 3
+    - Client Side State with NgRx
+- Lab 4
+    - Firbase Auth using NgRx
+- Lab 5
+    - Container & DevOps        

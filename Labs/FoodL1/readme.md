@@ -1,6 +1,16 @@
 # Food App Project - Lab 1
 
-## Tasks
+## Theming
+
+- Implement a Custom Material Theme with a Custom Color Scheme. Create a Theme Mixin for Toolbar, Card and Table
+
+![buttons](_images/food-design.png)
+
+## Reactive Forms
+
+- Add and implement Edit and Delete Buttons for the List
+
+![buttons](_images/buttons.png)
 
 - Migrate Foode Edit Form to a Reactive Form:
 
@@ -34,13 +44,7 @@
     <button mat-raised-button color="primary" (click)="doSave()">Save</button>
   </mat-card-actions>
 </mat-card>
-
 ```
 
-- Add and implement Edit and Delete Buttons
 
-![buttons](_images/buttons.png)
 
-- Implement a Custom Material Theme with a Custom Color Scheme. Create a Theme Mixin for Toolbar, Card and Table
-
-![buttons](_images/food-design.png)

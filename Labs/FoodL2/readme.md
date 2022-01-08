@@ -1,6 +1,6 @@
 # Food App Project - Lab 2
 
-## Tasks
+## Reactive Programming
 
 - Refactor the filter in the food list to use a FormControl and a Data- and Action Stream.
 
