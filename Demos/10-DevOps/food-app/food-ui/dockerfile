@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json package.json
 RUN npm install
 COPY . .
-RUN npm run build -- --prod
+RUN npm run build -- --configuration production
 
 ##### Stage 2 - Create the run-time-image  -> kein SDK, less vulnerabel (less tool), klein
 FROM nginx:alpine
@@ -18,10 +18,9 @@ COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
 
-# docker run -d --rm -p 5052:80 --env apiUrl="https://food-api-staging-4591.azurewebsites.net" 
-
 # docker build --rm -f "dockerfile" -t foodui-auth .
-# docker run -d --rm -p 5052:80 foodui-auth
+# docker run -d --rm -p 5052:80 foodui-auth 
+# docker run -d --rm -p 5052:80 foodui-auth --env apiUrl="https://food-api-staging-4591.azurewebsites.net" 
 # http://localhost:5052/
 
 # Publish Image to dockerhub
