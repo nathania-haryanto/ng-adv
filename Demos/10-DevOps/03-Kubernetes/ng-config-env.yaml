@@ -1,3 +1,11 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: ng-configmap 
+data:
+  # Configuration values can be set as key-value properties
+  ENV_API_URL: https://food-api-staging-4591.azurewebsites.net
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,6 +24,9 @@ spec:
       - name: ng-config-env
         image: arambazamba/ng-config-env
         imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: ng-configmap
         ports:
         - containerPort: 80        
         resources:
