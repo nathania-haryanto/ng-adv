@@ -12,19 +12,18 @@ import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
-import { DemoEditComponent } from './samples/demo-edit/demo-edit.component';
-import { DemoFilterComponent } from './samples/demo-filter/demo-filter.component';
-import { DemoListComponent } from './samples/demo-list/demo-list.component';
-import { DemoRowComponent } from './samples/demo-row/demo-row.component';
-import { EventbusComponent } from './samples/eventbus/eventbus.component';
-import { NgrxShowcaseComponent } from './samples/ngrx-showcase/ngrx-showcase.component';
-import { StatefullComponent } from './samples/statefull/container/statefull.component';
-import { DemosEffects } from './state/demos.effects';
-import { KpiComponent } from './samples/statefull/kpi/kpi.component';
-import { demosFeatureKey, demoReducer } from './state/demos.reducer';
 import { AppStateComponent } from './samples/app-state/app-state.component';
-import { SkillsComponent } from './samples/skills/skills.component';
+import { DemoEditComponent } from './samples/demos/demo-edit/demo-edit.component';
+import { DemoFilterComponent } from './samples/demos/demo-filter/demo-filter.component';
+import { DemoListComponent } from './samples/demos/demo-list/demo-list.component';
+import { DemoRowComponent } from './samples/demos/demo-row/demo-row.component';
 import { DemosComponent } from './samples/demos/demos.component';
+import { EventbusComponent } from './samples/eventbus/eventbus.component';
+import { SkillsComponent } from './samples/skills/skills.component';
+import { StatefullComponent } from './samples/statefull/container/statefull.component';
+import { KpiComponent } from './samples/statefull/kpi/kpi.component';
+import { DemosEffects } from './state/demos.effects';
+import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 
 const demoRoutes: Routes = [
   {
@@ -51,7 +50,6 @@ const demoRoutes: Routes = [
     DemoFilterComponent,
     DemoEditComponent,
     DemoListComponent,
-    NgrxShowcaseComponent,
     KpiComponent,
     AppStateComponent,
     SkillsComponent,

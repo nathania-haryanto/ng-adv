@@ -9,7 +9,7 @@ import {
 import { SkillsState } from './skills.reducer';
 import { Skill } from '../skill.model';
 import { Observable } from 'rxjs';
-import { selectAll } from './skills.selectors';
+import { getAllSkills, selectAll } from './skills.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,7 @@ export class SkillsFacadeService {
   }
 
   getSkills(): Observable<Skill[]> {
-    return this.store.select(selectAll);
+    return this.store.select(getAllSkills);
   }
 
   addSkill(s: Skill): void {

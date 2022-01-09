@@ -1,26 +1,26 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { Skill } from '../skill.model';
 import {
-  EntityState,
-  EntityAdapter,
   createEntityAdapter,
+  EntityAdapter,
+  EntityState,
   Update,
 } from '@ngrx/entity';
+import { createReducer, on } from '@ngrx/store';
+import { Skill } from '../skill.model';
 import {
-  loadSkills,
-  loadSkillsSuccess,
-  loadSkillsFailure,
-  addSkillsSuccess,
   addSkillsFailure,
-  deleteSkillsFailure,
+  addSkillsSuccess,
   deleteSkill,
+  deleteSkillsFailure,
+  loadSkills,
+  loadSkillsFailure,
+  loadSkillsSuccess,
   toggleSkillComplete,
 } from './skills.actions';
 
 export const skillsFeatureKey = 'skills';
 
 export interface SkillsState extends EntityState<Skill> {
-  // Note: We dont need this any more - provided by EntityState<T>
+  // We dont need this as it is provided by EntityState<T>
   // skills: Skill[];
   loading: boolean;
 }

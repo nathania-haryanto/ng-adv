@@ -1,7 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { skillsFeatureKey, skillAdapter } from './skills.reducer';
+import { skillsFeatureKey, skillAdapter, SkillsState } from './skills.reducer';
 
-export const getSkillsState = createFeatureSelector<any>(skillsFeatureKey);
+export const getSkillsState =
+  createFeatureSelector<SkillsState>(skillsFeatureKey);
 
 // Note: State now looks like this ....
 // let stateStructure: {
@@ -28,4 +29,4 @@ export const getSkillsState = createFeatureSelector<any>(skillsFeatureKey);
 export const { selectAll, selectEntities, selectIds, selectTotal } =
   skillAdapter.getSelectors();
 
-// export const getAllSkills = createSelector(getSkillsState, selectAll);
+export const getAllSkills = createSelector(getSkillsState, selectAll);

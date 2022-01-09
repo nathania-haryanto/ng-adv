@@ -31,7 +31,7 @@ export class SkillListWithRowComponent implements OnInit {
   toggleShowAll(): void {}
 
   addItem(): void {
-    const newItem: Skill = { name: 'Container', completed: false };
+    const newItem: Skill = { id: 0, name: 'Container', completed: false };
     this.sf.addSkill(newItem);
   }
 
