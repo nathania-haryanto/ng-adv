@@ -27,7 +27,7 @@ kubectl get nodes
 
 kubectl create namespace $ns
 
-# Apply the yaml - Make sure you uploaded foodapi.yaml to CloudShell
+# Apply the yaml - Make sure you uploaded ng-config-env.yaml to CloudShell
 kubectl apply -f ng-config-env.yaml --namespace $ns
 
 # Get some metadata

@@ -7,6 +7,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'config-env';
+  title = 'ng-config-env';
   apiUrl = environment.apiUrl;
 }
