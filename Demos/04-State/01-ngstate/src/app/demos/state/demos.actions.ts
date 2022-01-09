@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { DemoItem } from '../../demo-item.model';
+import { DemoItem } from '../demo-item.model';
 
 export enum DemosActionTypes {
   LoadDemos = '[Demos] Load Demos',

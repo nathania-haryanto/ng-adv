@@ -1,19 +1,19 @@
-import { AppState, appFeatureKey } from '../reducers/app.reducer';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { AppState, appFeatureKey } from './app.reducer';
 
 export const getAppState = createFeatureSelector<AppState>(appFeatureKey);
 
 export const getSideNavVisible = createSelector(
   getAppState,
-  (state: AppState) => state.sideNav.Visible
+  (state: AppState) => state.sideNavVisible
 );
 
 export const getSideNavEnabled = createSelector(
   getAppState,
-  (state: AppState) => state.sideNav.Enabled
+  (state: AppState) => state.sideNavEnabled
 );
 
 export const getSideNavPosition = createSelector(
   getAppState,
-  (state: AppState) => state.sideNav.Position
+  (state: AppState) => state.sideNavPosition
 );

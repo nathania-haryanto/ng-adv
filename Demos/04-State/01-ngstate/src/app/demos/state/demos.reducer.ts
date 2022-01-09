@@ -4,8 +4,8 @@ import {
   EntityState,
   Update,
 } from '@ngrx/entity';
-import { DemoItem } from '../../demo-item.model';
-import { DemosActions, DemosActionTypes } from '../actions/demos.actions';
+import { DemoItem } from '../demo-item.model';
+import { DemosActions, DemosActionTypes } from './demos.actions';
 
 // State
 
@@ -22,9 +22,8 @@ export interface DemoState extends EntityState<DemoItem> {
   filter: string;
 }
 
-export const demosAdapter: EntityAdapter<DemoItem> = createEntityAdapter<
-  DemoItem
->();
+export const demosAdapter: EntityAdapter<DemoItem> =
+  createEntityAdapter<DemoItem>();
 
 export const defaultDemoItemState: DemoState = {
   ids: [],

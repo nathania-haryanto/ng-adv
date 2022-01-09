@@ -19,8 +19,8 @@ import { DemoRowComponent } from './samples/demo-row/demo-row.component';
 import { EventbusComponent } from './samples/eventbus/eventbus.component';
 import { NgrxShowcaseComponent } from './samples/ngrx-showcase/ngrx-showcase.component';
 import { StatefullComponent } from './samples/statefull/container/statefull.component';
-import { DemosEffects } from './store/effects/demos.effects';
-import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
+import { DemosEffects } from './state/demos.effects';
+import { demosFeatureKey, DemosReducer } from './state/demos.reducer';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 
 const demoRoutes: Routes = [

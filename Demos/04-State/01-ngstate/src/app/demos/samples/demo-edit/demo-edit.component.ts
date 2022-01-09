@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DemoState } from '../../store/reducers/demos.reducer';
-import { getSelected } from '../../store/selectors/demo.selectors';
 import { FormControl } from '@angular/forms';
 import { DemoItem } from '../../demo-item.model';
+import { getSelected } from '../../state/demo.selectors';
+import { DemoState } from '../../state/demos.reducer';
 
 @Component({
   selector: 'app-demo-edit',

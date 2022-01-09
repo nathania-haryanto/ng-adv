@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs/operators';
-import { ApplyFilter } from '../../store/actions/demos.actions';
-import { DemoState } from '../../store/reducers/demos.reducer';
+import { ApplyFilter } from '../../state/demos.actions';
+import { DemoState } from '../../state/demos.reducer';
 
 @Component({
   selector: 'app-demo-filter',

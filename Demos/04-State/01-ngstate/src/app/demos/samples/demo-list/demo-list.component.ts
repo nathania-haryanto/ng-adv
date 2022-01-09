@@ -8,9 +8,9 @@ import {
   DeleteDemo,
   SetSelected,
   ToggleVisiblity,
-} from '../../store/actions/demos.actions';
-import { DemoState } from '../../store/reducers/demos.reducer';
-import { getAllDemos, getFilter } from '../../store/selectors/demo.selectors';
+} from '../../state/demos.actions';
+import { DemoState } from '../../state/demos.reducer';
+import { getAllDemos, getFilter } from '../../state/demo.selectors';
 
 @Component({
   selector: 'app-demo-list',
