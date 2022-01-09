@@ -1,71 +1,77 @@
-# Deploy Angular App to Firebase using Azure DevOps
+# Deploy to Azure Kubernetes Services
 
-Use [ng-devops Sample](https://github.com/ARambazamba/ng-devops)
+Use [food-app](https://github.com/arambazamba/food-app)
 
-Get Firebase CI Token:
+## Demo
 
-```
-firebase login:ci
-```
+Adjust `acr-var` or use img from DockerHub:
 
-> Note: Make sure Firebase CLI is installed
+```yaml
+name: ui-build-deploy-k8s
+pool:
+  vmImage: "ubuntu-20.04"
 
-Copy the token:
-
-![fb-token](_images/fb-token.png)
-
-Create a `deploy-to-firebase.yml` and copy the following content:
-
-```yml
 trigger:
   branches:
     include:
       - master
+  paths:
+    include:
+      - FoodUI/*
 
 variables:
-  name: fbtoken
-  value: "<REPLACE-TOKEN>"
+  fld: FoodUI/
+  conACR: acrDefault
+  conKube: "conKube"
+  img: foodui
+  subs: conFoodApp
+  yml: $(Pipeline.Workspace)/s/az-manifests/foodui.yaml
+  acr: integrationsonline.azurecr.io
+  tag: "$(Build.BuildId)"
+  ns: "staging"
+  imagePullSecret: "secret"
+  rnd: simple
+  env: foodapp.staging
 
 stages:
-  - stage: default
+  - stage: "Prepare"
+    displayName: "Build Img"    
+    jobs:
+      
+      - job: BuildImg
+        steps:
+          - template: templates/docker-img.yaml
+            parameters:
+              con: $(conACR)
+              img: $(img)
+              path: $(fld)      
+
+  - stage: Deploy
+    displayName: Deploy stage
 
     jobs:
-      - job: Job
-        pool:
-          vmImage: "ubuntu-latest"
+      - deployment: Deploy
+        displayName: Deploy Job
+        environment: $(env)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: KubernetesManifest@0
+                  displayName: Create imagePullSecret
+                  inputs:
+                    action: createSecret
+                    secretName: $(imagePullSecret)
+                    dockerRegistryEndpoint: $(conACR)
+                    kubernetesServiceConnection: $(kube)
+                    namespace: $(ns)
 
-        steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: "14.x"
-            displayName: "Install Node.js"
-
-          - script: |
-              npm install -g firebase-tools
-            displayName: "install firebase cli"
-
-          - script: |
-              npm install -g @angular/cli
-              npm install
-              ng build --prod
-            displayName: "npm install and build"
-
-          - script: |
-              firebase deploy --token $TOKEN
-            env:
-              TOKEN: $(fbtoken)
-            displayName: "deploy to firebase"
-
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: "dist/ng-devops"
-              ArtifactName: "ngapp"
-              publishLocation: "Container"
-            displayName: "Publish Artifacts"
+                - task: KubernetesManifest@0
+                  displayName: Deploy to Kubernetes cluster
+                  inputs:
+                    action: "deploy"
+                    kubernetesServiceConnection: $(conKube)
+                    manifests: $(yml)
+                    imagePullSecrets: $(imagePullSecret)
+                    containers: "$(acr)/$(img):$(tag)"
 ```
-
-> Note: In real life you would get the token from a Key Vault and access it using a variable
-
-Run & Check the pipeline:
-
-![fb-token](_images/run-pipeline.png)
