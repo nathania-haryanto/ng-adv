@@ -1,0 +1,17 @@
+@use '@angular/material' as mat;
+@import "stylevars.scss";
+@import "theme.scss";
+
+.list {
+  background: mat.get-color-from-palette($app-primary);
+  min-height: 60px;
+}
+
+.box {
+  padding: $small-gap;
+  border-bottom: solid 1px #ccc;
+  color: mat.get-color-from-palette($app-fg);
+  cursor: move;
+  background: mat.get-color-from-palette($app-accent);
+  font-size: 1rem;
+}
