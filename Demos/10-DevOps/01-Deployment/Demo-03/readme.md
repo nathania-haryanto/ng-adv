@@ -1,4 +1,4 @@
-# Configuration Management
+# Configuration Management Options
 
 ## Inject Configuration using config service - Optional
 
@@ -89,6 +89,8 @@ docker build --rm -f "dockerfile" -t ng-config-env .
 docker tag ng-config-env arambazamba/ng-config-env
 docker push arambazamba/ng-config-env
 ```
+
+>Note: We will use the `arambazamba/ng-config-env`-image for the rest of this module. Update your Docker Hub username.
 
 Run container:
 

@@ -1,13 +1,13 @@
 # Container
 
-Use `../food-app/food-ui/`:
+Use `arambazamba/ng-config-env`-image created earlier this module.
 
 ## Demos
 
 - Docker Basics
 - Explain multistage build of `food-ui` publish to DockerHub
+- Introduction to Azure Container Instances (ACI)
 - Host on Azure Container Instances (ACI) with injected config
-- Docker Basics and using Azure Container Instances
 
 ### Multistage build of `food-ui` publish to DockerHub
 

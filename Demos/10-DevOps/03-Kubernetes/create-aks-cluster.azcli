@@ -1,8 +1,8 @@
 rnd=$RANDOM
-grp=ng-adv-$rnd
+grp=ng-adv
 loc=westeurope
-aks=foodcluster-$rnd
-ns=foodapp-staging
+aks=ng-adv-cluster-$rnd
+ns=ng-config-env-staging
 
 # Install kubectl command line client locally:
 # az aks install-cli
@@ -28,7 +28,6 @@ kubectl get nodes
 kubectl create namespace $ns
 
 # Apply the yaml - Make sure you uploaded foodapi.yaml to CloudShell
-
 kubectl apply -f $ui --namespace $ns
 
 # Get some metadata
@@ -36,7 +35,7 @@ kubectl get deployment $app -n $ns
 
 kubectl get pods -n $ns
 
-kubectl get pods -l app=foodapi -n $ns
+kubectl get pods -l app=ng-config-env -n $ns
 
 # Get the serive IP and use it on the assigned port
 kubectl get service $app -n $ns
