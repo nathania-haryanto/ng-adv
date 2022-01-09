@@ -1,1 +1,1 @@
-Double Click to select - watch change in Edit Form
+DoubleClick row to select it - watch change in Edit Form

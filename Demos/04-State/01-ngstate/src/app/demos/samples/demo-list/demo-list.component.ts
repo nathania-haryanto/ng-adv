@@ -4,13 +4,13 @@ import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DemoItem } from '../../demo-item.model';
-import {
-  DeleteDemo,
-  SetSelected,
-  ToggleVisiblity,
-} from '../../state/demos.actions';
 import { DemoState } from '../../state/demos.reducer';
 import { getAllDemos, getFilter } from '../../state/demo.selectors';
+import {
+  deleteDemo,
+  setSelected,
+  toggleVisiblity,
+} from '../../state/demos.actions';
 
 @Component({
   selector: 'app-demo-list',
@@ -22,12 +22,12 @@ export class DemoListComponent implements OnInit {
 
   constructor(private store: Store<DemoState>) {}
 
+  //in "real life" I would use a facade here
   demos$ = this.store.select(getAllDemos);
   filter$ = this.store.select(getFilter);
 
   view$ = combineLatest([this.demos$, this.filter$]).pipe(
     map(([demos, filter]) => {
-      console.log(demos);
       return filter !== ''
         ? demos.filter((d) =>
             d.title.toLowerCase().includes(filter.toLowerCase())
@@ -56,19 +56,19 @@ export class DemoListComponent implements OnInit {
   }
 
   deleteItem(item: DemoItem) {
-    this.store.dispatch(new DeleteDemo(item));
+    this.store.dispatch(deleteDemo({ item }));
   }
 
   changeVisibility(item: DemoItem) {
-    this.store.dispatch(new ToggleVisiblity(item));
+    this.store.dispatch(toggleVisiblity({ item }));
   }
 
   selectItem(item: DemoItem) {
-    this.store.dispatch(new SetSelected(item));
+    this.store.dispatch(setSelected({ item }));
   }
 
   editItem(item: DemoItem) {
-    this.store.dispatch(new SetSelected(item));
+    this.store.dispatch(setSelected({ item }));
     this.onEditDemo.emit();
   }
 }

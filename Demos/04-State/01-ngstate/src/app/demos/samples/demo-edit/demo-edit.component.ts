@@ -13,6 +13,7 @@ import { DemoState } from '../../state/demos.reducer';
 export class DemoEditComponent implements OnInit {
   constructor(private store: Store<DemoState>) {}
 
+  //in "real life" I would use a facade here
   item = this.store.select(getSelected);
 
   fcName = new FormControl('');

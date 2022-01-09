@@ -20,8 +20,8 @@ import { EventbusComponent } from './samples/eventbus/eventbus.component';
 import { NgrxShowcaseComponent } from './samples/ngrx-showcase/ngrx-showcase.component';
 import { StatefullComponent } from './samples/statefull/container/statefull.component';
 import { DemosEffects } from './state/demos.effects';
-import { demosFeatureKey, DemosReducer } from './state/demos.reducer';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
+import { demosFeatureKey, demoReducer } from './state/demos.reducer';
 
 const demoRoutes: Routes = [
   {
@@ -61,7 +61,7 @@ const demoRoutes: Routes = [
       loader: HttpClient,
     }),
     SharedModule,
-    StoreModule.forFeature(demosFeatureKey, DemosReducer),
+    StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],
   providers: [SkillsService],

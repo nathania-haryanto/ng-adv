@@ -4,11 +4,16 @@ import {
   EntityState,
   Update,
 } from '@ngrx/entity';
+import { createReducer, on } from '@ngrx/store';
 import { DemoItem } from '../demo-item.model';
-import { DemosActions, DemosActionTypes } from './demos.actions';
+import { setSelected, applyFilter, toggleVisiblity } from './demos.actions';
+import {
+  deleteDemoSuccess,
+  loadDemosFailure,
+  loadDemosSuccess,
+} from './demos.actions';
 
 // State
-
 export const demosFeatureKey = 'demos';
 
 // internal entity structure
@@ -43,41 +48,35 @@ export const defaultDemoItemState: DemoState = {
 export const initialState = demosAdapter.getInitialState(defaultDemoItemState);
 
 // Reducer
-
-export function DemosReducer(
-  state: DemoState = initialState,
-  action: DemosActions
-): DemoState {
-  switch (action.type) {
-    case DemosActionTypes.LoadDemosSuccess: {
-      return demosAdapter.setAll(action.payload, {
-        ...state,
-      });
-    }
-    case DemosActionTypes.LoadDemosError: {
-      return { ...state };
-    }
-    case DemosActionTypes.DeleteDemoSuccess: {
-      const deleted: DemoItem = action.payload;
-      return demosAdapter.removeOne(deleted.id, { ...state });
-    }
-    case DemosActionTypes.DeleteDemoError: {
-      return { ...state };
-    }
-    case DemosActionTypes.SetSelected: {
-      return { ...state, selected: action.payload as DemoItem };
-    }
-    case DemosActionTypes.ApplyFilter: {
-      return { ...state, filter: action.payload };
-    }
-    case DemosActionTypes.ToggleVisiblity: {
-      const item: Update<DemoItem> = {
-        id: action.payload.id,
-        changes: { visible: action.payload.visible },
-      };
-      return demosAdapter.updateOne(item, { ...state });
-    }
-    default:
-      return state;
-  }
-}
+export const demoReducer = createReducer(
+  initialState,
+  on(loadDemosSuccess, (state, action) => {
+    return demosAdapter.setAll(action.items, {
+      ...state,
+    });
+  }),
+  on(loadDemosFailure, (state, action) => {
+    return { ...state };
+  }),
+  on(deleteDemoSuccess, (state, action) => {
+    return demosAdapter.removeOne(action.item.id, {
+      ...state,
+    });
+  }),
+  on(loadDemosFailure, (state, action) => {
+    return { ...state };
+  }),
+  on(setSelected, (state, action) => {
+    return { ...state, selected: action.item };
+  }),
+  on(applyFilter, (state, action) => {
+    return { ...state, filter: action.filter };
+  }),
+  on(toggleVisiblity, (state, action) => {
+    const item: Update<DemoItem> = {
+      id: action.item.id,
+      changes: { visible: action.item.visible },
+    };
+    return demosAdapter.updateOne(item, { ...state });
+  })
+);

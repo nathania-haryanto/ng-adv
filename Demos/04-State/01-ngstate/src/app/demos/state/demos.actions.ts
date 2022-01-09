@@ -1,69 +1,44 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { DemoItem } from '../demo-item.model';
 
-export enum DemosActionTypes {
-  LoadDemos = '[Demos] Load Demos',
-  LoadDemosSuccess = '[Demos] Load Demos Success',
-  LoadDemosError = '[Demos] Load Demos Error',
-  DeleteDemo = '[Demos] DeleteDemo',
-  DeleteDemoSuccess = '[Demos] DeleteDemo Success',
-  DeleteDemoError = '[Demos] DeleteDemo Error',
-  ToggleVisiblity = '[Demos] ToggleVisiblity',
-  SetSelected = '[Demos] SetSelected',
-  ApplyFilter = '[Demos] ApplyFilter',
-}
+export const loadDemos = createAction('[Demos] loadDemos');
 
-export class LoadDemos implements Action {
-  readonly type = DemosActionTypes.LoadDemos;
-}
+export const loadDemosSuccess = createAction(
+  '[Demos] loadDemos Success',
+  props<{ items: DemoItem[] }>()
+);
 
-export class LoadDemosSuccess implements Action {
-  readonly type = DemosActionTypes.LoadDemosSuccess;
-  constructor(public payload: DemoItem[]) {}
-}
+export const loadDemosFailure = createAction(
+  '[Demos] loadDemos Failure',
+  props<{ err: Error }>()
+);
 
-export class LoadDemosError implements Action {
-  readonly type = DemosActionTypes.LoadDemosError;
-  constructor(public payload: Error) {}
-}
+export const deleteDemo = createAction(
+  '[Demos] deleteDemo',
+  props<{ item: DemoItem }>()
+);
 
-export class DeleteDemo implements Action {
-  readonly type = DemosActionTypes.DeleteDemo;
-  constructor(public payload: DemoItem) {}
-}
+export const deleteDemoSuccess = createAction(
+  '[Demos] deleteDemo Success',
+  props<{ item: DemoItem }>()
+);
 
-export class DeleteDemoSuccess implements Action {
-  readonly type = DemosActionTypes.DeleteDemoSuccess;
-  constructor(public payload: DemoItem) {}
-}
+export const deleteDemoFailure = createAction(
+  '[Demos] deleteDemo Failure',
+  props<{ err: Error }>()
+);
 
-export class DeleteDemoError implements Action {
-  readonly type = DemosActionTypes.DeleteDemoError;
-  constructor(public payload: Error) {}
-}
+export const toggleVisiblity = createAction(
+  '[Demos] toggleVisiblity',
+  props<{ item: DemoItem }>()
+);
 
-export class ToggleVisiblity implements Action {
-  readonly type = DemosActionTypes.ToggleVisiblity;
-  constructor(public payload: DemoItem) {}
-}
+export const setSelected = createAction(
+  '[Demos] setSelected',
+  props<{ item: DemoItem }>()
+);
 
-export class SetSelected implements Action {
-  readonly type = DemosActionTypes.SetSelected;
-  constructor(public payload: DemoItem) {}
-}
-
-export class ApplyFilter implements Action {
-  readonly type = DemosActionTypes.ApplyFilter;
-  constructor(public payload: string) {}
-}
-
-export type DemosActions =
-  | LoadDemos
-  | LoadDemosSuccess
-  | LoadDemosError
-  | DeleteDemo
-  | DeleteDemoSuccess
-  | DeleteDemoError
-  | ToggleVisiblity
-  | SetSelected
-  | ApplyFilter;
+export const applyFilter = createAction(
+  '[Demos] applyFilter',
+  props<{ filter: string }>()
+);

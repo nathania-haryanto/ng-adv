@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs/operators';
-import { ApplyFilter } from '../../state/demos.actions';
-import { DemoState } from '../../state/demos.reducer';
+import { DemoFacade } from '../../state/demo.facade';
 
 @Component({
   selector: 'app-demo-filter',
@@ -11,13 +9,13 @@ import { DemoState } from '../../state/demos.reducer';
   styleUrls: ['./demo-filter.component.scss'],
 })
 export class DemoFilterComponent implements OnInit {
-  constructor(private store: Store<DemoState>) {}
+  constructor(private df: DemoFacade) {}
 
   fcFilter = new FormControl();
 
   ngOnInit() {
     this.fcFilter.valueChanges.pipe(debounceTime(350)).subscribe((filter) => {
-      this.store.dispatch(new ApplyFilter(filter));
+      this.df.setFilter(filter);
     });
   }
 }

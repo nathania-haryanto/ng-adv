@@ -1,42 +1,39 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { DemoService } from '../demo.service';
-import { Observable, of } from 'rxjs';
-import { mergeMap, map, catchError, pluck, exhaustMap } from 'rxjs/operators';
-import {
-  DemosActionTypes,
-  DemosActions,
-  LoadDemosSuccess,
-  LoadDemosError,
-  DeleteDemoSuccess,
-  DeleteDemoError,
-} from './demos.actions';
-import { DemoItem } from '../demo-item.model';
+import * as demoActions from './demos.actions';
 
 @Injectable()
 export class DemosEffects {
   constructor(private actions$: Actions, private service: DemoService) {}
 
-  loadDemos$: Observable<DemosActions> = createEffect(() =>
+  loadDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DemosActionTypes.LoadDemos),
+      ofType(demoActions.loadDemos),
       mergeMap(() =>
         this.service.getDemos().pipe(
-          map((demos: DemoItem[]) => new LoadDemosSuccess(demos)),
-          catchError((err) => of(new LoadDemosError(err)))
+          map((demos) => ({
+            type: '[Demos] loadDemos Success',
+            items: demos,
+          })),
+          catchError((err) => of(demoActions.loadDemosFailure({ err })))
         )
       )
     )
   );
 
-  deleteDemo$: Observable<DemosActions> = createEffect(() =>
+  deleteDemo$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DemosActionTypes.DeleteDemo),
-      pluck('payload'),
-      exhaustMap((demo) =>
-        this.service.delete(demo).pipe(
-          map(() => new DeleteDemoSuccess(demo)),
-          catchError((err) => of(new DeleteDemoError(err)))
+      ofType(demoActions.deleteDemo),
+      mergeMap((action) =>
+        this.service.delete(action.item).pipe(
+          map(() => ({
+            type: '[Demos] deleteDemo Success',
+            item: action.item,
+          })),
+          catchError((err) => of(demoActions.deleteDemoFailure({ err })))
         )
       )
     )

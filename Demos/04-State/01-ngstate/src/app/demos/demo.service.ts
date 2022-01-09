@@ -14,7 +14,7 @@ export class DemoService {
     return this.httpClient.get<DemoItem[]>(`${environment.apiUrl}demos`);
   }
 
-  delete(item: DemoItem): Observable<any> {
+  delete(item: DemoItem) {
     return this.httpClient.delete<DemoItem[]>(
       `${environment.apiUrl}demos/${item.id}`
     );
