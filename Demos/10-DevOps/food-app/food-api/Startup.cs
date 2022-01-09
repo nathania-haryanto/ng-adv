@@ -71,20 +71,28 @@ namespace FoodApi
             });
             services.AddControllers();
 
-            //TODO: move domain to config
-            string corsDomains = "http://localhost:4200";
-            string[] domains = corsDomains.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
             // Cors
-            services.AddCors(o => o.AddPolicy("default", builder =>
-            {
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader()
-                       .AllowCredentials()
-                       .WithOrigins(domains);
-            }));
+            //TODO: move domain to config
+            // string corsDomains = "http://localhost:4200";
+            // string[] domains = corsDomains.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            // services.AddCors(o => o.AddPolicy("default", builder =>
+            // {
+            //     builder.AllowAnyOrigin()
+            //            .AllowAnyMethod()
+            //            .AllowAnyHeader()
+            //            .AllowCredentials()
+            //            .WithOrigins(domains);
+            // }));
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("default",
+                    builder => builder
+                    .SetIsOriginAllowed(host => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

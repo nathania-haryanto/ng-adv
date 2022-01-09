@@ -4,5 +4,6 @@
 
 ## Demos
 
-- Deploy to Azure Storage Account using `create-blob-with-cdn.azcli`
-- Deploy to Azure App Service. Create AppService using `create-appservice.azcli`
+>Note: Update the apiUrl from your deployment in the angular config.
+
+- Deploy to Azure Storage Account and CDN using `create-blob-with-cdn.azcli`
