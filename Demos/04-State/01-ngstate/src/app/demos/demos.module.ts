@@ -22,6 +22,8 @@ import { StatefullComponent } from './samples/statefull/container/statefull.comp
 import { DemosEffects } from './state/demos.effects';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { demosFeatureKey, demoReducer } from './state/demos.reducer';
+import { AppStateComponent } from './samples/app-state/app-state.component';
+import { SkillsComponent } from './samples/skills/skills.component';
 
 const demoRoutes: Routes = [
   {
@@ -32,6 +34,8 @@ const demoRoutes: Routes = [
       { path: 'statefull', component: StatefullComponent },
       { path: 'ebus', component: EventbusComponent },
       { path: 'ngrx', component: NgrxShowcaseComponent },
+      { path: 'app-state', component: AppStateComponent },
+      { path: 'skills', component: SkillsComponent },
     ],
   },
 ];
@@ -48,6 +52,8 @@ const demoRoutes: Routes = [
     DemoListComponent,
     NgrxShowcaseComponent,
     KpiComponent,
+    AppStateComponent,
+    SkillsComponent,
   ],
   imports: [
     CommonModule,
