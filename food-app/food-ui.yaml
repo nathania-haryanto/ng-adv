@@ -1,0 +1,75 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  artifactName: APP_$(Build.BuildNumber)
+
+stages:
+  - stage: 'BuildTest'
+    displayName: 'Build & Test'
+    jobs:
+      - job: 'build'
+        displayName: 'Build artifacts'
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '14.x'
+
+          - script: |
+              npm install -g @angular/cli
+              npm install
+            displayName: 'install dependencies'
+              
+          - script: ng build --configuration production
+            displayName: 'Build app'
+          
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish artifacts'
+            inputs:
+              PathtoPublish: dist
+              ArtifactName: $(artifactName)
+              publishLocation: 'Container'       
+            condition: ne(variables['Build.Reason'], 'PullRequest')
+
+          - script: ng test --no-watch --karma-config karma.pipeline.conf.js
+            displayName: 'Run Unit Tests'
+
+          - task: PublishTestResults@2
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/tests.xml'
+            displayName: 'Publish Unit Test Results'
+      
+  - stage: Deploy_Staging
+    displayName: 'Deploy to staging'
+    dependsOn: BuildTest
+    condition: succeeded('BuildTest')
+    jobs:
+      - deployment: 'Deploy'
+        displayName: 'Deploy'
+        environment: 'development'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: 'current'
+
+                - task: AzureCLI@2
+                  displayName: 'Clear Static website'
+                  inputs:
+                    azureSubscription: 'dev-service-connection'
+                    scriptType: 'bash'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: 'az storage blob delete-batch --account-name storedev --source "\$web"'
+                - task: AzureCLI@2
+                  displayName: 'Upload new Static Website'
+                  inputs:
+                    azureSubscription: 'dev-service-connection'
+                    scriptType: 'bash'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: 'az storage blob upload-batch --account-name storedev --destination "\$web" --source ''$(Pipeline.Workspace)/$(artifactName)'''

@@ -12,8 +12,6 @@ namespace FoodApi
     [ApiController]
     public class FoodController : ControllerBase {
         
-        // static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
-        
         public FoodController (FoodDBContext context) {
             ctx = context;
         }
@@ -23,7 +21,6 @@ namespace FoodApi
         // http://localhost:PORT/food
         [HttpGet ()]
         public IEnumerable<FoodItem> GetFood () {
-            HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
             return ctx.Food.ToArray ();
         }
 

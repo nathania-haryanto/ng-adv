@@ -1,6 +1,6 @@
-# Deploy to Azure Kubernetes Services
+# Deploy to Angular App to Azure Container Instances
 
-Use [food-app](https://github.com/arambazamba/food-app)
+Use `/food-app` from the root of this repo
 
 ## Demo
 
