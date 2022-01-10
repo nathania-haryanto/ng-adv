@@ -1,7 +1,6 @@
 # Advanced Angular Publishing & DevOps using Containers
 
-Use `./food-app` to demonstrate deployment pattern
-
 - Angular Hosting Options & Deployment Preperation
-- Optimizing and Deploying using Docker & Kubernetes
+- Docker Basics & Optimizing Angular for Container Deployement
+- Kubernetes Basics 
 - Introduction to Angular DevOps
