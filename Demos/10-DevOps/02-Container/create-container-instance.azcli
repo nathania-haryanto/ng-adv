@@ -1,7 +1,6 @@
-rnd=$RANDOM
-grp=ng-adv-$rnd
+grp=ng-adv
 loc=westeurope
-app=ng-config-env-$rnd
+app=ng-config-env-$RANDOM
 img="arambazamba/ng-config-env"
 
 az group create -n $grp -l $loc

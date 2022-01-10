@@ -1,13 +1,3 @@
-# Angular DevOps
-
-- Deploy Angular App to Firebase using Azure DevOps
-- Deploy to Azure Container Instances (ACI) using Azure DevOps
-
-## Api Deployment
-
-- To deploy Food Api to an Azure App Service execute `./food-app/deploy-api.azcli`:
-
-```bash
 rnd=$RANDOM
 env=staging
 grp=ng-adv
@@ -31,6 +21,4 @@ az webapp config appsettings set -g $grp -n $app --settings Azure:ApplicationIns
 url=$(az webapp list -g $grp --query [0].defaultHostName)
 echo "*** Use this apiUrl for your angular config: " $url
 cd ..
-```
 
->Note: To focus on Angular we deploy Api To App Service and not to Containers. Config management is very easy there. Deployment takes around 5 min.
