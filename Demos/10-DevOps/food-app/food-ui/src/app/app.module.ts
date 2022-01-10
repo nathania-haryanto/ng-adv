@@ -44,7 +44,6 @@ registerLocaleData(localeDe);
     }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    MsalAuthUtilModule,
   ],
   providers: [
     { provide: ErrorHandler, useClass: ErrHandlerService },

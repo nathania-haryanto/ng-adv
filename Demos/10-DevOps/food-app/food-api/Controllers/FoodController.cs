@@ -7,7 +7,7 @@ using Microsoft.Identity.Web.Resource;
 
 namespace FoodApi
 {
-    [Authorize]
+    // [Authorize]
     [Route ("[controller]")]
     [ApiController]
     public class FoodController : ControllerBase {

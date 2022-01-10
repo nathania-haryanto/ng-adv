@@ -16,7 +16,6 @@ namespace FoodApi
 {
     public class Startup
     {
-
         public Startup(IWebHostEnvironment environment, IConfiguration configuration)
         {
             Configuration = configuration;
@@ -52,16 +51,11 @@ namespace FoodApi
             }
 
             //AzureAD auth
-            // services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-            // .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAD"));
-
             var cfg = Configuration.GetSection("AzureAd");
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration)
                 .EnableTokenAcquisitionToCallDownstreamApi()
                 .AddInMemoryTokenCaches();
-
             services.AddAuthorization();
 
             //Swagger
@@ -70,19 +64,6 @@ namespace FoodApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Food API", Version = "v1" });
             });
             services.AddControllers();
-
-            // Cors
-            //TODO: move domain to config
-            // string corsDomains = "http://localhost:4200";
-            // string[] domains = corsDomains.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            // services.AddCors(o => o.AddPolicy("default", builder =>
-            // {
-            //     builder.AllowAnyOrigin()
-            //            .AllowAnyMethod()
-            //            .AllowAnyHeader()
-            //            .AllowCredentials()
-            //            .WithOrigins(domains);
-            // }));
 
             services.AddCors(options =>
             {
