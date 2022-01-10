@@ -95,7 +95,6 @@
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
 - Using Jest for Unit Testing (Setup, Changes in spec, Snapshot Tests)
 - End-2-End Testing using Cypress
-- Integrate Angular Testing in DevOps Pipelines
 
 ## Scaffolding & Automation using Angular Schematics
 
@@ -136,7 +135,6 @@
 - Installing & Updating Progressive Web Apps
 - Supporting Offline Availability
 - Implementing Push Notifications
-- Using App Shell
 
 ## Advanced Angular Publishing & DevOps using Containers
 
@@ -150,5 +148,3 @@
 - Kubernetes Introduction
 - Kubernetes Optimized Configuration Management
 - Building & Deploying an Angular App to Azure Kubernetes Services
-- DevOps Gates using Unit-Tests, UI-Tests & Code Coverage (optional)
-- Implementing Feature Flags / Toggles using LaunchDarkly (optional)
