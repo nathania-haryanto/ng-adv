@@ -27,31 +27,29 @@ namespace FoodApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //Config
             services.AddSingleton<IConfiguration>(Configuration);
-
+            var cfg = Configuration.Get<FoodConfig>();
+            
             //Aplication Insights
-            services.AddApplicationInsightsTelemetry(Configuration["Azure:ApplicationInsights"]);
+            services.AddApplicationInsightsTelemetry(cfg.Azure.ApplicationInsights);
             services.AddSingleton<ITelemetryInitializer, FoodTelemetryInitializer>();
             services.AddSingleton<AILogger>();
 
             //Database
-            bool useSQLite = bool.Parse(Configuration["App:UseSQLite"]);
-            if (useSQLite)
+            if (cfg.App.UseSQLite)
             {
-                var conStrLite = Configuration["App:ConnectionStrings:SQLiteDBConnection"];
-                services.AddDbContext<FoodDBContext>(options => options.UseSqlite(conStrLite));
+                services.AddDbContext<FoodDBContext>(opts => opts.UseSqlite(cfg.App.ConnectionStrings.SQLiteDBConnection));
             }
             else
             {
-                var conStr = Configuration["App:ConnectionStrings:SQLServerConnection"];
-                services.AddDbContext<FoodDBContext>(options => options.UseSqlServer(conStr));
+                services.AddDbContext<FoodDBContext>(opts => opts.UseSqlServer(cfg.App.ConnectionStrings.SQLiteDBConnection));
             }
 
-            //Microsoft Identity auth
-            var cfg = Configuration.GetSection("Azure");
+            //Microsoft Identity auth        
+            var az = Configuration.GetSection("Azure");
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(Configuration)
+                .AddMicrosoftIdentityWebApi(az)
                 .EnableTokenAcquisitionToCallDownstreamApi()
                 .AddInMemoryTokenCaches();
             services.AddAuthorization();
@@ -76,6 +74,7 @@ namespace FoodApi
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var cfg = Configuration.Get<FoodConfig>();
             Console.WriteLine($"Use environment: {env.EnvironmentName}");
             if (env.IsDevelopment())
             {
@@ -96,10 +95,11 @@ namespace FoodApi
             app.UseRouting();
 
             //Auth -> Uncomment [Authorize] and Scope related info in FoodController if true
-            var useAuth = Boolean.Parse(Configuration["App:AuthEnabled"]);
-            Console.WriteLine($"Use auth: {useAuth}");
-            if (useAuth)
+            var useAuth = cfg.App.AuthEnabled;
+            
+            if (cfg.App.AuthEnabled)
             {
+                Console.WriteLine($"Using auth with App Reg: {cfg.Azure.ClientId}");
                 app.UseAuthentication();
                 app.UseAuthorization();
             }
