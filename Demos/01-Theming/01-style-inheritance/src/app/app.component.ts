@@ -23,7 +23,8 @@ import { Component } from '@angular/core';
         margin: 3rem;
       }
 
-      /* :host {
+      /*
+      :host {
         border: 5rem solid dimgray;
         display: block;
         padding: 20px;
