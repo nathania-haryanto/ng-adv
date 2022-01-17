@@ -16,7 +16,7 @@ choco install curl -y
 choco install 7zip -y
 choco install nvm -y
 
-# Intall VS Code Extensions
+# Install VS Code Extensions
 Write-Host "VS Code Extensions - 5/6" -ForegroundColor yellow
 
 code --install-extension ms-dotnettools.csharp

@@ -11,6 +11,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
       }
     `,
   ],
+  // encapsulation:ViewEncapsulation.Emulated
+  // encapsulation:ViewEncapsulation.None
 })
 export class SecondChildComponent implements OnInit {
   constructor() {}
