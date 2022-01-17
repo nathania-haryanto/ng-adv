@@ -8,10 +8,25 @@
 
 Three ways to install Jest:
 
-- Manual - described below
-- Using [Schematics](https://github.com/briebug/jest-schematic)
+- Schematic 
+- Manual Jest installation
 - Using Nrwl Nx (https://nx.dev/angular)
 
+### Schematic
+
+Based on [Jest Angular Schematic](https://github.com/briebug/jest-schematic)
+
+Setup Jest in existing project:
+
+```
+ng add @briebug/jest-schematic
+```
+
+Run Jest Test - replaces Karma based tests:
+
+```
+ng test
+```
 ### Manual Jest installation
 
 Remove Karma Libs:

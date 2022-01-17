@@ -5,72 +5,49 @@
     "email": "alexander.pajer@integrations.at",
     "url": "https://www.integrations.at"
   },
-  "version": "2.2.0",
+  "version": "3.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "ng lint"
   },
   "private": true,
-  "jest": {
-    "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": [
-      "<rootDir>/setupJest.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/dist/",
-      "<rootDir>/src/test.ts"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "<rootDir>/tsconfig.spec.json",
-        "stringifyContentPathRegex": "\\.html$",
-        "astTransformers": [
-          "<rootDir>/node_modules/jest-preset-angular/InlineHtmlStripStylesTransformer"
-        ]
-      }
-    }
-  },
   "dependencies": {
-    "@angular/animations": "~12.2.3",
-    "@angular/cdk": "~12.2.3",
-    "@angular/common": "~12.2.3",
-    "@angular/compiler": "~12.2.3",
-    "@angular/core": "~12.2.3",
-    "@angular/flex-layout": "^12.0.0-beta.34",
-    "@angular/forms": "~12.2.3",
-    "@angular/material": "^12.2.3",
-    "@angular/platform-browser": "~12.2.3",
-    "@angular/platform-browser-dynamic": "~12.2.3",
-    "@angular/router": "~12.2.3",
-    "jasmine-marbles": "^0.6.0",
-    "ngx-markdown": "^12.0.1",
-    "rxjs": "~6.6.0",
+    "@angular/animations": "~13.1.2",
+    "@angular/cdk": "~13.1.2",
+    "@angular/common": "~13.1.2",
+    "@angular/compiler": "~13.1.2",
+    "@angular/core": "~13.1.2",
+    "@angular/flex-layout": "^13.0.0-beta.36",
+    "@angular/forms": "~13.1.2",
+    "@angular/material": "^13.1.2",
+    "@angular/platform-browser": "~13.1.2",
+    "@angular/platform-browser-dynamic": "~13.1.2",
+    "@angular/router": "~13.1.2",
+    "jasmine-marbles": "^0.8.4",
+    "ngx-markdown": "^13.0.0",
+    "rxjs": "~7.5.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/jest": "^8.2.0",
-    "@angular-devkit/build-angular": "~12.2.3",
-    "@angular/cli": "~12.2.3",
-    "@angular/compiler-cli": "~12.2.3",
-    "@angular/language-service": "~12.2.3",
-    "@types/jasmine": "~3.6.0",
+    "@angular-builders/jest": "latest",
+    "@angular-devkit/build-angular": "~13.1.3",
+    "@angular/cli": "~13.1.3",
+    "@angular/compiler-cli": "~13.1.2",
+    "@angular/language-service": "~13.1.2",
+    "@briebug/jest-schematic": "^4.0.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "core-js": "^3.2.1",
-    "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "jest": "24.9.0",
-    "protractor": "~7.0.0",
+    "jest": "latest",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.5.4"
   }
 }
