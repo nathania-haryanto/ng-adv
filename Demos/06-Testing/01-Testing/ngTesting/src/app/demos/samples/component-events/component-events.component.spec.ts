@@ -26,9 +26,10 @@ describe('Component - Events - EventsComponent', () => {
   it('should increment the count - triggerEventHandler', () => {
     const divClick = fixture.debugElement.query(By.css('#clickable'));
     divClick.triggerEventHandler('click', {});
-    fixture.detectChanges();
+    //fixture.detectChanges();
 
     expect(component.count).toBe(1);
+    fixture.detectChanges();
 
     // Actually not needed as this would test Angular - just to show
     const divResult = fixture.debugElement.query(By.css('.result'));
@@ -38,10 +39,10 @@ describe('Component - Events - EventsComponent', () => {
   it('should increment the count - Native Api', () => {
     const divClick = fixture.debugElement.query(By.css('#clickable'));
     divClick.nativeElement.click();
-    fixture.detectChanges();
+    //fixture.detectChanges();
 
     expect(component.count).toBe(1);
-
+    fixture.detectChanges();
     // Actually not needed as this would test Angular - just to show
     const divResult = fixture.debugElement.query(By.css('.result'));
     expect(divResult.nativeElement.innerText).toContain('1');

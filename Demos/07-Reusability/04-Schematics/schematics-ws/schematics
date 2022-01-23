@@ -1,0 +1,5 @@
+
+> schematics-ws@0.0.0 build
+> tsc -p tsconfig.json "-" ".:create-file"
+
+error TS5023: Unknown compiler option '-'.

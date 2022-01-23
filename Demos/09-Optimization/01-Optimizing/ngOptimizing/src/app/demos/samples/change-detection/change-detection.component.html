@@ -5,7 +5,10 @@
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    Press the button
+    <div>
+      Press the button
+      <app-change-detection-detail></app-change-detection-detail>
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="changeTitle()">Change Title</button>

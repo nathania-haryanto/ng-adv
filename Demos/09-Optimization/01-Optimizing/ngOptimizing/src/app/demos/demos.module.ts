@@ -31,6 +31,7 @@ import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loadi
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { FBAuthModule } from '../auth/fbauth.module';
 import { SimpleComponent } from './samples/dynamic-loading/simple.component';
+import { ChangeDetectionDetailComponent } from './samples/change-detection/change-detection-detail.component';
 
 const demoRoutes: Routes = [
   {
@@ -63,6 +64,7 @@ const demoRoutes: Routes = [
     BundlesComponent,
     ConsoleComponent,
     ChangeDetectionComponent,
+    ChangeDetectionDetailComponent,
     WebWorkerComponent,
     SkillsListComponent,
     SkillComponent,
