@@ -82,6 +82,10 @@ CMD ["/bin/sh", "-c", "envsubst < /usr/share/nginx/html/assets/env.template.js >
 })(this);
 ```
 
+Update `index.html`:
+
+![index](_images/index.jpg)
+
 Build image and run container:
 
 ```bash
