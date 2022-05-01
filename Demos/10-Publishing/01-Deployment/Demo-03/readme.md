@@ -82,7 +82,7 @@ CMD ["/bin/sh", "-c", "envsubst < /usr/share/nginx/html/assets/env.template.js >
 })(this);
 ```
 
-Update `index.html`:
+Update `index.html` to execute `env.js` to set the default env vars:
 
 ![index](_images/index.jpg)
 
