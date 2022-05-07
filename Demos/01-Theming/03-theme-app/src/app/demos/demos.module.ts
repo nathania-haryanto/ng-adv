@@ -33,30 +33,29 @@ const demoRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    DemoContainerComponent,
-    StatefulComponent,
-    CardComponent,
-    ContentProjectionComponent,
-    PopupContainerComponent,
-    PopupComponent,
-    MarkdownEditorComponent,
-    SplitSampleComponent,
-  ],
-  imports: [
-    CommonModule,
-    UxModule,
-    FormsModule,
-    SharedModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(demoRoutes),
-    MaterialModule,
-    HttpClientModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
-  ],
-  providers: [DemoService, SkillsService],
-  entryComponents: [SplitSampleComponent, PopupComponent],
+    declarations: [
+        DemoContainerComponent,
+        StatefulComponent,
+        CardComponent,
+        ContentProjectionComponent,
+        PopupContainerComponent,
+        PopupComponent,
+        MarkdownEditorComponent,
+        SplitSampleComponent,
+    ],
+    imports: [
+        CommonModule,
+        UxModule,
+        FormsModule,
+        SharedModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(demoRoutes),
+        MaterialModule,
+        HttpClientModule,
+        MarkdownModule.forRoot({
+            loader: HttpClient,
+        }),
+    ],
+    providers: [DemoService, SkillsService]
 })
 export class DemosModule {}
