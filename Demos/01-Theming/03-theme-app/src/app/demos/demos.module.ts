@@ -1,36 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
-import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { StatefulComponent } from './samples/stateful/stateful.component';
 import { SkillsService } from '../model/skills/skills.service';
-import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import { SharedModule } from '../shared/shared.module';
+import { UxModule } from '../ux/ux.module';
+import { DemoContainerComponent } from './demo-container/demo-container.component';
+import { DemoRoutingModule } from './demo.routing.module';
 import { CardComponent } from './samples/card/card.component';
 import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
+import { SplitSampleComponent } from './samples/content-projection/split-sample/split-sample.component';
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
 import { PopupComponent } from './samples/popup-container/popup/popup.component';
-import { SplitSampleComponent } from './samples/content-projection/split-sample/split-sample.component';
-import { UxModule } from '../ux/ux.module';
-import { SharedModule } from '../shared/shared.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-const demoRoutes: Routes = [
-  {
-    path: '',
-    component: DemoContainerComponent,
-
-    children: [
-      { path: 'stateful', component: StatefulComponent },
-      { path: 'card', component: CardComponent },
-      { path: 'projection', component: ContentProjectionComponent },
-      { path: 'popup', component: PopupContainerComponent },
-    ],
-  },
-];
+import { StatefulComponent } from './samples/stateful/stateful.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +25,6 @@ const demoRoutes: Routes = [
     ContentProjectionComponent,
     PopupContainerComponent,
     PopupComponent,
-    MarkdownEditorComponent,
     SplitSampleComponent,
   ],
   imports: [
@@ -49,7 +33,7 @@ const demoRoutes: Routes = [
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterModule.forChild(demoRoutes),
+    DemoRoutingModule,
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
