@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { DemoService } from 'src/app/demos/demo.service';
-import { map, tap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { DemoItem } from 'src/app/model/demo/DemoItem';
+import { DemoService } from '../../demos/demo-base/demo.service';
 
 @Component({
   selector: 'app-demos-admin',
@@ -14,7 +14,7 @@ export class DemosAdminComponent implements OnInit {
   constructor(public ds: DemoService) {}
 
   //Data Stream
-  demosData$: Observable<DemoItem[]> = this.ds.getItems();
+  demosData$ = this.ds.getItems();
 
   //Action Stream
   filter: string;
