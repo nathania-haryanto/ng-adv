@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { MenuItem } from './MenuItem';
+import { filter, map } from 'rxjs/operators';
+import { MenuItem } from './menu-item.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +12,21 @@ export class MenuService {
     this.handleChange();
   }
 
-  private visible: boolean = true;
+  private visible = true;
   visible$: BehaviorSubject<boolean> = new BehaviorSubject(this.visible);
-  private position: string = 'side';
-  position$: BehaviorSubject<string> = new BehaviorSubject(this.position);
+  position$: BehaviorSubject<string> = new BehaviorSubject('side');
 
   private handleChange() {
-    this.mediaObserver.media$.subscribe((change) => {
-      this.visible$.next(change.mqAlias == 'xs' ? false : true);
-      this.position$.next(change.mqAlias == 'xs' ? 'over' : 'side');
-    });
+    this.mediaObserver
+      .asObservable()
+      .pipe(
+        filter((changes: MediaChange[]) => changes.length > 0),
+        map((changes: MediaChange[]) => changes[0])
+      )
+      .subscribe((change) => {
+        this.visible$.next(change.mqAlias == 'xs' ? false : true);
+        this.position$.next(change.mqAlias == 'xs' ? 'over' : 'side');
+      });
   }
 
   getTopItems(): Observable<MenuItem[]> {

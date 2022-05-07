@@ -10,12 +10,14 @@ import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { IntroComponent } from './intro/intro.component';
 
 const comps = [
   NavbarComponent,
   SideBarComponent,
   FooterComponent,
   MarkdownRendererComponent,
+  IntroComponent,
 ];
 
 @NgModule({
