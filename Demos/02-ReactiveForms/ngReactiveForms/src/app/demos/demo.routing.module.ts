@@ -17,7 +17,6 @@ const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
-
     children: [
       { path: 'valuecontrol', component: ControlValueAccessorComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
