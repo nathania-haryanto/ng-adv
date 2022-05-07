@@ -5,8 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
-import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
 import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
 import { CachingComponent } from './samples/caching/caching.component';
@@ -26,6 +24,7 @@ import { LangFeaturesComponent } from './samples/lang-features/lang-features.com
 import { DebouncedSearchComponent } from './samples/debounced-search/debounced-search.component';
 import { TransformationComponent } from './samples/transformation/transformation.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DemoContainerComponent } from './demo-container/demo-container.component';
 
 const demoRoutes: Routes = [
   {
@@ -57,7 +56,6 @@ const demoRoutes: Routes = [
 @NgModule({
   declarations: [
     DemoContainerComponent,
-    MarkdownEditorComponent,
     CreatingObservableComponent,
     MouseDomObservablesComponent,
     DebouncedSearchComponent,
