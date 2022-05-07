@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
-import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
@@ -26,6 +25,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LangFeaturesComponent } from './samples/lang-features/lang-features.component';
 import { DebouncedSearchComponent } from './samples/debounced-search/debounced-search.component';
 import { TransformationComponent } from './samples/transformation/transformation.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const demoRoutes: Routes = [
   {
@@ -78,12 +78,12 @@ const demoRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    UxModule,
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
+    FlexLayoutModule,
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
