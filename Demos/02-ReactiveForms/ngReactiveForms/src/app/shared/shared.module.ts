@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { IntroComponent } from './intro/intro.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 
 const comps = [
   NavbarComponent,
@@ -18,6 +19,7 @@ const comps = [
   FooterComponent,
   MarkdownRendererComponent,
   IntroComponent,
+  MarkdownEditorComponent,
 ];
 
 @NgModule({

@@ -14,7 +14,6 @@ import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { DemoRoutingModule } from './demo.routing.module';
-import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
 import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
@@ -34,7 +33,6 @@ const appearance: MatFormFieldDefaultOptions = {
 @NgModule({
   declarations: [
     DemoContainerComponent,
-    MarkdownEditorComponent,
     ReactiveFormsComponent,
     FormsBuilderComponent,
     FormControlComponent,
