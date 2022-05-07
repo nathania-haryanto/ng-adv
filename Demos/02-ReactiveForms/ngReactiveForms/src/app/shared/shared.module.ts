@@ -1,20 +1,22 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
-import { MaterialModule } from "../material.module";
-import { FooterComponent } from "./footer/footer.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { SideBarComponent } from "./sidebar/side-bar.component";
-import { MarkdownRendererComponent } from "./markdown-renderer/markdown-renderer.component";
-import { MarkdownModule } from "ngx-markdown";
-import { HttpClient } from "@angular/common/http";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material.module';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { HttpClient } from '@angular/common/http';
+import { SidePanelComponent } from './side-panel/side-panel.component';
+import { IntroComponent } from './intro/intro.component';
 
 const comps = [
   NavbarComponent,
-  SideBarComponent,
+  SidePanelComponent,
   FooterComponent,
-  MarkdownRendererComponent
+  MarkdownRendererComponent,
+  IntroComponent,
 ];
 
 @NgModule({
@@ -24,10 +26,10 @@ const comps = [
     RouterModule,
     MaterialModule,
     MarkdownModule.forRoot({
-      loader: HttpClient
-    })
+      loader: HttpClient,
+    }),
   ],
   declarations: comps,
-  exports: comps
+  exports: comps,
 })
 export class SharedModule {}

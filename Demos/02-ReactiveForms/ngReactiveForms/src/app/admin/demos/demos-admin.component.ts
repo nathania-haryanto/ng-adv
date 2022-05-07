@@ -2,8 +2,8 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DemoService } from 'src/app/demos/demo.service';
-import { DemoItem } from 'src/app/model/demo/DemoItem';
+import { DemoItem } from 'src/app/demos/demo-base/demo-item.model';
+import { DemoService } from 'src/app/demos/demo-base/demo.service';
 
 @Component({
   selector: 'app-demos-admin',

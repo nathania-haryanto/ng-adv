@@ -9,6 +9,14 @@
       "sortOrder": 3
     },
     {
+      "url": "async-pipe",
+      "topicid": 3,
+      "title": "Async Pipe",
+      "component": "AsyncPipeComponent",
+      "visible": true,
+      "sortOrder": 3
+    },
+    {
       "url": "reactiveforms",
       "topicid": 2,
       "title": "Reactive Forms",
@@ -47,14 +55,6 @@
       "component": "ReactiveCascadeComponent",
       "visible": true,
       "sortOrder": 5
-    },
-    {
-      "url": "async-pipe",
-      "topicid": 3,
-      "title": "Async Pipe",
-      "component": "AsyncPipeComponent",
-      "visible": true,
-      "sortOrder": 3
     }
   ],
   "skills": [
