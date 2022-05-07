@@ -1,14 +1,16 @@
-@import "stylevars.scss";
-
 mat-form-field {
   width: 100%;
 }
 
 .mat-row:hover {
-  background-color: $medium-col;
+  background-color: var(--color-fg);
   cursor: pointer;
 }
 
 .icon-cell {
   border-bottom-width: 0px;
+}
+
+mat-toolbar{
+  margin-bottom: var(--gap-small);
 }

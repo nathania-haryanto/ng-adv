@@ -27,9 +27,7 @@ export class DemoContainerComponent implements OnInit {
     private route: ActivatedRoute,
     public ms: MenuService,
     public ls: LoadingService
-  ) {
-    this.title = 'Typescript';
-  }
+  ) {}
 
   ngOnInit() {
     this.setMenu();

@@ -1,3 +1,4 @@
+
 //mat-card
 .mat-card {
   background-color: var(--color-fg);
@@ -87,3 +88,10 @@ mat-expansion-panel-header {
 .mat-expansion-panel-header-description, .mat-expansion-indicator::after {
   color: var(--color-fg);
 }
+
+//mat-table
+mat-header-row {
+  background-color: var(--color-primary);
+  color: var(--color-fg);
+}
+
