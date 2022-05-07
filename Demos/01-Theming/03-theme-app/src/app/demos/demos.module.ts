@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { DemoService } from './demo.service';
 import { StatefulComponent } from './samples/stateful/stateful.component';
 import { SkillsService } from '../model/skills/skills.service';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
@@ -58,6 +57,6 @@ const demoRoutes: Routes = [
       loader: HttpClient,
     }),
   ],
-  providers: [DemoService, SkillsService],
+  providers: [SkillsService],
 })
 export class DemosModule {}

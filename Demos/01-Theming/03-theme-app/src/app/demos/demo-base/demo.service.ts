@@ -1,16 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DemoItem } from './demo-item';
-import { tap } from 'rxjs/operators';
+import { DemoItem } from './demo-item.model';
+import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class DemoService {
   constructor(private httpClient: HttpClient) {}
 
   getItems(): Observable<DemoItem[]> {
-    return this.httpClient
-      .get<DemoItem[]>('/assets/demos.json')
-      .pipe(tap((data) => console.log('loading demos', data)));
+    return this.httpClient.get<DemoItem[]>(environment.demosApi);
   }
 }

@@ -1,21 +1,44 @@
-@import "stylevars.scss";
-
-.menu {
-  margin: 0 $small-gap;
-}
-
-.workbench {
-  min-width: 400px;
-  height: 100%;
-}
+@import "mixins.scss";
 
 button {
   width: 100%;
-  margin: $small-gap 0;
-  @include link($medium-font, $light-col);
+  @include link(var(--color-fg), var(--font-small));
 }
 
 mat-toolbar {
-  height: $medium-toolbar;
-  margin-bottom: $big-gap;
+  height: var(--toolbar-medium);
+  margin-bottom: var(--gap-small);
+}
+
+.menu {
+  font-size: 1rem;
+}
+
+.mat-nav-list .mat-list-item:hover, .mat-nav-list .mat-list-item:focus {
+  background: var(--color-bg)
+}
+
+mat-list-item{
+  border-bottom: 1px solid var(--color-bg);
+  border-top: 1px solid var(--color-bg);
+}
+
+.nav-content {
+  min-width: 400px;
+  height:100%;
+  overflow: hidden;
+}
+
+.mat-sidenav-container {
+  height: 100%;
+}
+
+.mat-sidenav {
+  width: 220px;
+  background-color: var(--color-fg);
+}
+
+.mat-drawer-container {
+  background-color: var(--color-clear);
+  color: var(--color-darkfont);
 }

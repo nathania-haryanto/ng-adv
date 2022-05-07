@@ -11,10 +11,12 @@ import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IntroComponent } from './intro/intro.component';
+import { SidePanelComponent } from './side-panel/side-panel.component';
 
 const comps = [
   NavbarComponent,
   SideBarComponent,
+  SidePanelComponent,
   FooterComponent,
   MarkdownRendererComponent,
   IntroComponent,

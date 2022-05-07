@@ -1,4 +1,26 @@
 {
+  "demos":[
+    {
+      "url": "stateful",
+      "title": "Table",
+      "component": "StatefulComponent"
+    },
+    {
+      "url": "card",
+      "title": "Card",
+      "component": "CardComponent"
+    },
+    {
+      "url": "projection",
+      "title": "Content Projection",
+      "component": "SplitSampleComponent"
+    },
+    {
+      "url": "popup",
+      "title": "Popup",
+      "component": "PopupContainerComponent"
+    }
+  ],
   "posts": [
     {
       "id": 1,
