@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `<div class="heading">
-      <h2>Angular Style Inheritance & Encapsulation</h2>
+      <h1>Angular Style Inheritance & Encapsulation</h1>
     </div>
     <div class="divclass">
       <div>App Component</div>
