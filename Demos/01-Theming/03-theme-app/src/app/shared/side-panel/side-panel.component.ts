@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SnackbarService } from '../snackbar/snackbar.service';
 import { SidePanelService } from './sidepanel.service';
 import { SidebarActions } from './sidebar.actions';
+import { ThemeService } from '../theme/theme.service';
 
 @Component({
   selector: 'app-side-panel',
@@ -9,12 +10,20 @@ import { SidebarActions } from './sidebar.actions';
   styleUrls: ['./side-panel.component.scss'],
 })
 export class SidePanelComponent implements OnInit {
-  constructor(private sns: SnackbarService, private eb: SidePanelService) {}
+  constructor(
+    private sns: SnackbarService,
+    private eb: SidePanelService,
+    private ts: ThemeService
+  ) {}
 
   editorDisplayed: boolean;
 
   ngOnInit() {
     this.editorDisplayed = false;
+  }
+
+  toggleTheme() {
+    this.ts.toggleTheme();
   }
 
   toggleEditor() {
@@ -24,6 +33,7 @@ export class SidePanelComponent implements OnInit {
         ? SidebarActions.SHOW_MARKDOWN
         : SidebarActions.HIDE_MARKDOWN
     );
+    this.editorDisplayed = !this.editorDisplayed;
   }
 
   showUpload() {
