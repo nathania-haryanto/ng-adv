@@ -41,9 +41,8 @@ Write-Host "Refresh Path Env - 4/6" -ForegroundColor yellow
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-nvm install 12.18.1
-nvm install 14.17.5
-nvm use 14.17.5
+# Install tooling
+npm i -g http-server json-server
 
 # Install Angular
 Write-Host "Installing Angular - 6/6" -ForegroundColor yellow

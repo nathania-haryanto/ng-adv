@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngDemoApp": {
+    "ng-demo-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -35,7 +35,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngDemoApp",
+            "outputPath": "dist/ng-demo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -46,18 +46,19 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.css"
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/theme"
-              ]
+              "includePaths": ["src/theme"]
             },
             "scripts": [
-              "node_modules/marked/lib/marked.js",
+              "node_modules/marked/marked.min.js",
               "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-css.min.js"
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -99,19 +100,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngDemoApp:build",
+            "browserTarget": "ng-demo-app:build",
             "ssl": true
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngDemoApp:build:production"
+              "browserTarget": "ng-demo-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngDemoApp:build"
+            "browserTarget": "ng-demo-app:build"
           }
         },
         "test": {
@@ -135,18 +136,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngDemoApp:serve"
+            "devServerTarget": "ng-demo-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngDemoApp:serve:production"
+              "devServerTarget": "ng-demo-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ngDemoApp",
+  "defaultProject": "ng-demo-app",
   "cli": {
     "analytics": "b2b12f24-1613-48bd-8346-e6b0bc6a3a44"
   }

@@ -14,5 +14,14 @@
 
 - 01-style-inheritance: A sample to demonstrate Style Inheritance and ViewEncapsulation
 - 02-material-bootstrap: Using Material & Bootstrap together
-- 03-theme-app: 2 Themes using the div-class approach.
+- 03-theme-app: 2 Material Themes using the div-class approach.
+
+    - Material Themeing Overview
+    - Define Primary, Accent and Warning Colors
+    - Building a Reusable Material Theme
+    - Define Alternative Themes
+    - Use Fore- and Backcolor
+    - Use Theme Mixins
+    - Theming Custom Components
+
 - 04-theme-switcher: Replacing Theme and Styles using StyleManagerService
