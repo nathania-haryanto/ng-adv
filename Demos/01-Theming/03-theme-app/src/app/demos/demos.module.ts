@@ -17,6 +17,7 @@ import { PopupComponent } from './samples/popup-container/popup/popup.component'
 import { SplitSampleComponent } from './samples/content-projection/split-sample/split-sample.component';
 import { UxModule } from '../ux/ux.module';
 import { SharedModule } from '../shared/shared.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const demoRoutes: Routes = [
   {
@@ -33,29 +34,30 @@ const demoRoutes: Routes = [
 ];
 
 @NgModule({
-    declarations: [
-        DemoContainerComponent,
-        StatefulComponent,
-        CardComponent,
-        ContentProjectionComponent,
-        PopupContainerComponent,
-        PopupComponent,
-        MarkdownEditorComponent,
-        SplitSampleComponent,
-    ],
-    imports: [
-        CommonModule,
-        UxModule,
-        FormsModule,
-        SharedModule,
-        ReactiveFormsModule,
-        RouterModule.forChild(demoRoutes),
-        MaterialModule,
-        HttpClientModule,
-        MarkdownModule.forRoot({
-            loader: HttpClient,
-        }),
-    ],
-    providers: [DemoService, SkillsService]
+  declarations: [
+    DemoContainerComponent,
+    StatefulComponent,
+    CardComponent,
+    ContentProjectionComponent,
+    PopupContainerComponent,
+    PopupComponent,
+    MarkdownEditorComponent,
+    SplitSampleComponent,
+  ],
+  imports: [
+    CommonModule,
+    UxModule,
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(demoRoutes),
+    MaterialModule,
+    FlexLayoutModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+    }),
+  ],
+  providers: [DemoService, SkillsService],
 })
 export class DemosModule {}

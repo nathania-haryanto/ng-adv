@@ -9,6 +9,7 @@ import { SideBarComponent } from './sidebar/side-bar.component';
 import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
 import { HttpClient } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const comps = [
   NavbarComponent,
@@ -23,6 +24,7 @@ const comps = [
     FormsModule,
     RouterModule,
     MaterialModule,
+    FlexLayoutModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
     }),
