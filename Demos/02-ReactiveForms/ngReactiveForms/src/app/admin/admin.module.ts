@@ -1,26 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TopicsComponent } from './topics/topics.component';
-import { SkillsComponent } from './skills/skills.component';
-import { Routes, RouterModule } from '@angular/router';
-import { AdminContainerComponent } from './admin-container/admin-container.component';
-import { MaterialModule } from '../material.module';
-import { DemosAdminComponent } from './demos/demos-admin.component';
-import { FormsModule } from '@angular/forms';
-import { DemoRowComponent } from './demos/demo-row/demo-row.component';
-import { UxModule } from '../ux/ux.module';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { TopicsComponent } from "./topics/topics.component";
+import { SkillsComponent } from "./skills/skills.component";
+import { Routes, RouterModule } from "@angular/router";
+import { AdminContainerComponent } from "./admin-container/admin-container.component";
+import { MaterialModule } from "../material.module";
+import { DemosAdminComponent } from "./demos-admin/demos-admin.component";
 
 const adminRoutes: Routes = [
   {
-    path: '',
+    path: "",
     component: AdminContainerComponent,
 
     children: [
-      { path: 'topics', component: TopicsComponent },
-      { path: 'skills', component: SkillsComponent },
-      { path: 'demos', component: DemosAdminComponent },
-    ],
-  },
+      { path: "topics", component: TopicsComponent },
+      { path: "skills", component: SkillsComponent },
+      { path: "demos", component: DemosAdminComponent }
+    ]
+  }
 ];
 
 @NgModule({
@@ -28,15 +25,8 @@ const adminRoutes: Routes = [
     TopicsComponent,
     SkillsComponent,
     AdminContainerComponent,
-    DemosAdminComponent,
-    DemoRowComponent,
+    DemosAdminComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(adminRoutes),
-    MaterialModule,
-    FormsModule,
-    UxModule,
-  ],
+  imports: [CommonModule, RouterModule.forChild(adminRoutes), MaterialModule]
 })
 export class AdminModule {}

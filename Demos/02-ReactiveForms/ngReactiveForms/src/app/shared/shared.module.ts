@@ -8,8 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClient } from '@angular/common/http';
-import { SidePanelComponent } from './side-panel/side-panel.component';
 import { IntroComponent } from './intro/intro.component';
+import { SidePanelComponent } from './side-panel/side-panel.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const comps = [
   NavbarComponent,
@@ -25,6 +26,7 @@ const comps = [
     FormsModule,
     RouterModule,
     MaterialModule,
+    FlexLayoutModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
     }),

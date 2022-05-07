@@ -6,7 +6,7 @@
       "title": "FormControl",
       "component": "FormControlComponent",
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 1
     },
     {
       "url": "async-pipe",
@@ -14,7 +14,7 @@
       "title": "Async Pipe",
       "component": "AsyncPipeComponent",
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 2
     },
     {
       "url": "reactiveforms",
@@ -22,7 +22,7 @@
       "title": "Reactive Forms",
       "component": "ReactiveFormsComponent",
       "visible": true,
-      "sortOrder": 1
+      "sortOrder": 3
     },
     {
       "url": "formbuilder",
@@ -30,7 +30,15 @@
       "title": "Form Builder",
       "component": "FormsBuilderComponent",
       "visible": true,
-      "sortOrder": 2
+      "sortOrder": 4
+    },
+    {
+      "url": "reactivenested",
+      "topicid": 2,
+      "title": "Nested Forms",
+      "component": "ReactiveNestedComponent",
+      "visible": true,
+      "sortOrder": 5
     },
     {
       "url": "validation",
@@ -38,7 +46,7 @@
       "title": "Custom Reactive Validators",
       "component": "ReactiveValidationComponent",
       "visible": true,
-      "sortOrder": 4
+      "sortOrder": 6
     },
     {
       "url": "formarray",
@@ -46,7 +54,7 @@
       "title": "FormArray",
       "component": "FormArrayComponent",
       "visible": true,
-      "sortOrder": 5
+      "sortOrder": 6
     },
     {
       "url": "cascade",
@@ -54,7 +62,15 @@
       "title": "Cascading",
       "component": "ReactiveCascadeComponent",
       "visible": true,
-      "sortOrder": 5
+      "sortOrder": 8
+    },
+    {
+      "url": "valuecontrol",
+      "topicid": 3,
+      "title": "ControlValueAccessor",
+      "component": "ControlValueAccessorComponent",
+      "visible": true,
+      "sortOrder": 8
     }
   ],
   "skills": [

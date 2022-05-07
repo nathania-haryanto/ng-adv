@@ -1,11 +1,8 @@
-@import "stylevars.scss";
-
 .menu {
-  margin: 0 $small-gap;
+  margin: 0 var(--gap-small);
 }
 
 button {
   width: 100%;
-  margin: $small-gap 0;
-  @include link($medium-font, $light-col);
+  margin: var(--gap-small) 0;
 }
