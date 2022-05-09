@@ -10,7 +10,6 @@ import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { SkillsService } from '../model/skills/skills.service';
 import { SharedModule } from '../shared/shared.module';
-import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { AppStateComponent } from './samples/app-state/app-state.component';
 import { DemoEditComponent } from './samples/demos/demo-edit/demo-edit.component';
@@ -56,7 +55,6 @@ const demoRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    UxModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
