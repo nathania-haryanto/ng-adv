@@ -5,8 +5,8 @@ import {
   Update,
 } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { DemoItem } from '../demo-item.model';
 import { setSelected, applyFilter, toggleVisiblity } from './demos.actions';
+import { DemoItem } from '../demo-base/demo-item.model';
 import {
   deleteDemoSuccess,
   loadDemosFailure,

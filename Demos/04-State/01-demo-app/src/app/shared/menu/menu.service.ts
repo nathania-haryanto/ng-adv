@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { MenuItem } from './MenuItem';
 import { filter, map } from 'rxjs/operators';
+import { MenuItem } from './menu-item.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,10 @@ export class MenuService {
     this.handleChange();
   }
 
-  sideNavVisible: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  sideNavPosition: BehaviorSubject<string> = new BehaviorSubject('side');
+  private visible = true;
+  visible$: BehaviorSubject<boolean> = new BehaviorSubject(this.visible);
+  private position = 'side';
+  position$: BehaviorSubject<string> = new BehaviorSubject(this.position);
 
   private handleChange() {
     this.mediaObserver
@@ -23,8 +25,8 @@ export class MenuService {
         map((changes: MediaChange[]) => changes[0])
       )
       .subscribe((change) => {
-        this.sideNavVisible.next(change.mqAlias === 'xs' ? false : true);
-        this.sideNavPosition.next(change.mqAlias === 'xs' ? 'over' : 'side');
+        this.visible$.next(change.mqAlias === 'xs' ? false : true);
+        this.position$.next(change.mqAlias === 'xs' ? 'over' : 'side');
       });
   }
 
@@ -32,12 +34,12 @@ export class MenuService {
     return of([
       { label: 'Home', url: '' },
       { label: 'Demos', url: 'demos' },
-      { label: 'Skills', url: 'skills' },
+      { label: 'Admin', url: 'admin' },
     ]);
   }
 
-  toggleMenuVisibility() {
-    const visible = !this.sideNavVisible.getValue();
-    this.sideNavVisible.next(visible);
+  toggleMenu() {
+    this.visible = !this.visible;
+    this.visible$.next(this.visible);
   }
 }

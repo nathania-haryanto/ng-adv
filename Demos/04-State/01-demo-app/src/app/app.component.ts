@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 import { ThemeService } from './shared/theme/theme.service';
 
 @Component({
@@ -8,11 +8,11 @@ import { ThemeService } from './shared/theme/theme.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private titleService: Title, private ts: ThemeService) {}
 
   title: string = environment.title;
-  selectedTheme = 'default';
+  selectedTheme: string = 'default';
 
   ngOnInit() {
     this.titleService.setTitle(this.title);

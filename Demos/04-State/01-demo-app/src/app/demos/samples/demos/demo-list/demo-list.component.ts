@@ -3,9 +3,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DemoItem } from '../../../demo-item.model';
 import { DemoState } from '../../../state/demos.reducer';
 import { getAllDemos, getFilter } from '../../../state/demo.selectors';
+import { DemoItem } from '../../../demo-base/demo-item.model';
 import {
   deleteDemo,
   setSelected,

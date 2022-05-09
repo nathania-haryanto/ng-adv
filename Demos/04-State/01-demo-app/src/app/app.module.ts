@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './state';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -20,6 +21,7 @@ import { reducers } from './state';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule,
     HttpClientModule,
     SharedModule,
     StoreModule.forRoot(reducers),

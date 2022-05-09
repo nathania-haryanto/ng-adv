@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
-import { EventBusService } from 'src/app/shared/eventbus/event-bus.service';
-import { SidebarActions } from 'src/app/shared/sidebar/sidebar-actions';
 import { environment } from 'src/environments/environment';
-import { DemoItem } from '../demo-item.model';
 import { DemoFacade } from '../state/demo.facade';
 import { MenuService } from '../../shared/menu/menu.service';
+import { DemoItem } from '../demo-base/demo-item.model';
+import { MatDrawerMode } from '@angular/material/sidenav';
+import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
+import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
 
 @Component({
   selector: 'app-demo-container',
@@ -18,21 +19,25 @@ export class DemoContainerComponent implements OnInit {
     public ms: MenuService,
     private router: Router,
     private df: DemoFacade,
-    private eb: EventBusService
+    private sidep: SidePanelService
   ) {}
 
   title: string = environment.title;
   header = 'Please select a demo';
+  isLoading = true;
 
   demos$ = this.df.getDemos();
   current: DemoItem = this.demos$ != null ? this.demos$[0] : null;
 
-  menuVisible$ = this.ms.sideNavVisible;
-  menuPosition$ = this.ms.sideNavPosition;
+  menuVisible$ = this.ms.visible$;
+  // menuPosition$ = this.ms.sideNavPosition;
+  sidenavMode: MatDrawerMode = 'side';
 
-  showEditor$ = this.eb.Commands.pipe(
-    map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
-  );
+  showEditor$ = this.sidep
+    .getCommands()
+    .pipe(
+      map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
+    );
 
   ngOnInit() {
     this.df.initData();
@@ -40,9 +45,15 @@ export class DemoContainerComponent implements OnInit {
     this.getWorbenchStyle();
   }
 
+  setMenuPosition() {
+    this.ms.position$.subscribe(
+      (mode: any) => (this.sidenavMode = mode as MatDrawerMode)
+    );
+  }
+
   getWorbenchStyle() {
     let result = {};
-    this.ms.sideNavVisible.subscribe((visible) => {
+    this.ms.visible$.subscribe((visible) => {
       result = visible
         ? {
             'margin-left': '10px',

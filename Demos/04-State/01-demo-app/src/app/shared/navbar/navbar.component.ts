@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleMenu() {
-    this.ms.toggleMenuVisibility();
+    this.ms.toggleMenu();
   }
 
   toggleApps() {

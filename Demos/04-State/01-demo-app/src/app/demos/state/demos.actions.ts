@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { DemoItem } from '../demo-item.model';
+import { DemoItem } from '../demo-base/demo-item.model';
 
 export const loadDemos = createAction('[Demos] loadDemos');
 

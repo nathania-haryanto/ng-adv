@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { DemoItem } from 'src/app/demos/demo-item.model';
 import { StatefulDemoService } from 'src/app/demos/samples/statefull/stateful-demo.service';
+import { DemoItem } from '../../../demo-base/demo-item.model';
 
 @Component({
   selector: 'app-statefull',

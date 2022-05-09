@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,7 +12,6 @@ import { SkillsService } from '../model/skills/skills.service';
 import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { AppStateComponent } from './samples/app-state/app-state.component';
 import { DemoEditComponent } from './samples/demos/demo-edit/demo-edit.component';
 import { DemoFilterComponent } from './samples/demos/demo-filter/demo-filter.component';
@@ -43,7 +43,6 @@ const demoRoutes: Routes = [
 @NgModule({
   declarations: [
     DemoContainerComponent,
-    MarkdownEditorComponent,
     StatefullComponent,
     DemoRowComponent,
     EventbusComponent,
@@ -62,6 +61,7 @@ const demoRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(demoRoutes),
     MaterialModule,
+    FlexLayoutModule,
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
