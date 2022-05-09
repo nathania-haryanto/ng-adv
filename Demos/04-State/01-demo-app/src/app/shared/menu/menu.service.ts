@@ -3,12 +3,13 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { MenuItem } from './menu-item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MenuService {
-  constructor(private mediaObserver: MediaObserver) {
+  constructor(private mediaObserver: MediaObserver, private http: HttpClient) {
     this.handleChange();
   }
 
@@ -31,11 +32,7 @@ export class MenuService {
   }
 
   getTopItems(): Observable<MenuItem[]> {
-    return of([
-      { label: 'Home', url: '' },
-      { label: 'Demos', url: 'demos' },
-      { label: 'Admin', url: 'admin' },
-    ]);
+    return this.http.get<MenuItem[]>('/assets/top-items.json');
   }
 
   toggleMenu() {

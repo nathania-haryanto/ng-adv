@@ -1,5 +1,3 @@
-Explain EventBus pattern using the Sidebar
+EventBus pattern allows communication between components that are not directley nested like Container / Presenter.
 
-- Investigate `menu.service.ts` and its usage.
-- Investigate `theme.service.ts` and its usage.
-- Investigate `event-bus.service.ts` and its usage in the sidebar
+- Investigate `menu.service.ts` and its usage
