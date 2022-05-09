@@ -1,6 +1,4 @@
-@import "stylevars.scss";
-
 button {
   width: 100%;
-  margin-bottom: $small-gap;
+  margin-bottom: var(--gap-small);
 }

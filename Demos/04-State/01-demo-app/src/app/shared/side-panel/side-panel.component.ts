@@ -37,6 +37,6 @@ export class SidePanelComponent implements OnInit {
   }
 
   showUpload() {
-    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
+    this.sns.displayAlert('Info', 'Uploading to Cloud');
   }
 }

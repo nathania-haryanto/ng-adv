@@ -1,6 +1,6 @@
 Investigate root state and it's actions:
 
-```
+```typescript
 import { createAction, props } from '@ngrx/store';
 
 export const changeTitle = createAction(
