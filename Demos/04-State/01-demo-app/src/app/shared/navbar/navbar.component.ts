@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleApps() {
-    this.sns.displayAlert('Apps', 'Not implemented! - just for demo');
+    this.sns.displayAlert('Apps', 'Not implemented - just a mock');
   }
 
   showUpload() {

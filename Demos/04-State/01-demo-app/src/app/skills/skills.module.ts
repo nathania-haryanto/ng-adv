@@ -11,6 +11,7 @@ import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { SkillsRoutingModule } from './skills-routing.module';
 import { SkillsEffects } from './state/skills.effects';
 import { reducer, skillsFeatureKey } from './state/skills.reducer';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { reducer, skillsFeatureKey } from './state/skills.reducer';
     CommonModule,
     SkillsRoutingModule,
     MaterialModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     StoreModule.forFeature(skillsFeatureKey, reducer),
     EffectsModule.forFeature([SkillsEffects]),

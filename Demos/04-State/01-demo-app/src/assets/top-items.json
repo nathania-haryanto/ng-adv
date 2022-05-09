@@ -10,9 +10,5 @@
     {
         "label": "Skills",
         "url": "skills"
-    },
-    {
-        "label": "Admin",
-        "url": "admin"
     }
 ]

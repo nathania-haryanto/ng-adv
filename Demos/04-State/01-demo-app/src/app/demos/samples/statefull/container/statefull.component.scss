@@ -19,9 +19,9 @@ mat-form-field {
 .box {
   padding: var(--gap-small);
   border-bottom: solid 1px #ccc;
-  color: var(--color-primary);
+  color: var(--color-fg);
   cursor: move;
-  background: var(--color-bg);
+  background: var(--color-accent);
   font-size: 1rem;
 }
 
