@@ -1,9 +1,5 @@
-@use '@angular/material' as mat;
-@import "stylevars.scss";
-@import "theme.scss";
-
 mat-card {
-  margin-top: $small-gap;
+  margin-top: var(--gap-small);
 }
 
 mat-card-content {
@@ -12,20 +8,20 @@ mat-card-content {
 }
 
 mat-form-field {
-  width: 100%;
+  width: 100% !important;
 }
 
 .list {
-  background: mat.get-color-from-palette($app-primary);
+  // background: var(--color-accent);
   min-height: 60px;
 }
 
 .box {
-  padding: $small-gap;
+  padding: var(--gap-small);
   border-bottom: solid 1px #ccc;
-  color: mat.get-color-from-palette($app-fg);
+  color: var(--color-primary);
   cursor: move;
-  background: mat.get-color-from-palette($app-accent);
+  background: var(--color-bg);
   font-size: 1rem;
 }
 

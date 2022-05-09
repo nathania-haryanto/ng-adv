@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Route } from '@angular/router';
-import { SnackbarService } from '../snackbar/snackbar.service';
-import { MenuService } from '../menu/menu.service';
+import { Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MenuService } from '../menu/menu.service';
 import { MenuItem } from '../menu/MenuItem';
+import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Component({
   selector: 'app-navbar',

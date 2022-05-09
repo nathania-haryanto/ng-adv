@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { MenuItem } from './menu-item.model';
 

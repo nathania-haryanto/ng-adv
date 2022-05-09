@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { DemoFacade } from '../state/demo.facade';
 import { MenuService } from '../../shared/menu/menu.service';
-import { DemoItem } from '../demo-base/demo-item.model';
-import { MatDrawerMode } from '@angular/material/sidenav';
 import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
 import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
+import { DemoItem } from '../demo-base/demo-item.model';
+import { DemoFacade } from '../state/demo.facade';
 
 @Component({
   selector: 'app-demo-container',
