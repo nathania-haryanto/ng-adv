@@ -12,6 +12,7 @@ import { IntroComponent } from './intro/intro.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const comps = [
   NavbarComponent,
@@ -20,6 +21,7 @@ const comps = [
   MarkdownRendererComponent,
   IntroComponent,
   MarkdownEditorComponent,
+  LoadingComponent,
 ];
 
 @NgModule({

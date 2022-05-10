@@ -32,15 +32,16 @@ export class DemoContainerComponent implements OnInit {
   ngOnInit() {
     this.setMenu();
     this.setMetadata();
+    this.setMenuPosition();
     this.getWorbenchStyle();
-    // this.subscribeLoading();
+    this.subscribeLoading();
   }
 
-  // subscribeLoading() {
-  //   this.ls.getLoading().subscribe((value) => {
-  //     Promise.resolve(null).then(() => (this.isLoading = value));
-  //   });
-  // }
+  subscribeLoading() {
+    this.ls.getLoading().subscribe((value) => {
+      Promise.resolve(null).then(() => (this.isLoading = value));
+    });
+  }
 
   setMenuPosition() {
     this.ms.position$.subscribe(

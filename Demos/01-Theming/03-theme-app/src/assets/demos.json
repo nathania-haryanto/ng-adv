@@ -2,7 +2,7 @@
   {
     "url": "stateful",
     "title": "Table",
-    "component": "StatefulComponent"
+    "component": "TableComponent"
   },
   {
     "url": "card",

@@ -11,6 +11,7 @@ import { IntroComponent } from './intro/intro.component';
 import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const comps = [
   NavbarComponent,
@@ -18,6 +19,7 @@ const comps = [
   FooterComponent,
   MarkdownRendererComponent,
   IntroComponent,
+  LoadingComponent,
 ];
 
 @NgModule({

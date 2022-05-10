@@ -15,17 +15,17 @@ import { ContentProjectionComponent } from './samples/content-projection/content
 import { SplitSampleComponent } from './samples/content-projection/split-sample/split-sample.component';
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
 import { PopupComponent } from './samples/popup-container/popup/popup.component';
-import { StatefulComponent } from './samples/stateful/stateful.component';
+import { TableComponent } from './samples/table/table.component';
 
 @NgModule({
   declarations: [
     DemoContainerComponent,
-    StatefulComponent,
     CardComponent,
     ContentProjectionComponent,
     PopupContainerComponent,
     PopupComponent,
     SplitSampleComponent,
+    TableComponent,
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 export class Person {
+  id: number;
   age: number;
   name: string;
   wealth?: string;
@@ -13,5 +14,5 @@ export class Person {
 export enum WorkLifeBalance {
   Happy,
   Unsatisfied,
-  ReadyForRevolution
+  ReadyForRevolution,
 }

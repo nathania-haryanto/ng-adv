@@ -3,22 +3,21 @@ import { of, Observable } from 'rxjs';
 import { Person } from './person.model';
 import { delay } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PersonService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getPerson(): Observable<Person> {
-    return of({
-      name: 'Heinz',
-      lastname: 'Hödelberg-Moser',
-      gender: 'male',
-      age: 20,
-      email: 'derschoeneheinz@xyz.at',
-      wealth: 'poor',
-    }).pipe(delay(1500));
+  getPersons() {
+    return this.http.get<Person[]>(`${environment.apiUrl}persons`);
+  }
+
+  getPerson() {
+    return this.http.get<Person>(`${environment.apiUrl}persons/1`);
   }
 
   save(form: NgForm) {

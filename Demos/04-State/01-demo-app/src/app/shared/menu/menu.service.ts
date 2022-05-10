@@ -13,10 +13,8 @@ export class MenuService {
     this.handleChange();
   }
 
-  private visible = true;
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject(this.visible);
-  private position = 'side';
-  position$: BehaviorSubject<string> = new BehaviorSubject(this.position);
+  visible$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  position$: BehaviorSubject<string> = new BehaviorSubject('side');
 
   private handleChange() {
     this.mediaObserver
@@ -36,7 +34,7 @@ export class MenuService {
   }
 
   toggleMenu() {
-    this.visible = !this.visible;
-    this.visible$.next(this.visible);
+    let status = !this.visible$.getValue();
+    this.visible$.next(status);
   }
 }

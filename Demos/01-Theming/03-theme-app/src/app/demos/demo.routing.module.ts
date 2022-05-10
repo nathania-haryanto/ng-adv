@@ -4,7 +4,7 @@ import { DemoContainerComponent } from './demo-container/demo-container.componen
 import { CardComponent } from './samples/card/card.component';
 import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
-import { StatefulComponent } from './samples/stateful/stateful.component';
+import { TableComponent } from './samples/table/table.component';
 
 const demoRoutes: Routes = [
   {
@@ -12,7 +12,7 @@ const demoRoutes: Routes = [
     component: DemoContainerComponent,
 
     children: [
-      { path: 'stateful', component: StatefulComponent },
+      { path: 'stateful', component: TableComponent },
       { path: 'card', component: CardComponent },
       { path: 'projection', component: ContentProjectionComponent },
       { path: 'popup', component: PopupContainerComponent },
