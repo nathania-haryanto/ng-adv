@@ -18,12 +18,13 @@ export class FormsBuilderComponent implements OnInit {
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
-      //Use this to update the whole form
-      this.personForm.setValue(p);
+      //Reminder: setValue vs patchValue
+      this.personForm.patchValue(p);
       console.log('Data loaded from service', p);
     });
 
     this.personForm = this.fb.group({
+      id: [this.person.name],
       name: [this.person.name, Validators.required],
       lastname: [this.person.lastname, Validators.required],
       age: [this.person.age],
