@@ -14,8 +14,7 @@
         />
       </mat-form-field>
       <div *ngIf="skillForm.get('name').value">
-        <h2>Skills</h2>
-
+        <div class="skills">Skills:</div>
         <div
           formArrayName="skillsGrp"
           *ngFor="let skill of getElementsInFormArray(); let i = index"

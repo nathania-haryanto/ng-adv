@@ -25,6 +25,7 @@ import { ReactiveCascadeComponent } from './samples/reactive-cascade/reactive-ca
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
+import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -44,6 +45,7 @@ const appearance: MatFormFieldDefaultOptions = {
     ActionStreamsComponent,
     ReactiveNestedComponent,
     ControlValueAccessorComponent,
+    NumberPickerComponent,
   ],
   imports: [
     CommonModule,
