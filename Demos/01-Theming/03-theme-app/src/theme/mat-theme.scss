@@ -1,6 +1,6 @@
 //Provides theme funcitonality
 @use '@angular/material' as mat;
-@import "@angular/material/theming";
+@import '@angular/material/theming';
 //Mixin for common material styles
 @include mat.core();
 
@@ -9,7 +9,7 @@ $primary: mat.define-palette(mat.$brown-palette, 400);
 $accent: mat.define-palette(mat.$grey-palette, 400);
 $warn: mat.define-palette(mat.$red-palette);
 $fg: mat.define-palette(mat.$grey-palette, 100);
-$bg: mat.define-palette(mat.$blue-grey-palette,100);
+$bg: mat.define-palette(mat.$blue-grey-palette, 100);
 
 //Build theme
 $theme: mat.define-light-theme($primary, $accent, $warn);
@@ -40,13 +40,14 @@ $theme: mat.define-light-theme($primary, $accent, $warn);
   .split-title {
     mat-toolbar {
       background-color: var(--color-primary);
+      color: var(--color-fg);
     }
   }
-
-  .split-main,
-  .split-sidebar {
+  .split-main {
     background-color: var(--color-bg);
   }
+  .split-sidebar {
+    background-color: var(--color-fg);
+  }
 }
-
 @include ux-spilt-theme($theme);

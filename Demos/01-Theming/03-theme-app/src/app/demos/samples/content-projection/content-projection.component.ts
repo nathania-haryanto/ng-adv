@@ -14,7 +14,7 @@ export class ContentProjectionComponent implements OnInit {
 
   openPopup(): void {
     const dialogRef = this.dialog.open(SplitSampleComponent, {
-      width: '90vw',
+      width: '70vw',
       data: { main: 'this is main', toolbar: 'toolbar' },
     });
   }
