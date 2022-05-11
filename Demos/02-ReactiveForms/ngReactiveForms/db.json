@@ -35,7 +35,7 @@
     {
       "url": "reactivenested",
       "topicid": 2,
-      "title": "Nested Forms",
+      "title": "Nested Objects",
       "component": "ReactiveNestedComponent",
       "visible": true,
       "sortOrder": 5
