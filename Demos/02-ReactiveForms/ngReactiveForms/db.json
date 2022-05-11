@@ -43,7 +43,7 @@
     {
       "url": "validation",
       "topicid": 4,
-      "title": "Custom Reactive Validators",
+      "title": "Reactive Validators",
       "component": "ReactiveValidationComponent",
       "visible": true,
       "sortOrder": 6
@@ -95,7 +95,12 @@
       "married": true,
       "imgUrl": "/assets/images/cleo.png",
       "email": "cleothewhippet@sighthounds.at",
-      "wealth": "rich"
+      "wealth": "rich",
+      "address":{
+        "street": "Stairway to heaven",
+        "city": "Better palce",
+        "postalCode": "1000"
+      }
     },
     {
       "id": 2,

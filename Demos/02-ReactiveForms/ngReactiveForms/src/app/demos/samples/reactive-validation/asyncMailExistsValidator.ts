@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { PersonService } from '../person.service';
+import { PersonService } from '../person/person.service';
 
 @Injectable({ providedIn: 'root' })
 export class AsyncMailExistsValidator implements AsyncValidator {

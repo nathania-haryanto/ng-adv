@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Person } from '../person.model';
-import { PersonService } from '../person.service';
+import { Person } from '../person/person.model';
 import { emptyPerson, wealthOpts } from '../empty-person';
+import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-reactive-forms',

@@ -9,10 +9,17 @@ export class Person {
   married?: boolean;
   imgUrl?: string;
   email?: string;
+  address?: Address;
 }
 
 export enum WorkLifeBalance {
   Happy,
   Unsatisfied,
   ReadyForRevolution,
+}
+
+export class Address {
+  street: string;
+  city: string;
+  postalCode: string;
 }
