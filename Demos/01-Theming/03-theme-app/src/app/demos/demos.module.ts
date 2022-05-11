@@ -7,7 +7,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { SkillsService } from '../model/skills/skills.service';
 import { SharedModule } from '../shared/shared.module';
-import { UxModule } from '../ux/ux.module';
+import { UxModule } from '../shared/ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { DemoRoutingModule } from './demo.routing.module';
 import { CardComponent } from './samples/card/card.component';
@@ -36,6 +36,7 @@ import { TableComponent } from './samples/table/table.component';
     DemoRoutingModule,
     MaterialModule,
     FlexLayoutModule,
+    UxModule,
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
