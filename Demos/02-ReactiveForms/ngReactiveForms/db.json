@@ -71,6 +71,14 @@
       "component": "ControlValueAccessorComponent",
       "visible": true,
       "sortOrder": 8
+    },
+    {
+      "url": "ngx-formly",
+      "topicid": 3,
+      "title": "Formly",
+      "component": "NgxFormlyComponent",
+      "visible": true,
+      "sortOrder": 8
     }
   ],
   "skills": [
