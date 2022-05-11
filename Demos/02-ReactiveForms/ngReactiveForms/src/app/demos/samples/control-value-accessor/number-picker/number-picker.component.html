@@ -1,5 +1,6 @@
-<div fxLayout="row">
-    <mat-icon (click)="onRemove()" color="primary">home</mat-icon>
+<div fxLayout="row" fxLayoutAlign="space-between center" class="container">
+    <label>{{label}}:</label>
+    <mat-icon (click)="onRemove()" color="primary">remove_circle_outline</mat-icon>
     <div class="quantity">{{quantity}}</div>
-    <mat-icon (click)="onAdd()" color="primary">add_box</mat-icon>
+    <mat-icon (click)="onAdd()" color="primary">add_circle_outline</mat-icon>
  </div>

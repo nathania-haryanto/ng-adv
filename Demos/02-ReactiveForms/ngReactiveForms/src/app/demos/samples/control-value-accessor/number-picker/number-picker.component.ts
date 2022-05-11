@@ -28,8 +28,8 @@ import {
 export class NumberPickerComponent implements ControlValueAccessor, Validator {
   quantity = 0;
 
-  @Input()
-  increment: number;
+  @Input() increment: number;
+  @Input() label: string;
 
   onChange = (quantity) => {};
 

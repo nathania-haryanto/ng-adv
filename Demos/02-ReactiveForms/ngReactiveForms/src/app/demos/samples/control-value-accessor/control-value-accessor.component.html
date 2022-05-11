@@ -8,11 +8,15 @@
       <form [formGroup]="cartItemForm"
       role="form"
       novalidate
+      (ngSubmit)="submitItem(cartItemForm)"
       fxLayout="column">
       <mat-form-field>
-        <input matInput type="text" placeholder="Name" formControlName="itemName" />
+        <input matInput type="text" placeholder="Product" formControlName="itemName" />
       </mat-form-field>
-      <app-number-picker formControlName="quantity" ></app-number-picker>
+      <app-number-picker formControlName="quantity" label="Amount" ></app-number-picker>
     </form>
     </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="accent" type="submit">Submit</button>
+    </mat-card-actions>
 </mat-card>

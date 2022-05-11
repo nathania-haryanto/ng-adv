@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-control-value-accessor',
@@ -15,7 +15,11 @@ export class ControlValueAccessorComponent implements OnInit {
   ngOnInit(): void {
     this.cartItemForm = this.fb.group({
       itemName: [this.cartItem.itemName, Validators.required],
-      quantity: [this.cartItem.quantity, Validators.max(3)],
+      quantity: [this.cartItem.quantity, Validators.max(5)],
     });
+  }
+
+  submitItem(form) {
+    console.log('Items in cart:', form);
   }
 }
