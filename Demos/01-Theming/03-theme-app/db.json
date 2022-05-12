@@ -1,6 +1,11 @@
 {
   "demos":[
     {
+      "url": "style-inheritance",
+      "title": "Style Inheritance",
+      "component": "StyleInheritanceComponent"
+    },
+    {
       "url": "card",
       "title": "Card",
       "component": "CardComponent"

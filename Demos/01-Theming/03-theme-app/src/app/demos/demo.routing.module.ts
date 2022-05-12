@@ -5,6 +5,7 @@ import { CardComponent } from './samples/card/card.component';
 import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
 import { TableComponent } from './samples/table/table.component';
+import { StyleInheritanceComponent } from './samples/style-inheritance/style-inheritance.component';
 
 const demoRoutes: Routes = [
   {
@@ -12,6 +13,7 @@ const demoRoutes: Routes = [
     component: DemoContainerComponent,
 
     children: [
+      { path: 'style-inheritance', component: StyleInheritanceComponent },
       { path: 'table', component: TableComponent },
       { path: 'card', component: CardComponent },
       { path: 'projection', component: ContentProjectionComponent },

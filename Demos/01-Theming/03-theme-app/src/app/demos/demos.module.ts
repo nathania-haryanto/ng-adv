@@ -16,6 +16,10 @@ import { SplitSampleComponent } from './samples/content-projection/split-sample/
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
 import { PopupComponent } from './samples/popup-container/popup/popup.component';
 import { TableComponent } from './samples/table/table.component';
+import { StyleInheritanceComponent } from './samples/style-inheritance/style-inheritance.component';
+import { FirstChildComponent } from './samples/style-inheritance/first-child/first-child.component';
+import { SecondChildComponent } from './samples/style-inheritance/second-child/second-child.component';
+import { NestedChildComponent } from './samples/style-inheritance/nested-child/nested-child.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { TableComponent } from './samples/table/table.component';
     PopupComponent,
     SplitSampleComponent,
     TableComponent,
+    StyleInheritanceComponent,
+    FirstChildComponent,
+    SecondChildComponent,
+    NestedChildComponent,
   ],
   imports: [
     CommonModule,
