@@ -20,6 +20,8 @@ import { StyleInheritanceComponent } from './samples/style-inheritance/style-inh
 import { FirstChildComponent } from './samples/style-inheritance/first-child/first-child.component';
 import { SecondChildComponent } from './samples/style-inheritance/second-child/second-child.component';
 import { NestedChildComponent } from './samples/style-inheritance/nested-child/nested-child.component';
+import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
+import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { NestedChildComponent } from './samples/style-inheritance/nested-child/n
     FirstChildComponent,
     SecondChildComponent,
     NestedChildComponent,
+    MaterialVsBootstrapComponent,
+    MultiThemeComponent,
   ],
   imports: [
     CommonModule,

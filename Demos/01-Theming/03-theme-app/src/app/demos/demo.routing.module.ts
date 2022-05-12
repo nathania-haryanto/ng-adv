@@ -6,6 +6,8 @@ import { ContentProjectionComponent } from './samples/content-projection/content
 import { PopupContainerComponent } from './samples/popup-container/popup-container.component';
 import { TableComponent } from './samples/table/table.component';
 import { StyleInheritanceComponent } from './samples/style-inheritance/style-inheritance.component';
+import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
+import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
 
 const demoRoutes: Routes = [
   {
@@ -18,6 +20,8 @@ const demoRoutes: Routes = [
       { path: 'card', component: CardComponent },
       { path: 'projection', component: ContentProjectionComponent },
       { path: 'popup', component: PopupContainerComponent },
+      { path: 'bootstrap', component: MaterialVsBootstrapComponent },
+      { path: 'multi-theme', component: MultiThemeComponent },
     ],
   },
 ];

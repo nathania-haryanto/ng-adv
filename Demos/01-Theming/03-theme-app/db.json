@@ -1,5 +1,5 @@
 {
-  "demos":[
+  "demos": [
     {
       "url": "style-inheritance",
       "title": "Style Inheritance",
@@ -7,7 +7,7 @@
     },
     {
       "url": "card",
-      "title": "Card",
+      "title": "Theming",
       "component": "CardComponent"
     },
     {
@@ -16,14 +16,24 @@
       "component": "StatefulComponent"
     },
     {
+      "url": "popup",
+      "title": "Popup",
+      "component": "PopupContainerComponent"
+    },
+    {
       "url": "projection",
       "title": "Content Projection",
       "component": "SplitSampleComponent"
     },
     {
-      "url": "popup",
-      "title": "Popup",
-      "component": "PopupContainerComponent"
+      "url": "bootstrap",
+      "title": "MD vs Bootstrap",
+      "component": "MaterialVsBootstrapComponent"
+    },
+    {
+      "url": "multi-theme",
+      "title": "Multi Theme",
+      "component": "MultiThemeComponent"
     }
   ],
   "posts": [
