@@ -13,7 +13,7 @@ export class MenuService {
     this.handleChange();
   }
 
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  visible$: BehaviorSubject<boolean> = new BehaviorSubject(true);
   position$: BehaviorSubject<string> = new BehaviorSubject('side');
 
   private handleChange() {
