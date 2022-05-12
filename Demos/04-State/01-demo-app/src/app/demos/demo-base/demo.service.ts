@@ -8,11 +8,11 @@ import { DemoItem } from './demo-item.model';
 export class DemoService {
   constructor(private httpClient: HttpClient) {}
 
-  getDemos(): Observable<DemoItem[]> {
+  getItems(): Observable<DemoItem[]> {
     return this.httpClient.get<DemoItem[]>(environment.demosApi);
   }
 
-  deleteDemo(id: number): Observable<any> {
+  deleteItem(id: number): Observable<any> {
     return this.httpClient.delete(`${environment.apiUrl}skills/${id}`);
   }
 }

@@ -13,7 +13,7 @@ export class DemosEffects {
     this.actions$.pipe(
       ofType(demoActions.loadDemos),
       mergeMap(() =>
-        this.service.getDemos().pipe(
+        this.service.getItems().pipe(
           map((demos) => ({
             type: '[Demos] loadDemos Success',
             items: demos,
@@ -28,7 +28,7 @@ export class DemosEffects {
     this.actions$.pipe(
       ofType(demoActions.deleteDemo),
       mergeMap((action) =>
-        this.service.deleteDemo(action.item.id).pipe(
+        this.service.deleteItem(action.item.id).pipe(
           map(() => ({
             type: '[Demos] deleteDemo Success',
             item: action.item,

@@ -1,4 +1,8 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +13,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
+import { LoadingService } from './shared/loading/loading.service';
+import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -24,7 +30,10 @@ import { SharedModule } from './shared/shared.module';
       loader: HttpClient,
     }),
   ],
-  providers: [],
+  providers: [
+    LoadingService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
