@@ -28,10 +28,19 @@
       "sortOrder": 3
     },
     {
-      "url": "demos",
-      "title": "Demos",
-      "component": "DemosComponent",
+      "url": "demos-state",
+      "title": "Demos State",
+      "component": "DemosStateComponent",
       "id": 4,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "demos-list",
+      "title": "Demos List",
+      "component": "DemosComponent",
+      "id": 5,
       "topicid": 1,
       "visible": true,
       "sortOrder": 4
@@ -40,7 +49,7 @@
       "url": "skills",
       "title": "Skills",
       "component": "SkillsComponent",
-      "id": 5,
+      "id": 6,
       "topicid": 1,
       "visible": true,
       "sortOrder": 3

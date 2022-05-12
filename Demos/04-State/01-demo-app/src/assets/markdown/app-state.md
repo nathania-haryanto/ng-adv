@@ -1,5 +1,6 @@
 - Examine root state in /app/state/*
 - Show [Chrome Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=de). Mention that the browser has to be restarted after installation
+- A good live-demo would be to refactor the loading indicator to ngrx
 
 ```typescript
 export interface State {

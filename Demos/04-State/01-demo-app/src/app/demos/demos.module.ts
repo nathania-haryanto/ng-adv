@@ -23,6 +23,7 @@ import { StatefullComponent } from './samples/statefull/container/statefull.comp
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { DemosStateComponent } from './samples/demos-state/demos-state.component';
 
 const demoRoutes: Routes = [
   {
@@ -32,7 +33,8 @@ const demoRoutes: Routes = [
     children: [
       { path: 'statefull', component: StatefullComponent },
       { path: 'ebus', component: EventbusComponent },
-      { path: 'demos', component: DemosComponent },
+      { path: 'demos-state', component: DemosStateComponent },
+      { path: 'demos-list', component: DemosComponent },
       { path: 'app-state', component: AppStateComponent },
       { path: 'skills', component: SkillsComponent },
     ],
@@ -52,6 +54,7 @@ const demoRoutes: Routes = [
     AppStateComponent,
     SkillsComponent,
     DemosComponent,
+    DemosStateComponent,
   ],
   imports: [
     CommonModule,

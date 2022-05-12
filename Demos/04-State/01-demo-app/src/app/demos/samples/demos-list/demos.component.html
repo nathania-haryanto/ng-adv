@@ -1,6 +1,5 @@
-<div fxLayout="column" fxLayoutGap="5px">
-    <app-demo-filter></app-demo-filter>
-  
-    <app-demo-list (onEditDemo)="editDemo()"></app-demo-list>
-    <app-demo-edit></app-demo-edit>
-  </div>
+<app-markdown-renderer [md]="'demos-list'"></app-markdown-renderer>
+
+<app-demo-filter></app-demo-filter>
+<app-demo-list (onEditDemo)="editDemo()"></app-demo-list>
+<app-demo-edit></app-demo-edit>

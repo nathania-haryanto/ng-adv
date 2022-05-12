@@ -8,6 +8,11 @@ import { DemoItem } from '../demo-base/demo-item.model';
 import { DemoService } from '../demo-base/demo.service';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { LoadingService } from '../../shared/loading/loading.service';
+import { DemoFacade } from '../state/demo.facade';
+import { DemoState } from '../state/demos.reducer';
+import { Store } from '@ngrx/store';
+import { getAllDemos } from '../state/demo.selectors';
+import { loadDemos } from '../state/demos.actions';
 
 @Component({
   selector: 'app-demo-container',
@@ -17,7 +22,7 @@ import { LoadingService } from '../../shared/loading/loading.service';
 export class DemoContainerComponent implements OnInit {
   title: string = environment.title;
   header = 'Please select a demo';
-  demos$: Observable<DemoItem[]>;
+  demos$ = this.store.select(getAllDemos);
   sidenavMode: MatDrawerMode = 'side';
   isLoading = true;
 
@@ -26,7 +31,8 @@ export class DemoContainerComponent implements OnInit {
     private demoService: DemoService,
     private route: ActivatedRoute,
     public ms: MenuService,
-    public ls: LoadingService
+    public ls: LoadingService,
+    private store: Store<DemoState>
   ) {}
 
   ngOnInit() {
@@ -35,6 +41,7 @@ export class DemoContainerComponent implements OnInit {
     this.setMenuPosition();
     this.getWorbenchStyle();
     this.subscribeLoading();
+    this.store.dispatch(loadDemos());
   }
 
   subscribeLoading() {
@@ -50,7 +57,7 @@ export class DemoContainerComponent implements OnInit {
   }
 
   setMenu() {
-    this.demos$ = this.demoService.getItems();
+    this.demos$ = this.store.select(getAllDemos);
   }
 
   getWorbenchStyle() {
