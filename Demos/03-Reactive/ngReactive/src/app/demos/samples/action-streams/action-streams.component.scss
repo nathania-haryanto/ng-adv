@@ -1,9 +1,5 @@
-@use '@angular/material' as mat;
-@import 'stylevars.scss';
-@import 'theme.scss';
-
 mat-card {
-  margin-top: $small-gap;
+  margin-top: var(--small-gap);
 }
 
 mat-form-field {
@@ -13,6 +9,6 @@ mat-form-field {
 .row {
   margin: 0.2rem;
   padding: 0.4rem;
-  background-color: mat.get-color-from-palette($app-accent);
+  background-color: var(--color-accent);
   min-height: 2rem;
 }

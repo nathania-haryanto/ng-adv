@@ -10,9 +10,9 @@ export class AdminContainerComponent implements OnInit {
   constructor(public ms: MenuService) {}
 
   links: { title: string; url: string }[] = [
+    { title: 'Demos', url: 'demos' },
     { title: 'Topics', url: 'topics' },
     { title: 'Skills', url: 'skills' },
-    { title: 'Demos', url: 'demos' },
   ];
 
   ngOnInit() {}
