@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SkillsState } from '../../../model/skills/statefull-skills.service';
 import { Skill } from '../../../model/skills/skills';
+import { HttpClient } from '@angular/common/http';
+import { Voucher } from '../model';
 
 @Component({
   selector: 'app-table',
@@ -9,21 +11,13 @@ import { Skill } from '../../../model/skills/skills';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  dataSource: MatTableDataSource<Skill>;
-  displayedColumns = [
-    'id',
-    'topicId',
-    'name',
-    'hours',
-    'completed',
-    'duedate',
-    'editItem',
-  ];
+  dataSource: MatTableDataSource<Voucher>;
+  displayedColumns = ['Text', 'Date', 'Amount', 'action'];
 
-  constructor(private state: SkillsState) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.state.getAllSkills().subscribe((data) => {
+    this.http.get<Voucher[]>('./assets/vouchers.json').subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
   }

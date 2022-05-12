@@ -31,7 +31,7 @@ mat-form-field {
 }
 
 .mat-card-actions {
-  padding: var(--gap-medium);
+  padding: var(--gap-medium) !important;
   margin-left: var(--gap-medium) !important;
   margin-right: var(--gap-medium) !important;
   margin-bottom: var(--gap-medium) !important;
@@ -94,8 +94,8 @@ mat-expansion-panel-header {
 }
 
 //mat-table
-mat-header-row {
-  background-color: var(--color-primary);
-  color: var(--color-fg);
-}
+// mat-header-row {
+//   background-color: var(--color-primary);
+//   color: var(--color-fg);
+// }
 

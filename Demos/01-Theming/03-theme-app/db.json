@@ -1,14 +1,14 @@
 {
   "demos":[
     {
-      "url": "stateful",
-      "title": "Table",
-      "component": "StatefulComponent"
-    },
-    {
       "url": "card",
       "title": "Card",
       "component": "CardComponent"
+    },
+    {
+      "url": "table",
+      "title": "Table",
+      "component": "StatefulComponent"
     },
     {
       "url": "projection",

@@ -5,6 +5,10 @@ button {
   @include link(var(--color-fg), var(--font-small));
 }
 
+.sidebar{
+  margin-left: 5px;
+}
+
 mat-toolbar {
   height: var(--toolbar-medium);
   margin-bottom: var(--gap-small);

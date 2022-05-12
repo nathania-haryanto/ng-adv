@@ -12,7 +12,7 @@ const demoRoutes: Routes = [
     component: DemoContainerComponent,
 
     children: [
-      { path: 'stateful', component: TableComponent },
+      { path: 'table', component: TableComponent },
       { path: 'card', component: CardComponent },
       { path: 'projection', component: ContentProjectionComponent },
       { path: 'popup', component: PopupContainerComponent },
