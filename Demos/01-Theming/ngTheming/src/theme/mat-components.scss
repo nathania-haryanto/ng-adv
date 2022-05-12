@@ -17,7 +17,6 @@
 }
 @include ux-spilt-theme($theme);
 
-
 // ClassicThemingComponent
 @mixin classic-theming-theme($theme) {
   $primary: map-get($theme, primary);
