@@ -23,6 +23,8 @@ import { NestedChildComponent } from './samples/style-inheritance/nested-child/n
 import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
 import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
 import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
+import { ClassicThemingComponent } from './samples/material-vs-bootstrap/classic-theming/classic-theming.component';
+import { AlternativeThemingComponent } from './samples/material-vs-bootstrap/alternative-theming/alternative-theming.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedba
     MaterialVsBootstrapComponent,
     MultiThemeComponent,
     VisualFeedbackComponent,
+    ClassicThemingComponent,
+    AlternativeThemingComponent,
   ],
   imports: [
     CommonModule,

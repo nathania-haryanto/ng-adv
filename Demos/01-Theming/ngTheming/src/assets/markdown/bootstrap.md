@@ -1,0 +1,2 @@
+- Notice bootstrap in package.json
+- Examine in ClassicThemingComponent & AlternativeThemingComponent sections `mat-components.scss`
