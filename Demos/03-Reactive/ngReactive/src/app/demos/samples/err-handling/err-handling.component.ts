@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EMPTY, of, throwError, timer, interval } from 'rxjs';
+import { interval, of, throwError } from 'rxjs';
 import {
   catchError,
+  delay,
   finalize,
   map,
   retry,
@@ -9,9 +10,8 @@ import {
   tap,
 } from 'rxjs/operators';
 import { SubSink } from 'subsink';
-import { DemoService } from '../../demo.service';
+import { DemoService } from '../../demo-base/demo.service';
 import { VouchersService } from '../voucher.service';
-import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-err-handling',

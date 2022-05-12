@@ -1,0 +1,30 @@
+<form
+  [formGroup]="cartForm"
+  (ngSubmit)="submitCart(cartForm)"
+  role="form"
+  novalidate
+  fxLayout="column"
+>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Control Value Accessor </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Product"
+          formControlName="itemName"
+        />
+      </mat-form-field>
+      <app-number-picker
+        formControlName="quantity"
+        label="Amount"
+      ></app-number-picker>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="accent" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Person } from '../person.model';
-import { PersonService } from '../person.service';
+import { Person } from '../person/person.model';
 import { emptyPerson, wealthOpts } from '../empty-person';
+import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -22,17 +22,24 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   initForm() {
-    this.ps.getPerson().subscribe((p) => {
-      this.personForm.setValue(p);
-    });
-
     this.personForm = new FormGroup({
+      //include the id even if you do not want to render it to support updated
+      id: new FormControl(this.person.id),
       name: new FormControl(this.person.name, Validators.required),
       lastname: new FormControl(this.person.lastname, Validators.required),
       age: new FormControl(this.person.age),
       email: new FormControl(this.person.email),
       gender: new FormControl(this.person.gender),
       wealth: new FormControl(this.person.wealth),
+    });
+
+    this.ps.getPerson().subscribe((p) => {
+      // Use when you want to set the complete model to the form
+      // this.personForm.setValue(p);
+
+      // Use when you want to partially update the form
+      // In this case some model props are missing in the form
+      this.personForm.patchValue(p);
     });
   }
 

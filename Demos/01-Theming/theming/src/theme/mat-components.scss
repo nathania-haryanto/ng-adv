@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+
+// uxSplitComponent
+@mixin ux-spilt-theme($theme) {
+  .split-title {
+    mat-toolbar {
+      background-color: var(--color-primary);
+      color: var(--color-fg);
+    }
+  }
+  .split-main {
+    background-color: var(--color-bg);
+  }
+  .split-sidebar {
+    background-color: var(--color-fg);
+  }
+}
+@include ux-spilt-theme($theme);
+
+// ClassicThemingComponent
+@mixin classic-theming-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .classic-theming {
+    background-color: mat.get-color-from-palette($accent, 50);
+    color: mat.get-color-from-palette($accent, 900);
+    border-color: mat.get-color-from-palette($primary, 100);
+  }
+}
+
+@include classic-theming-theme($theme);
+
+// AlternativeThemingComponent
+@mixin set-colors($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .my-text {
+    color: mat.get-color-from-palette($primary);
+  }
+
+  .my-background {
+    background-color: mat.get-color-from-palette($accent);
+  }
+
+  .my-div{
+    margin: 2rem;
+    padding: 1rem;
+  }
+}
+
+@include set-colors($theme);

@@ -13,6 +13,7 @@
       fxLayout="column"
     >
       <mat-form-field>
+        <input matInput type="text" formControlName="id"  class="hidden"/>
         <input matInput type="text" placeholder="Name" formControlName="name" />
         <mat-error
           *ngIf="

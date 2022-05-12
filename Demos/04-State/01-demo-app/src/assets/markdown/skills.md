@@ -1,0 +1,1 @@
+Examine skills feature module and navigate to top skill link

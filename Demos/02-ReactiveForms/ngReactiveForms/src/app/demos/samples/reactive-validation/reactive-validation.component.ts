@@ -6,24 +6,11 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import {
-  BehaviorSubject,
-  combineLatest,
-  merge,
-  Observable,
-  Subject,
-} from 'rxjs';
-import {
-  distinct,
-  distinctUntilChanged,
-  map,
-  mergeAll,
-  mergeMap,
-  tap,
-} from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { distinct, map } from 'rxjs/operators';
 import { emptyPerson, wealthOpts } from '../empty-person';
-import { Person } from '../person.model';
-import { PersonService } from '../person.service';
+import { Person } from '../person/person.model';
+import { PersonService } from '../person/person.service';
 import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
 
 @Component({
@@ -51,12 +38,13 @@ export class ReactiveValidationComponent implements OnInit {
 
   private loadData() {
     this.ps.getPerson().subscribe((p) => {
-      this.personForm.setValue(p);
+      this.personForm.patchValue(p);
     });
   }
 
   private initForm() {
     this.personForm = this.fb.group({
+      id: [this.person.id],
       name: [
         this.person.name,
         [Validators.required, Validators.minLength(4), this.validateName],

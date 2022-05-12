@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      FormsBuilder
+      Forms Builder
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
@@ -12,6 +12,7 @@
       novalidate
       fxLayout="column"
     >
+      <input matInput type="text" formControlName="id"  class="hidden"/>
       <mat-form-field>
         <input matInput type="text" placeholder="Name" formControlName="name" />
       </mat-form-field>

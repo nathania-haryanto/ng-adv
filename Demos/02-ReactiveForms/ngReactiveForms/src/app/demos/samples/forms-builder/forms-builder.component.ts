@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Person } from '../person.model';
+import { Person } from '../person/person.model';
 import { emptyPerson, wealthOpts } from '../empty-person';
-import { PersonService } from '../person.service';
+import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-forms-builder',
@@ -18,12 +18,13 @@ export class FormsBuilderComponent implements OnInit {
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
-      //Use this to update the whole form
-      this.personForm.setValue(p);
+      //Reminder: setValue vs patchValue
+      this.personForm.patchValue(p);
       console.log('Data loaded from service', p);
     });
 
     this.personForm = this.fb.group({
+      id: [this.person.name],
       name: [this.person.name, Validators.required],
       lastname: [this.person.lastname, Validators.required],
       age: [this.person.age],
@@ -34,8 +35,8 @@ export class FormsBuilderComponent implements OnInit {
 
     setTimeout(() => {
       //Use this to update form incrementally
-      this.personForm.patchValue({ name: 'Heinrich' });
-      console.log('Heinz changed to Heinrich');
+      this.personForm.patchValue({ name: 'Soi' });
+      console.log('Cleo changed to Soi');
     }, 3000);
   }
 

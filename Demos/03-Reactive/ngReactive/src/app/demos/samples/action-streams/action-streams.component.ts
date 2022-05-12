@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { DemoItem } from '../../../model/demo/DemoItem';
-import { DemoService } from '../../demo.service';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { combineLatest } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { DemoService } from '../../demo-base/demo.service';
 
 @Component({
   selector: 'app-action-streams',
@@ -13,7 +12,7 @@ import { FormControl } from '@angular/forms';
 export class ActionStreamsComponent {
   constructor(private ds: DemoService) {}
 
-  demosData$: Observable<DemoItem[]> = this.ds.getItems();
+  demosData$ = this.ds.getItems();
   filter$ = new FormControl('');
 
   demos$ = combineLatest([

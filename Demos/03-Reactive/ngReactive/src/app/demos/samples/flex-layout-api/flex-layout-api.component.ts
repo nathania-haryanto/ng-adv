@@ -1,39 +1,35 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-import { filter, map } from 'rxjs/operators';
-import { SubSink } from 'subsink';
+import { Subscription } from 'rxjs';
+import { filter, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flex-layout-api',
   templateUrl: './flex-layout-api.component.html',
   styleUrls: ['./flex-layout-api.component.scss'],
 })
-export class FlexLayoutApiComponent implements OnInit, OnDestroy {
-  constructor(private obsMedia: MediaObserver) {}
+export class FlexLayoutApiComponent implements OnInit {
+  constructor(private obsMedia: MediaObserver) {
+    this.subscribeScreen();
+  }
 
-  sub: SubSink = new SubSink();
-
+  watcher: Subscription;
   mq: string;
   isPhone: boolean;
   isTablet: boolean;
 
-  ngOnInit() {
-    this.subscribeScreen();
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-    console.log('Subscription unsubscribed');
-  }
+  ngOnInit() {}
 
   subscribeScreen() {
-    this.sub.sink = this.obsMedia
+    this.watcher = this.obsMedia
       .asObservable()
       .pipe(
+        tap((changes: MediaChange[]) => console.log('changes: ', changes)),
         filter((changes: MediaChange[]) => changes.length > 0),
         map((changes: MediaChange[]) => changes[0])
       )
       .subscribe((change: MediaChange) => {
+        console.log('change from media observer:', change);
         this.mq = change.mqAlias;
         switch (change.mqAlias) {
           case 'xs':

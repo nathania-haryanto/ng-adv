@@ -1,0 +1,43 @@
+.icon-cell {
+  border-bottom-width: 0px;
+}
+
+mat-toolbar {
+  margin-bottom: var(--gap-small);
+}
+
+//table
+table{
+  width: 100%;
+}
+
+th{
+  background-color: var(--color-bg);
+}
+
+th.mat-header-cell:last-of-type{
+  text-align: right;
+  padding-right: 24px;
+}
+
+td.mat-cell:last-of-type {
+  text-align: right;
+  padding-right: 12px;
+}
+
+td{
+  background-color: var(--color-fg);
+}
+
+tr:hover {
+  background-color: var(--color-bg);
+}
+
+td button{
+  margin-top: 0.3rem;
+}
+
+.mat-header-cell{
+  padding-top: var(--gap-small);
+  font-size: var(--font-small);
+}

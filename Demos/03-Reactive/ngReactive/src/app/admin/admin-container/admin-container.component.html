@@ -1,3 +1,4 @@
+
 <mat-sidenav-container>
   <mat-sidenav
     #sidenav
@@ -23,11 +24,16 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div
-      gdAreas="content | editor"
-      gdRows="64px auto 200px"
+      gdAreas="toolbar | content | editor"
+      gdRows="70px auto 200px"
       class="workbench"
       [ngStyle]="getWorbenchStyle()"
     >
+      <mat-toolbar gdArea="toolbar" color="accent">
+        <mat-toolbar-row>
+          <h4></h4>
+        </mat-toolbar-row>
+      </mat-toolbar>
       <div gdArea="content" class="workbench">
         <router-outlet></router-outlet>
       </div>

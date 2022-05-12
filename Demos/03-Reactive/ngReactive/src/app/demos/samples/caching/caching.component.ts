@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DemoService } from '../../demo.service';
+import { DemoService } from '../../demo-base/demo.service';
 
 @Component({
   selector: 'app-caching',

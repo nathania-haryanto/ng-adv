@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { filter, mergeMap } from 'rxjs/operators';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
-import { PersonService } from '../person.service';
+import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-async-pipe',

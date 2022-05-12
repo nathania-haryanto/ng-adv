@@ -14,8 +14,7 @@
         />
       </mat-form-field>
       <div *ngIf="skillForm.get('name').value">
-        <h2>Skills</h2>
-
+        <div class="skills">Skills:</div>
         <div
           formArrayName="skillsGrp"
           *ngFor="let skill of getElementsInFormArray(); let i = index"
@@ -37,8 +36,8 @@
       </div>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-button (click)="addSkill()">Add Skill</button>
-      <button mat-button (click)="saveForm()">Save</button>
+      <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
+      <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
     </mat-card-actions>
   </mat-card>
 </div>

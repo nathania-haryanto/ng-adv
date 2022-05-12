@@ -1,0 +1,12 @@
+@import 'resets.scss';
+@import 'mixins.scss';
+@import 'mat-theme.scss';
+@import 'mat-components.scss';
+@import 'mat-overrides.scss';
+@import 'forms.scss';
+
+.divclass {
+  padding: 1rem;
+  margin: 1rem;
+  border: 2px solid red;
+}
