@@ -8,6 +8,7 @@ import { TableComponent } from './samples/table/table.component';
 import { StyleInheritanceComponent } from './samples/style-inheritance/style-inheritance.component';
 import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
 import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
+import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
 
 const demoRoutes: Routes = [
   {
@@ -22,6 +23,7 @@ const demoRoutes: Routes = [
       { path: 'popup', component: PopupContainerComponent },
       { path: 'bootstrap', component: MaterialVsBootstrapComponent },
       { path: 'multi-theme', component: MultiThemeComponent },
+      { path: 'feedback', component: VisualFeedbackComponent },
     ],
   },
 ];

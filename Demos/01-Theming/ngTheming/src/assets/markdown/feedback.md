@@ -1,0 +1,3 @@
+- Examine the content of the `shared/loading` folder
+- Notice the use of the LoadingComponent in DemoContainer
+- Stop json-server to see the mat-progress-bar 

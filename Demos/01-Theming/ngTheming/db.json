@@ -6,6 +6,11 @@
       "component": "StyleInheritanceComponent"
     },
     {
+      "url": "bootstrap",
+      "title": "Material vs Bootstrap",
+      "component": "MaterialVsBootstrapComponent"
+    },
+    {
       "url": "card",
       "title": "Theming",
       "component": "CardComponent"
@@ -26,14 +31,14 @@
       "component": "SplitSampleComponent"
     },
     {
-      "url": "bootstrap",
-      "title": "MD vs Bootstrap",
-      "component": "MaterialVsBootstrapComponent"
-    },
-    {
       "url": "multi-theme",
       "title": "Multi Theme",
       "component": "MultiThemeComponent"
+    },
+    {
+      "url": "feedback",
+      "title": "Visual Feedback",
+      "component": "VisualFeedbackComponent"
     }
   ],
   "posts": [

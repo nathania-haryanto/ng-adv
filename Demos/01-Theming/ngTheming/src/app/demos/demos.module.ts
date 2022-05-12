@@ -22,6 +22,7 @@ import { SecondChildComponent } from './samples/style-inheritance/second-child/s
 import { NestedChildComponent } from './samples/style-inheritance/nested-child/nested-child.component';
 import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
 import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
+import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component
     NestedChildComponent,
     MaterialVsBootstrapComponent,
     MultiThemeComponent,
+    VisualFeedbackComponent,
   ],
   imports: [
     CommonModule,
