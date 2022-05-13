@@ -24,6 +24,36 @@ export class DemosEffects {
     )
   );
 
+  addDemos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(demoActions.addDemo),
+      mergeMap((action) =>
+        this.service.addItem(action.item).pipe(
+          map((demos) => ({
+            type: '[Demos] addDemo Success',
+            items: demos,
+          })),
+          catchError((err) => of(demoActions.addDemoFailure({ err })))
+        )
+      )
+    )
+  );
+
+  updateDemos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(demoActions.updateDemo),
+      mergeMap((action) =>
+        this.service.updateItem(action.item).pipe(
+          map((demos) => ({
+            type: '[Demos] updateDemo Success',
+            items: demos,
+          })),
+          catchError((err) => of(demoActions.updateDemoFailure({ err })))
+        )
+      )
+    )
+  );
+
   deleteDemo$ = createEffect(() =>
     this.actions$.pipe(
       ofType(demoActions.deleteDemo),

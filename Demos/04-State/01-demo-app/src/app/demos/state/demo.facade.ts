@@ -6,6 +6,8 @@ import {
   loadDemos,
   deleteDemo,
   setSelected,
+  addDemo,
+  updateDemo,
 } from './demos.actions';
 import { getAllDemos, getFilter, getSelected } from './demo.selectors';
 import { tap } from 'rxjs/operators';
@@ -34,6 +36,14 @@ export class DemoFacade {
 
   deleteDemo(item: DemoItem) {
     this.store.dispatch(deleteDemo({ item }));
+  }
+
+  addDemo(item: DemoItem) {
+    this.store.dispatch(addDemo({ item }));
+  }
+
+  updateDemo(item: DemoItem) {
+    this.store.dispatch(updateDemo({ item }));
   }
 
   selectDemo(item: DemoItem) {

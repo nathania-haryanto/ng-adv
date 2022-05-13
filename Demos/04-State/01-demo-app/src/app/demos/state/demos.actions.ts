@@ -13,6 +13,36 @@ export const loadDemosFailure = createAction(
   props<{ err: Error }>()
 );
 
+export const addDemo = createAction(
+  '[Demos] addDemo',
+  props<{ item: DemoItem }>()
+);
+
+export const addDemoSuccess = createAction(
+  '[Demos] addDemo Success',
+  props<{ item: DemoItem }>()
+);
+
+export const addDemoFailure = createAction(
+  '[Demos] addDemo Failure',
+  props<{ err: Error }>()
+);
+
+export const updateDemo = createAction(
+  '[Demos] updateDemo',
+  props<{ item: DemoItem }>()
+);
+
+export const updateDemoSuccess = createAction(
+  '[Demos] updateDemo Success',
+  props<{ item: DemoItem }>()
+);
+
+export const updateDemoFailure = createAction(
+  '[Demos] updateDemo Failure',
+  props<{ err: Error }>()
+);
+
 export const deleteDemo = createAction(
   '[Demos] deleteDemo',
   props<{ item: DemoItem }>()

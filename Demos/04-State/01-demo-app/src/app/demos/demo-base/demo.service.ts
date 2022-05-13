@@ -12,7 +12,18 @@ export class DemoService {
     return this.httpClient.get<DemoItem[]>(environment.demosApi);
   }
 
+  addItem(item: DemoItem): Observable<DemoItem> {
+    return this.httpClient.post<DemoItem>(environment.demosApi, item);
+  }
+
+  updateItem(item: DemoItem): Observable<DemoItem> {
+    return this.httpClient.put<DemoItem>(
+      `${environment.apiUrl}demos/${item.id}`,
+      item
+    );
+  }
+
   deleteItem(id: number): Observable<any> {
-    return this.httpClient.delete(`${environment.apiUrl}skills/${id}`);
+    return this.httpClient.delete(`${environment.apiUrl}demos/${id}`);
   }
 }
