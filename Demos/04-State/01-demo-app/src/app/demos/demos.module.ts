@@ -16,7 +16,7 @@ import { DemoEditComponent } from './samples/demos-list/demo-edit/demo-edit.comp
 import { DemoFilterComponent } from './samples/demos-list/demo-filter/demo-filter.component';
 import { DemoListComponent } from './samples/demos-list/demo-list/demo-list.component';
 import { DemoRowComponent } from './samples/demos-list/demo-row/demo-row.component';
-import { DemosComponent } from './samples/demos-list/demos.component';
+import { DemoListHostComponent } from './samples/demos-list/demo-list-host..component';
 import { EventbusComponent } from './samples/eventbus/eventbus.component';
 import { SkillsComponent } from './samples/skills/skills.component';
 import { StatefullComponent } from './samples/statefull/container/statefull.component';
@@ -34,7 +34,7 @@ const demoRoutes: Routes = [
       { path: 'statefull', component: StatefullComponent },
       { path: 'ebus', component: EventbusComponent },
       { path: 'demos-state', component: DemosStateComponent },
-      { path: 'demos-list', component: DemosComponent },
+      { path: 'demos-list', component: DemoListHostComponent },
       { path: 'app-state', component: AppStateComponent },
       { path: 'skills', component: SkillsComponent },
     ],
@@ -53,7 +53,7 @@ const demoRoutes: Routes = [
     KpiComponent,
     AppStateComponent,
     SkillsComponent,
-    DemosComponent,
+    DemoListHostComponent,
     DemosStateComponent,
   ],
   imports: [

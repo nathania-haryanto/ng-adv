@@ -39,7 +39,7 @@
     {
       "url": "demos-list",
       "title": "Demos List",
-      "component": "DemosComponent",
+      "component": "DemoListHostComponent",
       "id": 5,
       "topicid": 1,
       "visible": true,
