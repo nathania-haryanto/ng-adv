@@ -1,0 +1,1 @@
+- Explain demos/state/* including facade

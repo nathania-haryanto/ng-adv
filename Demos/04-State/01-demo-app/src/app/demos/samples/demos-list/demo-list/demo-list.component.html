@@ -16,9 +16,8 @@
         *ngFor="let d of view$ | async"
         [item]="d"
         (onDelete)="deleteItem($event)"
-        (onSlide)="changeVisibility($event)"
-        (dblclick)="selectItem(d)"
-        (onEdit)="editItem($event)"
+        (onChangeVisibility)="changeVisibility($event)"
+        (onSelect)="selectItem($event)"
         cdkDrag
         class="box"
       ></app-demo-row>

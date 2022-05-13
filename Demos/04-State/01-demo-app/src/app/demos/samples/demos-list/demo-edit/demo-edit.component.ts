@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { FormControl } from '@angular/forms';
-import { getSelected } from '../../../state/demo.selectors';
-import { DemoState } from '../../../state/demos.reducer';
 import { DemoItem } from '../../../demo-base/demo-item.model';
+import { DemoFacade } from '../../../state/demo.facade';
 
 @Component({
   selector: 'app-demo-edit',
@@ -11,10 +9,9 @@ import { DemoItem } from '../../../demo-base/demo-item.model';
   styleUrls: ['./demo-edit.component.scss'],
 })
 export class DemoEditComponent implements OnInit {
-  constructor(private store: Store<DemoState>) {}
+  constructor(private df: DemoFacade) {}
 
-  //in "real life" I would use a facade here
-  item = this.store.select(getSelected);
+  item = this.df.getSelectedDemo();
 
   fcName = new FormControl('');
 

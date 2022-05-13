@@ -1,16 +1,9 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DemoState } from '../../../state/demos.reducer';
-import { getAllDemos, getFilter } from '../../../state/demo.selectors';
 import { DemoItem } from '../../../demo-base/demo-item.model';
-import {
-  deleteDemo,
-  setSelected,
-  toggleVisiblity,
-} from '../../../state/demos.actions';
+import { DemoFacade } from '../../../state/demo.facade';
 
 @Component({
   selector: 'app-demo-list',
@@ -18,13 +11,12 @@ import {
   styleUrls: ['./demo-list.component.scss'],
 })
 export class DemoListComponent implements OnInit {
-  @Output() onEditDemo: EventEmitter<null> = new EventEmitter();
+  @Output() onSelectDemo: EventEmitter<null> = new EventEmitter();
 
-  constructor(private store: Store<DemoState>) {}
+  constructor(private df: DemoFacade) {}
 
-  //in "real life" I would use a facade here
-  demos$ = this.store.select(getAllDemos);
-  filter$ = this.store.select(getFilter);
+  demos$ = this.df.getDemos();
+  filter$ = this.df.getFilter();
 
   view$ = combineLatest([this.demos$, this.filter$]).pipe(
     map(([demos, filter]) => {
@@ -56,19 +48,15 @@ export class DemoListComponent implements OnInit {
   }
 
   deleteItem(item: DemoItem) {
-    this.store.dispatch(deleteDemo({ item }));
+    this.df.deleteDemo(item);
   }
 
   changeVisibility(item: DemoItem) {
-    this.store.dispatch(toggleVisiblity({ item }));
+    this.df.changeVisibility(item);
   }
 
   selectItem(item: DemoItem) {
-    this.store.dispatch(setSelected({ item }));
-  }
-
-  editItem(item: DemoItem) {
-    this.store.dispatch(setSelected({ item }));
-    this.onEditDemo.emit();
+    this.df.selectDemo(item);
+    this.onSelectDemo.emit();
   }
 }

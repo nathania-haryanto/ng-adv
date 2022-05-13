@@ -9,8 +9,8 @@ import { DemoItem } from '../../../demo-base/demo-item.model';
 export class DemoRowComponent implements OnInit {
   @Input() item: DemoItem;
   @Output() onDelete: EventEmitter<DemoItem> = new EventEmitter();
-  @Output() onEdit: EventEmitter<DemoItem> = new EventEmitter();
-  @Output() onSlide: EventEmitter<DemoItem> = new EventEmitter();
+  @Output() onSelect: EventEmitter<DemoItem> = new EventEmitter();
+  @Output() onChangeVisibility: EventEmitter<DemoItem> = new EventEmitter();
 
   constructor() {}
 
@@ -21,11 +21,11 @@ export class DemoRowComponent implements OnInit {
   }
 
   edit() {
-    this.onEdit.emit(this.item);
+    this.onSelect.emit(this.item);
   }
 
   changeVisibility() {
     this.item.visible = !this.item.visible;
-    this.onSlide.emit(this.item);
+    this.onChangeVisibility.emit(this.item);
   }
 }
