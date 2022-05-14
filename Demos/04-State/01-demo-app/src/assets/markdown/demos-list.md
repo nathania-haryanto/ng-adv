@@ -1,1 +1,1 @@
-- Explain demos/state/* including facade
+- Examine `demo.facade.ts` in `demos/state/`

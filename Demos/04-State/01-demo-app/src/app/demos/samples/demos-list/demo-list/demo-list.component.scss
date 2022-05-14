@@ -3,12 +3,3 @@
   background: var(--color-primary);
   min-height: 60px;
 }
-
-.box {
-  padding: var(--gap-small);
-  border-bottom: solid 1px var(--color-bg);
-  color: var(--color-fg);
-  cursor: move;
-  background: var(--color-accent);
-  font-size: 1rem;
-}

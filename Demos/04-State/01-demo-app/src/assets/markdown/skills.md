@@ -1,1 +1,1 @@
-Examine skills feature module and navigate to top skill link
+- Skills is using the simplified @ngrx/data approach

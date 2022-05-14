@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillsFacadeService } from '../state/skills-facade.service';
+// import { SkillsFacadeService } from '../state/old/skills-facade.service';
 import { Skill } from '../skill.model';
 import { FormControl } from '@angular/forms';
 import { combineLatest } from 'rxjs';
@@ -11,20 +11,20 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./skill-list-with-row.component.scss'],
 })
 export class SkillListWithRowComponent implements OnInit {
-  constructor(private sf: SkillsFacadeService) {}
+  // constructor(private sf: SkillsFacadeService) {}
 
-  skills$ = this.sf.getSkills();
-  // Remove 'true' and it does not work
-  fcToggle = new FormControl(true);
+  // skills$ = this.sf.getSkills();
+  // // Remove 'true' and it does not work
+  // fcToggle = new FormControl(true);
 
-  view$ = combineLatest([
-    this.skills$,
-    this.fcToggle.valueChanges.pipe(startWith(true)),
-  ]).pipe(
-    map(([skills, showAll]) => {
-      return showAll ? skills : skills.filter((sk) => sk.completed === showAll);
-    })
-  );
+  // view$ = combineLatest([
+  //   this.skills$,
+  //   this.fcToggle.valueChanges.pipe(startWith(true)),
+  // ]).pipe(
+  //   map(([skills, showAll]) => {
+  //     return showAll ? skills : skills.filter((sk) => sk.completed === showAll);
+  //   })
+  // );
 
   ngOnInit(): void {}
 
@@ -32,14 +32,14 @@ export class SkillListWithRowComponent implements OnInit {
 
   addItem(): void {
     const newItem: Skill = { id: 0, name: 'Container', completed: false };
-    this.sf.addSkill(newItem);
+    // this.sf.addSkill(newItem);
   }
 
   deleteItem(item: Skill): void {
-    this.sf.deleteSkill(item);
+    // this.sf.deleteSkill(item);
   }
 
   toggleItemComplete(item: Skill): void {
-    this.sf.toggleComplete(item);
+    // this.sf.toggleComplete(item);
   }
 }

@@ -9,9 +9,10 @@ import { SkillRowComponent } from './skill-row/skill-row.component';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { SkillsRoutingModule } from './skills-routing.module';
-import { SkillsEffects } from './state/skills.effects';
-import { reducer, skillsFeatureKey } from './state/skills.reducer';
+// import { SkillsEffects } from './state/skills.effects';
+// import { reducer, skillsFeatureKey } from './state/skills.reducer';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(skillsFeatureKey, reducer),
-    EffectsModule.forFeature([SkillsEffects]),
+    HttpClientModule,
+
+    // StoreModule.forRoot({}),
+    // EffectsModule.forRoot([]),
+    // EntityDataModule.forRoot(entityConfig)
+    // StoreModule.forFeature(skillsFeatureKey, reducer),
+    // EffectsModule.forFeature([SkillsEffects]),
   ],
 })
 export class SkillsModule {}
