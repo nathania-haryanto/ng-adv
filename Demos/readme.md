@@ -6,118 +6,86 @@
 - Comparing Angular Material & Bootstrap
 - Bootstrap Resets, Layout Helper & Utiliies
 - Best of Both: Combining Bootstrap & Angular Material
-- Theming Overview
 - Building a Reusable Theme
-- Define Alternative Themes
-- Use Fore- and Back-Color
-- Use Theme Mixins
 - Theming Custom Components
-- Introduction to Visual Feedback
-- In-Page Feedback (Saved, Loading Spinners, ...)
-- Implementing Page Transitions
-
-## Advanced Observables & Reactive Programming
-
-- Java Script Language: Functional Programming, Immutability, Destructuring
-- Recap: Observables, Operators & Subjects
-- Base Operators: Mapping, Filtering, Merging, Scanning, ...
-- Understanding & Implementing Marble Diagrams
-- Debugging & Visualizing Observables
-- Using Declarative Approach - Async Pipe
-- Implementing Error Handling
-- Data- vs Action-Streams
-- Higher Order Mapping Operators
-- Data Composition - Joining Observable Streams
-- Data Caching & Invalidation
-- Implementing Custom Observable Operators
+- Introduction to Visual Feedback (Saved, Loading, ...)
 
 ## Reactive Forms Deep Dive
 
 - Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, Forms Array)
-- Form Validation
-- Implementing Custom Validators
+- Form Validation & Custom Validators
 - Cascading Form Controls
-- Dynamic Form Generation & Validation (Manual & ngx-formly)
-- Declarative Binding in Reactive Forms using RxJS
+- Implementing Custom Controls using ControlValueAccessor
+- Dynamic Form Generation
+
+## Advanced Observables & Reactive Programming
+
+- Recap: Observables, Operators & Subjects
+- Base Operators: Mapping, Filtering, Merging, Scanning, ...
+- Understanding & Implementing Marble Diagrams
+- Debugging & Visualizing Observables
+- Data- vs Action-Streams
+- Higher Order Mapping Operators
+- Data Composition - Joining Observable Streams
+- Data Caching & Invalidation
+- Error Handling Strategies
+- Implementing Custom Observable Operators
 
 ## Advanced State Management using NgRx
 
 - Overview State Management Patterns
 - Observable Data Services & Event Bus
-- Introduction to the Redux Pattern
-- Understanding NgRx and know when to use it
+- Scaffolding using NgRx Schematics
 - Using Store, Actions and Reducers
 - Debugging NgRx using Redux Dev Tools
-- Implementin & Using Selectors
-- Using Effects, Facades & Action Creators
-- Scaffolding using NgRx Schematics
-- NgRx Entity Adapters
-
-## Building & Optimizing Applications
-
-- Using Linting and Autoformat with Prettier
-- Using Chrome Dev Tools & Lighthouse for Performance Optimization
-- Understanding & Using Page Traces
-- Understanding Ivy and what it means for future Angular Releases
-- Advanced Angular Debugging using @angular/core/global
-- Analyzing and Optimizing Bundles & Modules
-- Code-Splitting and Module Pre-Loading
+- Selectors, Effects, Facades, NgRx Entity Adapters
+- Simplifying Data Access with NgRx Data
 - Understaning & Optimizing Angular Change Detection
 - Optimize Change Detection using @ngrx/component & ngrxPush
 
-## Routing & Securing Angular using NgRx
+## Advanced Routing and App Initalization
 
-- Angular Location Service
-- Using multible Route Guards & Interceptors
 - Introduction to @ngrx/router-store
-- Implementing Global Error Handling
-- AppShell & App Initialization
-- Router State & Custom Serialization
-- Route Guards & Interceptors with NgRx
-- Routing & App Initialization
-- Dynamic Component Loading
+- Implementing Global Error Handling and Retry-Patterns
+- Integrating Route Guards & Interceptors with State
+- Chaining Route Guards & Interceptors
+
+## Securing Angular using NgRx and using Cloud Identities
+
+- Token based Authentication in Angular with NgRx
 - Recap Jwt, OAuth 2.0 & OpenID Connect
-- Cloud based Logins: Azure AD
-- Using Social & Cloud Logins: MSAL, Google, Facebook ...
-- Authentication in Angular with NgRx
-- Security Analysis in DevOps Pipelines
+- Using Cloud based Identites: Azure AD and @azure/msal-angular
 
 ## Advanced Testing including Jest & Cypress
 
-- Recap: Unit Testing
+- Mock Data & Http Testing
 - Using Testbed & Spies
-- Setting up Mock Data
-- Shallow / Deep Component Integration Tests
-- Async Component Testing (done, fakeAsync, async whenStable)
+- Interacting with Components in Tests
+- Async Component Testing (done, fakeAsync, waitForAsync)
 - Material Testing using component harnesses
-- Http Testing
 - Introduction to Marble Testing
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
 - Using Jest for Unit Testing (Setup, Changes in spec, Snapshot Tests)
 - End-2-End Testing using Cypress
 
-## Scaffolding & Automation using Angular Schematics
-
-- What is Angular Schematics
-- Using build-in Schematics
-- Understanding Abstract Syntax Tree (AST)
-- Adding & Modifying Files
-- Using a Sandbox for Schematics Development & Testing
-
 ## Reusability using Angular Libraries
 
 - Angular Building Blocks: Workspace, Apps, Libraries
-- Sharing Code between Projects using Angular Libraries
-- Implementing, Using & Publishing Libraries
 - Understanding & using Monorepos
-- Developing in Monorepos with nrwl NX
-
-## Web Components using Angular Elements
-
-- Why Web Components
-- Understanding Shadow DOM, Templates & Custom Elements
+- Sharing Code between Projects using Angular Libraries
+- Implementing, Publishing and Consuming Libraries to / from GitHub Packages
+- Standalone (moduleless) Components
 - Creating reusable Web Components using Angular Elements
-- Addressing Browser Compatibility Issues
+- Introduction to Angular Schematics
+
+## Optimizing Applications
+
+- Using Linting and Autoformat with Prettier
+- Using Chrome Dev Tools & Lighthouse for Performance Optimization
+- Understanding & Using Page Traces
+- Optimizig AppShell & App Initialization
+- Analyzing and Optimizing Bundles & Modules
+- Code-Splitting and Module Pre-Loading
 
 ## Server Side Rendering (SSR) using Angular Universal
 
@@ -126,25 +94,19 @@
 - Node Express Introduction
 - Configure Server Side Rendering
 - Prerender static pages
-- Using App Shell
 
-## Progressive Web Apps (PWA)
+## Progressive (PWA) & Real Time Web Apps
 
 - What are Progressive Web Apps
 - Understanding and Configuring Service Workers & Manifests
 - Installing & Updating Progressive Web Apps
-- Supporting Offline Availability
-- Implementing Push Notifications
+- Push Notifications
+- Real Time Connected UI's
 
 ## Advanced Angular Publishing & DevOps using Containers
 
-- Deployment Overview & Hosting Options
-- Publishing using ngDeploy
-- Azure Hosting Options: Static Web App, CDN, Container Solutions
-- DevOps optimized Configuration Management using Config Injection
-- Docker Introduction
-- Building an Angular Multi-Stage Docker Image
+- Deployment Overview & Cloud Hosting Options
+- Configuration Management and Injection
+- Docker Introduction & Building an Angular Multi-Stage Docker Image
 - Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
-- Kubernetes Introduction
-- Kubernetes Optimized Configuration Management
 - Building & Deploying an Angular App to Azure Kubernetes Services
