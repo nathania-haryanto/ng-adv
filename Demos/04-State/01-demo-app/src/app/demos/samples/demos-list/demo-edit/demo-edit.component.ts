@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { DemoItem } from '../../../demo-base/demo-item.model';
 import { DemoFacade } from '../../../state/demo.facade';
 
@@ -13,7 +13,7 @@ export class DemoEditComponent implements OnInit {
 
   item = this.df.getSelectedDemo();
 
-  fcName = new FormControl('');
+  fcName = new UntypedFormControl('');
 
   ngOnInit() {
     this.item.subscribe((val: DemoItem) => this.fcName.setValue(val.title));

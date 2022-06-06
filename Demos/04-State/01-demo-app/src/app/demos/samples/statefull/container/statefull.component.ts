@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { StatefulDemoService } from 'src/app/demos/samples/statefull/stateful-demo.service';
@@ -18,7 +18,7 @@ export class StatefullComponent implements OnInit {
   demosData$: Observable<DemoItem[]> = this.ds.getDemos();
 
   // Action Stream
-  filter = new FormControl('');
+  filter = new UntypedFormControl('');
 
   // Stream to bind the view to
   demos$ = combineLatest([
