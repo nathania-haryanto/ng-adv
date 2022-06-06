@@ -9,7 +9,6 @@ import {
   EntityMetadataMap,
 } from '@ngrx/data';
 import { MaterialModule } from '../material.module';
-import { SkillListWithRowComponent } from './skill-list-with-row/skill-list-with-row.component';
 import { SkillRowComponent } from './skill-row/skill-row.component';
 import { Skill } from './skill.model';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
@@ -36,7 +35,6 @@ function sortByName(a: Skill, b: Skill): number {
   declarations: [
     SkillsContainerComponent,
     SkillsKpiComponent,
-    SkillListWithRowComponent,
     SkillRowComponent,
   ],
   imports: [

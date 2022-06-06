@@ -3,7 +3,7 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,
 } from '@ngrx/data';
-import { Skill } from '../model/skills/skills';
+import { Skill } from './skill.model';
 
 @Injectable({
   providedIn: 'root',
