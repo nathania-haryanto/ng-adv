@@ -1,1 +1,1 @@
-- Skills is using the simplified @ngrx/data approach
+- Show the use of Store<SkillsState>, explain the simplified @ngrx/data approach
