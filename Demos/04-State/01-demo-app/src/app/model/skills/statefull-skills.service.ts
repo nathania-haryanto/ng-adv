@@ -1,46 +1,46 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { Skill } from "./skills";
-import { SkillsService } from "./skills.service";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { SkillBS } from './skills';
+import { SkillsService } from './skills.service';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class SkillsState {
   constructor(private service: SkillsService) {
     this.initData();
   }
 
-  private arrSkills: Skill[] = [];
-  private skills: BehaviorSubject<Skill[]> = new BehaviorSubject(
+  private arrSkills: SkillBS[] = [];
+  private skills: BehaviorSubject<SkillBS[]> = new BehaviorSubject(
     this.arrSkills
   );
 
   private initData() {
-    this.service.getSkills().subscribe(data => {
+    this.service.getSkills().subscribe((data) => {
       this.arrSkills = data;
       this.skills.next(this.arrSkills);
     });
   }
 
-  getAllSkills(): Observable<Skill[]> {
+  getAllSkills(): Observable<SkillBS[]> {
     return this.skills;
   }
 
-  getSkill(id: number): Observable<Skill> {
-    return this.skills.pipe(map(m => m.find(mi => mi.id == id)));
+  getSkill(id: number): Observable<SkillBS> {
+    return this.skills.pipe(map((m) => m.find((mi) => mi.id == id)));
   }
 
-  insertSkill(s: Skill): Observable<Skill> {
+  insertSkill(s: SkillBS): Observable<SkillBS> {
     return this.service.insertSkill(s);
   }
 
-  updateSkill(s: Skill): Observable<void> {
+  updateSkill(s: SkillBS): Observable<void> {
     return this.service.updateSkill(s);
   }
 
-  deleteSkill(s: Skill): Observable<void> {
+  deleteSkill(s: SkillBS): Observable<void> {
     return this.service.deleteSkill(s.id);
   }
 }

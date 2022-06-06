@@ -1,23 +1,40 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import {
+  EntityDataService,
+  EntityDefinitionService,
+  EntityMetadataMap,
+} from '@ngrx/data';
 import { MaterialModule } from '../material.module';
-import { SkillListWithRowComponent } from './skill-list-with-row/skill-list-with-row.component';
 import { SkillRowComponent } from './skill-row/skill-row.component';
+import { Skill } from './skill.model';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
+import { SkillsDataService } from './skills-data.service';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { SkillsRoutingModule } from './skills-routing.module';
-import { SkillsEffects } from './state/skills.effects';
-import { reducer, skillsFeatureKey } from './state/skills.reducer';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
+const entityMetadata: EntityMetadataMap = {
+  Skill: {
+    sortComparer: sortByName,
+    entityDispatcherOptions: {
+      optimisticUpdate: true,
+      optimisticDelete: false,
+    },
+  },
+};
+
+function sortByName(a: Skill, b: Skill): number {
+  let comp = a.name.localeCompare(b.name);
+  return comp;
+}
 
 @NgModule({
   declarations: [
     SkillsContainerComponent,
     SkillsKpiComponent,
-    SkillListWithRowComponent,
     SkillRowComponent,
   ],
   imports: [
@@ -26,8 +43,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(skillsFeatureKey, reducer),
-    EffectsModule.forFeature([SkillsEffects]),
+    HttpClientModule,
   ],
+  providers: [SkillsDataService],
 })
-export class SkillsModule {}
+export class SkillsModule {
+  constructor(
+    eds: EntityDefinitionService,
+    entityDataService: EntityDataService,
+    SkillsDataService: SkillsDataService
+  ) {
+    eds.registerMetadataMap(entityMetadata);
+    entityDataService.registerService('Skill', SkillsDataService);
+  }
+}

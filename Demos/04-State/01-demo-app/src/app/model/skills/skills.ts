@@ -1,6 +1,6 @@
-import { Topic } from "../topic/topic";
+import { Topic } from '../topic/topic';
 
-export class Skill {
+export class SkillBS {
   id: number;
   topicId: number;
   topic?: Topic;

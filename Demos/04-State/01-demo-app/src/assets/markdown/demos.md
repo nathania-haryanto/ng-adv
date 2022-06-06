@@ -1,4 +1,4 @@
-- Show the use of `Store<DemoState>`, eplain EntityAdapter and why it is using this structure
+- Show the use of `Store<DemoState>`, explain EntityAdapter and why it is using this structure
 
 ```typescript
 interface EntityState<T> {
