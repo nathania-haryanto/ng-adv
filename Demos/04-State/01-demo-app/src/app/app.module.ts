@@ -15,6 +15,7 @@ import { reducers } from './state';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
+import { EntityDataModule } from '@ngrx/data';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -28,9 +29,8 @@ import { LoadingService } from './shared/loading/loading.service';
     SharedModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
-      name: 'ngDemo App',
-      maxAge: 25,
       logOnly: environment.production,
     }),
   ],

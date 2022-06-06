@@ -57,22 +57,22 @@
   ],
   "skills": [
     {
-      "id": "123",
+      "id": 1,
       "name": "RxJs",
       "completed": false
     },
     {
-      "id": "456",
+      "id": 2,
       "name": "NgRx",
       "completed": false
     },
     {
-      "id": "223",
+      "id": 3,
       "name": "Angular",
       "completed": true
     },
     {
-      "id": "436",
+      "id": 4,
       "name": "TypeScript",
       "completed": true
     }

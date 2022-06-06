@@ -1,3 +1,11 @@
-<app-skill-list-with-row> </app-skill-list-with-row>
+<div *ngFor="let sk of skills$ | async" class="item">
+      <app-skill-row
+        [skill]="sk"
+        (itemDeleted)="deleteItem($event)"
+        (itemCompleted)="toggleItemComplete($event)"
+      ></app-skill-row>
+</div>
 
-<app-skills-kpi></app-skills-kpi>
+<!-- <app-skill-list-with-row> </app-skill-list-with-row> -->
+
+<!-- <app-skills-kpi></app-skills-kpi> -->
