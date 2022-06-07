@@ -47,6 +47,15 @@
       "sortOrder": 0
     },
     {
+      "url": "events",
+      "title": "Router Events",
+      "component": "RoutingComponent",
+      "id": 44,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "routing",
       "title": "Routing NgRx",
       "component": "RoutingComponent",
