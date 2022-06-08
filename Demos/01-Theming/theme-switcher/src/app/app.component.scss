@@ -20,8 +20,14 @@ app-nav-bar {
   font-size: 3rem;
   text-align: center;
   padding: 20px 0px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 mat-card {
   width: 350px;
+  margin-top: 2rem;
 }

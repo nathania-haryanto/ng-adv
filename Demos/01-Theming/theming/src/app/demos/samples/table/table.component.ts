@@ -1,8 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { SkillsState } from '../../../model/skills/statefull-skills.service';
-import { Skill } from '../../../model/skills/skills';
-import { HttpClient } from '@angular/common/http';
 import { Voucher } from '../model';
 
 @Component({
@@ -11,7 +9,7 @@ import { Voucher } from '../model';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  dataSource: MatTableDataSource<Voucher>;
+  dataSource: MatTableDataSource<Voucher> = new MatTableDataSource<Voucher>([]);
   displayedColumns = ['Text', 'Date', 'Amount', 'action'];
 
   constructor(private http: HttpClient) {}
@@ -23,12 +21,12 @@ export class TableComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+    if (this.dataSource) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
   }
 
-  editItem(row) {
+  editItem(row: any) {
     console.log('Edit Row', row);
   }
 }

@@ -1,11 +1,11 @@
-import { Topic } from "../topic/topic";
+import { Topic } from '../topic/topic';
 
 export class Skill {
-  id: number;
-  topicId: number;
+  id: number = 0;
+  topicId: number = 0;
   topic?: Topic;
-  name: string;
-  hours: number;
-  completed: boolean;
-  duedate: Date;
+  name: string = '';
+  hours: number = 0;
+  completed: boolean = false;
+  duedate: Date | null = null;
 }

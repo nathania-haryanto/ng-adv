@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Route } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MenuItem } from '../menu/menu-item.model';
 import { MenuService } from '../menu/menu.service';
@@ -13,9 +13,9 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 export class NavbarComponent implements OnInit {
   constructor(private ms: MenuService, private sns: SnackbarService) {}
 
-  editorDisplayed: boolean;
-  rootRoutes: Route[];
-  menuItems: Observable<MenuItem[]>;
+  editorDisplayed: boolean = false;
+  rootRoutes: Route[] | undefined;
+  menuItems: Observable<MenuItem[]> | undefined;
 
   ngOnInit() {
     this.editorDisplayed = false;
