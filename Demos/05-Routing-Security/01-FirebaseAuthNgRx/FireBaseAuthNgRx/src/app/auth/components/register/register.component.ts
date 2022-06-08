@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators
 } from '@angular/forms';
 import { AuthFacade } from '../../store/facades/auth.facade';
@@ -15,25 +15,25 @@ import { AuthFacade } from '../../store/facades/auth.facade';
 export class RegisterComponent implements OnInit {
   constructor(private af: AuthFacade) {}
 
-  registerForm: FormGroup;
+  registerForm: UntypedFormGroup;
 
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      passwords: new FormGroup(
+    this.registerForm = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      passwords: new UntypedFormGroup(
         {
-          password: new FormControl('', [
+          password: new UntypedFormControl('', [
             Validators.required,
             Validators.minLength(4)
           ]),
-          passwordRepeat: new FormControl('', [Validators.required])
+          passwordRepeat: new UntypedFormControl('', [Validators.required])
         },
         { validators: this.passwordsMatch }
       )
     });
   }
 
-  registerUser(form: FormGroup) {
+  registerUser(form: UntypedFormGroup) {
     const usr = {
       email: form.value.email,
       password: form.value.passwords.password
