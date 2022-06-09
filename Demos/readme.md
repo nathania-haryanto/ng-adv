@@ -62,7 +62,7 @@
 - Token based Authentication in Angular with NgRx
 - Recap Jwt, OAuth 2.0 & OpenID Connect
 - Persisting Auth State in NgRx
-- Using Cloud based Identites: Azure AD and @azure/msal-angular
+- Using Cloud based Identities: Azure AD and @azure/msal-angular
 
 ## Advanced Testing including Jest & Cypress
 
@@ -108,9 +108,9 @@
 - Using Linting and Autoformat with Prettier
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
 - Understanding & Using Page Traces
-- Analyzing and Optimizing Bundles & Modules
+- Analysing and Optimizing Bundles & Modules
 - Code-Splitting and Module Pre-Loading
-- Understaning & Optimizing Angular Change Detection
+- Understanding & Optimizing Angular Change Detection
 - Optimize Change Detection using @ngrx/component & ngrxPush
 
 ## Server Side Rendering (SSR) using Angular Universal
