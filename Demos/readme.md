@@ -45,6 +45,7 @@
 - Selectors, Effects, Facades, NgRx Entity Adapters
 - Simplifying Data Access with NgRx Data
 - NgRx Data Optimistic & Pessimistic Update and Delete
+- NgRx Container Presenter Best Practices
 
 ## Advanced Routing and App Initalization
 
@@ -68,6 +69,7 @@
 - Mock Data & Http Testing
 - Using Testbed & Spies
 - Interacting with Components in Tests
+- Complex Forms Testing
 - Async Component Testing (done, fakeAsync, waitForAsync)
 - Material Testing using Component Harnesses
 - Introduction to Marble Testing
