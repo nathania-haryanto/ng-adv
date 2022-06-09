@@ -1,11 +1,11 @@
 export class Person {
-  id: number;
-  age: number;
-  name: string;
+  id: number = 0;
+  age: number = 0;
+  name: string = '';
+  gender: string = '';
   wealth?: string;
   state?: WorkLifeBalance;
   lastname?: string;
-  gender: string;
   married?: boolean;
   imgUrl?: string;
   email?: string;
@@ -19,7 +19,7 @@ export enum WorkLifeBalance {
 }
 
 export class Address {
-  street: string;
-  city: string;
-  postalCode: string;
+  street: string = '';
+  city: string = '';
+  postalCode: string = '';
 }
