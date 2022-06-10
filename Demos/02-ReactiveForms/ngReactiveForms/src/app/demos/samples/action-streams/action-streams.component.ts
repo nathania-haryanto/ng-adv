@@ -26,7 +26,7 @@ export class ActionStreamsComponent implements OnInit {
   ]).pipe(
     map(([demos, filter]) => {
       console.log(demos);
-      return filter !== ''
+      return filter != null && filter !== ''
         ? demos.filter((d) =>
             d.title.toLowerCase().includes(filter.toLowerCase())
           )

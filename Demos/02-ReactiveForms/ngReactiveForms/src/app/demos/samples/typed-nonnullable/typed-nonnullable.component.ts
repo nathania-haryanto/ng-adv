@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 
 @Component({
-  selector: 'app-reactive-typed',
-  templateUrl: './reactive-typed.component.html',
-  styleUrls: ['./reactive-typed.component.scss'],
+  selector: 'app-typed-nonnullable',
+  templateUrl: './typed-nonnullable.component.html',
+  styleUrls: ['./typed-nonnullable.component.scss'],
 })
-export class ReactiveTypedComponent implements OnInit {
+export class TypedNonnullableComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
   personForm: FormGroup<{
-    name: FormControl<string | null>;
+    name: FormControl<string>;
     age: FormControl<number | null>;
     email: FormControl<string | null>;
     gender: FormControl<'male' | 'female' | 'not set' | null>;
@@ -22,7 +22,7 @@ export class ReactiveTypedComponent implements OnInit {
 
   constructor(private ps: PersonService) {
     this.personForm = new FormGroup({
-      name: new FormControl(this.person.name, Validators.required),
+      name: new FormControl(this.person.name, { nonNullable: true }),
       age: new FormControl(this.person.age),
       email: new FormControl(this.person.email),
       gender: new FormControl(this.person.gender),
@@ -38,8 +38,7 @@ export class ReactiveTypedComponent implements OnInit {
     });
   }
 
-  savePerson(): void {
-    console.log('Person name:', this.personForm.value.name);
-    this.ps.save(this.personForm as unknown as NgForm);
+  savePerson(personForm: any): void {
+    this.ps.save(personForm);
   }
 }

@@ -5,7 +5,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PersonService } from '../person/person.service';
 
 @Injectable({ providedIn: 'root' })
@@ -18,8 +18,7 @@ export class AsyncMailExistsValidator implements AsyncValidator {
     return this.ps.checkMailExists(ctrl.value).pipe(
       map((exists) => {
         return exists ? { mailexists: true } : null;
-      }),
-      catchError(() => null)
+      })
     );
   }
 }
