@@ -26,6 +26,8 @@ import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
+import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
+import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -46,6 +48,8 @@ const appearance: MatFormFieldDefaultOptions = {
     ReactiveNestedComponent,
     ControlValueAccessorComponent,
     NumberPickerComponent,
+    ReactiveTypedComponent,
+    TypedNonnullableComponent,
   ],
   imports: [
     CommonModule,

@@ -11,7 +11,9 @@ import { NgxFormlyComponent } from './samples/ngx-formly/ngx-formly.component';
 import { ReactiveCascadeComponent } from './samples/reactive-cascade/reactive-cascade.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
+import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
+import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 
 const demoRoutes: Routes = [
   {
@@ -29,6 +31,8 @@ const demoRoutes: Routes = [
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },
       { path: 'ngx-formly', component: NgxFormlyComponent },
+      { path: 'typedforms', component: ReactiveTypedComponent },
+      { path: 'typednonnullable', component: TypedNonnullableComponent },
     ],
   },
 ];

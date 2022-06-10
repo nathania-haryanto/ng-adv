@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Person } from '../person/person.model';
-import { emptyPerson, wealthOpts } from '../empty-person';
+import {
+  FormControl,
+  FormGroup,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -10,18 +15,11 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./reactive-forms.component.scss'],
 })
 export class ReactiveFormsComponent implements OnInit {
-  constructor(private ps: PersonService) {}
+  personForm: UntypedFormGroup;
+  person: Person = new Person();
+  wealthOpts = wealthOptsValues;
 
-  personForm: FormGroup;
-  person: Person = emptyPerson;
-  wealthOpts = wealthOpts;
-
-  ngOnInit() {
-    this.initForm();
-    this.subscribeFormChanges();
-  }
-
-  initForm() {
+  constructor(private ps: PersonService) {
     this.personForm = new FormGroup({
       //include the id even if you do not want to render it to support updated
       id: new FormControl(this.person.id),
@@ -32,11 +30,17 @@ export class ReactiveFormsComponent implements OnInit {
       gender: new FormControl(this.person.gender),
       wealth: new FormControl(this.person.wealth),
     });
+  }
 
+  ngOnInit() {
+    this.initForm();
+    this.subscribeFormChanges();
+  }
+
+  initForm() {
     this.ps.getPerson().subscribe((p) => {
       // Use when you want to set the complete model to the form
       // this.personForm.setValue(p);
-
       // Use when you want to partially update the form
       // In this case some model props are missing in the form
       this.personForm.patchValue(p);
@@ -50,14 +54,9 @@ export class ReactiveFormsComponent implements OnInit {
     this.personForm.statusChanges.subscribe((data) =>
       console.log('Form status changed', data)
     );
-    if (this.personForm.errors) {
-      this.personForm.errors.subscribe((data) =>
-        console.log('Form errors:', data)
-      );
-    }
   }
 
-  savePerson(personForm): void {
-    this.ps.save(personForm);
+  savePerson(personForm: UntypedFormGroup): void {
+    this.ps.save(personForm as unknown as NgForm);
   }
 }
