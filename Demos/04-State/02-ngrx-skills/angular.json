@@ -131,9 +131,10 @@
       }
     }
   },
-  "defaultProject": "ngrx-skills",
   "cli": {
-    "defaultCollection": "@ngrx/schematics",
-    "analytics": "7ce82f66-d944-4a36-9e39-d3fe9e299171"
+    "analytics": "7ce82f66-d944-4a36-9e39-d3fe9e299171",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

@@ -5,7 +5,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { AppInsightsService } from '../../core/app-insights/app-insights.service';
 import { FoodItem } from '../food.model';
@@ -24,7 +24,7 @@ export class FoodListComponent {
   @Output()
   onAddNew: EventEmitter<any> = new EventEmitter();
 
-  filter$ = new FormControl('');
+  filter$ = new UntypedFormControl('');
 
   constructor(private ai: AppInsightsService) {}
 

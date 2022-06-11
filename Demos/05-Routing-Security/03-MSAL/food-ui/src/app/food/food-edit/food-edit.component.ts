@@ -6,7 +6,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { FoodItem } from '../food.model';
 
 @Component({
@@ -15,7 +15,7 @@ import { FoodItem } from '../food.model';
   styleUrls: ['./food-edit.component.scss'],
 })
 export class FoodEditComponent implements OnInit {
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       id: 0,
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -30,7 +30,7 @@ export class FoodEditComponent implements OnInit {
   @Output() onSaveFood: EventEmitter<FoodItem> = new EventEmitter();
   @Output() onMailFood: EventEmitter<FoodItem> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   ngOnInit() {}
 
@@ -40,7 +40,7 @@ export class FoodEditComponent implements OnInit {
     }
   }
 
-  saveForm(form: FormGroup) {
+  saveForm(form: UntypedFormGroup) {
     this.onSaveFood.emit(form.value);
   }
 }

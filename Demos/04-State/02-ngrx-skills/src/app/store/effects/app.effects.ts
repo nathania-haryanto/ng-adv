@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
@@ -15,8 +15,8 @@ import {
 export class AppEffects {
   constructor(private actions$: Actions, private auts: AuthorService) {}
 
-  @Effect()
-  loadAuthor$: Observable<Action> = this.actions$.pipe(
+  
+  loadAuthor$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(AppActionTypes.LoadAuthors),
     switchMap(() =>
       this.auts.getAuthors().pipe(
@@ -24,5 +24,5 @@ export class AppEffects {
         catchError((err) => of(new LoadAuthorsFailure(err)))
       )
     )
-  );
+  ));
 }

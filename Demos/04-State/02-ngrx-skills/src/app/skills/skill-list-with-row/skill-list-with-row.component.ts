@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SkillsFacadeService } from '../store/facades/skills-facade.service';
 import { Skill } from '../skill.model';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ export class SkillListWithRowComponent implements OnInit {
 
   skills$ = this.sf.getSkills();
   // Remove 'true' and it does not work
-  fcToggle = new FormControl(true);
+  fcToggle = new UntypedFormControl(true);
 
   view$ = combineLatest([
     this.skills$,
