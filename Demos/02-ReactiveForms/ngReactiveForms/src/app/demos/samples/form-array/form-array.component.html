@@ -13,7 +13,7 @@
           placeholder="Enter Name:"
         />
       </mat-form-field>
-      <div *ngIf="skillForm.get('name').value">
+      <div *ngIf="skillForm.get('name')?.value">
         <div class="skills">Skills:</div>
         <div
           formArrayName="skillsGrp"

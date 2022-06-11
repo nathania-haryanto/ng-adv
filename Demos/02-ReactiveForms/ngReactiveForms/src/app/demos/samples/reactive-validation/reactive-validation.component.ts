@@ -8,8 +8,7 @@ import {
 } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
 import { distinct, map } from 'rxjs/operators';
-import { emptyPerson, wealthOpts } from '../empty-person';
-import { Person } from '../person/person.model';
+import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
 
@@ -18,31 +17,18 @@ import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
   templateUrl: './reactive-validation.component.html',
   styleUrls: ['./reactive-validation.component.scss'],
 })
-export class ReactiveValidationComponent implements OnInit {
-  person: Person = { ...emptyPerson, lastname: null };
-  wealthOpts = wealthOpts;
-  errors$: Observable<any>;
+export class ReactiveValidationComponent {
+  person: Person = new Person();
+  wealthOpts = wealthOptsValues;
+
+  errors$: Observable<any> | undefined;
   personForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private ps: PersonService,
     private mailExistsValidator: AsyncMailExistsValidator
-  ) {}
-
-  ngOnInit() {
-    this.loadData();
-    this.initForm();
-    this.subscribeChanges();
-  }
-
-  private loadData() {
-    this.ps.getPerson().subscribe((p) => {
-      this.personForm.patchValue(p);
-    });
-  }
-
-  private initForm() {
+  ) {
     this.personForm = this.fb.group({
       id: [this.person.id],
       name: [
@@ -65,6 +51,17 @@ export class ReactiveValidationComponent implements OnInit {
     });
   }
 
+  ngOnInit() {
+    this.loadData();
+    this.subscribeChanges();
+  }
+
+  private loadData() {
+    this.ps.getPerson().subscribe((p) => {
+      this.personForm.patchValue(p);
+    });
+  }
+
   private subscribeChanges() {
     this.errors$ = combineLatest([
       this.personForm.valueChanges,
@@ -72,7 +69,7 @@ export class ReactiveValidationComponent implements OnInit {
     ]).pipe(map((el) => this.checkFormErrors(el)));
   }
 
-  private checkFormErrors(val_stat_changes: [{ Person }, string]) {
+  private checkFormErrors(val_stat_changes: [{ Person: any }, string]) {
     let state = val_stat_changes[1];
     let person = val_stat_changes[0];
     let errors: any = { lastname: {} };
@@ -87,8 +84,7 @@ export class ReactiveValidationComponent implements OnInit {
     }
     return errors;
   }
-
-  private logControl(name, control) {
+  private logControl(name: string, control: FormControl) {
     let s = `${name} - pristine:${control.pristine} - dirty:${
       control.dirty
     } - touched:${control.touched} - untouched:${control.untouched} - value:${
@@ -99,12 +95,12 @@ export class ReactiveValidationComponent implements OnInit {
     console.log(s);
   }
 
-  savePerson(personForm): void {
+  savePerson(personForm: any): void {
     this.ps.save(personForm);
   }
 
   //Sample for custom Validator - name
-  validateName(control: FormControl): { [s: string]: boolean } {
+  validateName(control: FormControl): { [s: string]: boolean } | null {
     if (control.value === 'Hugo') {
       return { nameError: true };
     }
@@ -112,7 +108,7 @@ export class ReactiveValidationComponent implements OnInit {
   }
 
   //Sample for custom Validator - lastname
-  validateLastName(control: FormControl): { [s: string]: boolean } {
+  validateLastName(control: FormControl): { [s: string]: boolean } | null {
     if (control.value === 'Besenstiel') {
       return { nameError: true };
     }
@@ -124,11 +120,12 @@ export class ReactiveValidationComponent implements OnInit {
 
   violatesMinLenght() {
     let result = false;
-    const errs: ValidationErrors = this.personForm.controls.name.errors;
-
-    if (errs != null) {
-      console.log('Errors in Name field: ', errs);
-      if (errs.minlength) {
+    if (this.personForm.controls['name'].errors != null) {
+      console.log(
+        'Errors in Name field: ',
+        this.personForm.controls['name'].errors
+      );
+      if (this.personForm.controls['name'].errors['minlength']) {
         result = true;
       }
     }
@@ -137,6 +134,6 @@ export class ReactiveValidationComponent implements OnInit {
 
   validateForm() {
     this.personForm.updateValueAndValidity();
-    this.personForm.controls.name.updateValueAndValidity();
+    this.personForm.controls['name'].updateValueAndValidity();
   }
 }

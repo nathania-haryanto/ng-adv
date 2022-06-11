@@ -16,11 +16,9 @@ export class SidePanelComponent implements OnInit {
     private ts: ThemeService
   ) {}
 
-  editorDisplayed: boolean;
+  editorDisplayed: boolean = false;
 
-  ngOnInit() {
-    this.editorDisplayed = false;
-  }
+  ngOnInit() {}
 
   toggleTheme() {
     this.ts.toggleTheme();

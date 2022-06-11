@@ -30,6 +30,7 @@ import { RoutingComponent } from './samples/routing/routing/routing.component';
 import { DemosEffects } from './store/effects/demos.effects';
 import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
+import { RouterEventsComponent } from './samples/router-events/router-events.component';
 
 const demoRoutes: Routes = [
   {
@@ -85,6 +86,7 @@ const demoRoutes: Routes = [
         path: 'http-errors',
         component: HttpErrorsComponent,
       },
+      { path: 'events', component: RouterEventsComponent },
     ],
   },
 ];
@@ -102,6 +104,7 @@ const demoRoutes: Routes = [
     MembersComponent,
     PrimeComponent,
     HttpErrorsComponent,
+    RouterEventsComponent,
   ],
   imports: [
     CommonModule,

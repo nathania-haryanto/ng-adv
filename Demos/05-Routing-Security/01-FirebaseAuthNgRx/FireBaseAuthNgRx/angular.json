@@ -146,9 +146,10 @@
       }
     }
   },
-  "defaultProject": "ngDemoApp",
   "cli": {
-    "defaultCollection": "@ngrx/schematics",
-    "analytics": "02668dfa-34ed-4c47-9df1-5ab755ad1d62"
+    "analytics": "02668dfa-34ed-4c47-9df1-5ab755ad1d62",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

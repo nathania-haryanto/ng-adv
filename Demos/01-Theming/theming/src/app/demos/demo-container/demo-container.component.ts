@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { MenuService } from 'src/app/shared/menu/menu.service';
 import { environment } from 'src/environments/environment';
@@ -17,7 +17,7 @@ import { LoadingService } from '../../shared/loading/loading.service';
 export class DemoContainerComponent implements OnInit {
   title: string = environment.title;
   header = 'Please select a demo';
-  demos$: Observable<DemoItem[]>;
+  demos$: Observable<DemoItem[]> = of([]);
   sidenavMode: MatDrawerMode = 'side';
   isLoading = true;
 

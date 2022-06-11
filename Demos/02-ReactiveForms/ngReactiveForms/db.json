@@ -25,6 +25,22 @@
       "sortOrder": 3
     },
     {
+      "url": "typedforms",
+      "topicid": 2,
+      "title": "Typed Forms",
+      "component": "ReactiveFormsComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "typednonnullable",
+      "topicid": 2,
+      "title": "Typed NonNullable",
+      "component": "ReactiveFormsComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
       "url": "formbuilder",
       "topicid": 2,
       "title": "Form Builder",

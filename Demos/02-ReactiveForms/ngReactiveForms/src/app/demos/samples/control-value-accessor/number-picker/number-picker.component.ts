@@ -29,9 +29,9 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
   quantity = 0;
 
   @Input() increment: number = 1;
-  @Input() label: string;
+  @Input() label: string = '';
 
-  onChange = (quantity) => {};
+  onChange = (quantity: number) => {};
 
   onTouched = () => {};
 
@@ -87,5 +87,6 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
         },
       };
     }
+    return null;
   }
 }

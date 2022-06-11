@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthFacade } from '../../store/facades/auth.facade';
 
 @Component({
@@ -10,19 +10,19 @@ import { AuthFacade } from '../../store/facades/auth.facade';
 export class LoginComponent implements OnInit {
   constructor(private af: AuthFacade) {}
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
+    this.loginForm = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      password: new UntypedFormControl('', [
         Validators.required,
         Validators.minLength(4)
       ])
     });
   }
 
-  logIn(form: FormGroup) {
+  logIn(form: UntypedFormGroup) {
     this.af.logIn(form.value);
   }
 }

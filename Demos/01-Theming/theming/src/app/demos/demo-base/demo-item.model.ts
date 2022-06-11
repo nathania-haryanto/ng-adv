@@ -1,5 +1,5 @@
 export class DemoItem {
-  url: string;
-  title: string;
+  url: string = '';
+  title: string = '';
   markdown?: string;
 }

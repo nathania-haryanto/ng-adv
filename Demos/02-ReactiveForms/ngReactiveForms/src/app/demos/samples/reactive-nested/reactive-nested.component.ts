@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emptyPerson, wealthOpts } from '../empty-person';
-import { Person } from '../person/person.model';
+import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 
 @Component({
@@ -9,19 +8,12 @@ import { PersonService } from '../person/person.service';
   templateUrl: './reactive-nested.component.html',
   styleUrls: ['./reactive-nested.component.scss'],
 })
-export class ReactiveNestedComponent implements OnInit {
+export class ReactiveNestedComponent {
   personForm: FormGroup;
-  person: Person = emptyPerson;
-  wealthOpts = wealthOpts;
-  constructor(private fb: FormBuilder, private ps: PersonService) {}
+  person: Person = new Person();
+  wealthOpts = wealthOptsValues;
 
-  ngOnInit() {
-    this.ps.getPerson().subscribe((p) => {
-      //Reminder: setValue vs patchValue
-      this.personForm.patchValue(p);
-      console.log('Data loaded from service', p);
-    });
-
+  constructor(private fb: FormBuilder, private ps: PersonService) {
     this.personForm = this.fb.group({
       id: [this.person.name],
       name: [this.person.name, Validators.required],
@@ -36,6 +28,14 @@ export class ReactiveNestedComponent implements OnInit {
         postalCode: [this.person.address?.postalCode],
       }),
     });
+  }
+
+  ngOnInit() {
+    this.ps.getPerson().subscribe((p) => {
+      //Reminder: setValue vs patchValue
+      this.personForm.patchValue(p);
+      console.log('Data loaded from service', p);
+    });
 
     setTimeout(() => {
       //Use this to update form incrementally
@@ -44,7 +44,7 @@ export class ReactiveNestedComponent implements OnInit {
     }, 3000);
   }
 
-  savePerson(personForm): void {
+  savePerson(personForm: any): void {
     this.ps.save(personForm);
   }
 }

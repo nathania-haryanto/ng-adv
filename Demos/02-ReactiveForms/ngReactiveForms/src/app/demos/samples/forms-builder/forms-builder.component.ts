@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Person } from '../person/person.model';
-import { emptyPerson, wealthOpts } from '../empty-person';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
+import { PersonFormType } from '../person.form';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-forms-builder',
@@ -10,9 +16,17 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./forms-builder.component.scss'],
 })
 export class FormsBuilderComponent implements OnInit {
-  personForm: FormGroup;
-  person: Person = emptyPerson;
-  wealthOpts = wealthOpts;
+  person: Person = new Person();
+  wealthOpts = wealthOptsValues;
+
+  personForm = new FormGroup<PersonFormType>({
+    id: new FormControl(0),
+    name: new FormControl(''),
+    age: new FormControl(0),
+    email: new FormControl(''),
+    gender: new FormControl('male'),
+    wealth: new FormControl(''),
+  });
 
   constructor(private fb: FormBuilder, private ps: PersonService) {}
 
@@ -24,9 +38,8 @@ export class FormsBuilderComponent implements OnInit {
     });
 
     this.personForm = this.fb.group({
-      id: [this.person.name],
+      id: [this.person.id],
       name: [this.person.name, Validators.required],
-      lastname: [this.person.lastname, Validators.required],
       age: [this.person.age],
       gender: [this.person.gender],
       email: [this.person.email],
@@ -40,7 +53,12 @@ export class FormsBuilderComponent implements OnInit {
     }, 3000);
   }
 
-  savePerson(personForm): void {
-    this.ps.save(personForm);
+  toggleId() {
+    this.personForm.controls.id.disable();
+  }
+
+  savePerson(): void {
+    this.ps.save(this.personForm as unknown as NgForm);
+    console.log('Getting raw value of id:', this.personForm.getRawValue().id);
   }
 }

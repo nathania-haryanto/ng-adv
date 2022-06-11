@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class uxButtonComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() label: string = '';
-  @Input() icon: string;
+  @Input() icon: string = '';
   @Output() click: EventEmitter<void> = new EventEmitter();
 
   constructor() {}
@@ -16,6 +16,6 @@ export class uxButtonComponent implements OnInit {
   ngOnInit() {}
 
   buttonClicked() {
-    this.click.emit(null);
+    this.click.emit(undefined);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/shared/menu/menu.service';
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-admin-container',
@@ -15,7 +16,17 @@ export class AdminContainerComponent implements OnInit {
     { title: 'Demos', url: 'demos' },
   ];
 
-  ngOnInit() {}
+  sidenavMode: MatDrawerMode = 'side';
+
+  ngOnInit() {
+    this.setMenuPosition();
+  }
+
+  setMenuPosition() {
+    this.ms.position$.subscribe(
+      (mode: any) => (this.sidenavMode = mode as MatDrawerMode)
+    );
+  }
 
   getWorbenchStyle() {
     let result = {};

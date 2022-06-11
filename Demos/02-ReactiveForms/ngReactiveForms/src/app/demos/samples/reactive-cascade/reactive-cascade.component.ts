@@ -6,12 +6,11 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
   templateUrl: './reactive-cascade.component.html',
   styleUrls: ['./reactive-cascade.component.scss'],
 })
-export class ReactiveCascadeComponent implements OnInit {
+export class ReactiveCascadeComponent {
   readonly selectValues = [
     { type: 'Frameworks', values: ['Angular', 'React', '.NET Core'] },
     { type: 'Languages', values: ['TypeScript', 'JavaScript', 'C#', 'Java'] },
   ];
-
   selects: string[];
   profileForm: FormGroup;
 
@@ -30,7 +29,6 @@ export class ReactiveCascadeComponent implements OnInit {
         }),
       ]),
     });
-
     this.selects = [];
   }
 
@@ -40,7 +38,7 @@ export class ReactiveCascadeComponent implements OnInit {
     console.log(this.profileForm.value);
   }
 
-  getCriteria(type) {
+  getCriteria(type: any) {
     const select = this.selectValues.find((_) => _.type == type);
     return select ? select.values : select;
   }
