@@ -8,7 +8,7 @@ export class Person {
   lastname?: string;
   married?: boolean;
   imgUrl?: string;
-  address?: Address;
+  address?: Address = { street: '', city: '', postalCode: '' };
 }
 
 export class Address {

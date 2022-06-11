@@ -1,4 +1,4 @@
-<!-- <mat-card>
+<mat-card>
   <mat-card-header>
     <mat-card-title>
       FormsBuilder & Validation
@@ -17,7 +17,6 @@
         <input matInput type="text" placeholder="Name" formControlName="name" />
         <mat-error
           *ngIf="
-            personForm.get('name').errors != undefined &&
             personForm.controls['name'].errors != undefined &&
             personForm.controls['name'].errors['nameError']
           "
@@ -131,4 +130,4 @@
     Form is touched: {{ personForm.touched }}<br />
     Form is untouched: {{ personForm.untouched }}<br />
   </mat-card-content>
-</mat-card> -->
+</mat-card>

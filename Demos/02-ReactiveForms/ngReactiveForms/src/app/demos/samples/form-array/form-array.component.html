@@ -1,4 +1,4 @@
-<!-- <div [formGroup]="skillForm" (ngSubmit)="saveForm()">
+<div [formGroup]="skillForm" (ngSubmit)="saveForm()">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Skills Sheet</mat-card-title>
@@ -13,7 +13,7 @@
           placeholder="Enter Name:"
         />
       </mat-form-field>
-      <div *ngIf="skillForm.get('name').value">
+      <div *ngIf="skillForm.get('name')?.value">
         <div class="skills">Skills:</div>
         <div
           formArrayName="skillsGrp"
@@ -40,4 +40,4 @@
       <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
     </mat-card-actions>
   </mat-card>
-</div> -->
+</div>
