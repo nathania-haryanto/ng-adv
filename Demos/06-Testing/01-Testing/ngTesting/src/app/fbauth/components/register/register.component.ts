@@ -3,16 +3,16 @@ import {
   AbstractControl,
   FormControl,
   FormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { AuthFacade } from '../../store/facades/auth.facade';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-fbregister',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class FBRegisterComponent implements OnInit {
   constructor(private af: AuthFacade) {}
 
   registerForm: FormGroup;
@@ -24,19 +24,19 @@ export class RegisterComponent implements OnInit {
         {
           password: new FormControl('', [
             Validators.required,
-            Validators.minLength(4)
+            Validators.minLength(4),
           ]),
-          passwordRepeat: new FormControl('', [Validators.required])
+          passwordRepeat: new FormControl('', [Validators.required]),
         },
         { validators: this.passwordsMatch }
-      )
+      ),
     });
   }
 
   registerUser(form: FormGroup) {
     const usr = {
       email: form.value.email,
-      password: form.value.passwords.password
+      password: form.value.passwords.password,
     };
     this.af.register(usr);
   }

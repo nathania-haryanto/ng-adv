@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DemoState } from '../reducers/demos.reducer';
 import { Store } from '@ngrx/store';
+import { tap } from 'rxjs/operators';
 import { LoadDemos } from '../actions/demos.actions';
-import { tap } from 'rxjs/internal/operators/tap';
+import { DemoState } from '../reducers/demos.reducer';
 import { getAllDemos } from '../selectors/demo.selectors';
 
 @Injectable({

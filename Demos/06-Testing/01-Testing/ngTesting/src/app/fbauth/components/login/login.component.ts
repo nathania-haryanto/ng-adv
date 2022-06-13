@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthFacade } from '../../store/facades/auth.facade';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-fblogin',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class FBLoginComponent implements OnInit {
   constructor(private af: AuthFacade) {}
 
   loginForm: FormGroup;
@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(4)
-      ])
+        Validators.minLength(4),
+      ]),
     });
   }
 

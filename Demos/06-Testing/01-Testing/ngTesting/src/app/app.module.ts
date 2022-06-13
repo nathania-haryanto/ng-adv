@@ -13,21 +13,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FBAuthModule } from './auth/auth.module';
-import { FBAuthInterceptor } from './auth/fbauth.interceptor';
+import { FBAuthInterceptor } from './fbauth/fbauth.interceptor';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers } from './store';
 import { CustomRouterSerializer } from './store/reducers/custom-serializer';
-
-import 'prismjs';
-import 'prismjs/components/prism-typescript.min.js';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
+import { LoginComponent } from './login/login.component';
+import { FBAuthModule } from './fbauth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +31,6 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
     MaterialModule,
     HttpClientModule,
     SharedModule,
-    FBAuthModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
@@ -46,6 +41,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
     StoreRouterConnectingModule.forRoot({
       serializer: DefaultRouterStateSerializer,
     }),
+    FBAuthModule,
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomRouterSerializer },
