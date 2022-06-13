@@ -55,11 +55,11 @@ Update PeerDependencies in `package.json` of the library:
 
 ```typescript
 "peerDependencies": {
-    "@angular/common": "^10.0.3",
-    "@angular/core": "^10.0.3",
-    "@angular/animations": "~10.0.3",
-    "@angular/flex-layout": "^10.0.0-beta.32",
-    "@angular/material": "^10.0.1"
+    "@angular/common": "^14.0.1",
+    "@angular/core": "^14.0.1",
+    "@angular/animations": "^14.0.1",
+    "@angular/flex-layout": "^13.0.0-beta.38",
+    "@angular/material": "^14.0.1"
   },
 ```
 
