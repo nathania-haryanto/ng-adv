@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Component({
   selector: 'app-bundles',
   templateUrl: './bundles.component.html',
-  styleUrls: ['./bundles.component.scss']
+  styleUrls: ['./bundles.component.scss'],
 })
 export class BundlesComponent implements OnInit {
   constructor() {
-    this.strDt = moment(new Date())
-      .add(1, 'days')
-      .format('MMM Do YY');
+    this.strDt = moment(new Date()).add(1, 'days').format('MMM Do YY');
   }
 
   strDt: string;
