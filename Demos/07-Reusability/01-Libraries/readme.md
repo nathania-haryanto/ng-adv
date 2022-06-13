@@ -190,13 +190,3 @@ export class AppComponent {
   ngOnInit() {}
 }
 ```
-
-## Publish to NPM
-
-[Creating and publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)
-
-- Create a production build using the `--prod` flag
-- Login to npm using `npm login`
-- Run `npm publish` from lib folder
-
-> Note: It is not recommended to publish Ivy libraries to NPM repositories. Read more [here](https://v9.angular.io/guide/ivy#maintaining-library-compatibility). Instead you can also publish your your private npm packages to [GitHub](https://blog.anoff.io/2020-07-private-npm-package-github/)

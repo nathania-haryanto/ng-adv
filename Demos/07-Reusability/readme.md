@@ -1,6 +1,6 @@
 # Reusability
 
 - Angular Libraries
-- Implementing Libraries using Nx
-- Implementing WebComponents using Angular Elements
+- Publish and Comsume Package from GitHub
 - Understanding and Implementing Schematics
+- Nx (Optional)
