@@ -1,15 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { environment } from "src/environments/environment";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  constructor() {}
-
-  title: string = environment.title;
-
-  ngOnInit() {}
-}
+export class HomeComponent {}

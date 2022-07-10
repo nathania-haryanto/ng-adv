@@ -1,14 +1,14 @@
-@import "stylevars.scss";
-
-.navTitle {
-  color: $ngRed;
-  font-size: $big-font;
-}
+@import "mixins.scss";
 
 .navLink {
-  @include link($medium-font, $light-col);
+  @include link(var(--color-fg), var(--font-big)); 
+  margin-top: -0.5rem;
+}
+
+.navLinkActive{
+  text-decoration: underline;
 }
 
 mat-toolbar-row {
-  min-height: $big-toolbar;
+  min-height: var(--toolbar-big);
 }

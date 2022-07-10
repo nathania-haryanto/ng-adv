@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { startWith } from 'rxjs/operators';
-import { EventBusService } from 'src/app/shared/eventbus/event-bus.service';
+import { filter, map } from 'rxjs/operators';
 import { MenuService } from 'src/app/shared/menu/menu.service';
-import { SidebarActions } from 'src/app/shared/sidebar/sidebar-actions';
 import { environment } from 'src/environments/environment';
-import { RouterFacadeService } from '../../store/facades/router-facade.service';
-import { DemoItem } from '../demo-item.model';
-import { LoadDemos } from '../store/actions/demos.actions';
-import { DemoState } from '../store/reducers/demos.reducer';
-import { getAllDemos } from '../store/selectors/demo.selectors';
+import { DemoItem } from '../demo-base/demo-item.model';
+import { DemoService } from '../demo-base/demo.service';
+import { MatDrawerMode } from '@angular/material/sidenav';
+import { LoadingService } from '../../shared/loading/loading.service';
+import { DemoFacade } from '../state/demo.facade';
+import { DemoState } from '../state/demos.reducer';
+import { Store } from '@ngrx/store';
+import { getAllDemos } from '../state/demo.selectors';
+import { loadDemos } from '../state/demos.actions';
 
 @Component({
   selector: 'app-demo-container',
@@ -18,48 +20,79 @@ import { getAllDemos } from '../store/selectors/demo.selectors';
   styleUrls: ['./demo-container.component.scss'],
 })
 export class DemoContainerComponent implements OnInit {
-  constructor(
-    public ms: MenuService,
-    public rf: RouterFacadeService,
-    private store: Store<DemoState>,
-    private eb: EventBusService
-  ) {}
-
   title: string = environment.title;
-  header = this.rf.getComponent().pipe(startWith('Please select a demo'));
+  header = 'Please select a demo';
+  demos$ = this.store.select(getAllDemos);
+  sidenavMode: MatDrawerMode = 'side';
+  isLoading = true;
 
-  demos$: Observable<DemoItem[]> = this.store.select(getAllDemos);
-
-  current: DemoItem = this.demos$ != null ? this.demos$[0] : null;
-  workbench: any;
-
-  showEditor = false;
+  constructor(
+    private router: Router,
+    private demoService: DemoService,
+    private route: ActivatedRoute,
+    public ms: MenuService,
+    public ls: LoadingService,
+    private store: Store<DemoState>
+  ) {}
 
   ngOnInit() {
     this.setMenu();
+    this.setMetadata();
+    this.setMenuPosition();
     this.getWorbenchStyle();
-    this.setEditor();
+    this.subscribeLoading();
+    this.store.dispatch(loadDemos());
+  }
+
+  subscribeLoading() {
+    this.ls.getLoading().subscribe((value) => {
+      Promise.resolve(null).then(() => (this.isLoading = value));
+    });
+  }
+
+  setMenuPosition() {
+    this.ms.position$.subscribe(
+      (mode: any) => (this.sidenavMode = mode as MatDrawerMode)
+    );
   }
 
   setMenu() {
-    this.store.dispatch(new LoadDemos());
-  }
-
-  setEditor() {
-    this.eb.Commands.subscribe((action) => {
-      this.showEditor = action === SidebarActions.HIDE_MARKDOWN ? false : true;
-    });
+    this.demos$ = this.store.select(getAllDemos);
   }
 
   getWorbenchStyle() {
     let result = {};
-    this.ms.visible$.subscribe((visible) => {
+    this.ms.visible$.subscribe((visible: any) => {
       result = visible
         ? {
-            'margin-left': '10px',
+            'margin-left': '5px',
           }
         : {};
     });
     return result;
+  }
+
+  rootRoute(route: ActivatedRoute): ActivatedRoute {
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+    return route;
+  }
+
+  setMetadata() {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.rootRoute(this.route)),
+        filter((route: ActivatedRoute) => route.outlet === 'primary')
+      )
+      .subscribe((route: ActivatedRoute) => {
+        this.header =
+          route.component != null
+            ? `Component: ${route.component
+                .toString()
+                .substring(6, route.component.toString().indexOf('{') - 1)}`
+            : '';
+      });
   }
 }

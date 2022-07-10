@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DemoService } from '../../demo.service';
 import { HttpClient } from '@angular/common/http';
+import { DemoService } from '../../demo-base/demo.service';
 
 @Component({
   selector: 'app-multi-interceptor',
@@ -16,7 +16,7 @@ export class MultiInterceptorComponent implements OnInit {
   ngOnInit(): void {}
 
   httpCall(): void {
-    this.ds.getDemos().subscribe();
+    this.ds.getItems().subscribe();
   }
 
   requestData() {

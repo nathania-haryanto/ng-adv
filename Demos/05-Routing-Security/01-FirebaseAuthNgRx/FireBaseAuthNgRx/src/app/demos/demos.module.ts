@@ -27,10 +27,11 @@ import { PrimeComponent } from './samples/multi-guard/prime/prime.component';
 import { MultiInterceptorComponent } from './samples/multi-interceptor/multi-interceptor.component';
 import { RoutingTargetComponent } from './samples/routing/routing-target/routing-target.component';
 import { RoutingComponent } from './samples/routing/routing/routing.component';
-import { DemosEffects } from './store/effects/demos.effects';
-import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
 import { HttpErrorsComponent } from './samples/http-errors/http-errors.component';
 import { RouterEventsComponent } from './samples/router-events/router-events.component';
+import { demosFeatureKey } from './state/demos.reducer';
+import { DemosEffects } from './state/demos.effects';
+import { demoReducer } from './state/demos.reducer';
 
 const demoRoutes: Routes = [
   {
@@ -119,7 +120,7 @@ const demoRoutes: Routes = [
       loader: HttpClient,
     }),
     SharedModule,
-    StoreModule.forFeature(demosFeatureKey, DemosReducer),
+    StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],
   providers: [SkillsService],

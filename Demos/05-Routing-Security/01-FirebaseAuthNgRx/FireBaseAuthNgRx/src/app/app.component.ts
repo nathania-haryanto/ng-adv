@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 import { ThemeService } from './shared/theme/theme.service';
 
 @Component({
