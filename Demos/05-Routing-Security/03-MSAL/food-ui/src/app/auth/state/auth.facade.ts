@@ -52,7 +52,8 @@ export class MsalAuthFacade {
         )
       )
       .subscribe((result: EventMessage) => {
-        let resp: MsalAuthResponse = result.payload as MsalAuthResponse;
+        let resp: MsalAuthResponse =
+          result.payload as unknown as MsalAuthResponse;
         this.store.dispatch(loginSuccess({ authResponse: resp }));
         console.log(`MSAL Event ${result.eventType}`, result.payload);
       });
