@@ -2,7 +2,7 @@
 
 ## Inject Configuration using config service - Optional
 
-Go to [config.service.ts](https://github.com/arambazamba/ng-adv/blob/main/Demos/09-Optimization/01-Optimizing/ngOptimizing/src/app/shared/config/config.service.ts) of Module 9 and investigate its usage in `app.module.ts`.
+Go to [config.service.ts](https://github.com/arambazamba/ng-adv/blob/main/Demos/10-Optimization/01-Optimizing/ngOptimizing/src/app/shared/config/config.service.ts) of Module 9 and investigate its usage in `app.module.ts`.
 
 ```typescript
 import { Injectable } from '@angular/core';
