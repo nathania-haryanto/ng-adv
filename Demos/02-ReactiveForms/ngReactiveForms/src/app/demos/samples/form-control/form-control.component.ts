@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-control',
@@ -9,47 +9,31 @@ import { FormControl, Validators } from '@angular/forms';
 export class FormControlComponent implements OnInit {
   constructor() {}
 
-  name = new FormControl('');
-  postal = new FormControl('');
-  city = new FormControl('');
+  name = new FormControl('Giro', [
+    Validators.required,
+    Validators.minLength(3),
+  ]);
+  postal = new UntypedFormControl('3544', [Validators.minLength(4)]);
+  city = new FormControl<string>('Idolsberg', [Validators.maxLength(15)]);
 
   ngOnInit() {
-    this.initForm();
     this.subscribeNameChanges();
-  }
-
-  initForm() {
-    this.name = new FormControl('Giro', [
-      Validators.required,
-      Validators.minLength(4),
-    ]);
-    this.postal = new FormControl('3544');
-    this.city = new FormControl('Idolsberg', [Validators.maxLength(15)]);
   }
 
   subscribeNameChanges() {
     this.name.valueChanges.subscribe((data) =>
-      console.log('Form Control values changed', data)
+      console.log('Form values changed', data)
     );
-    this.name.statusChanges.subscribe((data) => {
-      console.log('Form Control status changed', data);
-      console.log('Form Control dirty', this.name.dirty);
-      console.log('Form Control pristine', this.name.pristine);
-      console.log('Form Control touched', this.name.touched);
-    });
+    this.name.statusChanges.subscribe((data) =>
+      console.log('Form status changed', data)
+    );
   }
 
   updateName() {
-    console.log('updating');
-    this.name.setValue('Soi the whippet');
+    this.name.setValue('Soi');
   }
 
-  resetName(name: string) {
-    console.log('resetting');
-    this.name.reset(name);
-  }
-
-  submitForm() {
-    console.log('current name:', this.name.value);
+  resetName() {
+    this.name.reset('Giro');
   }
 }

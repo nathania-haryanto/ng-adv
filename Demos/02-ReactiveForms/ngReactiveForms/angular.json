@@ -43,8 +43,8 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css"
+              "node_modules/prismjs/themes/prism-okaidia.min.css",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/theme"]
@@ -55,7 +55,7 @@
               "node_modules/prismjs/components/prism-csharp.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
               "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js"
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.js"
             ],
             "allowedCommonJsDependencies": [
               "lodash",
@@ -126,8 +126,22 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.min.css",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/theme"]
+            },
+            "scripts": [
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.min.js"
+            ]
           }
         },
         "e2e": {
