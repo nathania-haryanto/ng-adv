@@ -14,9 +14,9 @@ const adminRoutes: Routes = [
     children: [
       { path: 'topics', component: TopicsComponent },
       { path: 'skills', component: SkillsComponent },
-      { path: 'demos', component: DemosAdminComponent }
-    ]
-  }
+      { path: 'demos', component: DemosAdminComponent },
+    ],
+  },
 ];
 
 @NgModule({
@@ -24,8 +24,8 @@ const adminRoutes: Routes = [
     TopicsComponent,
     SkillsComponent,
     AdminContainerComponent,
-    DemosAdminComponent
+    DemosAdminComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(adminRoutes), MaterialModule]
+  imports: [CommonModule, RouterModule.forChild(adminRoutes), MaterialModule],
 })
 export class AdminModule {}

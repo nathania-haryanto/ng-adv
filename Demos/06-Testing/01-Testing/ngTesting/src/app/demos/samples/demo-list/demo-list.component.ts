@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DemoState } from '../../store/reducers/demos.reducer';
 import { Observable } from 'rxjs';
-import { DemoItem } from '../../demo-item.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { getAllDemos } from '../../store/selectors/demo.selectors';
-import {
-  ToggleVisiblity,
-  SetSelected,
-} from '../../store/actions/demos.actions';
+import { DemoItem } from '../../demo-base/demo-item.model';
+import { getAllDemos } from '../../state/demo.selectors';
+import { DemoState } from '../../state/demos.reducer';
+import { toggleVisiblity, setSelected } from '../../state/demos.actions';
 
 @Component({
   selector: 'app-demo-list',
@@ -43,10 +40,10 @@ export class DemoListComponent implements OnInit {
   }
 
   changeVisibility(item: DemoItem) {
-    this.store.dispatch(new ToggleVisiblity(item));
+    this.store.dispatch(toggleVisiblity({ item }));
   }
 
   selectItem(item: DemoItem) {
-    this.store.dispatch(new SetSelected(item));
+    this.store.dispatch(setSelected({ item }));
   }
 }

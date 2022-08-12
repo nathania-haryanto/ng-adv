@@ -1,39 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
-import { MenuItem } from './MenuItem';
-import { MediaObserver } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { MenuItem } from './menu-item.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MenuService {
-  constructor(private mediaObserver: MediaObserver) {
+  constructor(private mediaObserver: MediaObserver, private http: HttpClient) {
     this.handleChange();
   }
 
-  private visible: boolean = true;
-  visible$: BehaviorSubject<boolean> = new BehaviorSubject(this.visible);
-  private position: string = 'side';
-  position$: BehaviorSubject<string> = new BehaviorSubject(this.position);
+  visible$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  position$: BehaviorSubject<string> = new BehaviorSubject('side');
 
   private handleChange() {
-    this.mediaObserver.media$.subscribe((change) => {
-      this.visible$.next(change.mqAlias == 'xs' ? false : true);
-      this.position$.next(change.mqAlias == 'xs' ? 'over' : 'side');
-    });
+    this.mediaObserver
+      .asObservable()
+      .pipe(
+        filter((changes: MediaChange[]) => changes.length > 0),
+        map((changes: MediaChange[]) => changes[0])
+      )
+      .subscribe((change) => {
+        this.visible$.next(change.mqAlias === 'xs' ? false : true);
+        this.position$.next(change.mqAlias === 'xs' ? 'over' : 'side');
+      });
   }
 
   getTopItems(): Observable<MenuItem[]> {
     return of([
       { label: 'Home', url: '' },
       { label: 'Demos', url: 'demos' },
-      { label: 'Skills', url: 'skills' },
-      { label: 'Admin', url: 'admin' },
     ]);
   }
 
   toggleMenu() {
-    this.visible = !this.visible;
-    this.visible$.next(this.visible);
+    let status = !this.visible$.getValue();
+    this.visible$.next(status);
   }
 }

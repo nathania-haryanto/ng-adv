@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { DemoItem } from "src/app/demos/demo-item.model";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DemoItem } from '../../demo-base/demo-item.model';
 
 @Component({
-  selector: "app-demo-row",
-  templateUrl: "./demo-row.component.html",
-  styleUrls: ["./demo-row.component.scss"]
+  selector: 'app-demo-row',
+  templateUrl: './demo-row.component.html',
+  styleUrls: ['./demo-row.component.scss'],
 })
 export class DemoRowComponent implements OnInit {
   @Input() item: DemoItem;

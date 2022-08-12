@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Route } from '@angular/router';
-import { SnackbarService } from '../snackbar/snackbar.service';
-import { MenuService } from '../menu/menu.service';
+import { Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MenuService } from '../menu/menu.service';
 import { MenuItem } from '../menu/MenuItem';
-import { MenuFacade } from 'src/app/store/facades/menu.facade';
+import { SnackbarService } from '../snackbar/snackbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +13,6 @@ import { MenuFacade } from 'src/app/store/facades/menu.facade';
 export class NavbarComponent implements OnInit {
   constructor(
     private router: Router,
-    public mf: MenuFacade,
     private ms: MenuService,
     private sns: SnackbarService
   ) {}
@@ -30,11 +28,11 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleMenu() {
-    this.mf.toggleMenuVisibility();
+    this.ms.toggleMenu();
   }
 
   toggleApps() {
-    this.sns.displayAlert('Apps', 'Not implemented! - just for demo');
+    this.sns.displayAlert('Apps', 'Not implemented - just a mock');
   }
 
   showUpload() {

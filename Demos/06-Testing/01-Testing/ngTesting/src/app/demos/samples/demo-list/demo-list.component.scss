@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@import "stylevars.scss";
 @import "theme.scss";
 
 .list {
@@ -8,7 +7,7 @@
 }
 
 .box {
-  padding: $small-gap;
+  padding: var(--gap-small);
   border-bottom: solid 1px #ccc;
   color: mat.get-color-from-palette($app-fg);
   cursor: move;

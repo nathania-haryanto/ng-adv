@@ -38,8 +38,8 @@ import { SimpleServiceComponent } from './samples/simple-service/simple-service.
 import { UnitTestingComponent } from './samples/simple-tests/unit-testing.component';
 import { MockAuthComponent } from './samples/use-mock/mock-auth/mock-auth.component';
 import { UseMockComponent } from './samples/use-mock/use-mock.component';
-import { DemosEffects } from './store/effects/demos.effects';
-import { demosFeatureKey, DemosReducer } from './store/reducers/demos.reducer';
+import { DemosEffects } from './state/demos.effects';
+import { demosFeatureKey, demoReducer } from './state/demos.reducer';
 import { FoodHttpComponent } from './samples/http-tests/food-http/food-http.component';
 import { DirectiveComponent } from './samples/directive/directive.component';
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
@@ -127,7 +127,7 @@ const demoRoutes: Routes = [
       loader: HttpClient,
     }),
     SharedModule,
-    StoreModule.forFeature(demosFeatureKey, DemosReducer),
+    StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],
   providers: [SkillsService],

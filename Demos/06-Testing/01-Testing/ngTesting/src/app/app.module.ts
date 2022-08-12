@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import {
-  DefaultRouterStateSerializer,
+  FullRouterStateSerializer,
   RouterStateSerializer,
   StoreRouterConnectingModule,
 } from '@ngrx/router-store';
@@ -39,9 +39,8 @@ import { FBAuthModule } from './fbauth/auth.module';
       logOnly: environment.production,
     }),
     StoreRouterConnectingModule.forRoot({
-      serializer: DefaultRouterStateSerializer,
+      serializer: FullRouterStateSerializer,
     }),
-    FBAuthModule,
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomRouterSerializer },
