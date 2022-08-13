@@ -17,21 +17,20 @@ import { DemoRoutingModule } from './demo.routing.module';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
 import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
+import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
 import { FormArrayComponent } from './samples/form-array/form-array.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
 import { FormsBuilderComponent } from './samples/forms-builder/forms-builder.component';
+import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
 import { NgxFormlyComponent } from './samples/ngx-formly/ngx-formly.component';
 import { ReactiveCascadeComponent } from './samples/reactive-cascade/reactive-cascade.component';
+import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
+import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
-import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
-import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
+import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
-import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
-import { FormRecordComponent } from './samples/form-record/form-record.component';
-import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
-import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -55,7 +54,6 @@ const appearance: MatFormFieldDefaultOptions = {
     ReactiveTypedComponent,
     TypedNonnullableComponent,
     ReactiveExplicitTypedComponent,
-    FormRecordComponent,
     GetRawValueComponent,
     ReactiveExplicitTypedExternalComponent,
   ],

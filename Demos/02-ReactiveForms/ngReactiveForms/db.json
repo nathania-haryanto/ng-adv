@@ -65,7 +65,7 @@
       "sortOrder": 4
     },
     {
-      "url": "getrawvalue",
+      "url": "raw-value",
       "topicid": 2,
       "title": "GetRawValue",
       "component": "GetRawValueComponent",
@@ -95,14 +95,6 @@
       "component": "FormArrayComponent",
       "visible": true,
       "sortOrder": 6
-    },
-    {
-      "url": "formrecord",
-      "topicid": 2,
-      "title": "Form Record",
-      "component": "FormRecordComponent",
-      "visible": true,
-      "sortOrder": 4
     },
     {
       "url": "cascade",

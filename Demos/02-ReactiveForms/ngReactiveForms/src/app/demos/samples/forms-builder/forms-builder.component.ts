@@ -38,10 +38,6 @@ export class FormsBuilderComponent implements OnInit {
     }, 3000);
   }
 
-  toggleId() {
-    this.personForm.controls.id.disable();
-  }
-
   savePerson(): void {
     this.ps.save(this.personForm as unknown as NgForm);
     console.log('Getting raw value of id:', this.personForm.getRawValue().id);

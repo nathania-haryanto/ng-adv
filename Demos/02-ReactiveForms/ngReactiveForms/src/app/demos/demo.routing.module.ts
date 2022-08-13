@@ -7,15 +7,16 @@ import { ControlValueAccessorComponent } from './samples/control-value-accessor/
 import { FormArrayComponent } from './samples/form-array/form-array.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
 import { FormsBuilderComponent } from './samples/forms-builder/forms-builder.component';
+import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
 import { NgxFormlyComponent } from './samples/ngx-formly/ngx-formly.component';
 import { ReactiveCascadeComponent } from './samples/reactive-cascade/reactive-cascade.component';
+import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
+import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
-import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
-import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
 
 const demoRoutes: Routes = [
   {
@@ -38,6 +39,10 @@ const demoRoutes: Routes = [
       {
         path: 'type-external',
         component: ReactiveExplicitTypedExternalComponent,
+      },
+      {
+        path: 'raw-value',
+        component: GetRawValueComponent,
       },
       { path: 'typednonnullable', component: TypedNonnullableComponent },
     ],

@@ -9,9 +9,9 @@ import { PersonService } from '../person/person.service';
   styleUrls: ['./reactive-nested.component.scss'],
 })
 export class ReactiveNestedComponent {
-  personForm: FormGroup;
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
+  personForm: FormGroup;
 
   constructor(private fb: FormBuilder, private ps: PersonService) {
     this.personForm = this.fb.group({
