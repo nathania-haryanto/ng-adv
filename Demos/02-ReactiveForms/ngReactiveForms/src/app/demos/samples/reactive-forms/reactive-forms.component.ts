@@ -15,6 +15,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reactive-forms.component.scss'],
 })
 export class ReactiveFormsComponent implements OnInit {
+  //UntypedFormGroup added by upgrade schematics
   personForm: UntypedFormGroup;
   person: Person = new Person();
   wealthOpts = wealthOptsValues;

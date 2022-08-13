@@ -12,7 +12,7 @@
         <input matInput
           type="text"
           placeholder="First Name"
-          formControlName="firstNameInput"
+          formControlName="firstName"
         />
         </mat-form-field>
 
@@ -20,15 +20,15 @@
           <input matInput
             type="text"
             placeholder="Last Name"
-            formControlName="lastNameInput"
+            formControlName="lastName"
           />
           </mat-form-field>
       </div>
 
-      <!-- <div formArrayName="optionGroups">
+      <div formArrayName="skills">
         <div
-          *ngFor="let optionGroup of getOptionGroups(); let i = index"
-          [formGroup]="optionGroup"
+          *ngFor="let skills of this.profileForm.controls['skills'].controls; let i = index"
+          [formGroup]="skillsGrp"
         >
           <h4>Skill {{ i + 1 }}</h4>
           <div>
@@ -50,7 +50,7 @@
                 <mat-option
                   *ngFor="
                     let where of getCriteria(
-                      (profileForm.controls['optionGroups']?.value)[i]
+                      (profileForm.controls['skills'].value)[i]
                         ?.selectInput
                     )
                   "
@@ -61,7 +61,10 @@
             </mat-form-field>
           </div>
         </div>
-      </div> -->
+      </div>
+      <div>
+        <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

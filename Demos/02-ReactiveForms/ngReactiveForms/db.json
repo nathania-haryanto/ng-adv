@@ -1,20 +1,20 @@
 {
   "demos": [
     {
-      "url": "formcontrol",
-      "topicid": 3,
-      "title": "FormControl",
-      "component": "FormControlComponent",
-      "visible": true,
-      "sortOrder": 1
-    },
-    {
       "url": "async-pipe",
       "topicid": 3,
       "title": "Async Pipe",
       "component": "AsyncPipeComponent",
       "visible": true,
       "sortOrder": 2
+    },
+    {
+      "url": "formcontrol",
+      "topicid": 3,
+      "title": "FormControl",
+      "component": "FormControlComponent",
+      "visible": true,
+      "sortOrder": 1
     },
     {
       "url": "reactiveforms",
@@ -28,9 +28,25 @@
       "url": "typedforms",
       "topicid": 2,
       "title": "Typed Forms",
-      "component": "ReactiveFormsComponent",
+      "component": "ReactiveTypedComponent",
       "visible": true,
       "sortOrder": 4
+    },
+    {
+      "url": "typedformsexplicit",
+      "topicid": 2,
+      "title": "Typed Forms Explicit",
+      "component": "ReactiveExplicitTypedComponent",
+      "visible": true,
+      "sortOrder": 5
+    },
+    {
+      "url": "type-external",
+      "topicid": 2,
+      "title": "Typed Forms Explicit Ext",
+      "component": "ReactiveExplicitTypedExternalComponent",
+      "visible": true,
+      "sortOrder": 5
     },
     {
       "url": "typednonnullable",
@@ -45,6 +61,14 @@
       "topicid": 2,
       "title": "Form Builder",
       "component": "FormsBuilderComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "raw-value",
+      "topicid": 2,
+      "title": "GetRawValue",
+      "component": "GetRawValueComponent",
       "visible": true,
       "sortOrder": 4
     },
