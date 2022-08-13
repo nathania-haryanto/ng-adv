@@ -14,6 +14,8 @@ import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nest
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
+import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
+import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
 
 const demoRoutes: Routes = [
   {
@@ -32,6 +34,11 @@ const demoRoutes: Routes = [
       { path: 'cascade', component: ReactiveCascadeComponent },
       { path: 'ngx-formly', component: NgxFormlyComponent },
       { path: 'typedforms', component: ReactiveTypedComponent },
+      { path: 'typedformsexplicit', component: ReactiveExplicitTypedComponent },
+      {
+        path: 'type-external',
+        component: ReactiveExplicitTypedExternalComponent,
+      },
       { path: 'typednonnullable', component: TypedNonnullableComponent },
     ],
   },

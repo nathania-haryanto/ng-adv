@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
-import { PersonFormType } from '../person.form';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-forms-builder',
@@ -18,14 +11,15 @@ import { NgForm } from '@angular/forms';
 export class FormsBuilderComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
+  genderPattern = '^(male|female)';
 
-  personForm = new FormGroup<PersonFormType>({
-    id: new FormControl(0),
-    name: new FormControl(''),
-    age: new FormControl(0),
-    email: new FormControl(''),
-    gender: new FormControl('male'),
-    wealth: new FormControl(''),
+  personForm = this.fb.group({
+    id: [0],
+    name: ['', { validators: [Validators.required] }],
+    age: [0, { validators: [Validators.min(1)] }],
+    email: ['', { validators: [Validators.email] }],
+    gender: ['', { validators: [Validators.pattern(this.genderPattern)] }],
+    wealth: [''],
   });
 
   constructor(private fb: FormBuilder, private ps: PersonService) {}
@@ -35,15 +29,6 @@ export class FormsBuilderComponent implements OnInit {
       //Reminder: setValue vs patchValue
       this.personForm.patchValue(p);
       console.log('Data loaded from service', p);
-    });
-
-    this.personForm = this.fb.group({
-      id: [this.person.id],
-      name: [this.person.name, Validators.required],
-      age: [this.person.age],
-      gender: [this.person.gender],
-      email: [this.person.email],
-      wealth: [this.person.wealth],
     });
 
     setTimeout(() => {

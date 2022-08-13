@@ -12,23 +12,18 @@ export class ReactiveTypedComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
-  personForm: FormGroup<{
-    name: FormControl<string | null>;
-    age: FormControl<number | null>;
-    email: FormControl<string | null>;
-    gender: FormControl<'male' | 'female' | 'not set' | null>;
-    wealth: FormControl<string | null>;
-  }>;
+  //typing is done be providing a default value or by using FormControl<T>
+  personForm = new FormGroup({
+    name: new FormControl(this.person.name, Validators.required),
+    age: new FormControl(this.person.age),
+    email: new FormControl<string>(this.person.email),
+    gender: new FormControl<'male' | 'female' | 'not set' | null>(
+      this.person.gender
+    ),
+    wealth: new FormControl(this.person.wealth),
+  });
 
-  constructor(private ps: PersonService) {
-    this.personForm = new FormGroup({
-      name: new FormControl(this.person.name, Validators.required),
-      age: new FormControl(this.person.age),
-      email: new FormControl(this.person.email),
-      gender: new FormControl(this.person.gender),
-      wealth: new FormControl(this.person.wealth),
-    });
-  }
+  constructor(private ps: PersonService) {}
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {

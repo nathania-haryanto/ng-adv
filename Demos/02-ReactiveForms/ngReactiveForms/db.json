@@ -1,20 +1,20 @@
 {
   "demos": [
     {
-      "url": "formcontrol",
-      "topicid": 3,
-      "title": "FormControl",
-      "component": "FormControlComponent",
-      "visible": true,
-      "sortOrder": 1
-    },
-    {
       "url": "async-pipe",
       "topicid": 3,
       "title": "Async Pipe",
       "component": "AsyncPipeComponent",
       "visible": true,
       "sortOrder": 2
+    },
+    {
+      "url": "formcontrol",
+      "topicid": 3,
+      "title": "FormControl",
+      "component": "FormControlComponent",
+      "visible": true,
+      "sortOrder": 1
     },
     {
       "url": "reactiveforms",
@@ -38,7 +38,15 @@
       "title": "Typed Forms Explicit",
       "component": "ReactiveExplicitTypedComponent",
       "visible": true,
-      "sortOrder": 4
+      "sortOrder": 5
+    },
+    {
+      "url": "type-external",
+      "topicid": 2,
+      "title": "Typed Forms Explicit Ext",
+      "component": "ReactiveExplicitTypedExternalComponent",
+      "visible": true,
+      "sortOrder": 5
     },
     {
       "url": "typednonnullable",

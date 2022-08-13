@@ -31,6 +31,7 @@ import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-non
 import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
 import { FormRecordComponent } from './samples/form-record/form-record.component';
 import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
+import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -56,6 +57,7 @@ const appearance: MatFormFieldDefaultOptions = {
     ReactiveExplicitTypedComponent,
     FormRecordComponent,
     GetRawValueComponent,
+    ReactiveExplicitTypedExternalComponent,
   ],
   imports: [
     CommonModule,
