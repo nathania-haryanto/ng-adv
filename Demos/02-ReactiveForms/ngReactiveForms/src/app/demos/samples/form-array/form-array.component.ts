@@ -7,16 +7,14 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./form-array.component.scss'],
 })
 export class FormArrayComponent implements OnInit {
-  public skillForm: FormGroup;
+  public skillForm = this.fb.group({
+    name: 'Giro',
+    skillsGrp: this.fb.array([
+      this.fb.group({ skillname: 'Hunting', years: 9 }),
+    ]),
+  });
 
-  constructor(private fb: FormBuilder) {
-    this.skillForm = this.fb.group({
-      name: 'Giro',
-      skillsGrp: this.fb.array([
-        this.fb.group({ skillname: 'Hunting', years: 9 }),
-      ]),
-    });
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, NgForm, Validators } from '@angular/forms';
+import { Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 
 @Component({
-  selector: 'app-forms-builder',
-  templateUrl: './forms-builder.component.html',
-  styleUrls: ['./forms-builder.component.scss'],
+  selector: 'app-get-raw-value',
+  templateUrl: './get-raw-value.component.html',
+  styleUrls: ['./get-raw-value.component.scss'],
 })
-export class FormsBuilderComponent implements OnInit {
+export class GetRawValueComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
   genderPattern = '^(male|female)';
@@ -38,8 +38,11 @@ export class FormsBuilderComponent implements OnInit {
     }, 3000);
   }
 
+  toggleId() {
+    this.personForm.controls.id.disable();
+  }
+
   savePerson(): void {
     this.ps.save(this.personForm as unknown as NgForm);
-    console.log('Getting raw value of id:', this.personForm.getRawValue().id);
   }
 }

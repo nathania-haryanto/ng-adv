@@ -12,23 +12,15 @@ export class TypedNonnullableComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
 
-  personForm: FormGroup<{
-    name: FormControl<string>;
-    age: FormControl<number | null>;
-    email: FormControl<string | null>;
-    gender: FormControl<'male' | 'female' | 'not set' | null>;
-    wealth: FormControl<string | null>;
-  }>;
+  personForm = new FormGroup({
+    name: new FormControl(this.person.name, { nonNullable: true }),
+    age: new FormControl(this.person.age),
+    email: new FormControl(this.person.email),
+    gender: new FormControl(this.person.gender),
+    wealth: new FormControl(this.person.wealth),
+  });
 
-  constructor(private ps: PersonService) {
-    this.personForm = new FormGroup({
-      name: new FormControl(this.person.name, { nonNullable: true }),
-      age: new FormControl(this.person.age),
-      email: new FormControl(this.person.email),
-      gender: new FormControl(this.person.gender),
-      wealth: new FormControl(this.person.wealth),
-    });
-  }
+  constructor(private ps: PersonService) {}
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
