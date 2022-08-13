@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-cascade',
@@ -8,27 +8,28 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 })
 export class ReactiveCascadeComponent {
   readonly selectValues = [
-    { type: 'Frameworks', values: ['Angular', 'React', '.NET Core'] },
-    { type: 'Languages', values: ['TypeScript', 'JavaScript', 'C#', 'Java'] },
+    { type: 'Frameworks', values: ['Angular', 'React', '.NET Core', 'Spring'] },
+    {
+      type: 'Languages',
+      values: ['TypeScript', 'JavaScript', 'C#', 'Java', 'Python'],
+    },
+    { type: 'Cloud', values: ['Azure', 'AWS', 'Google'] },
   ];
   selects: string[];
-  profileForm: FormGroup;
+
+  // Type the form using type inference
+  skillsGrp = this.fb.nonNullable.group({
+    selectInput: [''],
+    whereInput: [''],
+  });
+
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    skills: this.fb.array([this.skillsGrp]),
+  });
 
   constructor(private fb: FormBuilder) {
-    this.profileForm = this.fb.group({
-      firstNameInput: [''],
-      lastNameInput: [''],
-      optionGroups: this.fb.array([
-        this.fb.group({
-          selectInput: [''],
-          whereInput: [''],
-        }),
-        this.fb.group({
-          selectInput: [''],
-          whereInput: [''],
-        }),
-      ]),
-    });
     this.selects = [];
   }
 
@@ -43,7 +44,7 @@ export class ReactiveCascadeComponent {
     return select ? select.values : select;
   }
 
-  getOptionGroups() {
-    return (this.profileForm.controls['optionGroups'] as FormArray).controls;
+  saveForm() {
+    console.log('Mocking save:', this.profileForm.value);
   }
 }

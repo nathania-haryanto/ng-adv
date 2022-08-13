@@ -28,7 +28,15 @@
       "url": "typedforms",
       "topicid": 2,
       "title": "Typed Forms",
-      "component": "ReactiveFormsComponent",
+      "component": "ReactiveTypedComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "typedformsexplicit",
+      "topicid": 2,
+      "title": "Typed Forms Explicit",
+      "component": "ReactiveExplicitTypedComponent",
       "visible": true,
       "sortOrder": 4
     },
@@ -45,6 +53,14 @@
       "topicid": 2,
       "title": "Form Builder",
       "component": "FormsBuilderComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "getrawvalue",
+      "topicid": 2,
+      "title": "GetRawValue",
+      "component": "GetRawValueComponent",
       "visible": true,
       "sortOrder": 4
     },
@@ -71,6 +87,14 @@
       "component": "FormArrayComponent",
       "visible": true,
       "sortOrder": 6
+    },
+    {
+      "url": "formrecord",
+      "topicid": 2,
+      "title": "Form Record",
+      "component": "FormRecordComponent",
+      "visible": true,
+      "sortOrder": 4
     },
     {
       "url": "cascade",

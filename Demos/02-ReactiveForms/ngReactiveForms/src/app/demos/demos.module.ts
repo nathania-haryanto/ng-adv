@@ -28,6 +28,9 @@ import { ReactiveValidationComponent } from './samples/reactive-validation/react
 import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
+import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
+import { FormRecordComponent } from './samples/form-record/form-record.component';
+import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -50,6 +53,9 @@ const appearance: MatFormFieldDefaultOptions = {
     NumberPickerComponent,
     ReactiveTypedComponent,
     TypedNonnullableComponent,
+    ReactiveExplicitTypedComponent,
+    FormRecordComponent,
+    GetRawValueComponent,
   ],
   imports: [
     CommonModule,
