@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { combineLatest, Observable, of } from 'rxjs';
-import { SkillsService } from '../skills.service';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { startWith, map, tap } from 'rxjs/operators';
+import { combineLatest, Observable, of } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { Skill } from '../skill.model';
+import { SkillsDataService } from '../skills.service';
 
 @Component({
   selector: 'app-skills-container',
@@ -13,6 +13,7 @@ import { Skill } from '../skill.model';
 export class SkillsContainerComponent {
   fcToggle = new FormControl(true);
   skills: Observable<Skill[]> = of([]);
+
   view = combineLatest([
     this.skills,
     this.fcToggle.valueChanges.pipe(startWith(true)),
@@ -22,7 +23,7 @@ export class SkillsContainerComponent {
     })
   );
 
-  constructor(private skillsService: SkillsService) {}
+  constructor(private skillsService: SkillsDataService) {}
 
   ngOnInit(): void {
     this.skills = this.skillsService.getAll();
@@ -33,7 +34,9 @@ export class SkillsContainerComponent {
     this.skillsService.add(newItem);
   }
 
-  deleteItem(item: Skill): void {}
+  deleteItem(item: Skill): void {
+    this.skillsService.delete(item);
+  }
 
   toggleItemComplete(item: Skill): void {}
 }
