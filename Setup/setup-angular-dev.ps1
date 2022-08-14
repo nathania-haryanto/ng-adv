@@ -34,6 +34,7 @@ code --install-extension mdickin.markdown-shortcuts
 code --install-extension mhutchie.git-graph 
 code --install-extension hbenl.vscode-test-explorer
 code --install-extension raagh.angular-karma-test-explorer
+code --install-extension xabikos.jasminesnippets
 
 
 # Refresh Path Env

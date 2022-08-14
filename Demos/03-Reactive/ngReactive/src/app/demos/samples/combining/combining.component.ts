@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  combineLatest,
-  forkJoin,
-  concat,
-  merge,
-  of,
-  zip,
-  interval,
-} from 'rxjs';
-import { map, pluck, tap, take } from 'rxjs/operators';
+import { concat, forkJoin, interval, merge, zip, of } from 'rxjs';
+import { map, take, tap, combineLatest } from 'rxjs/operators';
 import { AccountService } from '../account.service';
 import { DoublerService } from '../operators/doubler.service';
 import { VouchersService } from '../voucher.service';
@@ -62,9 +54,9 @@ export class CombiningComponent implements OnInit {
   }
 
   useZip() {
-    const age$ = of<number>(27, 25, 29);
-    const name$ = of<string>('Sepp', 'Mark', 'Susi');
-    const isDev$ = of<boolean>(true, true, false);
+    const age$ = of(27, 25, 29);
+    const name$ = of('Sepp', 'Mark', 'Susi');
+    const isDev$ = of(true, true, false);
 
     zip(age$, name$, isDev$)
       .pipe(map(([age, name, isDev]) => ({ age, name, isDev })))
@@ -82,23 +74,23 @@ export class CombiningComponent implements OnInit {
   }
 
   leftJoin() {
-    // get only the details for the vouchers
-    const details$ = this.vs.getVoucher(2).pipe(
-      pluck('Details'),
-      tap((d) => console.log('Details before combining', d))
-    );
-
-    const accounts$ = this.as.getAccounts();
-
-    combineLatest([details$, accounts$])
-      .pipe(
-        map(([details, accounts]) =>
-          details.map((d) => ({
-            ...d,
-            Account: accounts.find((a) => d.AccountID === a.ID).Name,
-          }))
-        )
-      )
-      .subscribe((d) => console.log('Details after combining', d));
+    // // get only the details for the vouchers
+    // const details$ = this.vs.getVoucher(2).pipe(
+    //   map((v) => v?.Details),
+    //   tap((d) => console.log('Details before combining', d))
+    // );
+    // const accounts$ = this.as.getAccounts();
+    // combineLatest([details$, accounts$])
+    //   .pipe(
+    //     map(([details, accounts]) =>
+    //       {
+    //         details.map((d) => ({
+    //         ...d,
+    //         Account: accounts.find((a) => d.AccountID === a.ID).Name,
+    //       }))
+    //     }
+    //     )
+    //   )
+    //   .subscribe((d) => console.log('Details after combining', d));
   }
 }

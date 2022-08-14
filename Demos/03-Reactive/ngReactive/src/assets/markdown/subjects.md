@@ -1,12 +1,18 @@
-Go to `subjects.component.ts` and notice the differen init functions. You will have to change comments when discussing the differen Subject types.
+- Compare the different outputs in the console of the following code block when using the different Subject types:
 
-```typescript
-ngOnInit() {
-this.runSubjectInit();
-// this.runBSubjectInit();
-// this.runRPSubjectInit();
-// this.runASubjectInit();
-}
+## Initialize
+
+```javascript
+this.sub$.next(0);
+this.sub$.next(5);
+this.sub$.subscribe((val) => console.log('Subscriber A: ', val));
+this.sub$.subscribe((val) => console.log('Subscriber B: ', val));
+this.sub$.next(10);
 ```
 
-Click the buttons and discuss the differents behavior of the Subjects.
+## Add late subscriber and emit new value
+
+```javascript
+this.sub$.subscribe((val) => console.log('Subsciber Late', val));
+this.sub$.next(20);
+```

@@ -72,7 +72,7 @@ export class LangFeaturesComponent implements OnInit {
   }
 
   pureFunction() {
-    function greet(name) {
+    function greet(name: string) {
       return `${name}, how are you today`;
     }
 

@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, of, interval } from 'rxjs';
+import { fromEvent, interval, of } from 'rxjs';
 import {
+  concatMap,
   delay,
   mapTo,
   mergeMap,
-  concatMap,
-  take,
-  exhaustMap,
   switchMap,
+  map,
+  exhaustMap,
 } from 'rxjs/operators';
 import { AccountService } from '../account.service';
 import { VouchersService } from '../voucher.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-transformation',
@@ -25,7 +26,10 @@ export class TransformationComponent implements OnInit {
   // can be used like an "event handler"
   useMapTo() {
     const clicks = fromEvent(document, 'click');
+    //deprecation
     clicks.pipe(mapTo('You clicked the button')).subscribe(console.log);
+    //using map
+    clicks.pipe(map(() => 'You clicked the button')).subscribe(console.log);
   }
 
   useSwitchMap() {
@@ -40,7 +44,7 @@ export class TransformationComponent implements OnInit {
   useConcatMap() {
     const source = of('Hello', 'Goodbye');
     //example with promise
-    const examplePromise = (val) =>
+    const examplePromise = (val: string) =>
       new Promise((resolve) => resolve(`${val} World!`));
     //result of first param passed to second param selector function before being  returned
     const example = source.pipe(
@@ -58,7 +62,7 @@ export class TransformationComponent implements OnInit {
   //mergeMap is also know under its alias: flatMap
   useMergeMap() {
     // faking network request for save
-    const saveLocation = (location) => {
+    const saveLocation = (location: any) => {
       return of(location).pipe(delay(1500));
     };
 
@@ -67,10 +71,10 @@ export class TransformationComponent implements OnInit {
 
     click$
       .pipe(
-        mergeMap((e: MouseEvent) => {
+        mergeMap((e: Event) => {
           return saveLocation({
-            x: e.clientX,
-            y: e.clientY,
+            x: (e as MouseEvent).clientX,
+            y: (e as MouseEvent).clientY,
             timestamp: Date.now(),
           });
         })
@@ -79,18 +83,10 @@ export class TransformationComponent implements OnInit {
   }
 
   useExhaustMap() {
-    // @Effect()
-    // login$ = this.actions$.pipe(
-    //   ofType(AuthActionTypes.Login),
-    //   map((action: Login) => action.payload),
-    //   exhaustMap((auth: Authenticate) =>
-    //     this.authService
-    //       .login(auth)
-    //       .pipe(
-    //         map(user => new LoginSuccess({ user })),
-    //         catchError(error => of(new LoginFailure(error)))
-    //       )
-    //   )
-    // );
+    // fromEvent(this.saveButton.nativeElement, 'click')
+    // .pipe(
+    //     exhaustMap(() => this.saveCourse(this.form.value))
+    // )
+    // .subscribe();
   }
 }

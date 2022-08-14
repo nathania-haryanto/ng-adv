@@ -14,14 +14,9 @@ export class SubjectsComponent implements OnInit {
   rs$: ReplaySubject<number> = new ReplaySubject<number>(2); // 2 is number of replay subjects
   as$: AsyncSubject<number> = new AsyncSubject();
 
-  ngOnInit() {
-    this.runSubjectInit();
-    // this.runBSubjectInit();
-    // this.runRPSubjectInit();
-    // this.runASubjectInit();
-  }
+  ngOnInit() {}
 
-  private runSubjectInit() {
+  runSubjectInit() {
     console.log('init subject');
     this.sub$.subscribe((val) => console.log('Subsciber A', val));
     this.sub$.subscribe((val) => console.log('Subsciber B', val));
@@ -33,7 +28,7 @@ export class SubjectsComponent implements OnInit {
     this.sub$.next(20);
   }
 
-  private runBSubjectInit() {
+  runBSubjectInit() {
     console.log('init behaviour subject');
     this.bs$.next(0);
     this.bs$.subscribe((val) => console.log('BS Subsciber A', val));
@@ -46,7 +41,7 @@ export class SubjectsComponent implements OnInit {
     this.bs$.next(20);
   }
 
-  private runRPSubjectInit() {
+  runRPSubjectInit() {
     console.log('init replay subject');
     this.rs$.next(0);
     this.rs$.subscribe((val) => console.log('RS Subsciber A', val));
@@ -59,7 +54,7 @@ export class SubjectsComponent implements OnInit {
     this.rs$.next(20);
   }
 
-  private runASubjectInit() {
+  runASubjectInit() {
     console.log('init async subject');
     this.as$.next(0);
     this.as$.subscribe((val) => console.log('RS Subsciber A', val));
