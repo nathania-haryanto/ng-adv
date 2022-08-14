@@ -43,6 +43,11 @@
       "component": "AsyncPipeComponent"
     },
     {
+      "url": "marble-testing",
+      "title": "Marble Testing",
+      "component": "MarbleTestingComponent"
+    },
+    {
       "url": "operators",
       "title": "Base Operators",
       "component": "OperatorsComponent"
