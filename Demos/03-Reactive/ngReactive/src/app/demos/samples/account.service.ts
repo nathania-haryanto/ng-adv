@@ -15,7 +15,7 @@ export class AccountService {
     return this.httpClient.get<Account[]>(`${environment.apiUrl}accounts`);
   }
 
-  getAccount(id: number): Observable<Account> {
+  getAccount(id: number) {
     return this.getAccounts().pipe(
       map((v) => v.find((v: Account) => v.ID == id))
     );

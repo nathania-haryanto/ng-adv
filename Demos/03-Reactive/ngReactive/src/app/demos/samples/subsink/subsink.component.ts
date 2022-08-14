@@ -31,10 +31,10 @@ export class SubsinkComponent implements OnInit, OnDestroy {
   }
 
   subscribeSearchBox() {
-    this.sub.sink = fromEvent(this.searchBox.nativeElement, 'keyup').subscribe(
-      (ke: KeyboardEvent) => {
-        console.log('Event received from Keyboard:', ke);
-      }
-    );
+    // this.sub.sink = fromEvent(this.searchBox.nativeElement, 'keyup').subscribe(
+    //   (ke: Event) => {
+    //     console.log('Event received from Keyboard:', ke);
+    //   }
+    // );
   }
 }

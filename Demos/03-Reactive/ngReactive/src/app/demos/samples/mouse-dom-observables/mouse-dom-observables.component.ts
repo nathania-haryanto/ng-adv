@@ -14,7 +14,7 @@ export class MouseDomObservablesComponent implements AfterViewInit {
   sub: SubSink = new SubSink();
   result: { X: number; Y: number } = { X: -1, Y: -1 };
 
-  private cx: CanvasRenderingContext2D;
+  private cx: CanvasRenderingContext2D | null;
 
   ngAfterViewInit() {}
 
@@ -32,48 +32,52 @@ export class MouseDomObservablesComponent implements AfterViewInit {
 
     // set the internal canvas to the corect aspect ratio of the element
     this.cx = canvasEl.getContext('2d');
-    this.cx.canvas.width = rect.width;
-    this.cx.canvas.height = rect.height;
-    this.cx.lineWidth = 2;
-    this.cx.lineCap = 'round';
+    if (this.cx) {
+      this.cx.canvas.width = rect.width;
+      this.cx.canvas.height = rect.height;
+      this.cx.lineWidth = 2;
+      this.cx.lineCap = 'round';
 
-    // this will capture all mousedown events from the canvas element
+      // this will capture all mousedown events from the canvas element
 
-    const mouse$ = fromEvent(canvasEl, 'mousedown').pipe(
-      switchMap((e) => {
-        // after a mouse down, we'll record all mouse moves
-        return fromEvent(canvasEl, 'mousemove').pipe(
-          // stop once the user releases the mouse
-          // this will trigger a 'mouseup' event
+      const mouse$ = fromEvent(canvasEl, 'mousedown').pipe(
+        switchMap((e) => {
+          // after a mouse down, we'll record all mouse moves
+          return fromEvent(canvasEl, 'mousemove').pipe(
+            // stop once the user releases the mouse
+            // this will trigger a 'mouseup' event
 
-          takeUntil(fromEvent(canvasEl, 'mouseup')),
-          // stop once the mouse leaves the canvas (mouseleave event)
-          takeUntil(fromEvent(canvasEl, 'mouseleave')),
+            takeUntil(fromEvent(canvasEl, 'mouseup')),
+            // stop once the mouse leaves the canvas (mouseleave event)
+            takeUntil(fromEvent(canvasEl, 'mouseleave')),
 
-          // pairwise lets us get the previous value to draw a line from
-          // the previous point to the current point
-          pairwise()
-        );
-      })
-    );
+            // pairwise lets us get the previous value to draw a line from
+            // the previous point to the current point
+            pairwise()
+          );
+        })
+      );
 
-    this.sub.sink = mouse$.subscribe((res: [MouseEvent, MouseEvent]) => {
-      const rectangle = this.signPad.nativeElement.getBoundingClientRect();
+      this.sub.sink = mouse$.subscribe((res: [Event, Event]) => {
+        const rectangle = this.signPad.nativeElement.getBoundingClientRect();
 
-      // previous and current position with the offset
-      const prevPos = {
-        x: res[0].clientX - rectangle.left,
-        y: res[0].clientY - rectangle.top,
-      };
+        // previous and current position with the offset
+        var evtA = res[0] as MouseEvent;
+        var evtB = res[1] as MouseEvent;
+        const prevPos = {
+          x: evtA.clientX - rectangle.left,
+          y: evtA.clientY - rectangle.top,
+        };
 
-      const currentPos = {
-        x: res[1].clientX - rectangle.left,
-        y: res[1].clientY - rectangle.top,
-      };
+        const currentPos = {
+          x: evtB.clientX - rectangle.left,
+          y: evtB.clientY - rectangle.top,
+        };
 
-      // do the actual drawing
-      this.drawOnCanvas(prevPos, currentPos);
-    });
+        // do the actual drawing
+        this.drawOnCanvas(prevPos, currentPos);
+      });
+    }
   }
 
   private drawOnCanvas(

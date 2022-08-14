@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, of, interval } from 'rxjs';
-import {
-  delay,
-  mapTo,
-  mergeMap,
-  concatMap,
-  take,
-  exhaustMap,
-  switchMap,
-} from 'rxjs/operators';
+import { fromEvent, interval, of } from 'rxjs';
+import { concatMap, delay, mapTo, mergeMap, switchMap } from 'rxjs/operators';
 import { AccountService } from '../account.service';
 import { VouchersService } from '../voucher.service';
 
@@ -40,7 +32,7 @@ export class TransformationComponent implements OnInit {
   useConcatMap() {
     const source = of('Hello', 'Goodbye');
     //example with promise
-    const examplePromise = (val) =>
+    const examplePromise = (val: string) =>
       new Promise((resolve) => resolve(`${val} World!`));
     //result of first param passed to second param selector function before being  returned
     const example = source.pipe(
@@ -58,7 +50,7 @@ export class TransformationComponent implements OnInit {
   //mergeMap is also know under its alias: flatMap
   useMergeMap() {
     // faking network request for save
-    const saveLocation = (location) => {
+    const saveLocation = (location: any) => {
       return of(location).pipe(delay(1500));
     };
 
@@ -67,10 +59,10 @@ export class TransformationComponent implements OnInit {
 
     click$
       .pipe(
-        mergeMap((e: MouseEvent) => {
+        mergeMap((e: Event) => {
           return saveLocation({
-            x: e.clientX,
-            y: e.clientY,
+            x: (e as MouseEvent).clientX,
+            y: (e as MouseEvent).clientY,
             timestamp: Date.now(),
           });
         })

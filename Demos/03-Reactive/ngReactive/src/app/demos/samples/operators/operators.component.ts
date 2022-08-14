@@ -39,7 +39,7 @@ export class OperatorsComponent implements OnInit {
     });
   }
 
-  setLabel = (v) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
+  setLabel = (v: Voucher) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
   log = (msg: string, data: any) =>
     console.log(

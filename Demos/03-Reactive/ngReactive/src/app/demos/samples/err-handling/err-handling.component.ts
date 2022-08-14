@@ -12,6 +12,7 @@ import {
 import { SubSink } from 'subsink';
 import { DemoService } from '../../demo-base/demo.service';
 import { VouchersService } from '../voucher.service';
+import { Voucher } from '../model';
 
 @Component({
   selector: 'app-err-handling',
@@ -27,25 +28,24 @@ export class ErrHandlingComponent implements OnInit {
 
   whereToHandle() {
     // handle exceptions here???
-    const obs = of('cleo', 'flora', 'giro', 'soi', 3).pipe(
-      map((name: string) => {
-        return name.toUpperCase();
-      }),
-      catchError((err) => {
-        console.log('handled in catchError', err);
-        return of('');
-      })
-    );
-
+    // const obs = of('cleo', 'flora', 'giro', 'soi', 3).pipe(
+    //   map((name: string) => {
+    //     return name.toUpperCase();
+    //   }),
+    //   catchError((err) => {
+    //     console.log('handled in catchError', err);
+    //     return of('');
+    //   })
+    // );
     // or here???
-    obs.subscribe(
-      (val) => console.log(val),
-      (err) => console.log('handled in subscribe-error', err)
-    );
+    // obs.subscribe(
+    //   (val) => console.log(val),
+    //   (err) => console.log('handled in subscribe-error', err)
+    // );
   }
 
   // Used in tryCatchAlike
-  setLabel = (v) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
+  setLabel = (v: Voucher) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
   tryCatchAlike() {
     this.sub.sink = this.vs
@@ -104,7 +104,7 @@ export class ErrHandlingComponent implements OnInit {
   useRetry() {
     let thrown = false;
 
-    const fakeTimeout = (data) => {
+    const fakeTimeout = (data: any) => {
       if (!thrown) {
         thrown = true;
         console.log('catch err');

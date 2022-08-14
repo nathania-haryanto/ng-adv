@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/shared/menu/menu.service';
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-admin-container',
@@ -14,6 +15,8 @@ export class AdminContainerComponent implements OnInit {
     { title: 'Topics', url: 'topics' },
     { title: 'Skills', url: 'skills' },
   ];
+
+  sidenavMode: MatDrawerMode = 'side';
 
   ngOnInit() {}
 
