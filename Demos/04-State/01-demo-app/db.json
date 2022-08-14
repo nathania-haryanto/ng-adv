@@ -29,7 +29,7 @@
     },
     {
       "url": "demos-state",
-      "title": "Demos State",
+      "title": "@ngrx/entity",
       "component": "DemosStateComponent",
       "id": 4,
       "topicid": 1,
@@ -38,7 +38,7 @@
     },
     {
       "url": "demos-list",
-      "title": "Demos List",
+      "title": "Using Facades",
       "component": "DemoListHostComponent",
       "id": 5,
       "topicid": 1,
@@ -47,7 +47,7 @@
     },
     {
       "url": "skills",
-      "title": "Skills",
+      "title": "@ngrx/data",
       "component": "SkillsComponent",
       "id": 6,
       "topicid": 1,

@@ -1,5 +1,7 @@
 EventBus pattern which basically is a stateful service, allows communication between components that are not directley nested like Container / Presenter.
 
+- Examine `sidepanel.service.ts` and its use in `side-panel.component.ts`
+
 - Examine `menu.service.ts`:
 
 ```typescript
