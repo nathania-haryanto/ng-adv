@@ -2,7 +2,7 @@
   "demos": [
     {
       "url": "statefull",
-      "title": "Statefull",
+      "title": "Statefull Service",
       "component": "StatefullComponent",
       "id": 1,
       "topicid": 1,
@@ -11,7 +11,7 @@
     },
     {
       "url": "ebus",
-      "title": "Eventbus",
+      "title": "EventBus",
       "component": "EventbusComponent",
       "id": 2,
       "topicid": 1,
@@ -90,6 +90,22 @@
       "id": 7,
       "name": "Container",
       "completed": false
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "url": "",
+      "title": "Placeholder",
+      "comment": "abc",
+      "saved": "2020-09-16T20:10:06.925Z"
+    },
+    {
+      "id": 2,
+      "url": "",
+      "title": "Other Placeholder",
+      "comment": "abc",
+      "saved": "2020-09-16T20:10:06.925Z"
     }
   ]
 }

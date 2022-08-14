@@ -1,9 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { MenuItem } from './menu-item.model';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',

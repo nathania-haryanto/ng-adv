@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { filter, map } from 'rxjs/operators';
 import { MenuService } from 'src/app/shared/menu/menu.service';
 import { environment } from 'src/environments/environment';
-import { DemoItem } from '../demo-base/demo-item.model';
-import { DemoService } from '../demo-base/demo.service';
-import { MatDrawerMode } from '@angular/material/sidenav';
 import { LoadingService } from '../../shared/loading/loading.service';
-import { DemoFacade } from '../state/demo.facade';
-import { DemoState } from '../state/demos.reducer';
-import { Store } from '@ngrx/store';
+import { SidebarActions } from '../../shared/side-panel/sidebar.actions';
+import { SidePanelService } from '../../shared/side-panel/sidepanel.service';
 import { getAllDemos } from '../state/demo.selectors';
 import { loadDemos } from '../state/demos.actions';
+import { DemoState } from '../state/demos.reducer';
 
 @Component({
   selector: 'app-demo-container',
@@ -26,13 +24,19 @@ export class DemoContainerComponent implements OnInit {
   sidenavMode: MatDrawerMode = 'side';
   isLoading = true;
 
+  showEditor$ = this.eb
+    .getCommands()
+    .pipe(
+      map((action) => (action === SidebarActions.HIDE_MARKDOWN ? false : true))
+    );
+
   constructor(
     private router: Router,
-    private demoService: DemoService,
     private route: ActivatedRoute,
     public ms: MenuService,
     public ls: LoadingService,
-    private store: Store<DemoState>
+    private store: Store<DemoState>,
+    private eb: SidePanelService
   ) {}
 
   ngOnInit() {

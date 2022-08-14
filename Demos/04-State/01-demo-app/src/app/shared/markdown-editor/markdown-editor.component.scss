@@ -1,3 +1,13 @@
-mat-card {
-  min-height: 170px;
+.mat-card-content {
+  min-height: 10rem;
+}
+
+.mat-raised-button {
+  line-height: 24px;
+  margin: 0.2rem;
+}
+
+.row{
+  padding-top: 0.5rem;
+  border-bottom: 1px solid;
 }

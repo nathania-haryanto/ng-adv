@@ -17,9 +17,9 @@
     
     <div
       class="nav-content"
-      gdAreas="toolbar toolbar| loading loading  | workbench sidebar"
+      gdAreas="toolbar toolbar| loading loading  | workbench sidebar | editor sidebar"
       gdGap="0px"
-      gdRows="65px 5px auto"
+      gdRows="65px 5px auto 200px"
       gdColumns="auto 80px"
       gdColumns.lt-md="100%"
       [ngStyle]="getWorbenchStyle()"
@@ -35,9 +35,13 @@
         <app-loading *ngIf="isLoading"></app-loading>
       </div>      
       <div gdArea="workbench">
-        <router-outlet></router-outlet></div>
+        <router-outlet></router-outlet>            
+      </div>
       <div gdArea="sidebar" class="sidebar">
         <app-side-panel></app-side-panel>
+      </div>
+      <div gdArea="editor" *ngIf="showEditor$ | async" fxFlexAlign="end">
+        <app-markdown-editor></app-markdown-editor>
       </div>
     </div>
   </mat-sidenav-content>

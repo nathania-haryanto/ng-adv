@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
-import { MarkdownModule } from 'ngx-markdown';
-import { HttpClient } from '@angular/common/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { IntroComponent } from './intro/intro.component';
+import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
+import { MarkdownRendererComponent } from './markdown-renderer/markdown-renderer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
 
 const comps = [
@@ -18,6 +19,7 @@ const comps = [
   MarkdownRendererComponent,
   IntroComponent,
   SidePanelComponent,
+  MarkdownEditorComponent,
 ];
 
 @NgModule({
