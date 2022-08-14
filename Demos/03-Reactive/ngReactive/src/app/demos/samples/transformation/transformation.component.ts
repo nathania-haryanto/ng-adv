@@ -1,8 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEvent, interval, of } from 'rxjs';
-import { concatMap, delay, mapTo, mergeMap, switchMap } from 'rxjs/operators';
+import {
+  concatMap,
+  delay,
+  mapTo,
+  mergeMap,
+  switchMap,
+  map,
+  exhaustMap,
+} from 'rxjs/operators';
 import { AccountService } from '../account.service';
 import { VouchersService } from '../voucher.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-transformation',
@@ -17,7 +26,10 @@ export class TransformationComponent implements OnInit {
   // can be used like an "event handler"
   useMapTo() {
     const clicks = fromEvent(document, 'click');
+    //deprecation
     clicks.pipe(mapTo('You clicked the button')).subscribe(console.log);
+    //using map
+    clicks.pipe(map(() => 'You clicked the button')).subscribe(console.log);
   }
 
   useSwitchMap() {
@@ -71,18 +83,10 @@ export class TransformationComponent implements OnInit {
   }
 
   useExhaustMap() {
-    // @Effect()
-    // login$ = this.actions$.pipe(
-    //   ofType(AuthActionTypes.Login),
-    //   map((action: Login) => action.payload),
-    //   exhaustMap((auth: Authenticate) =>
-    //     this.authService
-    //       .login(auth)
-    //       .pipe(
-    //         map(user => new LoginSuccess({ user })),
-    //         catchError(error => of(new LoginFailure(error)))
-    //       )
-    //   )
-    // );
+    // fromEvent(this.saveButton.nativeElement, 'click')
+    // .pipe(
+    //     exhaustMap(() => this.saveCourse(this.form.value))
+    // )
+    // .subscribe();
   }
 }

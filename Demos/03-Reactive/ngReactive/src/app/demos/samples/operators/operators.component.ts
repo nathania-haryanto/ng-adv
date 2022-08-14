@@ -159,7 +159,10 @@ export class OperatorsComponent implements OnInit {
       children: [{ name: 'jimmy' }, { name: 'giro' }, { name: 'soi' }],
     });
 
+    //pluck  deprecated
     item.pipe(pluck('children')).subscribe(console.log);
+    //use map
+    item.pipe(map((h) => h.children)).subscribe(console.log);
   }
 
   useAjax() {

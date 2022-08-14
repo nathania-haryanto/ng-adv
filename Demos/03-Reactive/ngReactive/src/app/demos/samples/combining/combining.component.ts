@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { concat, forkJoin, interval, merge, zip, of } from 'rxjs';
-import { map, pluck, take, tap } from 'rxjs/operators';
+import { map, take, tap, combineLatest } from 'rxjs/operators';
 import { AccountService } from '../account.service';
 import { DoublerService } from '../operators/doubler.service';
 import { VouchersService } from '../voucher.service';
@@ -74,24 +74,20 @@ export class CombiningComponent implements OnInit {
   }
 
   leftJoin() {
-    // get only the details for the vouchers
-    const details$ = this.vs.getVoucher(2).pipe(
-      pluck('Details'),
-      tap((d) => console.log('Details before combining', d))
-    );
-
-    const accounts$ = this.as.getAccounts();
-
+    // // get only the details for the vouchers
+    // const details$ = this.vs.getVoucher(2).pipe(
+    //   map((v) => v?.Details),
+    //   tap((d) => console.log('Details before combining', d))
+    // );
+    // const accounts$ = this.as.getAccounts();
     // combineLatest([details$, accounts$])
     //   .pipe(
     //     map(([details, accounts]) =>
     //       {
-
     //         details.map((d) => ({
     //         ...d,
     //         Account: accounts.find((a) => d.AccountID === a.ID).Name,
     //       }))
-
     //     }
     //     )
     //   )

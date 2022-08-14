@@ -9,6 +9,11 @@
       "sortOrder": 1
     },
     {
+      "url": "asyncpipe",
+      "title": "Async Pipe",
+      "component": "AsyncPipeComponent"
+    },
+    {
       "url": "creating",
       "topicid": 2,
       "title": "Creating Observables",
@@ -38,14 +43,14 @@
       "visible": true
     },
     {
-      "url": "asyncpipe",
-      "title": "Async Pipe",
-      "component": "AsyncPipeComponent"
-    },
-    {
       "url": "marble-testing",
       "title": "Marble Testing",
       "component": "MarbleTestingComponent"
+    },
+    {
+      "url": "watchrxjs",
+      "title": "Debugging RxJS",
+      "component": "WatchRxJsComponent"
     },
     {
       "url": "operators",
@@ -56,11 +61,6 @@
       "url": "actionstreams",
       "title": "Action Streams",
       "component": "ActionStreamsComponent"
-    },
-    {
-      "url": "watchrxjs",
-      "title": "Debugging RxJS",
-      "component": "WatchRxJsComponent"
     },
     {
       "url": "caching",

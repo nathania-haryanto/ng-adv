@@ -1,24 +1,32 @@
-import { map } from 'rxjs/operators';
-import { RunHelpers, TestScheduler } from 'rxjs/testing';
+import { map } from 'rxjs';
+import { TestScheduler } from 'rxjs/testing';
 
-describe('Marble test into', () => {
-  let scheduler: TestScheduler;
+describe('Marble Testing', () => {
+  let testScheduler: TestScheduler;
 
   beforeEach(() => {
-    scheduler = new TestScheduler((actual, expected) => {
-      expected(actual).toEqual(expected);
+    testScheduler = new TestScheduler((actual, expected) => {
+      expect(actual).toEqual(expected);
     });
   });
 
-  it('should multiply each value by 10', () => {
-    scheduler.run((runhelpers: RunHelpers) => {
-      const sourceVals = { a: 1, b: 3, c: 5 };
-      const source$ = runhelpers.cold('a--b-c|', sourceVals);
+  it('test with simple values', () => {
+    testScheduler.run((helpers) => {
+      const { cold, expectObservable } = helpers;
+      const source$ = cold('a--b-c|', { a: 1, b: 3, c: 5 });
+      const expected = 'a--b-c|';
 
-      const expVals = { a: 10, b: 30, c: 50 };
-      const exp$ = runhelpers.cold('a--b-c|', expVals);
-      const result$ = source$.pipe(map((v) => v * 10));
-      // expectObservable(result$).toBe(exp$);
+      expectObservable(source$).toBe(expected, { a: 1, b: 3, c: 5 });
+    });
+  });
+
+  it('test with operator', () => {
+    // destructuring cold anad expectObservable from RunHelpers
+    testScheduler.run(({ cold, expectObservable }) => {
+      const source$ = cold('a--b-c|', { a: 1, b: 3, c: 5 });
+      const piperesult$ = source$.pipe(map((v) => v * 10));
+      const expected = 'a--b-c|';
+      expectObservable(piperesult$).toBe(expected, { a: 10, b: 30, c: 50 });
     });
   });
 });

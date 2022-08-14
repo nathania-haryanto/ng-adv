@@ -17,7 +17,7 @@ export class CustomOperatorsComponent implements OnInit {
 
   response: any;
 
-  private readonly url = 'https://jsonplaceholder.typicode.com/todos/1';
+  private readonly url = 'http://localhost:3000/todos/1';
 
   ngOnInit() {}
 
