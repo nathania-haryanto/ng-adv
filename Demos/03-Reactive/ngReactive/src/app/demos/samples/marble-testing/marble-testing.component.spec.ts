@@ -1,6 +1,5 @@
-import { RunHelpers } from 'rxjs/internal/testing/TestScheduler';
 import { map } from 'rxjs/operators';
-import { TestScheduler } from 'rxjs/testing';
+import { RunHelpers, TestScheduler } from 'rxjs/testing';
 
 describe('Marble test into', () => {
   let scheduler: TestScheduler;
@@ -19,7 +18,7 @@ describe('Marble test into', () => {
       const expVals = { a: 10, b: 30, c: 50 };
       const exp$ = runhelpers.cold('a--b-c|', expVals);
       const result$ = source$.pipe(map((v) => v * 10));
-      // expect(result$).toEqual(exp$);
+      // expectObservable(result$).toBe(exp$);
     });
   });
 });
