@@ -37,19 +37,36 @@
       "sortOrder": 3
     },
     {
-      "url": "demos-state",
-      "title": "@ngrx/entity",
-      "component": "DemosStateComponent",
-      "id": 4,
+      "url": "facades",
+      "title": "Facades",
+      "component": "FacadesComponent",
+      "id": 15,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
+    },    {
+      "url": "effects",
+      "title": "Effects",
+      "component": "EffectsComponent",
+      "id": 16,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
+    },
+    {
+      "url": "demos-list",
+      "title": "Feature Module State",
+      "component": "DemoListHostComponent",
+      "id": 5,
       "topicid": 1,
       "visible": true,
       "sortOrder": 4
     },
     {
-      "url": "demos-list",
-      "title": "Using Facades",
-      "component": "DemoListHostComponent",
-      "id": 5,
+      "url": "demos-state",
+      "title": "@ngrx/entity",
+      "component": "DemosStateComponent",
+      "id": 4,
       "topicid": 1,
       "visible": true,
       "sortOrder": 4
