@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppFacade } from '../../../state/app.facade';
 
 @Component({
   selector: 'app-facades',
   templateUrl: './facades.component.html',
-  styleUrls: ['./facades.component.scss']
+  styleUrls: ['./facades.component.scss'],
 })
-export class FacadesComponent implements OnInit {
+export class FacadesComponent {
+  constructor(private af: AppFacade) {}
 
-  constructor() { }
+  isMockAuthenticated = this.af.getIsMockAuthenticated();
 
-  ngOnInit(): void {
+  toggleAuth() {
+    this.af.toggleAuth();
   }
-
 }

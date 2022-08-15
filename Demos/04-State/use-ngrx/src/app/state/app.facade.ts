@@ -1,6 +1,9 @@
-- Facades which is basicalla a service, allow you to use NgRx in Components just like Stateful Services. 
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from './app.reducer';
+import { getIsMockAuthenticated } from './app.selector';
+import { toggleMockAuthenticated } from './app.actions';
 
-```typescript
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +18,3 @@ export class AppFacade {
     this.state.dispatch(toggleMockAuthenticated());
   }
 }
-```
-- At the same time you decouple your NgRx implementation from the component.
-
-- You can have more than one Facade for a state
