@@ -7,6 +7,7 @@ import {
 import { createReducer, on } from '@ngrx/store';
 import { setSelected, applyFilter, toggleVisiblity } from './demos.actions';
 import { DemoItem } from '../demo-base/demo-item.model';
+import { CommentItem } from '../../shared/markdown-editor/comment.model';
 import {
   deleteDemoSuccess,
   loadDemosFailure,

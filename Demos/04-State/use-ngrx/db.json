@@ -44,14 +44,6 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 3
-    },    {
-      "url": "effects",
-      "title": "Effects",
-      "component": "EffectsComponent",
-      "id": 16,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
     },
     {
       "url": "demos-list",
@@ -61,6 +53,15 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 4
+    },
+    {
+      "url": "effects",
+      "title": "Effects",
+      "component": "EffectsComponent",
+      "id": 16,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
     },
     {
       "url": "demos-state",

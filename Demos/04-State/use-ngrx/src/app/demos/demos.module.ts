@@ -28,6 +28,7 @@ import { StatefullComponent } from './samples/statefull/container/statefull.comp
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
       loader: HttpClient,
     }),
     SharedModule,
+    MarkdownEditorModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],
