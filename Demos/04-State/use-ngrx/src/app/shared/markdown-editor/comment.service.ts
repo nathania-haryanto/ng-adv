@@ -7,19 +7,23 @@ import { CommentItem } from './comment.model';
   providedIn: 'root',
 })
 export class CommentService {
+  url = environment.apiUrl + 'comments';
+
   constructor(private http: HttpClient) {}
 
-  url = environment.apiUrl + 'comments';
+  saveComment(item: CommentItem) {
+    if (item.id === undefined) {
+      return this.http.post<CommentItem>(this.url, item);
+    } else {
+      return this.http.put<CommentItem>(`${this.url}/${item.id}`, item);
+    }
+  }
 
   getComments() {
     return this.http.get<CommentItem[]>(this.url);
   }
 
-  saveComment(cm: CommentItem) {
-    if (cm.id === undefined) {
-      return this.http.post(this.url, cm);
-    } else {
-      return this.http.put(`${this.url}/${cm.id}`, cm);
-    }
+  getComment(id: number) {
+    return this.http.get<CommentItem>(`${this.url}/${id}`);
   }
 }
