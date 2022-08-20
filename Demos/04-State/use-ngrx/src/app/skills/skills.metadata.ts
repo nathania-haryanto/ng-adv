@@ -16,3 +16,7 @@ export const entityMetadata: EntityMetadataMap = {
     },
   },
 };
+
+export const entityConfig = {
+  entityMetadata,
+};

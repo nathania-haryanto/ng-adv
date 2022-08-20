@@ -8,7 +8,7 @@ import { Skill } from './skill.model';
 @Injectable({
   providedIn: 'root',
 })
-export class SkillsDataService extends EntityCollectionServiceBase<Skill> {
+export class SkillsEntityDataService extends EntityCollectionServiceBase<Skill> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
     super('Skill', serviceElementsFactory);
   }

@@ -9,7 +9,7 @@ import { SkillRowComponent } from './skill-row/skill-row.component';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { SkillsDataService } from './skills.data.service';
-import { entityMetadata } from './skills.metadata';
+import { entityConfig, entityMetadata } from './skills.metadata';
 import { SkillsRoutingModule } from './skills.routing.module';
 
 @NgModule({
