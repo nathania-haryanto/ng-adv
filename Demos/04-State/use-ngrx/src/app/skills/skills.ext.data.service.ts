@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 import { Skill } from './skill.model';
 
 @Injectable()
-export class SkillsDataService extends DefaultDataService<Skill> {
+export class SkillsExtDataService extends DefaultDataService<Skill> {
   constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator) {
     super('Skill', http, httpUrlGenerator);
   }
