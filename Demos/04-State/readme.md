@@ -4,7 +4,10 @@
 
 [Chrome Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=de)
 
-## Demos:
+## Demos
 
-- ngrx-state: main demo
-- ngrx-skills-entity-adapter: step by step guide with entity adapter - optional  
+ngrx-state
+
+## Optional tutorial with step by step guide
+
+ngrx-skills-entity-adapter
