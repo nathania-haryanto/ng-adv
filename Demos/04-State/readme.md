@@ -6,5 +6,5 @@
 
 ## Demos:
 
-- 01-ngrx-state: 
-- 02-ngrx-skills with step by step guid - optional  
+- ngrx-state
+- ngrx-skills-entity-adapter with step by step guid - optional  
