@@ -27,3 +27,18 @@ export const saveCommentFailure = createAction(
   '[Comments] saveComment Failure',
   props<{ err: Error }>()
 );
+
+export const deleteComment = createAction(
+  '[Comments] deleteComment',
+  props<{ item: CommentItem }>()
+);
+
+export const deleteCommentSuccess = createAction(
+  '[Comments] deleteComment Success',
+  props<{ item: CommentItem }>()
+);
+
+export const deleteCommentFailure = createAction(
+  '[Comments] deleteComment Failure',
+  props<{ err: Error }>()
+);

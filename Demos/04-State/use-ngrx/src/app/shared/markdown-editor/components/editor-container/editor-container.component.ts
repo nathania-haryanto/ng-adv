@@ -20,14 +20,28 @@ export class EditorContainerComponent implements OnInit {
         this.ef.init();
       }
     });
+
+    //respond to effect completion and toggle view
+    this.ef.callCompleted$.subscribe(() => {
+      this.editorEdit = false;
+    });
+  }
+
+  addComment() {
+    this.current = new CommentItem();
+    this.editorEdit = true;
   }
 
   saveComment() {
     this.ef.saveComment(this.current);
   }
 
+  deleteComment(item: CommentItem) {
+    this.ef.deleteComment(item);
+  }
+
   editComment(item: CommentItem) {
-    this.current = item;
+    this.current = { ...item };
     this.editorEdit = true;
   }
 }

@@ -6,6 +6,7 @@
     <app-comments-list
       [Comments]="comments | async"
       (onCommentEdit)="editComment($event)"
+      (onCommentDelete)="deleteComment($event)"
       *ngIf="!editorEdit"
     ></app-comments-list>
     <app-comment-edit [comment]="current" *ngIf="editorEdit && current != null">
@@ -25,5 +26,10 @@
         Cancel
       </button>
     </ng-container>
+    <ng-container *ngIf="!editorEdit">
+      <button mat-raised-button (click)="addComment()" color="primary">
+        Add
+      </button>
+    </ng-container>    
   </mat-card-actions>
 </mat-card>

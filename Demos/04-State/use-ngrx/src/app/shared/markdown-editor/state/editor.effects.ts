@@ -3,6 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { CommentService } from '../comment.service';
+import { deleteComment, deleteCommentFailure } from './editor.actions';
 import {
   loadComments,
   loadCommentsFailure,
@@ -19,9 +20,9 @@ export class EditorEffects {
       ofType(loadComments),
       mergeMap(() =>
         this.service.getComments().pipe(
-          map((demos) => ({
+          map((comments) => ({
             type: '[Comments] loadComments Success',
-            items: demos,
+            items: comments,
           })),
           catchError((err) => of(loadCommentsFailure({ err })))
         )
@@ -34,11 +35,26 @@ export class EditorEffects {
       ofType(saveComment),
       mergeMap((action) =>
         this.service.saveComment(action.item).pipe(
-          map((demos) => ({
+          map((comment) => ({
             type: '[Comments] saveComment Success',
-            items: demos,
+            item: comment,
           })),
           catchError((err) => of(saveCommentFailure({ err })))
+        )
+      )
+    )
+  );
+
+  deleteComment$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(deleteComment),
+      mergeMap((action) =>
+        this.service.deleteComment(action.item).pipe(
+          map(() => ({
+            type: '[Comments] deleteComment Success',
+            item: action.item,
+          })),
+          catchError((err) => of(deleteCommentFailure({ err })))
         )
       )
     )

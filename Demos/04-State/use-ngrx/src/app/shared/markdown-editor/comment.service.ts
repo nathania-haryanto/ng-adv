@@ -19,6 +19,10 @@ export class CommentService {
     }
   }
 
+  deleteComment(item: CommentItem) {
+    return this.http.delete<CommentItem>(`${this.url}/${item.id}`);
+  }
+
   getComments() {
     return this.http.get<CommentItem[]>(this.url);
   }

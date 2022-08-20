@@ -18,3 +18,15 @@ saveComment(item: CommentItem) {
 - Use the Mock Markdown Editor to update a Comment of your choice. Check the `db.json` file in the root of the project if it has been updated.
 
 ![md-editor](assets/images/md-editor.jpg)
+
+- Also notice on how to respond on completed effects in a facade:
+
+```javascript
+this.subs = this.actions
+.pipe(
+    ofType(
+        '[Comments] saveComment Success',
+        '[Comments] deleteComment Success',
+    )
+)
+```
