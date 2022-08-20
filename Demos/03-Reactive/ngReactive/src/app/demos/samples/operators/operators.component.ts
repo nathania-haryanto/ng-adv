@@ -39,7 +39,7 @@ export class OperatorsComponent implements OnInit {
     });
   }
 
-  setLabel = (v) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
+  setLabel = (v: Voucher) => ({ ...v, Label: `${v.Text} costs € ${v.Amount}` });
 
   log = (msg: string, data: any) =>
     console.log(
@@ -159,7 +159,10 @@ export class OperatorsComponent implements OnInit {
       children: [{ name: 'jimmy' }, { name: 'giro' }, { name: 'soi' }],
     });
 
+    //pluck  deprecated
     item.pipe(pluck('children')).subscribe(console.log);
+    //use map
+    item.pipe(map((h) => h.children)).subscribe(console.log);
   }
 
   useAjax() {

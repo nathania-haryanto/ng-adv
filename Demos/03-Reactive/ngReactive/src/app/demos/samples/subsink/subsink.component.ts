@@ -1,11 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { fromEvent } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -14,7 +8,7 @@ import { SubSink } from 'subsink';
   styleUrls: ['./subsink.component.scss'],
 })
 export class SubsinkComponent implements OnInit, OnDestroy {
-  @ViewChild('searchBox', { static: true }) searchBox: ElementRef;
+  fcSearch = new FormControl();
 
   constructor() {}
 
@@ -22,19 +16,13 @@ export class SubsinkComponent implements OnInit, OnDestroy {
   result: { X: number; Y: number } = { X: 0, Y: 0 };
 
   ngOnInit() {
-    this.subscribeSearchBox();
+    this.sub.add(
+      this.fcSearch.valueChanges.subscribe((val) => console.log(val))
+    );
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
     console.log('Subscription unsubscribed');
-  }
-
-  subscribeSearchBox() {
-    this.sub.sink = fromEvent(this.searchBox.nativeElement, 'keyup').subscribe(
-      (ke: KeyboardEvent) => {
-        console.log('Event received from Keyboard:', ke);
-      }
-    );
   }
 }

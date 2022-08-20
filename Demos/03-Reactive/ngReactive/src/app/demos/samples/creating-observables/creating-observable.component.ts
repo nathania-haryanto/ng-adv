@@ -11,68 +11,15 @@ import { filter, map } from 'rxjs/operators';
 export class CreatingObservableComponent implements OnInit {
   constructor() {}
 
-  onErr = (err) => console.log(err);
+  onErr = (err: any) => console.log(err);
   onComplete = () => console.log('complete');
 
   ngOnInit() {}
 
-  subscribingObservables() {
-    of([2, 5, 9, 12, 22]).subscribe(
-      (data: number[]) => console.log('subscribe: ', data),
-      this.onErr,
-      this.onComplete
-    );
-
-    // new subscribe pattern - above pattern deprecated
-    // in future release will take only one argument:
-    // next handler or observer obj
-
-    const observer = {
-      next: (
-        data: number[] // onNext
-      ) => console.log('current number: ', data),
-      error: this.onErr,
-      complete: this.onComplete,
-    };
-
-    of([2, 5, 9, 12, 22]).subscribe(observer);
-
-    // same writte as inline style
-
-    of([2, 5, 9, 12, 22]).subscribe({
-      next: (
-        data: number[] // onNext
-      ) => console.log('current number: ', data),
-      error: this.onErr,
-      complete: this.onComplete,
-    });
-  }
-
-  useNewObs() {
-    new Observable((observer) => {
-      let idx = 0;
-      const numbers = [2, 5, 9, 12, 22];
-
-      const getNumber = () => {
-        observer.next(numbers[idx++]);
-
-        if (idx < numbers.length) {
-          setTimeout(getNumber, 250);
-        } else {
-          observer.complete();
-        }
-      };
-
-      getNumber();
-    }).subscribe(
-      (data: number) => console.log('useObsCreate: ', data),
-      this.onErr,
-      this.onComplete
-    );
-  }
-
   useObsFrom() {
-    from([2, 5, 9, 12, 22]).subscribe(
+    let arr = [2, 5, 9, 12, 22];
+    //emit each item from the array after the other
+    from(arr).subscribe(
       (data: number) => console.log('from(): ', data),
       this.onErr,
       this.onComplete
@@ -88,10 +35,13 @@ export class CreatingObservableComponent implements OnInit {
   }
 
   // Wraps an Object that uses Callbacks
+  // navigator.geolocation.getCurrentPosition(success[, error[, [options]])
   getGeolocation$(): Observable<any> {
     return new Observable((observer) => {
+      //original function
       navigator.geolocation.getCurrentPosition(
         (pos: any) => {
+          //emite an element in the callback of the callback based function
           observer.next(pos);
           observer.complete();
         },
@@ -102,7 +52,7 @@ export class CreatingObservableComponent implements OnInit {
     });
   }
 
-  // Use the wrapped Callback
+  // Use the wrapped Callback as observable stream
   wrappingCallbacks() {
     this.getGeolocation$().subscribe((loc) => {
       console.log('current Geolocation:', loc);
@@ -111,16 +61,21 @@ export class CreatingObservableComponent implements OnInit {
 
   // Use the mock Promise
   usePromiseToObs() {
-    const url = 'http://localhost:3000/todos';
+    const url = 'http://localhost:3000/skills';
+
+    //classic promise pattern
+    axios.get(url).then((data) => console.log('received data', data));
+
+    // from casts a promise to an observable so that it can be subscribe
     from(axios(url)).subscribe(
-      (data) => console.log('data from jquery', data),
+      (data) => console.log('data from axios', data),
       (err) => console.log('err:', err),
       () => console.log('complete')
     );
   }
 
   useOperator() {
-    from([2, 5, 9, 12, 22])
+    from([2, 5, 9, 12, 22]) // 5 marbles
       .pipe(
         filter((n) => n > 6),
         map((n) => n * 2)

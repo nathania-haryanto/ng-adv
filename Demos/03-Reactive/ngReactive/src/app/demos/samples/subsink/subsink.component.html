@@ -9,9 +9,9 @@
   <mat-card-content>
     <mat-form-field>
       <input
-        matInput
-        #searchBox
+        matInput        
         placeholder="Enter some Text and watch console"
+        [formControl]="fcSearch"
       />
     </mat-form-field>
   </mat-card-content>

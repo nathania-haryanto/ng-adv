@@ -25,6 +25,7 @@ import { DebouncedSearchComponent } from './samples/debounced-search/debounced-s
 import { TransformationComponent } from './samples/transformation/transformation.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
+import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.component';
 
 const demoRoutes: Routes = [
   {
@@ -49,6 +50,7 @@ const demoRoutes: Routes = [
       { path: 'transformation', component: TransformationComponent },
       { path: 'caching', component: CachingComponent },
       { path: 'actionstreams', component: ActionStreamsComponent },
+      { path: 'marble-testing', component: MarbleTestingComponent },
     ],
   },
 ];
@@ -73,6 +75,7 @@ const demoRoutes: Routes = [
     ActionStreamsComponent,
     LangFeaturesComponent,
     TransformationComponent,
+    MarbleTestingComponent,
   ],
   imports: [
     CommonModule,

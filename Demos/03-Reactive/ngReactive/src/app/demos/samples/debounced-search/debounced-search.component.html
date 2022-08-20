@@ -1,26 +1,17 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      Debounced Search
+      Observable from FormControl - Debounced Search
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
       <input
         matInput
-        #searchBox
-        placeholder="Enter your Search Term - Seach execute automatically"
+        placeholder="Enter your Search Term - Watch console for output"
+        [formControl]="searchterm"
+
       />
     </mat-form-field>
-  </mat-card-content>
-</mat-card>
-<mat-card fxLayout="column" fxLayoutGap="10px">
-  <mat-card-header>
-    <mat-card-title>
-      Result
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    See Console for output
   </mat-card-content>
 </mat-card>

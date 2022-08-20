@@ -1,4 +1,3 @@
-@import "../../../../../theme/stylevars.scss";
 
 :host {
   width: 100%;
@@ -6,7 +5,7 @@
 
 .hoverclick {
   cursor: pointer;
-  background-color: $medium-col;
+  background-color:var(--color-primary);
   color: white;
   margin: 0.2rem;
   padding: 0.2rem;
