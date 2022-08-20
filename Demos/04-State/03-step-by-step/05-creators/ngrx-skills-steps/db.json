@@ -1,6 +1,0 @@
-{
-  "skills": [
-    { "id": 123, "name": "rxjs from api", "completed": true },
-    { "id": 456, "name": "ngrx from api", "completed": false }
-  ]
-}

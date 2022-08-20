@@ -1,1 +1,0 @@
-- Examine `demo.facade.ts` in `demos/state/`
