@@ -20,7 +20,7 @@ export class EditorFacade implements OnDestroy {
     private store: Store<EditorState>,
     private actions: ActionsSubject
   ) {
-    //Could be used to respond to effects completion
+    //Could be used to respond to effects completion to trigger an action in the UI
     //As an alternative you could also hook into the loading indicator
     this.subs = this.actions
       .pipe(
