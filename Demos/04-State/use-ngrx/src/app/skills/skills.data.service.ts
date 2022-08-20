@@ -16,11 +16,12 @@ export class SkillsDataService extends DefaultDataService<Skill> {
   override getAll(): Observable<Skill[]> {
     return this.http.get(environment.skillsApi).pipe(
       map((data) => {
-        const skills: Skill[] = [];
-        for (let key in data) {
-          // skills.push({ ...data[key], id: key });
+        if (!data) {
+          return [];
         }
-        return skills;
+        return (data as Skill[]).map((sk) => {
+          return { ...sk };
+        });
       })
     );
   }
@@ -34,13 +35,13 @@ export class SkillsDataService extends DefaultDataService<Skill> {
   }
 
   override update(skill: Update<Skill>): Observable<Skill> {
-    return this.http.put<Skill>(`{{environment.skillsApi}}/${skill.id}`, {
+    return this.http.put<Skill>(`${environment.skillsApi}/${skill.id}`, {
       ...skill.changes,
     });
   }
 
   override delete(id: string): Observable<string> {
-    return this.http.delete(`{{environment.skillsApi}}/${id}`).pipe(
+    return this.http.delete(`${environment.skillsApi}/${id}`).pipe(
       map((data) => {
         return id;
       })

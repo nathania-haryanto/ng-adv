@@ -3,33 +3,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import {
-  EntityDataService,
-  EntityDefinitionService,
-  EntityMetadataMap,
-} from '@ngrx/data';
+import { EntityDataService, EntityDefinitionService } from '@ngrx/data';
 import { MaterialModule } from '../material.module';
 import { SkillRowComponent } from './skill-row/skill-row.component';
-import { Skill } from './skill.model';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
-import { SkillsDataService } from './skills-data.service';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
-import { SkillsRoutingModule } from './skills-routing.module';
-
-const entityMetadata: EntityMetadataMap = {
-  Skill: {
-    sortComparer: sortByName,
-    entityDispatcherOptions: {
-      optimisticUpdate: true,
-      optimisticDelete: false,
-    },
-  },
-};
-
-function sortByName(a: Skill, b: Skill): number {
-  let comp = a.name.localeCompare(b.name);
-  return comp;
-}
+import { SkillsDataService } from './skills.data.service';
+import { entityMetadata } from './skills.metadata';
+import { SkillsRoutingModule } from './skills.routing.module';
 
 @NgModule({
   declarations: [
@@ -49,11 +30,11 @@ function sortByName(a: Skill, b: Skill): number {
 })
 export class SkillsModule {
   constructor(
-    eds: EntityDefinitionService,
+    entityDefinitionService: EntityDefinitionService,
     entityDataService: EntityDataService,
     SkillsDataService: SkillsDataService
   ) {
-    eds.registerMetadataMap(entityMetadata);
+    entityDefinitionService.registerMetadataMap(entityMetadata);
     entityDataService.registerService('Skill', SkillsDataService);
   }
 }

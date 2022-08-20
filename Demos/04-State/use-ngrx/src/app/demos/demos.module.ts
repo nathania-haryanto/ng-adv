@@ -11,7 +11,7 @@ import { MaterialModule } from '../material.module';
 import { SkillsService } from '../model/skills/skills.service';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { demoRoutes } from './demo-routing.module';
+import { demoRoutes } from './demo.routing.module';
 import { AppStateComponent } from './samples/app-state/app-state.component';
 import { DemoEditComponent } from './samples/demos-list/demo-edit/demo-edit.component';
 import { DemoFilterComponent } from './samples/demos-list/demo-filter/demo-filter.component';
