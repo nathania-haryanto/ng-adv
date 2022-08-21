@@ -5,6 +5,7 @@ import {
 } from '@ngrx/data';
 import { Observable } from 'rxjs';
 import { Skill } from '../skill.model';
+import { SkillsEntityService } from '../skills-entity.service';
 
 @Component({
   selector: 'app-skills',
@@ -15,8 +16,16 @@ export class SkillsComponent implements OnInit {
   skills$: Observable<Skill[]>;
   skillsService: EntityCollectionService<Skill>;
 
-  constructor(private serviceFactory: EntityCollectionServiceFactory) {
-    this.skillsService = this.serviceFactory.create<Skill>('Skill');
+  // skills-entity.service.ts could also be spared by directly creating the entity
+  // service in the constuctor of the component using serviceFactory
+
+  // constructor(private serviceFactory: EntityCollectionServiceFactory) {
+  //   this.skillsService = this.serviceFactory.create<Skill>('Skill');
+  //   this.skills$ = this.skillsService.entities$;
+  // }
+
+  constructor(es: SkillsEntityService) {
+    this.skillsService = es;
     this.skills$ = this.skillsService.entities$;
   }
 
