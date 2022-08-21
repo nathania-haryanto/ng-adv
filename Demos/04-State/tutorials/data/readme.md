@@ -82,5 +82,61 @@ Add basic ngrx modules to `app.module.ts`:
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
+    environment.production ? [] : StoreDevtoolsModule.instrument(),
   ],
 ```
+
+Add a custom URL Generator in `skills/custom-urlgenerator.ts`:
+
+```typescript
+@Injectable()
+export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
+  constructor(pluralizer: Pluralizer) {
+    super(pluralizer);
+  }
+
+  protected override getResourceUrls(
+    entityName: string,
+    root: string,
+    trailingSlashEndpoints?: boolean
+  ): HttpResourceUrls {
+    let resourceURLs = this.knownHttpResourceUrls[entityName];
+    if (entityName == 'Skill') {
+      resourceURLs = {
+        collectionResourceUrl: 'http://localhost:3000/skills/',
+        entityResourceUrl: 'http://localhost:3000/skills/',
+      };
+      this.registerHttpResourceUrls({ [entityName]: resourceURLs });
+    }
+    return resourceURLs;
+  }
+}
+```
+
+Add a `skills/skills.component.ts` using the Angular CLI and add the following code to it:
+
+```typescript
+export class SkillsComponent implements OnInit {
+  skills$: Observable<Skill[]>;
+  skillsService: EntityCollectionService<Skill>;
+
+  constructor(private serviceFactory: EntityCollectionServiceFactory) {
+    this.skillsService = this.serviceFactory.create<Skill>('Skill');
+    this.skills$ = this.skillsService.entities$;
+  }
+
+  ngOnInit(): void {
+    this.skillsService.getAll();
+  }
+
+  addSkill() {
+    this.skillsService.add({ id: 0, name: '@ngrx/data', completed: false });
+  }
+
+  deleteSkill(item: Skill) {
+    this.skillsService.delete(item);
+  }
+}
+```
+
+Implement the UI that uses this methods
