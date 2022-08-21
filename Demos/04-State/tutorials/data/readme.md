@@ -34,7 +34,7 @@ Start json-server:
 json-server db.json --watch
 ```
 
-## Add ngrx/data
+## Add ngrx/data with factory
 
 Add `skills/skills.model.ts`:
 
@@ -139,4 +139,6 @@ export class SkillsComponent implements OnInit {
 }
 ```
 
-Implement the UI that uses this methods
+Implement the UI that uses this methods:
+
+![base-ui](_images/base-ui.jpg)
