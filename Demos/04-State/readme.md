@@ -6,7 +6,7 @@
 
 ## Demos
 
-ngrx-state
+- ngrx-state
 
 ## Optional tutorial with step by step guide
 
