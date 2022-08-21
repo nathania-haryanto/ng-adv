@@ -17,7 +17,6 @@ export class SkillsComponent implements OnInit {
 
   constructor(private serviceFactory: EntityCollectionServiceFactory) {
     this.skillsService = this.serviceFactory.create<Skill>('Skill');
-
     this.skills$ = this.skillsService.entities$;
   }
 
@@ -27,5 +26,9 @@ export class SkillsComponent implements OnInit {
 
   addSkill() {
     this.skillsService.add({ id: 0, name: '@ngrx/data', completed: false });
+  }
+
+  deleteSkill(item: Skill) {
+    this.skillsService.delete(item);
   }
 }
