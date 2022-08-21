@@ -1,4 +1,4 @@
-# NgRx Data Simple
+# NgRx Data Factory
 
 ## Scaffold and Preperation
 
