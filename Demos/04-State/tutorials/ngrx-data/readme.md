@@ -1,11 +1,11 @@
-# NgRx Data Factory
+# NgRx Data
 
 ## Scaffold and Preperation
 
 Create project:
 
 ```bash
-ng new ngrx-data-factory
+ng new ngrx-data
 ```
 
 Add NgRx:
@@ -35,6 +35,8 @@ json-server db.json --watch
 ```
 
 ## Add ngrx/data with a base EntityDataService
+
+>Note: A completed solution is `ngrx-data-base-entity-service`
 
 Add `skills/skills.model.ts`:
 
