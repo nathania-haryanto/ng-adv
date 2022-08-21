@@ -10,10 +10,6 @@ export const entityMetadata: EntityMetadataMap = {
   Skill: {
     selectId: (skill: Skill) => skill.id,
     sortComparer: sortByName,
-    entityDispatcherOptions: {
-      optimisticUpdate: true,
-      optimisticDelete: false,
-    },
   },
 };
 

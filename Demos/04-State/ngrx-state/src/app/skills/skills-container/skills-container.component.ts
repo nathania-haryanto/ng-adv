@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { combineLatest, Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Skill } from '../skill.model';
-import { SkillsEntityDataService } from '../skills.entity.data.service';
+import { SkillsEntityService } from '../skills-entity.service';
 
 @Component({
   selector: 'app-skills-container',
@@ -23,7 +23,7 @@ export class SkillsContainerComponent {
   //   })
   // );
 
-  constructor(private skillsService: SkillsEntityDataService) {
+  constructor(private skillsService: SkillsEntityService) {
     this.skillsService.entities$;
   }
 

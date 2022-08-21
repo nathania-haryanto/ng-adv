@@ -7,8 +7,8 @@ import { EntityDataService, EntityDefinitionService } from '@ngrx/data';
 import { MaterialModule } from '../material.module';
 import { SkillRowComponent } from './skill-row/skill-row.component';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
+import { SkillsDataService } from './skills-data.service';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
-import { SkillsExtDataService } from './skills.ext.data.service';
 import { entityMetadata } from './skills.metadata';
 import { SkillsRoutingModule } from './skills.routing.module';
 
@@ -26,15 +26,15 @@ import { SkillsRoutingModule } from './skills.routing.module';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [SkillsExtDataService],
+  providers: [SkillsDataService],
 })
 export class SkillsModule {
   constructor(
     entityDefinitionService: EntityDefinitionService,
     entityDataService: EntityDataService,
-    SkillsDataService: SkillsExtDataService
+    skillsDataService: SkillsDataService
   ) {
     entityDefinitionService.registerMetadataMap(entityMetadata);
-    entityDataService.registerService('Skill', SkillsDataService);
+    entityDataService.registerService('Skill', skillsDataService);
   }
 }
