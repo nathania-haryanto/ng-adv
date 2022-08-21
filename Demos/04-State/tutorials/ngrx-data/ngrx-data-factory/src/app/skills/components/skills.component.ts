@@ -19,8 +19,8 @@ export class SkillsComponent implements OnInit {
   // skills-entity.service.ts could also be spared by directly creating the entity
   // service in the constuctor of the component using serviceFactory
 
-  // constructor(private serviceFactory: EntityCollectionServiceFactory) {
-  //   this.skillsService = this.serviceFactory.create<Skill>('Skill');
+  // constructor(private factory: EntityCollectionServiceFactory) {
+  //   this.skillsService = this.factory.create<Skill>('Skill');
   //   this.skills$ = this.skillsService.entities$;
   // }
 

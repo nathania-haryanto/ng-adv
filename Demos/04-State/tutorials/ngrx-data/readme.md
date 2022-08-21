@@ -113,6 +113,29 @@ export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
 }
 ```
 
+>Note: There are two ways of creating the base EntityService:
+  
+  - In the component using the EntityCollectionServiceFactory
+
+    ```typescript
+    constructor(private factory: EntityCollectionServiceFactory) {
+      this.skillsService = this.factory.create<Skill>('Skill');
+      this.skills$ = this.skillsService.entities$;
+    }
+    ```
+  - Using an explicit service that is reusable -ie `skills-entity.service.ts`
+
+    ```typescript
+    @Injectable({
+      providedIn: 'root',
+    })
+    export class SkillsEntityService extends EntityCollectionServiceBase<Skill> {
+      constructor(factory: EntityCollectionServiceElementsFactory) {
+        super('Skill', factory);
+      }
+    }
+    ```
+
 Add a `skills/skills.component.ts` using the Angular CLI and add the following code to it:
 
 ```typescript
@@ -120,8 +143,8 @@ export class SkillsComponent implements OnInit {
   skills$: Observable<Skill[]>;
   skillsService: EntityCollectionService<Skill>;
 
-  constructor(private serviceFactory: EntityCollectionServiceFactory) {
-    this.skillsService = this.serviceFactory.create<Skill>('Skill');
+  constructor(es: SkillsEntityService) {
+    this.skillsService = es;
     this.skills$ = this.skillsService.entities$;
   }
 
