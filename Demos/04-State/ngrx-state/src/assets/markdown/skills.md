@@ -62,11 +62,9 @@
     ```typescript
     export class SkillsContainerComponent {
         skills: Observable<Skill[]>;
-
         constructor(private skillsService: SkillsEntityService) {
             this.skills = this.skillsService.entities$;
         }
-
         ngOnInit(): void {
             this.skillsService.getAll();
         }
