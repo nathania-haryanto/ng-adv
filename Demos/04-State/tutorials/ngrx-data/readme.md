@@ -5,7 +5,7 @@
 Create project:
 
 ```bash
-ng new ngrx-data-simple
+ng new ngrx-data-factory
 ```
 
 Add NgRx:
