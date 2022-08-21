@@ -169,7 +169,3 @@ export class SkillsComponent implements OnInit {
 Implement the UI that uses this methods:
 
 ![base-ui](_images/base-ui.jpg)
-
-## Extend the previous solution using a custom DataService
-
->Note: You can thake a copy of `ngrx-data-base-entity-service` as a starting point or use your own project. A completed solution is `ngrx-data-custom-data-service`
