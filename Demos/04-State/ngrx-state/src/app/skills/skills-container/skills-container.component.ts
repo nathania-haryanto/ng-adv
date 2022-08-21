@@ -13,22 +13,25 @@ import { SkillsEntityService } from '../skills-entity.service';
 export class SkillsContainerComponent {
   fcToggle = new FormControl(true);
   skills: Observable<Skill[]>;
-
-  // view = combineLatest([
-  //   this.skills,
-  //   this.fcToggle.valueChanges.pipe(startWith(true)),
-  // ]).pipe(
-  //   map(([skills, showAll]) => {
-  //     return showAll ? skills : skills.filter((sk) => sk.completed === showAll);
-  //   })
-  // );
+  view: Observable<Skill[]>;
 
   constructor(private skillsService: SkillsEntityService) {
-    this.skillsService.entities$;
+    this.skills = this.skillsService.entities$;
   }
 
   ngOnInit(): void {
-    this.skills = this.skillsService.getAll();
+    this.skillsService.getAll();
+
+    this.view = combineLatest([
+      this.skills,
+      this.fcToggle.valueChanges.pipe(startWith(true)),
+    ]).pipe(
+      map(([skills, showAll]) => {
+        return showAll
+          ? skills
+          : skills.filter((sk) => sk.completed === showAll);
+      })
+    );
   }
 
   addItem(): void {

@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
 import { SkillsService } from '../model/skills/skills.service';
+import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
@@ -28,7 +29,6 @@ import { StatefullComponent } from './samples/statefull/container/statefull.comp
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
-import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 
 @NgModule({
   declarations: [

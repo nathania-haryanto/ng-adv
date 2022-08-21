@@ -8,6 +8,7 @@ import { MaterialModule } from '../material.module';
 import { SkillRowComponent } from './skill-row/skill-row.component';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
 import { SkillsDataService } from './skills-data.service';
+import { SkillsEntityService } from './skills-entity.service';
 import { SkillsKpiComponent } from './skills-kpi/skills-kpi.component';
 import { entityMetadata } from './skills.metadata';
 import { SkillsRoutingModule } from './skills.routing.module';
@@ -26,7 +27,7 @@ import { SkillsRoutingModule } from './skills.routing.module';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [SkillsDataService],
+  providers: [SkillsEntityService, SkillsDataService],
 })
 export class SkillsModule {
   constructor(

@@ -1,10 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { toggleMockAuthenticated } from './app.actions';
 import {
   changeSideNavPosition,
   changeSideNavVisible,
   changeTitle,
   setSideNavEnabled,
+  toggleMockAuthenticated,
   toggleSideNav,
 } from './app.actions';
 
