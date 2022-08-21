@@ -34,7 +34,7 @@ Start json-server:
 json-server db.json --watch
 ```
 
-## Add ngrx/data with factory
+## Add ngrx/data with a base EntityDataService
 
 Add `skills/skills.model.ts`:
 
@@ -85,6 +85,8 @@ Add basic ngrx modules to `app.module.ts`:
     environment.production ? [] : StoreDevtoolsModule.instrument(),
   ],
 ```
+
+>Note: This tutorial shows how to register @ngrx/data in the root module. The main demo registeres it at a feature module `skills`
 
 Add a custom URL Generator in `skills/custom-urlgenerator.ts`:
 
