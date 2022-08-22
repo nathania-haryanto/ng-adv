@@ -33,14 +33,14 @@ export class DemoContainerComponent implements OnInit {
     this.setMenu();
     this.setMetadata();
     this.getWorbenchStyle();
-    // this.subscribeLoading();
+    this.subscribeLoading();
   }
 
-  // subscribeLoading() {
-  //   this.ls.getLoading().subscribe((value) => {
-  //     Promise.resolve(null).then(() => (this.isLoading = value));
-  //   });
-  // }
+  subscribeLoading() {
+    this.ls.getLoading().subscribe((value) => {
+      Promise.resolve(null).then(() => (this.isLoading = value));
+    });
+  }
 
   setMenuPosition() {
     this.ms.position$.subscribe(

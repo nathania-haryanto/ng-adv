@@ -1,4 +1,3 @@
-<app-loading *ngIf="isLoading"></app-loading>
 <mat-sidenav-container>
   <mat-sidenav #sidenav [opened]="ms.visible$ | async" [mode]="sidenavMode">
     <mat-toolbar color="accent">
@@ -16,9 +15,9 @@
   <mat-sidenav-content>
     <div
       class="nav-content"
-      gdAreas="toolbar toolbar  | workbench sidebar"
+      gdAreas="toolbar toolbar | loading loading   | workbench sidebar"
       gdGap="5px"
-      gdRows="65px auto"
+      gdRows="65px 5px auto"
       gdColumns="auto 80px"
       gdColumns.lt-md="100%"
       [ngStyle]="getWorbenchStyle()"
@@ -30,6 +29,9 @@
           </mat-toolbar-row>
         </mat-toolbar>
       </div>
+      <div gdArea="loading">
+        <app-loading *ngIf="isLoading"></app-loading>
+      </div>   
       <div gdArea="workbench"><router-outlet></router-outlet></div>
       <div gdArea="sidebar">
         <app-side-panel></app-side-panel>
