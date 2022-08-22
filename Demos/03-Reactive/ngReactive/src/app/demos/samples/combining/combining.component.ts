@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { concat, forkJoin, interval, merge, zip, of } from 'rxjs';
-import { map, take, tap, combineLatest } from 'rxjs/operators';
-import { AccountService } from '../account.service';
+import { concat, forkJoin, interval, merge, of, zip } from 'rxjs';
+import { combineLatestWith, map, take, tap } from 'rxjs/operators';
+import { AccountService } from '../../vouchers/account.service';
+import { VouchersService } from '../../vouchers/voucher.service';
 import { DoublerService } from '../operators/doubler.service';
-import { VouchersService } from '../voucher.service';
 
 @Component({
   selector: 'app-combining',
@@ -74,23 +74,28 @@ export class CombiningComponent implements OnInit {
   }
 
   leftJoin() {
-    // // get only the details for the vouchers
-    // const details$ = this.vs.getVoucher(2).pipe(
-    //   map((v) => v?.Details),
-    //   tap((d) => console.log('Details before combining', d))
-    // );
-    // const accounts$ = this.as.getAccounts();
-    // combineLatest([details$, accounts$])
-    //   .pipe(
-    //     map(([details, accounts]) =>
-    //       {
-    //         details.map((d) => ({
-    //         ...d,
-    //         Account: accounts.find((a) => d.AccountID === a.ID).Name,
-    //       }))
-    //     }
-    //     )
-    //   )
-    //   .subscribe((d) => console.log('Details after combining', d));
+    //get vouchers with prop Account being null -
+    //simulates sql left join of two entities
+    const vouchers$ = this.vs.getVoucher(2).pipe(
+      map((v) => v?.Details),
+      tap((d) => console.log('vouchers before combining', d))
+    );
+
+    const accounts$ = this.as.getAccounts();
+
+    let combined = vouchers$.pipe(
+      combineLatestWith(accounts$),
+      map(([vouchers, accounts]) => {
+        if (vouchers && accounts) {
+          return vouchers.map((d) => ({
+            ...d,
+            Account: accounts.find((a) => d.AccountID === a.ID)?.Name,
+          }));
+        }
+        return [];
+      })
+    );
+
+    combined.subscribe((item) => console.log('After combining', item));
   }
 }

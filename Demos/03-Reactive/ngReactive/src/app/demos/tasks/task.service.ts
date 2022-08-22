@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Task } from './task';
+import { TaskItem } from './task-item.model';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
   constructor(private httpClient: HttpClient) {}
 
-  getTasks(): Observable<Task[]> {
+  getTasks(): Observable<TaskItem[]> {
     return this.httpClient
-      .get<Task[]>('http://localhost:3000/tasks')
+      .get<TaskItem[]>('http://localhost:3000/tasks')
       .pipe(delay(1000));
   }
 }

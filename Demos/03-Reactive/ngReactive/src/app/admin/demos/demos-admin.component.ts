@@ -2,7 +2,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DemoItem } from 'src/app/model/demo/DemoItem';
+import { DemoItem } from 'src/app/demos/demo-item.model';
 import { DemoService } from '../../demos/demo-base/demo.service';
 
 @Component({
