@@ -1,7 +1,7 @@
 Inspect Routing config in `demo.module.ts`
 
-```
- {
+```typescript
+{
     path: 'multi-guard',
     component: MultiGuardComponent,
     children: [
@@ -16,7 +16,7 @@ Inspect Routing config in `demo.module.ts`
         canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard],
         },
     ],
- }
+}
 ```
 
 Toggle Values in `simple-auth.service.ts`
