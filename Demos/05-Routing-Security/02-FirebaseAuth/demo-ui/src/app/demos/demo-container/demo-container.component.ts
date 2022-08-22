@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Event, NavigationEnd, Router, ActivatedRoute } from '@angular/router';
-import { filter, flatMap, map } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { MenuService } from 'src/app/shared/menu/menu.service';
-import { DemoItem } from '../demo-item';
-import { DemoService } from '../demo.service';
 import { environment } from 'src/environments/environment';
+import { DemoItem } from '../demo-base/demo-item.model';
+import { DemoService } from '../demo-base/demo.service';
+import { MatDrawerMode } from '@angular/material/sidenav';
+import { LoadingService } from '../../shared/loading/loading.service';
 
 @Component({
   selector: 'app-demo-container',
@@ -14,45 +16,53 @@ import { environment } from 'src/environments/environment';
 })
 export class DemoContainerComponent implements OnInit {
   title: string = environment.title;
-  header$ = this.setMetadata();
-  demos$ = this.demoService.getItems();
+  header = 'Please select a demo';
+  demos$: Observable<DemoItem[]>;
+  sidenavMode: MatDrawerMode = 'side';
+  isLoading = true;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private demoService: DemoService,
-    public ms: MenuService
+    private route: ActivatedRoute,
+    public ms: MenuService,
+    public ls: LoadingService
   ) {}
 
   ngOnInit() {
+    this.setMenu();
+    this.setMetadata();
+    this.setMenuPosition();
     this.getWorbenchStyle();
+    this.subscribeLoading();
+  }
+
+  subscribeLoading() {
+    this.ls.getLoading().subscribe((value) => {
+      Promise.resolve(null).then(() => (this.isLoading = value));
+    });
+  }
+
+  setMenuPosition() {
+    this.ms.position$.subscribe((mode: any) => {
+      this.sidenavMode = mode as MatDrawerMode;
+    });
+  }
+
+  setMenu() {
+    this.demos$ = this.demoService.getItems();
   }
 
   getWorbenchStyle() {
     let result = {};
-    this.ms.visible$.subscribe((visible) => {
+    this.ms.visible$.subscribe((visible: any) => {
       result = visible
         ? {
-            'margin-left': '10px',
+            'margin-left': '5px',
           }
         : {};
     });
     return result;
-  }
-
-  setMetadata() {
-    return this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
-      map(() => this.rootRoute(this.route)),
-      filter((route: ActivatedRoute) => route.outlet === 'primary'),
-      map((route: ActivatedRoute) =>
-        route.component != null
-          ? `Component: ${route.component
-              .toString()
-              .substring(6, route.component.toString().indexOf('{') - 1)}`
-          : ''
-      )
-    );
   }
 
   rootRoute(route: ActivatedRoute): ActivatedRoute {
@@ -60,5 +70,22 @@ export class DemoContainerComponent implements OnInit {
       route = route.firstChild;
     }
     return route;
+  }
+
+  setMetadata() {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => this.rootRoute(this.route)),
+        filter((route: ActivatedRoute) => route.outlet === 'primary')
+      )
+      .subscribe((route: ActivatedRoute) => {
+        this.header =
+          route.component != null
+            ? `Component: ${route.component
+                .toString()
+                .substring(6, route.component.toString().indexOf('{') - 1)}`
+            : '';
+      });
   }
 }

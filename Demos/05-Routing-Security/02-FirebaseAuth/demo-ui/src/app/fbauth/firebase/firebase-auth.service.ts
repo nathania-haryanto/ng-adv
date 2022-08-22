@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { LoginCredentials } from './credential.model';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,10 +12,9 @@ export class FirebaseAuthService {
 
   private Token: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  private fbUser: firebase.default.User = null;
-  public User: BehaviorSubject<firebase.default.User> = new BehaviorSubject(
-    this.fbUser
-  );
+  private fbUser: firebase.default.User | null = null;
+  public User: BehaviorSubject<firebase.default.User | null> =
+    new BehaviorSubject(this.fbUser);
 
   private onUserChanged() {
     this.fireAuth.authState.subscribe((user) => {
@@ -23,11 +22,11 @@ export class FirebaseAuthService {
       this.User.next(user);
 
       if (user != null) {
-        this.fbUser.getIdToken().then((token) => {
+        this.fbUser?.getIdToken().then((token) => {
           this.Token.next(token);
         });
       } else {
-        this.Token.next(null);
+        this.Token.next('');
       }
     });
   }
@@ -57,10 +56,11 @@ export class FirebaseAuthService {
   }
 
   logOn(
-    loginvm: LoginCredentials
+    email: string,
+    password: string
   ): Promise<firebase.default.auth.UserCredential> {
     return this.fireAuth
-      .signInWithEmailAndPassword(loginvm.email, loginvm.pwd)
+      .signInWithEmailAndPassword(email, password)
       .catch((err) => {
         console.log('Error logging in', err);
         return err;

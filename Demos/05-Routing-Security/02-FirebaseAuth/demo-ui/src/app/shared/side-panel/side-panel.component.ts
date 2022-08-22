@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { SnackbarService } from '../snackbar/snackbar.service';
+import { EventBusService } from '../event-bus/event-bus.service';
+import { SidebarActions } from '../event-bus/sidebar-actions';
 
 @Component({
   selector: 'app-side-panel',
@@ -7,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-panel.component.scss'],
 })
 export class SidePanelComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private sns: SnackbarService, private eb: EventBusService) {}
 
   editorDisplayed: boolean;
 
@@ -16,15 +18,10 @@ export class SidePanelComponent implements OnInit {
   }
 
   toggleEditor() {
-    this.editorDisplayed = !this.editorDisplayed;
-    if (this.editorDisplayed) {
-      this.router.navigate(['', { outlets: { sidebarOutlet: 'showeditor' } }]);
-    } else {
-      this.router.navigate(['', { outlets: { sidebarOutlet: null } }]);
-    }
+    this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
   }
 
   showUpload() {
-    this.router.navigate(['', { outlets: { sidebarOutlet: 'upload' } }]);
+    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
   }
 }
