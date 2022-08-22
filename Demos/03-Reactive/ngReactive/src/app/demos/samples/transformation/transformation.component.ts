@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, interval, of } from 'rxjs';
+import { TopicService } from '../../topics/topic.service';
+import { tap } from 'rxjs/operators';
 import {
   concatMap,
   delay,
@@ -9,8 +11,6 @@ import {
   map,
   exhaustMap,
 } from 'rxjs/operators';
-import { AccountService } from '../../vouchers/account.service';
-import { VouchersService } from '../../vouchers/voucher.service';
 
 @Component({
   selector: 'app-transformation',
@@ -18,9 +18,15 @@ import { VouchersService } from '../../vouchers/voucher.service';
   styleUrls: ['./transformation.component.scss'],
 })
 export class TransformationComponent implements OnInit {
-  constructor(private vs: VouchersService, private as: AccountService) {}
+  @ViewChild('btnSave', { static: true }) saveButton: ElementRef;
+
+  constructor(private ts: TopicService) {}
 
   ngOnInit() {}
+
+  ngAfterViewInit(): void {
+    this.hookExhaustMap();
+  }
 
   // can be used like an "event handler"
   useMapTo() {
@@ -77,11 +83,15 @@ export class TransformationComponent implements OnInit {
       .subscribe((r) => console.log('Saved!', r));
   }
 
-  useExhaustMap() {
-    // fromEvent(this.saveButton.nativeElement, 'click')
-    // .pipe(
-    //     exhaustMap(() => this.saveCourse(this.form.value))
-    // )
-    // .subscribe();
+  hookExhaustMap() {
+    fromEvent(this.saveButton.nativeElement, 'click')
+      .pipe(
+        exhaustMap(() =>
+          this.ts.insertTopicSlow({ id: 0, title: 'a new topic', sortOrder: 9 })
+        ),
+        delay(3000),
+        tap(() => console.log('save completed'))
+      )
+      .subscribe();
   }
 }

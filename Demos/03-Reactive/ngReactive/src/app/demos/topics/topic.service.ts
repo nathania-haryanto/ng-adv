@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { Topic } from './topic.model';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +22,10 @@ export class TopicService {
   }
 
   insertTopic(Topic: Topic): Observable<any> {
+    return this.httpClient.post<Topic>(environment.apiUrl + 'topics', Topic);
+  }
+
+  insertTopicSlow(Topic: Topic): Observable<any> {
     return this.httpClient.post<Topic>(environment.apiUrl + 'topics', Topic);
   }
 
