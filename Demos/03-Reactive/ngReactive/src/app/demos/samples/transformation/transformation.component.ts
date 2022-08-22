@@ -42,21 +42,17 @@ export class TransformationComponent implements OnInit {
   }
 
   useConcatMap() {
-    const source = of('Hello', 'Goodbye');
-    //example with promise
+    const source = of('Hello', 'Goodbye', 'Nevermind');
+
+    //can also be used with promises
     const examplePromise = (val: string) =>
       new Promise((resolve) => resolve(`${val} World!`));
+
     //result of first param passed to second param selector function before being  returned
-    const example = source.pipe(
-      concatMap(
-        (val) => examplePromise(val),
-        (result) => `${result} w/ selector!`
-      )
-    );
-    //output: 'Example w/ Selector: 'Hello w/ Selector', Example w/ Selector: 'Goodbye w/ Selector'
-    const subscribe = example.subscribe((val) =>
-      console.log('Example w/ Selector:', val)
-    );
+    const example = source.pipe(concatMap((val) => examplePromise(val)));
+
+    //output: 'Result: 'Hello World', Result: 'Goodbye Goodbye', ....
+    example.subscribe((val) => console.log('Result:', val));
   }
 
   //mergeMap is also know under its alias: flatMap
