@@ -8,7 +8,7 @@
 
 [Git History Diff](https://marketplace.visualstudio.com/items?itemName=huizhou.githd)
 
-# Git / Github Essentials
+# Git / GitHub Essentials
 
 ## Configuration
 
@@ -92,6 +92,13 @@ git merge [branch_to_merge]
 ```
 
 > Note: You might have to switch to the branch that you might want to merge into befor executing merge
+
+Update a Branch from master / main:
+
+```
+git fetch
+git rebase origin/master
+```
 
 ## Dealing with special Commits
 

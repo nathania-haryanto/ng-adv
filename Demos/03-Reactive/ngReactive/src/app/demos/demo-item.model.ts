@@ -1,6 +1,4 @@
-import { resource } from "../resource";
-
-export class DemoItem implements resource {
+export class DemoItem {
   id: number;
   topicid: number;
   url: string;

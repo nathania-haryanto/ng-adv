@@ -14,8 +14,8 @@ import {
   take,
   tap,
 } from 'rxjs/operators';
-import { Voucher } from '../model';
-import { VouchersService } from '../voucher.service';
+import { Voucher } from '../../vouchers/voucher.model';
+import { VouchersService } from '../../vouchers/voucher.service';
 
 @Component({
   selector: 'app-operators',

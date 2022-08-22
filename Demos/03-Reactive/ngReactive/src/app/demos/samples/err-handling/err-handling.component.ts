@@ -11,8 +11,8 @@ import {
 } from 'rxjs/operators';
 import { SubSink } from 'subsink';
 import { DemoService } from '../../demo-base/demo.service';
-import { VouchersService } from '../voucher.service';
-import { Voucher } from '../model';
+import { Voucher } from '../../vouchers/voucher.model';
+import { VouchersService } from '../../vouchers/voucher.service';
 
 @Component({
   selector: 'app-err-handling',

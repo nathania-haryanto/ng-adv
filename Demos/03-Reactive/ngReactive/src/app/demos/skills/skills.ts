@@ -1,7 +1,6 @@
-import { Topic } from "../topic/topic";
-import { resource } from "../resource";
+import { Topic } from '../topics/topic.model';
 
-export class Skill implements resource {
+export class Skill {
   id: number;
   topicId: number;
   topic?: Topic;

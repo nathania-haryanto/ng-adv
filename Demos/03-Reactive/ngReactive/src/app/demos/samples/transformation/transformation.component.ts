@@ -9,9 +9,8 @@ import {
   map,
   exhaustMap,
 } from 'rxjs/operators';
-import { AccountService } from '../account.service';
-import { VouchersService } from '../voucher.service';
-import { take } from 'rxjs/operators';
+import { AccountService } from '../../vouchers/account.service';
+import { VouchersService } from '../../vouchers/voucher.service';
 
 @Component({
   selector: 'app-transformation',
