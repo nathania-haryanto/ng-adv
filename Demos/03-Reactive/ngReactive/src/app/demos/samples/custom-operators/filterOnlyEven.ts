@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-export function filterEven(source: Observable<number>): Observable<number> {
+export function filterOnlyEven(source: Observable<number>): Observable<number> {
   return new Observable((observer) => {
     source.subscribe(
       (val: number) => {

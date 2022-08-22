@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EMPTY, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { filterEven } from './filterEven';
+import { filterOnlyEven } from './filterOnlyEven';
 import { getFromApi, logError } from './logErr';
 import { pow } from './pow';
 import { takeEveryNth } from './takeEveryNth';
@@ -22,7 +22,7 @@ export class CustomOperatorsComponent implements OnInit {
   ngOnInit() {}
 
   simpleFilter() {
-    const numbers$ = from([1, 4, 6, 7, 9, 11]).pipe((n) => filterEven(n));
+    const numbers$ = from([1, 4, 6, 7, 9, 11]).pipe((n) => filterOnlyEven(n));
     numbers$.subscribe((n) => console.log(n));
   }
 
