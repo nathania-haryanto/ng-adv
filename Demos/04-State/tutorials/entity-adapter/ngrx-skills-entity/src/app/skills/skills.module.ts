@@ -6,6 +6,8 @@ import { SkillsComponent } from './skills.component';
 import { SkillsContainerComponent } from './skills-container/skills-container.component';
 import { SkillsListWithRowComponent } from './skills-list-with-row/skills-list-with-row.component';
 import { SkillRowComponent } from './skill-row/skill-row.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromSkillsState from './state';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { SkillRowComponent } from './skill-row/skill-row.component';
   ],
   imports: [
     CommonModule,
-    SkillsRoutingModule
+    SkillsRoutingModule,
+    StoreModule.forFeature(fromSkillsState.skillsStateFeatureKey, fromSkillsState.reducers, { metaReducers: fromSkillsState.metaReducers })
   ]
 })
 export class SkillsModule { }

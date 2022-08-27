@@ -441,11 +441,13 @@ Add & implement `skills/skills.service.ts` with all CRUD-operations
 
 ### Creator Functions
 
-Add the feature state:
+Add the feature state & reducer:
 
 ```
-ng g store State --state-path state --module skills/skills.module.ts
+ng g store skills/skillsState --state-path state --module skills.module.ts
 ```
+
+>Note that it is automatically registered in the feature module.
 
 Add NgRx Entity:
 
