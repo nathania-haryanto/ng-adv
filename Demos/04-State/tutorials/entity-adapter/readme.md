@@ -69,18 +69,20 @@ Update `app.reducer.ts`
 ```typescript
 export interface State {
   creditsVisible: boolean;
-  authors: Author[];
   menuVisible: boolean;
+  title: string;
+  authors: Author[];
 }
 
 export const initialState: State = {
   creditsVisible: false,
-  authors: [],
   menuVisible: true,
+  title: 'ng-adv: using ngrx',
+  authors: [],
 };
 ```
 
-Correct the reducers result type to AppState
+<!-- Correct the reducers result type to AppState
 
 ```typescript
 export function reducer(state = initialState, action: Action): AppState {
@@ -104,7 +106,7 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   [appFeatureKey]: AppReducer,
 };
-```
+``` -->
 
 Add a new home component 
 
@@ -148,39 +150,46 @@ Add to `home.component.html`, also implement an empty `toggleCredits()` in the \
 </div>
 ```
 
-Add Actions:
+To add actions we will use an extension with snippets which is more handy that the ngrx schematics. To begin create a file `state/app.actions.ts`. 
 
+Add the following extension to Visual Studio Code:
+
+```bash
+code --install-extension mikael.angular-beastcode
 ```
-ng g action state/app
-```
 
-> Note: Answer all Schematic Params with No
-
-Implement the first Actions ToggleCredits and ToggleMenu:
+Implement the Actions `toggleCredits`, `toggleMenu` and `setTitle`. Note the setTitle will take a param of type string.
 
 ```typescript
-export enum AppActionTypes {
-  ToggleCredits = '[App] ToggleCredits',
-  ToggleMenu =  '[App] ToggleMenu',
-  
-}
+export const toggleMenu = createAction('[App] toggleMenu');
+export const toggleCredits = createAction('[App] toggleCredits');
+export const setTitle = createAction(
+  '[App] setTitle',
+  props<{ title: string }>()
+);
+```
 
-export class ToggleCredits implements Action {
-  readonly type = AppActionTypes.ToggleCredits;
-}
+Implement the reducer by updating the `const reducer` in `app.reducer.ts`. Note that each action will create an `on-block` and might reference its action params:
 
-export class ToggleMenu implements Action {
-  readonly type = AppActionTypes.ToggleMenu;
-}
-
-
-export type AppActions = ToggleCredits | ToggleMenu;
+```typescript
+export const reducer = createReducer(
+  initialState,
+  on(toggleMenu, (state, action) => {
+    return { ...state, menuVisible: !state.menuVisible };
+  }),
+  on(toggleCredits, (state, action) => {
+    return { ...state, creditsVisible: !state.creditsVisible };
+  }),
+  on(setTitle, (state, action) => {
+    return { ...state, title: action.title };
+  })
+);
 ```
 
 Create Selectors:
 
 ```
- ng g se store/app --group
+ng g se store/app --group
 ```
 
 Add the following to `app.selectors.ts`:
@@ -201,20 +210,7 @@ export const getCreditsVisible = createSelector(
 )
 ```
 
-Implement the Reducer:
 
-```typescript
-export function reducer(state = initialState, action: Action): AppState {
-  switch (action.type) {
-    case AppActionTypes.ToggleCredits:
-      return { ...state, creditsVisible: !state.creditsVisible };
-    case AppActionTypes.ToggleMenu:
-      return { ...state, menuVisible: !state.menuVisible}
-    default:
-      return state;
-  }
-}
-```
 
 Use in `home.component.ts`:
 
