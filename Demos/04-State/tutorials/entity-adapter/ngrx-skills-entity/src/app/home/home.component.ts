@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../state/app.reducer';
-// import { ToggleCredits, ToggleMenu } from '../store/actions/app.actions';
-// import { State } from '../store/reducers/app.reducer';
-// import {
-//   getCreditsVisible,
-//   getMenuVisible,
-// } from '../store/selectors/app.selectors';
+import { toggleCredits, toggleMenu } from '../state/app.actions';
+import { getCreditsVisible, getMenuVisible } from '../state/app.selectors';
 
 @Component({
   selector: 'app-home',
@@ -21,18 +17,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // toggleCredits(): void {
-  //   this.store.dispatch(new ToggleCredits());
-  // }
+  toggleCredits(): void {
+    this.store.dispatch(toggleCredits());
+  }
 
-  // tobbleMenu(): void {
-  //   this.store.dispatch(new ToggleMenu());
-  // }
-}
-function getCreditsVisible(getCreditsVisible: any) {
-  throw new Error('Function not implemented.');
-}
-
-function getMenuVisible(getMenuVisible: any) {
-  throw new Error('Function not implemented.');
+  tobbleMenu(): void {
+    this.store.dispatch(toggleMenu());
+  }
 }

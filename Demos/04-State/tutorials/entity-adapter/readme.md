@@ -81,32 +81,21 @@ export const initialState: State = {
   authors: [],
 };
 ```
-
-<!-- Correct the reducers result type to AppState
-
-```typescript
-export function reducer(state = initialState, action: Action): AppState {
-  switch (action.type) {
-
-    default:
-      return state;
-  }
-}
-```
-
-Add the `AppState` slice to the composed Root State in `app/store/index.ts`
+Register the App State in `index.ts`. Note that we are using an alias import to avoid renaming `State` to `AppState` & `reducer` to `appReducer` by using our custom prefix: 
 
 ```typescript
-import { appFeatureKey, AppState, reducer as AppReducer } from './reducers/app.reducer';
+import * as app from './app.reducer';
 
 export interface State {
-  [appFeatureKey]: AppState;
+  app: app.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [appFeatureKey]: AppReducer,
+  app: app.reducer,
 };
-``` -->
+```
+
+>Note: State of Lazy Loaded modules with be authmatically added to the `root state` and  `ActionReducerMap`
 
 Add a new home component 
 
@@ -189,28 +178,31 @@ export const reducer = createReducer(
 Create Selectors:
 
 ```
-ng g se store/app --group
+ng g selector state/app
 ```
 
 Add the following to `app.selectors.ts`:
 
 ```typescript
-import { AppState, appFeatureKey } from '../reducers/app.reducer';
-
-export const getAppState = createFeatureSelector<AppState>(appFeatureKey);
+export const getAppState = createFeatureSelector<State>(appFeatureKey);
 
 export const getMenuVisible = createSelector(
   getAppState,
-  (state: AppState) => state.menuVisible
+  (state: State) => state.menuVisible
 );
 
 export const getCreditsVisible = createSelector(
-    getAppState,
-    (state:AppState)=>state.creditsVisible
-)
+  getAppState,
+  (state: State) => state.creditsVisible
+);
+
+export const getTitle = createSelector(
+  getAppState,
+  (state: State) => state.title
+);
 ```
 
-
+>Note: Make sure you import `State` from the reducer file and not from ngrx
 
 Use in `home.component.ts`:
 
