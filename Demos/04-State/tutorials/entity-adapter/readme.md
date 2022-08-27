@@ -60,24 +60,20 @@ imports: [
 
 Scaffold AppState using schematics:
 
-```
-> ng g r store/app --group
-? Should we add success and failure actions to the reducer? No
-? Do you want to use the create function? No
-CREATE src/app/store/reducers/app.reducer.spec.ts (324 bytes)
-CREATE src/app/store/reducers/app.reducer.ts (284 bytes)
+```bash
+ng g reducer state/app --api false
 ```
 
-Add to `app.reducer.ts`
+Update `app.reducer.ts`
 
 ```typescript
-export interface AppState {
+export interface State {
   creditsVisible: boolean;
   authors: Author[];
   menuVisible: boolean;
 }
 
-export const initialState: AppState = {
+export const initialState: State = {
   creditsVisible: false,
   authors: [],
   menuVisible: true,
@@ -95,7 +91,6 @@ export function reducer(state = initialState, action: Action): AppState {
   }
 }
 ```
-
 
 Add the `AppState` slice to the composed Root State in `app/store/index.ts`
 
@@ -138,7 +133,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule, 
-    . . .
+    ...
 ```
 
 Clean the app.component.html and set the app-home component as content
@@ -153,12 +148,10 @@ Add to `home.component.html`, also implement an empty `toggleCredits()` in the \
 </div>
 ```
 
-
-
 Add Actions:
 
 ```
-ng g action store/app --group=true --creators=false
+ng g action state/app
 ```
 
 > Note: Answer all Schematic Params with No
