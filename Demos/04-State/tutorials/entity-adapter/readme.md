@@ -443,7 +443,9 @@ Add & implement `skills/skills.service.ts` with all CRUD-operations
 
 Add the feature state:
 
-
+```
+ng g store State --state-path state --module skills/skills.module.ts
+```
 
 Add NgRx Entity:
 
