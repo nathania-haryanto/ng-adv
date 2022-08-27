@@ -1,13 +1,17 @@
 ## Installation:
 
-Create a new Project Called `ngrx-skills` and open it in VS Code
+Create a new Project Called `ngrx-skills` and open it in VS Code:
+
+```bash
+ng n ngrx-skills-entity --routing true --style scss
+```
 
 > Note: Some Hints in this Guide assume that you are using the [NgRx Snippets - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
 
-```
+```bash
 npm i @ngrx/store @ngrx/effects @ngrx/entity -S
 npm i @ngrx/store-devtools -D
-ng add @ngrx/schematics
+ng add @ngrx/schematics --DefaultCollection true
 ```
 
 > Note: Answer the question "Do you want to use @ngrx/schematics as the default collection" with yes
