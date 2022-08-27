@@ -410,10 +410,13 @@ Create a lazy loaded skills module:
 ng g module skills --route skills --module app.module.ts
 ```
 
-Creator Functions:
+Add Skill-Components:
 
-- createAction
-- createEffect
+```
+ng g c skills/skills-container
+ng g c skills/skills-list-with-row
+ng g c skills/skill-row
+```
 
 Add Food Data to db.json & create a skill.model.ts:
 
@@ -424,7 +427,23 @@ Add Food Data to db.json & create a skill.model.ts:
 ]
 ```
 
+Add `skill.model.ts`:
+
+```typescript
+export class Skill {
+  id: number = 0;
+  name: string = '';
+  completed: boolean = false;
+}
+```
+
+Add & implement `skills/skills.service.ts` with all CRUD-operations
+
 ### Creator Functions
+
+Add the feature state:
+
+
 
 Add NgRx Entity:
 
@@ -432,13 +451,7 @@ Add NgRx Entity:
 npm i -S @ngrx/entity
 ```
 
-Add Skill-Components:
 
-```
-ng g c skills/skills-container
-ng g c skills/skills-list-with-row
-ng g c skills/skill-row
-```
 
 Add Skill State & Reducer:
 
