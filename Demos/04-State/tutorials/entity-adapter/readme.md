@@ -1,13 +1,17 @@
 ## Installation:
 
-Create a new Project Called `ngrx-skills` and open it in VS Code
+Create a new Project Called `ngrx-skills` and open it in VS Code:
+
+```bash
+ng n ngrx-skills-entity --routing true --style scss
+```
 
 > Note: Some Hints in this Guide assume that you are using the [NgRx Snippets - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
 
-```
+```bash
 npm i @ngrx/store @ngrx/effects @ngrx/entity -S
 npm i @ngrx/store-devtools -D
-ng add @ngrx/schematics
+ng add @ngrx/schematics --DefaultCollection true
 ```
 
 > Note: Answer the question "Do you want to use @ngrx/schematics as the default collection" with yes
@@ -25,102 +29,73 @@ General Syntax: ng g TYPE PATH/NAME --group
 ## Store & App State
 
 Create Model Author interface: 
-- create new folder "app/model"
-- create file "author.ts"
-
-```
-export interface Author {
-    id:number,
-    mail:string
-  }
-```
-
-Create Store - enter "." for the path question to point to the app module.
-
-```
- ng g store State --root true --statePath store
-
-? To which module (path) should the state be registered in? .
-CREATE src/app/store/index.ts (360 bytes)
-UPDATE src/app/app.module.ts (727 bytes)
-```
-
-If no path is set for the question the store must be added manually
-Runtime checks must be added manually anyway.
-
-Add Store to app.module.ts
+- create new folder "app/authors"
+- create file "author.model.ts"
 
 ```typescript
-import { reducers, metaReducers } from './store';
-import { EffectsModule } from '@ngrx/effects';
-import { environment } from 'src/environments/environment';
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
-...
-
-StoreModule.forRoot(reducers, {
-  metaReducers,
-  runtimeChecks: {
-    strictStateImmutability: true,
-    strictActionImmutability: true
-  }
-}),
-  EffectsModule.forRoot([]),
-  !environment.production ? StoreDevtoolsModule.instrument() : [];
+export class Author {
+  id: number = 0;
+  mail: string = '';
+}
 ```
 
-Implement AppState:
+Scaffold Store using schematics:
 
-```
-> ng g r store/app --group
-? Should we add success and failure actions to the reducer? No
-? Do you want to use the create function? No
-CREATE src/app/store/reducers/app.reducer.spec.ts (324 bytes)
-CREATE src/app/store/reducers/app.reducer.ts (284 bytes)
+```bash
+ng g store State --root --state-path state --module app.module.ts
 ```
 
-Add to `app.reducer.ts`
+Check the registration of the state in app.module.ts:
 
 ```typescript
-export interface AppState {
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
+  ],
+```
+
+>Note: You might want to add other modules to `app.module.ts`
+
+Scaffold AppState using schematics:
+
+```bash
+ng g reducer state/app --api false
+```
+
+Update `app.reducer.ts`
+
+```typescript
+export interface State {
   creditsVisible: boolean;
-  authors: Author[];
   menuVisible: boolean;
+  title: string;
+  authors: Author[];
 }
 
-export const initialState: AppState = {
+export const initialState: State = {
   creditsVisible: false,
-  authors: [],
   menuVisible: true,
+  title: 'ng-adv: using ngrx',
+  authors: [],
 };
 ```
-
-Correct the reducers result type to AppState
-
-```typescript
-export function reducer(state = initialState, action: Action): AppState {
-  switch (action.type) {
-
-    default:
-      return state;
-  }
-}
-```
-
-
-Add the `AppState` slice to the composed Root State in `app/store/index.ts`
+Register the App State in `index.ts`. Note that we are using an alias import to avoid renaming `State` to `AppState` & `reducer` to `appReducer` by using our custom prefix: 
 
 ```typescript
-import { appFeatureKey, AppState, reducer as AppReducer } from './reducers/app.reducer';
+import * as app from './app.reducer';
 
 export interface State {
-  [appFeatureKey]: AppState;
+  app: app.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [appFeatureKey]: AppReducer,
+  app: app.reducer,
 };
 ```
+
+>Note: State of Lazy Loaded modules with be authmatically added to the `root state` and  `ActionReducerMap`
 
 Add a new home component 
 
@@ -149,90 +124,73 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule, 
-    . . .
+    ...
 ```
 
-Clean the app.component.html and set the app-home component as content
+To add actions we will use an extension with snippets which is more handy that the ngrx schematics. To begin create a file `state/app.actions.ts`. 
 
-Add to `home.component.html`, also implement an empty `toggleCredits()` in the \*.ts
+Add the following extension to Visual Studio Code:
 
-```html
-<div fxLayout="column" fxLayoutAlign="center center">
-  <h1>Skills Home</h1>
-
-  <button mat-raised-button (click)="toggleCredits()">Toggle Credits</button>
-</div>
+```bash
+code --install-extension mikael.angular-beastcode
 ```
 
-
-
-Add Actions:
-
-```
-ng g action store/app --group=true --creators=false
-```
-
-> Note: Answer all Schematic Params with No
-
-Implement the first Actions ToggleCredits and ToggleMenu:
+Implement the Actions `toggleCredits`, `toggleMenu` and `setTitle`. Note the setTitle will take a param of type string.
 
 ```typescript
-export enum AppActionTypes {
-  ToggleCredits = '[App] ToggleCredits',
-  ToggleMenu =  '[App] ToggleMenu',
-  
-}
+export const toggleMenu = createAction('[App] toggleMenu');
+export const toggleCredits = createAction('[App] toggleCredits');
+export const setTitle = createAction(
+  '[App] setTitle',
+  props<{ title: string }>()
+);
+```
 
-export class ToggleCredits implements Action {
-  readonly type = AppActionTypes.ToggleCredits;
-}
+Implement the reducer by updating the `const reducer` in `app.reducer.ts`. Note that each action will create an `on-block` and might reference its action params:
 
-export class ToggleMenu implements Action {
-  readonly type = AppActionTypes.ToggleMenu;
-}
-
-
-export type AppActions = ToggleCredits | ToggleMenu;
+```typescript
+export const reducer = createReducer(
+  initialState,
+  on(toggleMenu, (state, action) => {
+    return { ...state, menuVisible: !state.menuVisible };
+  }),
+  on(toggleCredits, (state, action) => {
+    return { ...state, creditsVisible: !state.creditsVisible };
+  }),
+  on(setTitle, (state, action) => {
+    return { ...state, title: action.title };
+  })
+);
 ```
 
 Create Selectors:
 
 ```
- ng g se store/app --group
+ng g selector state/app
 ```
 
 Add the following to `app.selectors.ts`:
 
 ```typescript
-import { AppState, appFeatureKey } from '../reducers/app.reducer';
-
-export const getAppState = createFeatureSelector<AppState>(appFeatureKey);
+export const getAppState = createFeatureSelector<State>(appFeatureKey);
 
 export const getMenuVisible = createSelector(
   getAppState,
-  (state: AppState) => state.menuVisible
+  (state: State) => state.menuVisible
 );
 
 export const getCreditsVisible = createSelector(
-    getAppState,
-    (state:AppState)=>state.creditsVisible
-)
+  getAppState,
+  (state: State) => state.creditsVisible
+);
+
+export const getTitle = createSelector(
+  getAppState,
+  (state: State) => state.title
+);
 ```
 
-Implement the Reducer:
-
-```typescript
-export function reducer(state = initialState, action: Action): AppState {
-  switch (action.type) {
-    case AppActionTypes.ToggleCredits:
-      return { ...state, creditsVisible: !state.creditsVisible };
-    case AppActionTypes.ToggleMenu:
-      return { ...state, menuVisible: !state.menuVisible}
-    default:
-      return state;
-  }
-}
-```
+>Note: Make sure you import `State` from the reducer file and not from ngrx
 
 Use in `home.component.ts`:
 
@@ -258,26 +216,45 @@ export class HomeComponent implements OnInit {
   }
 ```
 
-Add a div to `home.component.ts`
+Clean the app.component.html. Add the following content to `home.component.ts`:
 
-```
-<div *ngIf="creditsVisible | async">
-  CREDITS
+```html
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+  <h1>Skills Home</h1>
+
+  <button mat-raised-button (click)="toggleCredits()" color="primary">
+    Toggle Credits
+  </button>
+
+  <div
+    *ngIf="creditsVisible | async"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="16px"
+  >
+     Authors list will show up here
+  </div>
+
+  <button mat-raised-button (click)="tobbleMenu()" color="primary">
+    Toggle menu
+  </button>
+
+  <div *ngIf="menuVisible | async">My mock menu</div>
 </div>
 ```
 
 You should be able to toggle the credits now:
 
-![toggle-menu](./_images/toggle-credits.png)
+![toggle-menu](_images/toggle-menu.jpg)
 
 Install Redux DevTools Chrome Browser Extension and view the Actions and State Diff.
 
-## Effects
+## Using Effects to load data
 
 Install Effects Lib:
 
 ```
-npm install @ngrx/effects --save
+npm install @ngrx/effects -S
 ```
 
 Add data to db.json at project root level:
@@ -285,158 +262,98 @@ Add data to db.json at project root level:
 ```json
 {
   "authors": [
-    { "id": 1, "mail": "alexander.pajer@integrations.at" },
-    { "id": 2, "mail": "alengauer.training@gmail.com" }
+    {
+      "id": 1,
+      "mail": "alexander.pajer@integrations.at"
+    },
+    {
+      "id": 3,
+      "mail": "giro.thegalgo@integrations.at"
+    }
   ]
 }
 ```
 
-### Add author actions:
+Add author actions to `app.actions.ts`:
 
 ```typescript
-export enum AppActionTypes {
-  ToggleCredits = '[App] ToggleCredits',
-  ToggleMenu = '[App] ToggleMenu',
-  SetCreditsVisible = '[App] SetCreditsVisible',
-  LoadAuthors = '[App] LoadAuthors',
-  LoadAuthorsSuccess = '[App] LoadAuthorsSuccess',
-  LoadAuthorsFailure = '[App] LoadAuthorsFailure',
-  DeleteAuthorsFailure = '[App] DeleteAuthorsFailure',
-}
-
-export class ToggleCredits implements Action {
-  readonly type = AppActionTypes.ToggleCredits;
-}
-
-export class ToggleMenu implements Action {
-  readonly type = AppActionTypes.ToggleMenu;
-}
-
-export class SetCreditsVisible implements Action {
-  readonly type = AppActionTypes.SetCreditsVisible;
-  constructor(public payload: boolean) {}
-}
-
-export class LoadAuthors implements Action {
-  readonly type = AppActionTypes.LoadAuthors;
-}
-
-export class LoadAuthorsSuccess implements Action {
-  readonly type = AppActionTypes.LoadAuthorsSuccess;
-  constructor(public payload: Author[]) {}
-}
-
-export class LoadAuthorsFailure implements Action {
-  readonly type = AppActionTypes.LoadAuthorsFailure;
-  constructor(public payload: Error) {}
-}
-
-export class DeleteAuthorsFailure implements Action {
-  readonly type = AppActionTypes.LoadAuthorsFailure;
-  constructor(public payload: Error) {}
-}
-
-// First pipe create by Prettier
-
-export type AppActions =
-  | ToggleCredits
-  | ToggleMenu
-  | SetCreditsVisible
-  | LoadAuthors
-  | LoadAuthorsSuccess
-  | DeleteAuthorsFailure
-  | LoadAuthorsFailure;
+export const loadAuthors = createAction('[App] loadAuthors');
+export const loadAuthorsSuccess = createAction(
+  '[App] loadAuthors Success',
+  props<{ item: Author[] }>()
+);
+export const loadAuthorsFailure = createAction(
+  '[App] loadAuthors Failure',
+  props<{ err: Error }>()
+);
 ```
 
-### Extend `app.selectors.ts`:
+Update `app.selectors.ts` to reflect authors data:
 
 ```typescript
 export const getAuthors = createSelector(
   getAppState,
-  (state: AppState) => state.authors
+  (state: State) => state.authors
 );
 ```
 
-
-### Extend Reducer
-
-Extend Reducer with LoadAuthorSuccess Action and retype the action Parameter Type to AppActons
+Update app.reducer.ts to handle successful loading of author data:
 
 ```typescript
-export function reducer(state = initialState, action: AppActions): AppState {
-  switch (action.type) {
-    case AppActionTypes.ToggleCredits:
-      return { ...state, creditsVisible: !state.creditsVisible}
-    case AppActionTypes.ToggleMenu:
-      return { ...state, menuVisible: !state.menuVisible}
-
-    case AppActionTypes.LoadAuthorsSuccess:
-      return { ...state, authors: action.payload}
-    default:
-      return state;
-  }
-}
-```
-
-### Implement Authors Service
-
-```
- ng g s model/authors --skipTests
-```
-
-```typescript
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Author } from './author';
-import { tap } from "rxjs/operators";
-import { Observable } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root'
+on(loadAuthorsSuccess, (state, action) => {
+  return { ...state, authors: action.items };
 })
-export class AuthorsService {
+```
 
-  constructor(private httpClient: HttpClient) { }
+Implement Authors Service:
+
+```
+ ng g s authors/authors --skipTests
+```
+
+```typescript
+export class AuthorService {
+  constructor(private httpClient: HttpClient) {}
 
   getAuthors(): Observable<Author[]> {
-    return this.httpClient
-      .get<Author[]>(environment.apiUrl + "authors")
-      .pipe(tap(data => console.log("data from api", data)));
+    return this.httpClient.get<Author[]>(`${environment.api}authors`);
   }
 }
 ```
 
-To make this working:
-- add apiUrl in environment.ts with value 'http://localhost:3000/'
-- add HttpClientModule in app.module
+Make sure the requirements for the AuthorService are present:
 
+- Add api in environment.ts with value 'http://localhost:3000/'
+- Add HttpClientModule to the app.module
 
-### Implement LoadAuthors Effect:
+Add loadAuthors effect:
 
 ```
-ng g ef store/app --group
+ng g effect state/app --module app.module.ts
 
 ? To which module (path) should the effect be registered in? .
 ? Should we wire up success and failure actions? No
 ? Do you want to use the create function? No
-CREATE src/app/store/effects/app.effects.spec.ts (566 bytes)
-CREATE src/app/store/effects/app.effects.ts (186 bytes)
-UPDATE src/app/app.module.ts (1140 bytes)
 ```
+
+Update app.effects.ts:
 
 ```typescript
 @Injectable()
 export class AppEffects {
-  constructor(private actions$: Actions, private auts: AuthorService) {}
+  constructor(private actions$: Actions, private service: AuthorService) {}
 
-  @Effect()
-  loadAuthor$: Observable<Action> = this.actions$.pipe(
-    ofType(AppActionTypes.LoadAuthors),
-    exhaustMap(() =>
-      this.auts.getAuthors().pipe(
-        map((authors: Author[]) => new LoadAuthorsSuccess(authors)),
-        catchError((err) => of(new LoadAuthorsFailure(err)))
+  loadDemos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadAuthors),
+      mergeMap(() =>
+        this.service.getAuthors().pipe(
+          map((data) => ({
+            type: '[App] loadAuthors Success',
+            items: data,
+          })),
+          catchError((err) => of(loadAuthorsFailure({ err })))
+        )
       )
     )
   );
@@ -487,12 +404,19 @@ Add the following HTML to home.components.html:
 
 ## Lazy Loaded Feature Module with NgRx Entity, Facades and Creator Functions
 
-Creator Functions:
+Create a lazy loaded skills module:
 
-- createAction
-- createEffect
+```
+ng g module skills --route skills --module app.module.ts
+```
 
-> Note: If you have not added a skills.module.ts you can do so by using: `ng g module skills --route skills --module app.module.ts`
+Add Skill-Components:
+
+```
+ng g c skills/skills-container
+ng g c skills/skills-list-with-row
+ng g c skills/skill-row
+```
 
 Add Food Data to db.json & create a skill.model.ts:
 
@@ -503,7 +427,27 @@ Add Food Data to db.json & create a skill.model.ts:
 ]
 ```
 
+Add `skill.model.ts`:
+
+```typescript
+export class Skill {
+  id: number = 0;
+  name: string = '';
+  completed: boolean = false;
+}
+```
+
+Add & implement `skills/skills.service.ts` with all CRUD-operations
+
 ### Creator Functions
+
+Add the feature state & reducer:
+
+```
+ng g store skills/skillsState --state-path state --module skills.module.ts
+```
+
+>Note that it is automatically registered in the feature module.
 
 Add NgRx Entity:
 
@@ -511,13 +455,7 @@ Add NgRx Entity:
 npm i -S @ngrx/entity
 ```
 
-Add Skill-Components:
 
-```
-ng g c skills/skills-container
-ng g c skills/skills-list-with-row
-ng g c skills/skill-row
-```
 
 Add Skill State & Reducer:
 
