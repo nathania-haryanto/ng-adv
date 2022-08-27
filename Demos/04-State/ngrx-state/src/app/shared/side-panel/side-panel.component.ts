@@ -47,7 +47,7 @@ export class SidePanelComponent implements OnInit {
       url: 'mock',
       title: 'The added item',
       component: 'StatefullComponentxxx',
-      id: 1,
+      id: 111,
       topicid: 1,
       visible: true,
       sortOrder: 0,

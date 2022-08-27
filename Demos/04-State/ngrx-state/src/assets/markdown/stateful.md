@@ -12,3 +12,7 @@ Examine the two components in stateful.component.html:
 <app-list></app-list>
 <app-kpi></app-kpi>
 ```
+
+Use the `Add Demo` button on the sidebar to add an item. Examine the implementation code and its effect on the two components
+
+![add-demo](assets/images/add-demo.jpg)
