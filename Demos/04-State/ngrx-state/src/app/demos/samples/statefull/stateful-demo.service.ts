@@ -20,7 +20,8 @@ export class StatefulDemoService {
     this.httpClient
       .get<DemoItem[]>(`${environment.apiUrl}demos`)
       .subscribe((data) => {
-        this.demos.next(data);
+        let trimmed = data.slice(0, 3);
+        this.demos.next(trimmed);
       });
   }
 
@@ -28,14 +29,14 @@ export class StatefulDemoService {
     return this.demos;
   }
 
-  delete(item: DemoItem): Observable<any> {
+  deleteDemo(item: DemoItem): Observable<any> {
     const arr = this.demos.getValue().filter((d) => d.id != item.id);
     // Emmit a marble containing the current array
     this.demos.next(arr);
     return EMPTY;
   }
 
-  insert(item: DemoItem): Observable<any> {
+  addDemo(item: DemoItem): Observable<any> {
     const arr = this.demos.getValue();
     arr.push(item);
     // Emmit a marble containing the current array

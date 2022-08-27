@@ -1,17 +1,17 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { combineLatest, Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { StatefulDemoService } from 'src/app/demos/samples/statefull/stateful-demo.service';
-import { DemoItem } from '../../../demo-base/demo-item.model';
+import { Observable, combineLatest } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
+import { DemoItem } from 'src/app/demos/demo-base/demo-item.model';
+import { StatefulDemoService } from '../stateful-demo.service';
 
 @Component({
-  selector: 'app-statefull',
-  templateUrl: './statefull.component.html',
-  styleUrls: ['./statefull.component.scss'],
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
 })
-export class StatefullComponent implements OnInit {
+export class ListComponent implements OnInit {
   constructor(private ds: StatefulDemoService) {}
 
   // Data Stream
@@ -53,7 +53,7 @@ export class StatefullComponent implements OnInit {
   }
 
   deleteItem(item: DemoItem) {
-    this.ds.delete(item);
+    this.ds.deleteDemo(item);
   }
 
   changeVisibility(item: DemoItem) {

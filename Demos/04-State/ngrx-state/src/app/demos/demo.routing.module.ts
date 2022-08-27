@@ -6,9 +6,9 @@ import { DemosStateComponent } from './samples/demos-state/demos-state.component
 import { EventbusComponent } from './samples/eventbus/eventbus.component';
 import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { SkillsComponent } from './samples/skills/skills.component';
-import { StatefullComponent } from './samples/statefull/container/statefull.component';
 import { EffectsComponent } from './samples/effects/effects.component';
 import { FacadesComponent } from './samples/facades/facades.component';
+import { StatefullComponent } from './samples/statefull/statefull.component';
 
 export const demoRoutes: Routes = [
   {

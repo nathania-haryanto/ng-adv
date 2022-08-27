@@ -25,10 +25,11 @@ import { EventbusComponent } from './samples/eventbus/eventbus.component';
 import { FacadesComponent } from './samples/facades/facades.component';
 import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { SkillsComponent } from './samples/skills/skills.component';
-import { StatefullComponent } from './samples/statefull/container/statefull.component';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { ListComponent } from './samples/statefull/list/list.component';
+import { StatefullComponent } from './samples/statefull/statefull.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     SelectorsComponent,
     FacadesComponent,
     EffectsComponent,
+    ListComponent,
   ],
   imports: [
     CommonModule,
