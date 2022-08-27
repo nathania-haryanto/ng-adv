@@ -29,20 +29,20 @@ General Syntax: ng g TYPE PATH/NAME --group
 ## Store & App State
 
 Create Model Author interface: 
-- create new folder "app/model"
-- create file "author.ts"
+- create new folder "app/authors"
+- create file "author.model.ts"
 
-```
-export interface Author {
-    id:number,
-    mail:string
-  }
+```typescript
+export class Author {
+  id: number = 0;
+  mail: string = '';
+}
 ```
 
 Create Store - enter "." for the path question to point to the app module.
 
 ```
- ng g store State --root true --statePath store
+ng g store State --root true --statePath store
 
 ? To which module (path) should the state be registered in? .
 CREATE src/app/store/index.ts (360 bytes)
