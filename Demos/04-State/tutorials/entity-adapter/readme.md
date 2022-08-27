@@ -39,41 +39,26 @@ export class Author {
 }
 ```
 
-Create Store - enter "." for the path question to point to the app module.
+Scaffold Store using schematics:
 
-```
-ng g store State --root true --statePath store
-
-? To which module (path) should the state be registered in? .
-CREATE src/app/store/index.ts (360 bytes)
-UPDATE src/app/app.module.ts (727 bytes)
+```bash
+ng g store State --root --state-path state --module app.module.ts
 ```
 
-If no path is set for the question the store must be added manually
-Runtime checks must be added manually anyway.
-
-Add Store to app.module.ts
+Check the registration of the state in app.module.ts:
 
 ```typescript
-import { reducers, metaReducers } from './store';
-import { EffectsModule } from '@ngrx/effects';
-import { environment } from 'src/environments/environment';
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
-...
-
-StoreModule.forRoot(reducers, {
-  metaReducers,
-  runtimeChecks: {
-    strictStateImmutability: true,
-    strictActionImmutability: true
-  }
-}),
-  EffectsModule.forRoot([]),
-  !environment.production ? StoreDevtoolsModule.instrument() : [];
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
+  ],
 ```
 
-Implement AppState:
+>Note: You might want to add other modules to `app.module.ts`
+
+Scaffold AppState using schematics:
 
 ```
 > ng g r store/app --group
