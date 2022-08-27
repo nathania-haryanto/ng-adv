@@ -24,6 +24,6 @@ export class SkillsService {
   }
 
   deleteSkill(skill: Skill): Observable<any> {
-    return this.httpClient.delete(this.url);
+    return this.httpClient.delete(`${this.url}/${skill.id}`);
   }
 }

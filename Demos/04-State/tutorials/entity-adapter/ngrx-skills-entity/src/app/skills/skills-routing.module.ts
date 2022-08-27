@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillsComponent } from './skills.component';
+import { SkillsContainerComponent } from './skills-container/skills-container.component';
 
-const routes: Routes = [{ path: '', component: SkillsComponent }];
+const routes: Routes = [{ path: '', component: SkillsContainerComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SkillsRoutingModule { }
+export class SkillsRoutingModule {}

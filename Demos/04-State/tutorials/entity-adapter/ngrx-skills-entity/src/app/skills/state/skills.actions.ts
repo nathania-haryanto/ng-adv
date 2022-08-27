@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Skill } from '../../skill.model';
+import { Skill } from '../skill.model';
 
 export const loadSkills = createAction('[Skills] Load Skills');
 

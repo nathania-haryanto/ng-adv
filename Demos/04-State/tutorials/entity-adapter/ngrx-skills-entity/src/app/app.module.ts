@@ -13,6 +13,7 @@ import { metaReducers, reducers } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './state/app.effects';
 import { AuthorsListComponent } from './authors/authors-list/authors-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AuthorsListComponent],
@@ -25,6 +26,7 @@ import { AuthorsListComponent } from './authors/authors-list/authors-list.compon
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
-import { reducer, initialState } from './app.reducer';
+import { reducer, initialState } from './skills.reducer';
 
-describe('App Reducer', () => {
+describe('Skills Reducer', () => {
   describe('an unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;

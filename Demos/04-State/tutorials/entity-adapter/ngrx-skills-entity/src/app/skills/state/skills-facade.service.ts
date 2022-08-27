@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Skill } from '../skill.model';
 import {
-  loadSkills,
   addSkill,
   deleteSkill,
+  loadSkills,
   toggleSkillComplete,
-} from '../actions/skills.actions';
-import { SkillsState } from '../reducers/skills.reducer';
-import { getAllSkills } from '../selectors/skills.selectors';
-import { Skill } from '../../skill.model';
-import { Observable } from 'rxjs';
+} from './skills.actions';
+import { SkillsState } from './skills.reducer';
+import { getAllSkills } from './skills.selectors';
 
 @Injectable({
   providedIn: 'root',

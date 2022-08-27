@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { Skill } from '../../skill.model';
-import { SkillsService } from '../../skills.service';
+import { Skill } from '../skill.model';
+import { SkillsService } from '../skills.service';
+import { deleteSkill, deleteSkillsFailure } from './skills.actions';
+
 import {
   addSkill,
   addSkillsFailure,
   addSkillsSuccess,
   loadSkills,
   loadSkillsFailure,
-} from '../actions/skills.actions';
+} from './skills.actions';
 
 @Injectable()
 export class SkillsEffects {
@@ -37,6 +39,18 @@ export class SkillsEffects {
         this.service.addSkill(action.data).pipe(
           map((skill: Skill) => addSkillsSuccess({ data: skill })),
           catchError(async (error) => addSkillsFailure({ error }))
+        )
+      )
+    )
+  );
+
+  deleteSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(deleteSkill),
+      mergeMap((action) =>
+        this.service.deleteSkill(action.data).pipe(
+          map((skill: Skill) => addSkillsSuccess({ data: skill })),
+          catchError(async (error) => deleteSkillsFailure({ error }))
         )
       )
     )

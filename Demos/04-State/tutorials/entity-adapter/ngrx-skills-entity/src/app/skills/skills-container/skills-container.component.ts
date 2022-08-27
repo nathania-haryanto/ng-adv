@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { SkillsFacadeService } from '../state/skills-facade.service';
 
 @Component({
   selector: 'app-skills-container',
   templateUrl: './skills-container.component.html',
-  styleUrls: ['./skills-container.component.scss']
+  styleUrls: ['./skills-container.component.scss'],
 })
 export class SkillsContainerComponent implements OnInit {
+  constructor(public sf: SkillsFacadeService) {}
 
-  constructor() { }
+  skills$ = this.sf.getSkills();
 
   ngOnInit(): void {
+    this.sf.initSkills();
   }
 
+  toggleShowAll() {}
+
+  // deleteSkill(s: Skill) {}
+
+  // addSkill(s: Skill) {}
+
+  // toogleComplete(s: Skill) {}
 }

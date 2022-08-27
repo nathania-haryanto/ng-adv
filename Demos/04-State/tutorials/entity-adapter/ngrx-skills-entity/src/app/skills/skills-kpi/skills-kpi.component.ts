@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Skill } from '../skill.model';
-import { SkillsFacadeService } from '../store/facades/skills-facade.service';
+import { SkillsFacadeService } from '../state/skills-facade.service';
 
 @Component({
   selector: 'app-skills-kpi',

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { skillsFeatureKey, skillAdapter } from '../reducers/skills.reducer';
+import { skillsFeatureKey, skillAdapter } from './skills.reducer';
 
 export const getSkillsState = createFeatureSelector<any>(skillsFeatureKey);
 
@@ -25,11 +25,7 @@ export const getSkillsState = createFeatureSelector<any>(skillsFeatureKey);
 //   "loaded": true
 // }
 
-export const {
-  selectAll,
-  selectEntities,
-  selectIds,
-  selectTotal,
-} = skillAdapter.getSelectors();
+export const { selectAll, selectEntities, selectIds, selectTotal } =
+  skillAdapter.getSelectors();
 
 export const getAllSkills = createSelector(getSkillsState, selectAll);
