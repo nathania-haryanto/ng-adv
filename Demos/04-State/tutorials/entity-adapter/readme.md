@@ -127,18 +127,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ...
 ```
 
-Clean the app.component.html and set the app-home component as content
-
-Add to `home.component.html`, also implement an empty `toggleCredits()` in the \*.ts
-
-```html
-<div fxLayout="column" fxLayoutAlign="center center">
-  <h1>Skills Home</h1>
-
-  <button mat-raised-button (click)="toggleCredits()">Toggle Credits</button>
-</div>
-```
-
 To add actions we will use an extension with snippets which is more handy that the ngrx schematics. To begin create a file `state/app.actions.ts`. 
 
 Add the following extension to Visual Studio Code:
@@ -228,26 +216,45 @@ export class HomeComponent implements OnInit {
   }
 ```
 
-Add a div to `home.component.ts`
+Clean the app.component.html. Add the following content to `home.component.ts`:
 
-```
-<div *ngIf="creditsVisible | async">
-  CREDITS
+```html
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+  <h1>Skills Home</h1>
+
+  <button mat-raised-button (click)="toggleCredits()" color="primary">
+    Toggle Credits
+  </button>
+
+  <div
+    *ngIf="creditsVisible | async"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="16px"
+  >
+     Authors list will show up here
+  </div>
+
+  <button mat-raised-button (click)="tobbleMenu()" color="primary">
+    Toggle menu
+  </button>
+
+  <div *ngIf="menuVisible | async">My mock menu</div>
 </div>
 ```
 
 You should be able to toggle the credits now:
 
-![toggle-menu](./_images/toggle-credits.png)
+![toggle-menu](_images/toggle-menu.jpg)
 
 Install Redux DevTools Chrome Browser Extension and view the Actions and State Diff.
 
-## Effects
+## Using Effects to load data
 
 Install Effects Lib:
 
 ```
-npm install @ngrx/effects --save
+npm install @ngrx/effects -S
 ```
 
 Add data to db.json at project root level:
@@ -255,158 +262,98 @@ Add data to db.json at project root level:
 ```json
 {
   "authors": [
-    { "id": 1, "mail": "alexander.pajer@integrations.at" },
-    { "id": 2, "mail": "alengauer.training@gmail.com" }
+    {
+      "id": 1,
+      "mail": "alexander.pajer@integrations.at"
+    },
+    {
+      "id": 3,
+      "mail": "giro.thegalgo@integrations.at"
+    }
   ]
 }
 ```
 
-### Add author actions:
+Add author actions to `app.actions.ts`:
 
 ```typescript
-export enum AppActionTypes {
-  ToggleCredits = '[App] ToggleCredits',
-  ToggleMenu = '[App] ToggleMenu',
-  SetCreditsVisible = '[App] SetCreditsVisible',
-  LoadAuthors = '[App] LoadAuthors',
-  LoadAuthorsSuccess = '[App] LoadAuthorsSuccess',
-  LoadAuthorsFailure = '[App] LoadAuthorsFailure',
-  DeleteAuthorsFailure = '[App] DeleteAuthorsFailure',
-}
-
-export class ToggleCredits implements Action {
-  readonly type = AppActionTypes.ToggleCredits;
-}
-
-export class ToggleMenu implements Action {
-  readonly type = AppActionTypes.ToggleMenu;
-}
-
-export class SetCreditsVisible implements Action {
-  readonly type = AppActionTypes.SetCreditsVisible;
-  constructor(public payload: boolean) {}
-}
-
-export class LoadAuthors implements Action {
-  readonly type = AppActionTypes.LoadAuthors;
-}
-
-export class LoadAuthorsSuccess implements Action {
-  readonly type = AppActionTypes.LoadAuthorsSuccess;
-  constructor(public payload: Author[]) {}
-}
-
-export class LoadAuthorsFailure implements Action {
-  readonly type = AppActionTypes.LoadAuthorsFailure;
-  constructor(public payload: Error) {}
-}
-
-export class DeleteAuthorsFailure implements Action {
-  readonly type = AppActionTypes.LoadAuthorsFailure;
-  constructor(public payload: Error) {}
-}
-
-// First pipe create by Prettier
-
-export type AppActions =
-  | ToggleCredits
-  | ToggleMenu
-  | SetCreditsVisible
-  | LoadAuthors
-  | LoadAuthorsSuccess
-  | DeleteAuthorsFailure
-  | LoadAuthorsFailure;
+export const loadAuthors = createAction('[App] loadAuthors');
+export const loadAuthorsSuccess = createAction(
+  '[App] loadAuthors Success',
+  props<{ item: Author[] }>()
+);
+export const loadAuthorsFailure = createAction(
+  '[App] loadAuthors Failure',
+  props<{ err: Error }>()
+);
 ```
 
-### Extend `app.selectors.ts`:
+Update `app.selectors.ts` to reflect authors data:
 
 ```typescript
 export const getAuthors = createSelector(
   getAppState,
-  (state: AppState) => state.authors
+  (state: State) => state.authors
 );
 ```
 
-
-### Extend Reducer
-
-Extend Reducer with LoadAuthorSuccess Action and retype the action Parameter Type to AppActons
+Update app.reducer.ts to handle successful loading of author data:
 
 ```typescript
-export function reducer(state = initialState, action: AppActions): AppState {
-  switch (action.type) {
-    case AppActionTypes.ToggleCredits:
-      return { ...state, creditsVisible: !state.creditsVisible}
-    case AppActionTypes.ToggleMenu:
-      return { ...state, menuVisible: !state.menuVisible}
-
-    case AppActionTypes.LoadAuthorsSuccess:
-      return { ...state, authors: action.payload}
-    default:
-      return state;
-  }
-}
-```
-
-### Implement Authors Service
-
-```
- ng g s model/authors --skipTests
-```
-
-```typescript
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Author } from './author';
-import { tap } from "rxjs/operators";
-import { Observable } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root'
+on(loadAuthorsSuccess, (state, action) => {
+  return { ...state, authors: action.items };
 })
-export class AuthorsService {
+```
 
-  constructor(private httpClient: HttpClient) { }
+Implement Authors Service:
+
+```
+ ng g s authors/authors --skipTests
+```
+
+```typescript
+export class AuthorService {
+  constructor(private httpClient: HttpClient) {}
 
   getAuthors(): Observable<Author[]> {
-    return this.httpClient
-      .get<Author[]>(environment.apiUrl + "authors")
-      .pipe(tap(data => console.log("data from api", data)));
+    return this.httpClient.get<Author[]>(`${environment.api}authors`);
   }
 }
 ```
 
-To make this working:
-- add apiUrl in environment.ts with value 'http://localhost:3000/'
-- add HttpClientModule in app.module
+Make sure the requirements for the AuthorService are present:
 
+- Add api in environment.ts with value 'http://localhost:3000/'
+- Add HttpClientModule to the app.module
 
-### Implement LoadAuthors Effect:
+Add loadAuthors effect:
 
 ```
-ng g ef store/app --group
+ng g effect state/app --module app.module.ts
 
 ? To which module (path) should the effect be registered in? .
 ? Should we wire up success and failure actions? No
 ? Do you want to use the create function? No
-CREATE src/app/store/effects/app.effects.spec.ts (566 bytes)
-CREATE src/app/store/effects/app.effects.ts (186 bytes)
-UPDATE src/app/app.module.ts (1140 bytes)
 ```
+
+Update app.effects.ts:
 
 ```typescript
 @Injectable()
 export class AppEffects {
-  constructor(private actions$: Actions, private auts: AuthorService) {}
+  constructor(private actions$: Actions, private service: AuthorService) {}
 
-  @Effect()
-  loadAuthor$: Observable<Action> = this.actions$.pipe(
-    ofType(AppActionTypes.LoadAuthors),
-    exhaustMap(() =>
-      this.auts.getAuthors().pipe(
-        map((authors: Author[]) => new LoadAuthorsSuccess(authors)),
-        catchError((err) => of(new LoadAuthorsFailure(err)))
+  loadDemos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadAuthors),
+      mergeMap(() =>
+        this.service.getAuthors().pipe(
+          map((data) => ({
+            type: '[App] loadAuthors Success',
+            items: data,
+          })),
+          catchError((err) => of(loadAuthorsFailure({ err })))
+        )
       )
     )
   );
@@ -457,12 +404,16 @@ Add the following HTML to home.components.html:
 
 ## Lazy Loaded Feature Module with NgRx Entity, Facades and Creator Functions
 
+Create a lazy loaded skills module:
+
+```
+ng g module skills --route skills --module app.module.ts
+```
+
 Creator Functions:
 
 - createAction
 - createEffect
-
-> Note: If you have not added a skills.module.ts you can do so by using: `ng g module skills --route skills --module app.module.ts`
 
 Add Food Data to db.json & create a skill.model.ts:
 

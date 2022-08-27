@@ -10,9 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { metaReducers, reducers } from './state';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './state/app.effects';
+import { AuthorsListComponent } from './authors/authors-list/authors-list.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, AuthorsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +23,7 @@ import { metaReducers, reducers } from './state';
     HttpClientModule,
     FlexLayoutModule,
     StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],

@@ -1,6 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { Author } from '../authors/author.model';
-import { toggleCredits, toggleMenu, setTitle } from './app.actions';
+import {
+  toggleCredits,
+  toggleMenu,
+  setTitle,
+  loadAuthorsSuccess,
+} from './app.actions';
 
 export const appFeatureKey = 'app';
 
@@ -28,5 +33,8 @@ export const reducer = createReducer(
   }),
   on(setTitle, (state, action) => {
     return { ...state, title: action.title };
+  }),
+  on(loadAuthorsSuccess, (state, action) => {
+    return { ...state, authors: action.items };
   })
 );

@@ -17,3 +17,8 @@ export const getTitle = createSelector(
   getAppState,
   (state: State) => state.title
 );
+
+export const getAuthors = createSelector(
+  getAppState,
+  (state: State) => state.authors
+);

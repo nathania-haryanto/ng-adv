@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Author } from './author.model';
+import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Author } from './author.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class AuthorService {
   constructor(private httpClient: HttpClient) {}
 
-  getAuthors(): Observable<Author[]> {
+  getAuthors() {
     return this.httpClient.get<Author[]>(`${environment.api}authors`);
   }
 }
