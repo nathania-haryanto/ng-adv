@@ -57,7 +57,7 @@ Commit files:
 git commit -m "your checkin comment"
 ```
 
-## Branching
+## Branching Basics
 
 List Branches:
 
@@ -91,18 +91,9 @@ Merge Branch:
 git merge [branch_to_merge]
 ```
 
-> Note: You might have to switch to the branch that you might want to merge into befor executing merge
+> Note: It is good practice to do pull requests instead of merging. Pull requests allow check, comments, approvals
 
-Update a Branch from master / main:
-
-```
-git fetch
-git rebase origin/master
-```
-
-## Dealing with special Commits
-
-Get a spcific Commit:
+Check out a specific commit:
 
 ```
 git checkout <sha1>
@@ -129,6 +120,50 @@ git branch save-detached-head
 ```
 
 > Note: You will have to switch to the branch you saved to afterwards
+
+## Changing Branches
+
+Saving work befor switching the branch - alternative to stage and commit:
+
+```
+git stash | git stash push
+```
+
+List stashes:
+
+```
+git stash list
+```
+
+Use a stash:
+
+```
+git stash apply | git stash apply stash@{2}
+```
+
+Switch to Branch:
+
+```
+git checkout [name_of_your_branch]
+```
+
+Cleaning up after branch switches - ie to remove untracked files from other branches on local disk:
+
+-n flag is used to perform dry run.
+-f flag is used to remove untracked files.
+-fd flag is used to remove untracked files and folders.
+-fx flag is used to remove untracked and ignored files.
+
+```
+git clean -f | git clean -f folderpath 
+```
+
+Update a Branch from master / main:
+
+```
+git fetch
+git rebase origin/master
+```
 
 ## Tags
 
