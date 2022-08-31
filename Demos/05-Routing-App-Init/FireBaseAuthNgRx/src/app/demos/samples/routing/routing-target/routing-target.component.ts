@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterReducerState } from '@ngrx/router-store';
 import { Store } from '@ngrx/store';
-import { getRouterInfo } from 'src/app/store/router.selectors';
+import { getRouterInfo } from 'src/app/state/router.selectors';
 import { tap } from 'rxjs/operators';
 
 @Component({
