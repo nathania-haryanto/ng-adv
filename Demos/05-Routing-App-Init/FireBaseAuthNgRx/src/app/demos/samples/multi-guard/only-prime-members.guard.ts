@@ -28,8 +28,7 @@ export class OnlyPrimeMembersGuard implements CanActivate {
     if (this.as.hasPrimeSubscription()) {
       return true;
     } else {
-      this.sns.displayAlert('Problem', 'Zahlen oder draußen bleiben');
-
+      this.sns.displayAlert('No Access', 'Access only for prime members');
       return false;
     }
   }
