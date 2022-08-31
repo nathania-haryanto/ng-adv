@@ -61,12 +61,12 @@ import { CustomersService } from './app-init/customers.service';
     }),
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initFactory,
-      deps: [HttpClient],
-      multi: true,
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initFactory,
+    //   deps: [HttpClient],
+    //   multi: true,
+    // },
     // {
     //   provide: ErrorHandler,
     //   useClass: GlobalErrService,
