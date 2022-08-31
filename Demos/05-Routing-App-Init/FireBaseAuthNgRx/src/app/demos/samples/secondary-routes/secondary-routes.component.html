@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Secondary-, Named-, Auxilary-Routes
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content fxLayout="column">
+    <button
+      mat-raised-button
+      [routerLink]="['', { outlets: { actionsOutlet: 'editor' } }]" color="accent"
+      >Show Editor</button
+    >
+
+    <button mat-raised-button (click)="programaticAuxRoute() " color="accent">
+      Show Uploader
+    </button>
+    <button
+      mat-raised-button
+      [routerLink]="['', { outlets: { actionsOutlet: null } }]" color="accent"
+    >
+      Clear Auxilary Route
+    </button>
+  </mat-card-content>
+</mat-card>
