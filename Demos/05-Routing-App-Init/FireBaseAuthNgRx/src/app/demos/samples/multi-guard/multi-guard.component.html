@@ -3,10 +3,38 @@
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
-  <mat-card-content> </mat-card-content>
+  <mat-card-content fxLayout="row">
+    <div fxLayout="column">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="this.af.toggleLoggedIn()"
+      >
+        Toggle LoggedIn
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="this.af.togglePrimeMember()"
+        [disabled]="allowToggleMember | async"
+      >
+        Toggle Prime Member
+      </button>
+      <button mat-raised-button [routerLink]="['members']" color="primary">
+        Go to Members
+      </button>
+      <button mat-raised-button [routerLink]="['prime']" color="primary">
+        Go to Prime Members
+      </button>
+    </div>
+    <div>
+      <pre>
+  <p>{{ user | async | json  }}</p>
+ </pre>
+    </div>
+  </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button [routerLink]="['members']" color="primary" >Members</button>
-    <button mat-raised-button [routerLink]="['prime']" color="primary" >Prime Members</button>
+    
   </mat-card-actions>
 </mat-card>
 

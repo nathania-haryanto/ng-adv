@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { AppFacade } from '../../../state/app.facade';
 
 @Component({
   selector: 'app-multi-guard',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MultiGuardComponent implements OnInit {
   title = 'Using multible Auth Guards';
-  constructor() {}
+  user = this.af.getUser();
+
+  allowToggleMember = this.af
+    .getIsLoggedIn()
+    .pipe(map((loggedin) => !loggedin));
+
+  constructor(public af: AppFacade) {}
 
   ngOnInit(): void {}
 }

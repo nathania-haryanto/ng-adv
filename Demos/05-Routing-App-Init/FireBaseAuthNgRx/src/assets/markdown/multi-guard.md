@@ -13,12 +13,13 @@ Inspect Routing config in `demo.module.ts` and the use of Guards:
         },
 ```
 
-Toggle Values in `simple-auth.service.ts` and use Buttons below to access routes:
+Toggle Values in `mock-auth.service.ts` and use Buttons below to access routes. Mock member state is kept in NgRx:
 
 ```typescript
-export class SimpleAuthService {
+export class MockAuthService {
+  constructor(private af: AppFacade) {}
   ...
-  isLoggedIn(): boolean {return true;}
-  hasPrimeSubscription(): boolean {return false;}
+  isLoggedIn() {return this.af.getIsLoggedIn();}
+  hasPrimeSubscription() {return this.af.getPrimeMember();}
 }
 ```
