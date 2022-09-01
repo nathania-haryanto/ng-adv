@@ -7,7 +7,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
-import { SkillsService } from '../model/skills/skills.service';
 import { SharedModule } from '../shared/shared.module';
 import { UxModule } from '../ux/ux.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
@@ -135,6 +134,6 @@ const demoRoutes: Routes = [
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],
-  providers: [SkillsService],
+  providers: [],
 })
 export class DemosModule {}
