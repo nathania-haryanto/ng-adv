@@ -31,6 +31,7 @@ import { SecondaryRoutesComponent } from './samples/secondary-routes/secondary-r
 import { AppInitComponent } from './samples/app-init/app-init.component';
 import { AppShellComponent } from './samples/app-shell/app-shell.component';
 import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
+import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 
 const demoRoutes: Routes = [
   {
@@ -40,6 +41,10 @@ const demoRoutes: Routes = [
       {
         path: 'app-init',
         component: AppInitComponent,
+      },
+      {
+        path: 'code-splitting',
+        component: CodeSplittingComponent,
       },
       {
         path: 'app-shell',
@@ -113,6 +118,7 @@ const demoRoutes: Routes = [
     AppInitComponent,
     AppShellComponent,
     PreloadingNgrxComponent,
+    CodeSplittingComponent,
   ],
   imports: [
     CommonModule,

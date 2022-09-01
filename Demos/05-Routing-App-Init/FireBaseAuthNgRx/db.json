@@ -1,6 +1,15 @@
 {
   "demos": [
     {
+      "url": "code-splitting",
+      "title": "Code Splitting",
+      "component": "CodeSplittingComponent",
+      "id": 91,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "app-init",
       "title": "App Init",
       "component": "AppInitComponent",
@@ -89,5 +98,8 @@
       "visible": true,
       "sortOrder": 0
     }
-  ]
+  ],
+  "customers": {
+    "id": 1, "name": "Fritzi"
+  }
 }

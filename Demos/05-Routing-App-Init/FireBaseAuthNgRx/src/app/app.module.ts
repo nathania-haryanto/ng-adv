@@ -32,6 +32,8 @@ import { HttpErrorInterceptor } from './error/globle-http-err-handler';
 // import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
 import { AppInitService, initFactory } from './app-init/app-init.service';
 import { CustomersService } from './app-init/customers.service';
+import { configFactory } from './app-init/config.factory';
+import { ConfigService } from './app-init/config.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrPageComponent],
@@ -61,12 +63,25 @@ import { CustomersService } from './app-init/customers.service';
     }),
   ],
   providers: [
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: initFactory,
-    //   deps: [HttpClient],
-    //   multi: true,
-    // },
+    {
+      provide: APP_INITIALIZER,
+      useValue: () => {
+        console.log('App init running');
+      },
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initFactory,
+      deps: [AppInitService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: configFactory,
+      deps: [ConfigService],
+      multi: true,
+    },
     // {
     //   provide: ErrorHandler,
     //   useClass: GlobalErrService,

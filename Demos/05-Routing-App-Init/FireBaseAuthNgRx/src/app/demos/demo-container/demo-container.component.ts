@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { filter, map } from 'rxjs/operators';
 import { MenuService } from 'src/app/shared/menu/menu.service';
 import { environment } from 'src/environments/environment';
-import { DemoItem } from '../demo-base/demo-item.model';
-import { DemoService } from '../demo-base/demo.service';
-import { MatDrawerMode } from '@angular/material/sidenav';
 import { LoadingService } from '../../shared/loading/loading.service';
-import { DemoFacade } from '../state/demo.facade';
-import { DemoState } from '../state/demos.reducer';
-import { Store } from '@ngrx/store';
+import { DemoService } from '../demo-base/demo.service';
 import { getAllDemos } from '../state/demo.selectors';
 import { loadDemos } from '../state/demos.actions';
+import { DemoState } from '../state/demos.reducer';
 
 @Component({
   selector: 'app-demo-container',
