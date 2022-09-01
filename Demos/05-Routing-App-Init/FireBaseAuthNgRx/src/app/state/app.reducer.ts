@@ -2,7 +2,7 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { Customer } from '../app-init/customer.model';
 import { loadCustomersSuccess } from './customers.actions';
-import { User } from '../model/user/user.model';
+import { User } from '../user/user.model';
 import { toggleLoggedIn, togglePrimeMember } from './app.actions';
 
 export const appFeatureKey = 'app';
