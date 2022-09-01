@@ -60,7 +60,7 @@ const demoRoutes: Routes = [
         component: LocServiceComponent,
       },
       {
-        path: 'preloading-ngrx',
+        path: 'preload-ngrx',
         component: PreloadingNgrxComponent,
       },
       {
