@@ -1,19 +1,16 @@
-Inspect Routing config in `demo.module.ts` and the use of Guards:
+Examine routing config in `demo.module.ts` and the use of guards:
 
 ```typescript
-{
-    path: 'multi-guard',
-    component: MultiGuardComponent,
-    children: [
-        { path: 'members', component: MembersComponent,
-        canActivate: [OnlyAuthenticatedGuard],
-        },
-        { path: 'prime',component: PrimeComponent,
-        canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard],
-        },
+{ path: 'multi-guard',
+  component: MultiGuardComponent,
+  children: [
+      { path: 'members', component: MembersComponent,
+      canActivate: [OnlyAuthenticatedGuard],},
+      { path: 'prime',component: PrimeComponent,
+      canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard]},
 ```
 
-Toggle Values in `mock-auth.service.ts` and use Buttons below to access routes. Mock member state is kept in NgRx:
+Toggle values in `mock-auth.service.ts` using the buttons below and access routes. Mock member state is kept in NgRx:
 
 ```typescript
 export class MockAuthService {
