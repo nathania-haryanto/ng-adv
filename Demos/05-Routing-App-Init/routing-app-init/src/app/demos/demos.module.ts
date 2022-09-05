@@ -89,7 +89,17 @@ const demoRoutes: Routes = [
         path: 'router-animations',
         component: RouterAnimationsComponent,
       },
-      { path: 'auxilary', component: SecondaryRoutesComponent },
+      {
+        path: 'auxilary',
+        component: SecondaryRoutesComponent,
+        children: [
+          {
+            path: 'editor',
+            component: MarkdownEditorComponent,
+            outlet: 'actions',
+          },
+        ],
+      },
     ],
   },
 ];

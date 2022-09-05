@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ErrPageComponent } from './error/err-page/err-page.component';
+import { MarkdownEditorComponent } from './demos/markdown-editor/markdown-editor.component';
 
 const routes: Routes = [
   {
