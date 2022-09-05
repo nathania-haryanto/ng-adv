@@ -1,0 +1,102 @@
+{
+  "demos": [
+    {
+      "url": "code-splitting",
+      "title": "Code Splitting",
+      "component": "CodeSplittingComponent",
+      "id": 91,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "app-init",
+      "title": "App Init",
+      "component": "AppInitComponent",
+      "id": 1,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "multi-guard",
+      "title": "Route Guards",
+      "component": "MultiGuardComponent",
+      "id": 7,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "multi-interceptor",
+      "title": "Interceptors",
+      "component": "MultiInterceptorComponent",
+      "id": 8,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "global-errors",
+      "title": "Global Errors",
+      "component": "GlobalErrorsComponent",
+      "id": 9,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "http-errors",
+      "title": "Http Errors",
+      "component": "HttpErrorsComponent",
+      "id": 13,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "routing",
+      "title": "Routing NgRx",
+      "component": "RoutingComponent",
+      "id": 1,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "auxilary",
+      "title": "Auxiliary Routes",
+      "component": "SecondaryRoutesComponent",
+      "id": 321,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "preload-ngrx",
+      "title": "NgRx Preloading",
+      "component": "PreloadingNgrxComponent",
+      "id": 311,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },    {
+      "url": "router-animations",
+      "title": "Router Animations",
+      "component": "RouterAnimationsComponent",
+      "id": 21,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    }
+  ],
+  "skills":[
+    { "id": 1, "name": "Node.js", "hours": 3, "completed": false },
+    { "id": 2, "name": "TypeScript", "hours": 4, "completed": false },
+    { "id": 3, "name": "JavaScript", "hours": 10, "completed": false },
+    { "id": 4, "name": "Angular", "hours": 20, "completed": false }
+  ],
+  "customers": {
+    "id": 1, "name": "Fritzi"
+  }
+}
