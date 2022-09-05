@@ -24,11 +24,8 @@ export class SkillsEditComponent implements OnInit {
   }
 
   getSkill() {
-    const id = this.route.snapshot.params['id'];
-    console.log('id-param:', id);
-    this.service.getSkill(id).subscribe((data) => {
-      this.skill = data;
-      console.log('setting skill: ', data);
+    this.route.data.subscribe((data) => {
+      this.skill = data['skill'];
     });
   }
 

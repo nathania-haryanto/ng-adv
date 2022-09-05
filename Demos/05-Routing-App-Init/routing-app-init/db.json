@@ -19,15 +19,6 @@
       "sortOrder": 0
     },
     {
-      "url": "app-shell",
-      "title": "App Shell",
-      "component": "AppShellComponent",
-      "id": 2,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "multi-guard",
       "title": "Route Guards",
       "component": "MultiGuardComponent",

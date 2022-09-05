@@ -28,7 +28,6 @@ import { demoReducer } from './state/demos.reducer';
 import { RouterAnimationsComponent } from './samples/router-animations/router-animations.component';
 import { SecondaryRoutesComponent } from './samples/secondary-routes/secondary-routes.component';
 import { AppInitComponent } from './samples/app-init/app-init.component';
-import { AppShellComponent } from './samples/app-shell/app-shell.component';
 import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 
@@ -44,10 +43,6 @@ const demoRoutes: Routes = [
       {
         path: 'code-splitting',
         component: CodeSplittingComponent,
-      },
-      {
-        path: 'app-shell',
-        component: AppShellComponent,
       },
       {
         path: 'routing',
@@ -115,7 +110,6 @@ const demoRoutes: Routes = [
     RouterAnimationsComponent,
     SecondaryRoutesComponent,
     AppInitComponent,
-    AppShellComponent,
     PreloadingNgrxComponent,
     CodeSplittingComponent,
   ],

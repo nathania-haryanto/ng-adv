@@ -1,1 +1,1 @@
-Data preloading using ngrx and resolve
+Data preloading using ngrx and Resolvers
