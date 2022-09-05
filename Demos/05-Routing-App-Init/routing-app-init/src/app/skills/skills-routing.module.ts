@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillResolverService } from './skill-resolver.service';
+import { SkillResolver } from './skill.resolver';
 import { SkillsEditComponent } from './skills-edit/skills-edit.component';
 import { SkillsListComponent } from './skills-list/skills-list.component';
+import { SkillsResolver } from './skills.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: SkillsListComponent,
+    resolve: { skills: SkillsResolver },
   },
   {
     path: ':id',
     component: SkillsEditComponent,
-    resolve: { skill: SkillResolverService },
+    resolve: { skill: SkillResolver },
   },
 ];
 

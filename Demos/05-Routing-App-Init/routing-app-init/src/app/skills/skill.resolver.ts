@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { Skill } from './skill.model';
 import { Observable } from 'rxjs';
-import { SkillsService } from './skills.service';
+import { Skill } from './skill.model';
+import { SkillsEntityService } from './skills-entity.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SkillResolverService {
-  constructor(private service: SkillsService) {}
+export class SkillResolver {
+  constructor(private service: SkillsEntityService) {}
 
   resolve(
     route: ActivatedRouteSnapshot
   ): Skill | undefined | Observable<Skill | undefined> | Promise<Skill> {
     const id = +route.params['id'];
-    return this.service.getSkill(id);
+    return this.service.getByKey(id);
   }
 }

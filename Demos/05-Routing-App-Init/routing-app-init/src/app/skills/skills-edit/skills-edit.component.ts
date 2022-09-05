@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from '../skill.model';
-import { SkillsService } from '../skills.service';
 import { SnackbarService } from '../../shared/snackbar/snackbar.service';
 
 @Component({
@@ -13,7 +12,6 @@ export class SkillsEditComponent implements OnInit {
   skill: Skill | undefined = { id: 0, name: '', hours: 1, completed: false };
 
   constructor(
-    private service: SkillsService,
     private route: ActivatedRoute,
     private router: Router,
     private sns: SnackbarService

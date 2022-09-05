@@ -22,18 +22,16 @@ import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { reducers, metaReducers } from './state';
 import { ErrPageComponent } from './error/err-page/err-page.component';
-import { GlobalErrService } from './error/global-err-handler';
-import { HttpErrorInterceptor } from './error/globle-http-err-handler';
-// import { FBAuthInterceptor } from './auth/fbauth.interceptor';
-// import { GlobalErrHandler } from './error/global-err-handler';
+import { AppInitService, initFactory } from './app-init/app-init.service';
+import { configFactory } from './app-init/config.factory';
+import { ConfigService } from './app-init/config.service';
+import { EntityDataModule } from '@ngrx/data';
+// import { GlobalErrService } from './error/global-err-handler';
 // import { HttpErrorInterceptor } from './error/globle-http-err-handler';
+// import { FBAuthInterceptor } from './auth/fbauth.interceptor';
 // import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 // import { FormatInterceptorService } from './interceptors/format-interceptor.service';
 // import { RetryInterceptorService } from './interceptors/retry-interceptor.service';
-import { AppInitService, initFactory } from './app-init/app-init.service';
-import { CustomersService } from './app-init/customers.service';
-import { configFactory } from './app-init/config.factory';
-import { ConfigService } from './app-init/config.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrPageComponent],
@@ -53,6 +51,7 @@ import { ConfigService } from './app-init/config.service';
       },
     }),
     EffectsModule.forRoot([]),
+    EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'ng-demo-app',
       maxAge: 25,

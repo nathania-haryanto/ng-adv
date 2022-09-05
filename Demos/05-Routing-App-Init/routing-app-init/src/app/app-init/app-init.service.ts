@@ -28,6 +28,6 @@ export class AppInitService {
         })
       )
       .toPromise()
-      .then((data) => console.log(data));
+      .then((data) => console.log('from app-init: ', data));
   }
 }
