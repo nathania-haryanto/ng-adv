@@ -9,6 +9,7 @@ export class IntroComponent implements OnInit {
   @Input() title: string;
   @Input() subtitle: string;
   @Input() img: string;
+  @Input() isAuthenticated: boolean;
 
   constructor() {}
 
