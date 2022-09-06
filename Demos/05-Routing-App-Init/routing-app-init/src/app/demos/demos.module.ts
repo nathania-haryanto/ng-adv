@@ -26,10 +26,10 @@ import { demosFeatureKey } from './state/demos.reducer';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer } from './state/demos.reducer';
 import { RouterAnimationsComponent } from './samples/router-animations/router-animations.component';
-import { SecondaryRoutesComponent } from './samples/secondary-routes/secondary-routes.component';
 import { AppInitComponent } from './samples/app-init/app-init.component';
 import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
+import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
 
 const demoRoutes: Routes = [
   {
@@ -91,7 +91,7 @@ const demoRoutes: Routes = [
       },
       {
         path: 'auxilary',
-        component: SecondaryRoutesComponent,
+        component: AuxilaryRoutesComponent,
         children: [
           {
             path: 'editor',
@@ -118,10 +118,10 @@ const demoRoutes: Routes = [
     PrimeComponent,
     HttpErrorsComponent,
     RouterAnimationsComponent,
-    SecondaryRoutesComponent,
     AppInitComponent,
     PreloadingNgrxComponent,
     CodeSplittingComponent,
+    AuxilaryRoutesComponent,
   ],
   imports: [
     CommonModule,
