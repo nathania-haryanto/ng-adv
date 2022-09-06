@@ -66,7 +66,7 @@
     {
       "url": "auxilary",
       "title": "Auxiliary Routes",
-      "component": "SecondaryRoutesComponent",
+      "component": "AuxilaryRoutesComponent",
       "id": 321,
       "topicid": 1,
       "visible": true,
