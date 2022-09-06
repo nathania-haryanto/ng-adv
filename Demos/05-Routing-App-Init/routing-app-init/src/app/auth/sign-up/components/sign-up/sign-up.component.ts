@@ -10,35 +10,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'sign-up',
-  template: `
-    <ng-template #dialog>
-      <div mat-dialog-title>Sign Up</div>
-
-      <div mat-dialog-content>
-        <div>
-          <mat-form-field appearance="outline">
-            <input type="email" placeholder="Email" matInput />
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field appearance="outline">
-            <input type="password" placeholder="Password" matInput />
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field appearance="outline">
-            <input type="password" placeholder="Repeat Password" matInput />
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div mat-dialog-actions>
-        <button mat-flat-button color="primary">Sign Up</button>
-      </div>
-    </ng-template>
-  `,
+  templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

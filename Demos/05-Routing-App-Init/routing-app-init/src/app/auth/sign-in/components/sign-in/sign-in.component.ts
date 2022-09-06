@@ -7,39 +7,22 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'sign-in',
-  template: `
-    <ng-template #dialog>
-      <div mat-dialog-title>Sign In</div>
-
-      <div mat-dialog-content>
-        <div>
-          <mat-form-field appearance="outline">
-            <input type="email" placeholder="Email" matInput />
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field appearance="outline">
-            <input type="password" placeholder="Password" matInput />
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div mat-dialog-actions>
-        <button mat-flat-button color="primary">Sign In</button>
-      </div>
-    </ng-template>
-  `,
+  templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignInComponent implements AfterViewInit {
   @ViewChild('dialog') template: TemplateRef<any>;
 
-  constructor(private dialog: MatDialog, private router: Router) {}
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private as: AuthService
+  ) {}
 
   ngAfterViewInit() {
     const ref = this.dialog.open(this.template, {
@@ -49,5 +32,9 @@ export class SignInComponent implements AfterViewInit {
     ref.afterClosed().subscribe(() => {
       this.router.navigate(['']);
     });
+  }
+
+  signIn() {
+    this.as.login('mockUser');
   }
 }
