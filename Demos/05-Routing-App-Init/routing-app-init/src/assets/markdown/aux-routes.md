@@ -1,4 +1,4 @@
-Notice the `authEnabled`-flag in `environment.ts` and the named outlet in app.component.ts:
+Notice the `authEnabled`-flag in `environment.ts` and the named actions-outlet in app.component.ts:
 
 ```html
 <div gdArea="main">

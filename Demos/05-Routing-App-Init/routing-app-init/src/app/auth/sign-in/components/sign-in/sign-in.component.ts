@@ -30,11 +30,12 @@ export class SignInComponent implements AfterViewInit {
     });
 
     ref.afterClosed().subscribe(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['demos']);
     });
   }
 
   signIn() {
     this.as.login('mockUser');
+    this.dialog.closeAll();
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
+import { combineLatestWith, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,10 +14,15 @@ export class AuthService {
 
   private user: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
+  private authEnabled = of(environment.authEnabled);
+
   isAuthenticated() {
-    return environment.authEnabled == false || this.authenticated.value
-      ? of(true)
-      : of(false);
+    return this.authEnabled.pipe(
+      combineLatestWith(this.authenticated),
+      map(([authEnabled, authenticated]) => {
+        return authEnabled == false || authenticated;
+      })
+    );
   }
 
   getUser() {

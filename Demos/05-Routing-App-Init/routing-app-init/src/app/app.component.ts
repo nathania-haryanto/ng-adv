@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { ThemeService } from './shared/theme/theme.service';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth/auth.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ export class AppComponent {
   isAuthenticated: Observable<boolean>;
 
   ngOnInit() {
-    this.isAuthenticated = this.mockAuth.isAuthenticated();
+    this.isAuthenticated = this.mockAuth
+      .isAuthenticated()
+      .pipe(tap((auth) => console.log('auth changed to autheticated: ', auth)));
     this.titleService.setTitle(this.title);
     this.ts.getTheme().subscribe((t) => {
       this.selectedTheme = t;

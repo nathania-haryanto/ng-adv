@@ -25,7 +25,8 @@ export class SignUpComponent implements AfterViewInit {
     });
 
     ref.afterClosed().subscribe(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['demos']);
+      this.dialog.closeAll();
     });
   }
 }
