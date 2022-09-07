@@ -52,11 +52,15 @@ ng g @nrwl/angular:lib ux-controls
 
 ![nx-console](_images/nx-console.jpg)
 
-Add a split component:
+Add a split component. Notice that Nx registeres the component in the module 
 
 ```typescript
 ng g component ux-split --project=ux-controls --export --selector=ux-split
 ```
+
+Add Angular Material to the `ux-controls` project:
+
+
 
 Add a second app used for dependency graph later on:
 
