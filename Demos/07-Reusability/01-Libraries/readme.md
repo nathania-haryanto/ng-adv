@@ -4,18 +4,20 @@
 
 [Multible Projects - Angular File Structure](https://angular.io/guide/file-structure)
 
-[Angular Strict Mode](https://angular.io/guide/strict-mode)
-
 ## Getting Started
 
 Create a host project & Add Material & Flex Layout:
 
 ```
-ng new nglibs
-cd nglibs
+ng new ux-lib --routing --style scss
+cd ux-lib
 ng add @angular/material
 npm i -S @angular/flex-layout
 ```
+
+>Note: Use this settings when adding material:
+
+![material](_images/material.jpg)
 
 Create Library:
 
@@ -23,14 +25,20 @@ Create Library:
 ng g library ux-controls --prefix=ux
 ```
 
-Delete the service `ux-controls.service.ts`, `ux-controls.component.ts` and its \*.spec-files. Remove it from `ux-controls.module.ts` and `public-api.ts`
+In `projects\ux-controls\lib\` delete the service `ux-controls.service.ts`, `ux-controls.component.ts` and its \*.spec-files. Remove it from `ux-controls.module.ts` and `public-api.ts`
 
 ### Implement a the Split Control
 
-Add the SplitComponent:
+Implement a split component that divides the screen in a T-layout:
 
 ```
 ng g c controls/split --project=ux-controls
+```
+
+>Note: The default stylesheet is *.css. You can change this behaviour by executing: 
+
+```bash
+ng config projects.ux-controls.schematics.@schematics/angular:component.style scss
 ```
 
 Update `ux-controls.module.ts`:
@@ -51,34 +59,23 @@ const comps = [SplitComponent];
 export class UxControlsModule {}
 ```
 
+>Note: The "ng g c ..." cli call does not register the component in the module. This must be done manually as seen above.
+
 Update PeerDependencies in `package.json` of the library:
 
 ```typescript
 "peerDependencies": {
-    "@angular/common": "^14.0.1",
-    "@angular/core": "^14.0.1",
-    "@angular/animations": "^14.0.1",
-    "@angular/flex-layout": "^13.0.0-beta.38",
-    "@angular/material": "^14.0.1"
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/animations": "^14.2.0",
+    "@angular/flex-layout": "^14.0.0-beta.40",
+    "@angular/material": "^14.2.0",
   },
 ```
 
 > Note: You might want to change version numbers depending on the current versions
 
-Implement the Component:
-
-```
-> ng g c controls/split --project=ux-controls
-CREATE projects/ux-controls/src/lib/split/split.component.html (20 bytes)
-CREATE projects/ux-controls/src/lib/split/split.component.spec.ts (619 bytes)
-CREATE projects/ux-controls/src/lib/split/split.component.ts (270 bytes)
-CREATE projects/ux-controls/src/lib/split/split.component.css (0 bytes)
-``` 
-
-REMARK: The "ng g c ..." cli call does not register the component in the module.
-This must be done manually as seen abouve.
-
-split.component.ts
+split.component.ts:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -88,12 +85,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './split.component.html',
   styleUrls: ['./split.component.scss'],
 })
-export class SplitComponent implements OnInit {
-  constructor() {}
-
+export class SplitComponent  {
   toolbar = '100px';
-
-  ngOnInit() {}
+  constructor() {}
 }
 ```
 
@@ -123,7 +117,7 @@ split.component.html
 </div>
 ```
 
-split.component.scss
+split.component.scss:
 
 ```css
 .container {
@@ -155,7 +149,7 @@ ng build --project ux-controls
 
 > Note: You could also run `ng build ux-controls` or use the `--watch` flag
 
-#### Use the Split Control
+### Use the Split Control
 
 To use the Component import it in `app.module.ts` of you Main Project
 
@@ -183,10 +177,10 @@ Add it to `app.component.ts` and run `ng s -o`:
 </ux-split>
 ```
 
-```typescript
-export class AppComponent {
-  constructor() {}
+Test the component:
 
-  ngOnInit() {}
-}
 ```
+ng serve -o --project ng-lib
+```
+### Refactor the demo app navbar
+
