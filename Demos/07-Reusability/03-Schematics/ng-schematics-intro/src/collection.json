@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-schematics-intro": {
+      "description": "A blank schematic.",
+      "factory": "./ng-schematics-intro/index#ngSchematicsIntro"
+    }
+  }
+}

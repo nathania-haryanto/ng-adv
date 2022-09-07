@@ -24,20 +24,20 @@ Install Schematics CLI:
 npm i -g @angular-devkit/schematics @angular-devkit/schematics-cli
 ```
 
-Create a Schematics Project with one Schematic called `schematics-ws`
+Create a schematics project with one schematic called `ng-schematics-intro`
 
 ```
-schematics blank --name=schematics-ws
-cd schematics-ws
+schematics blank --name=ng-schematics-intro
+cd ng-schematics-intro
 ```
 
-> Note: The schematic is registered in `collection.json` and implemented in `./schematics-ws/index.ts`
+> Note: The schematic is registered in `collection.json` and implemented in `./ng-schematics-intro/index.ts`
 
 Build & Run Schematics locally:
 
 ```
 npm run build
-schematics .:schematics-ws --dry-run false
+schematics .:ng-schematics-intro --dry-run false
 ```
 
 > Note: You can also start `npm run build -- -w` in a separate terminal so it automatically rebuild your schematic project when a file changes
@@ -54,9 +54,9 @@ collection.json should look like this:
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "schematics-ws": {
+    "ng-schematics-intro": {
       "description": "A blank schematic.",
-      "factory": "./schematics-ws/index#schematicsWs"
+      "factory": "./ng-schematics-intro/index#schematicsWs"
     },
     "create-file": {
       "description": "A blank schematic.",
@@ -90,9 +90,9 @@ Update Scripts:
     "build": "tsc -p tsconfig.json",
     "test": "npm run sandbox:ng-add && npm run test:sandbox",
     "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
-    "link:schematic": "npm link && cd sandbox && npm link schematics-ws",
-    "launch:create-file": "cd sandbox && ng g schematics-ws:create-file",
-    "launch:create-file-withparam": "cd sandbox && ng g schematics-ws:create-file-withparam --greeting Szia --name Emese --dry-run false"
+    "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
+    "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
+    "launch:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false"
   },
 ```
 
@@ -118,7 +118,7 @@ Run like you would do in an ordinary proj:
 
 ```
 cd .\sandbox\
-ng g schematics-ws:create-comp --greeting Szia --name Emese
+ng g ng-schematics-intro:create-comp --greeting Szia --name Emese
 ```
 
 ---
