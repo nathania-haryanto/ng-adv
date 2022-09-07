@@ -189,9 +189,12 @@ In your GitHub Account go to `Settings/Developer settings`, create an new token 
 ![token](_images/token.jpg)
 
 
+Add an .npmrc to the folder of the lib:
 
-
-
+```
+@<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=<TOKEN>
+```
 
 Build the project:
 
@@ -203,4 +206,26 @@ Publish the lib from the folder of the lib:
 
 ```
 npm publish
+```
+
+Check the result:
+
+![package](_images/package.jpg)
+
+Go to the `Package settings` in the `Package Details` and change visibility to publish
+
+
+
+### Use Library in another project
+
+Create a new project:
+
+```
+ng new ux-lib-consumer --routing --style scss
+```
+
+Add an .npmrc:
+
+```
+@<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
 ```
