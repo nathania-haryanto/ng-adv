@@ -1,6 +1,13 @@
 {
-  "name": "ux-controls",
+  "name": "@arambazamba/ux-controls",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arambazamba/ng-adv.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",

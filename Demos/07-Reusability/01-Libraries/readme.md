@@ -182,5 +182,25 @@ Test the component:
 ```
 ng serve -o --project ng-lib
 ```
-### Refactor the demo app navbar
+### Publish Library to GitHub Packages
 
+In your GitHub Account go to `Settings/Developer settings`, create an new token with `write:packages` and `delete:packages` and copy it afterwards:
+
+![token](_images/token.jpg)
+
+
+
+
+
+
+Build the project:
+
+```
+ng build -c production --project ux-controls 
+```
+
+Publish the lib from the folder of the lib:
+
+```
+npm publish
+```
