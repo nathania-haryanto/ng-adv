@@ -91,7 +91,7 @@ schematics .:create-file --dry-run false
 A Sandbox allows you to better test your schematic. To generate Sandbox from within Schematics project run:
 
 ```
-ng new schematic-sandbox --routing --style scss
+ng new sandbox --routing --style scss
 ```
 
 Update Scripts in `package.json` of the sandbox project:
