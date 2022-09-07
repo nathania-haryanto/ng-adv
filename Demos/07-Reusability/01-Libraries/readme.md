@@ -229,3 +229,9 @@ Add an .npmrc:
 ```
 @<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
 ```
+
+Install the package:
+
+```
+npm i -S @arambazamba/ux-controls@0.0.1
+```
