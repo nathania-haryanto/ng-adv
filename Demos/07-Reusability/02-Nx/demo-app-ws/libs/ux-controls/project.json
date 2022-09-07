@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/ux-controls/src",
+  "prefix": "ux",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ux-controls"],
+      "options": {
+        "jestConfig": "libs/ux-controls/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ux-controls/**/*.ts",
+          "libs/ux-controls/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

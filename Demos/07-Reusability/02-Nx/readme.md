@@ -21,31 +21,40 @@ npx create-nx-workspace demo-app-ws --preset angular --appName demo-app
 Build the app `ng-skills`:
 
 ```
-ng build ng-skills |
-nx build ng-skills
+ng build (using default app) |
+ng build demo-app |
+npx nx build demo-app
 ```
 
-> Note: `nx builds ng-skills` uses cache and builds only when there are changes
+> Note: `npx nx builds demo-app` uses cache. It re-builds only when there are changes
 
 Test the app using Jest (default)
 
 ```
-nx test ng-skills
+npx nx test demo-app
 ```
 
 Run the app:
 
 ```
-nx s -o ng-skills
+npx nx s -o demo-app
 ```
 
 ## Button Implementation
 
-Add a lib project and a button and a split component to it:
+Add a library project:
 
 ```typescript
-ng g @nrwl/angular:lib ux-controls --style=sass
-ng g component ux-button --project=ux-controls --export --selector=ux-button
+ng g @nrwl/angular:lib ux-controls
+```
+
+>Note: `@nrwl/angular:lib` contains the Angular extensions. Scaffolding can also be done using [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
+
+![nx-console](_images/nx-console.jpg)
+
+Add a split component:
+
+```typescript
 ng g component ux-split --project=ux-controls --export --selector=ux-split
 ```
 
