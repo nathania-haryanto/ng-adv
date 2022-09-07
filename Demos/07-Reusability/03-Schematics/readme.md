@@ -48,9 +48,9 @@ Add another Schematic to the same project (from inside the folder):
 schematics blank --name=create-file
 ```
 
-collection.json should look like this:
+`collection.json` should look like this:
 
-```
+```json
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
@@ -66,7 +66,20 @@ collection.json should look like this:
 }
 ```
 
-Build & Run Schematics locally:
+Add the following code to `create-file/index.ts`:
+
+```javascript
+export function createFile(_options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+        const file = 'hello-world.js';
+        const content = `console.log('Hello ng-adv. I hope you enjoy the class!');`;
+        tree.create(file, content);
+
+        return tree;
+    };
+}
+```
+Build & run schematics locally that should create a file in the root of your project:
 
 ```
 npm run build
@@ -75,20 +88,18 @@ schematics .:create-file --dry-run false
 
 ## Using a Sandbox
 
-Generate Sandbox from within Schematics project:
+A Sandbox allows you to better test your schematic. To generate Sandbox from within Schematics project run:
 
 ```
-ng new sandbox
+ng new schematic-sandbox --routing --style scss
 ```
 
-> Note: A Sandbox is used to test your Schematic
+Update Scripts in `package.json` of the sandbox project:
 
-Update Scripts:
-
-```
+```json
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "npm run sandbox:ng-add && npm run test:sandbox",
+    ...
+    "testsandbox": "npm run sandbox:ng-add && npm run test:sandbox",
     "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
     "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
     "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
@@ -96,12 +107,10 @@ Update Scripts:
   },
 ```
 
-> Note: The original "test"-script was: `"test": "npm run build && jasmine src/**/*_spec.js"`. A backup is inculeded as package.json.starter. The modified version is included as package.json.sandbox
-
 Scaffold a new Schematic that generates a Component - just like `ng g c NAME` does:
 
 ```
-schematics blank --name create-comp
+schematics blank --name create-demo-comp
 ```
 
 > Note: Take the implementation from the finished sampel

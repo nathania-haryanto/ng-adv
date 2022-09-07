@@ -4,6 +4,18 @@
     "ng-schematics-intro": {
       "description": "A blank schematic.",
       "factory": "./ng-schematics-intro/index#ngSchematicsIntro"
+    },
+    "create-file": {
+      "description": "A blank schematic.",
+      "factory": "./create-file/index#createFile"
+    },
+    "create-demo-comp": {
+      "description": "A blank schematic.",
+      "factory": "./create-demo-comp/index#createDemoComp"
+    },
+    "create-file-with-param": {
+      "description": "A blank schematic.",
+      "factory": "./create-file-with-param/index#createFileWithParam"
     }
   }
 }
