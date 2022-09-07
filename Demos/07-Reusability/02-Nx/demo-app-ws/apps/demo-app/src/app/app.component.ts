@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'demo-app';
+  title = 'demo-app with a button';
+
+  doClick() {
+    console.log('you clicked');
+  }
 }

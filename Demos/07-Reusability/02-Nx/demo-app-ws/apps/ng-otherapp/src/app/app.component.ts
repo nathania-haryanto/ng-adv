@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-otherapp';
+  doClick() {
+    console.log('you clicked in the second project');
+  }
 }

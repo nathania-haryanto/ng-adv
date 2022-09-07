@@ -125,17 +125,22 @@ Update `ux-split.component.scss`:
 }
 ```
 
+Build the ux-controls project:
+
+```
+npx nx build ux-controls
+```
+
 Add a second app used for dependency graph later on:
 
 ```
 nx generate @nrwl/angular:app ng-otherapp --routing --style=scss
 ```
 
-Add Material to apps\demo-app & apps\ng-otherapp
+Add Material to apps\demo-app:
 
 ```
-ng add @angular/material --project=demo-app
-ng add @angular/material --project=ng-otherapp
+npx nx g @angular/material:ng-add --project demo-app
 ```
 
 Implement the Material Module in the lib
@@ -144,42 +149,7 @@ Implement the Material Module in the lib
 nx g module material --project=ux-controls
 ```
 
-```
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-@NgModule({
-  declarations: [],
-  imports: [CommonModule, MatButtonModule, MatIconModule, FlexLayoutModule],
-  exports: [MatButtonModule, MatIconModule, FlexLayoutModule],
-})
-export class MaterialModule {}
-
-```
-
-> Note: Just copy the content of a Material Module from any [Material Stackblitz Sample](https://material.angular.io/components/categories)
-
-Add the Material Module to `ux-controls.module.ts`:
-
-```typescript
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UxButtonComponent } from './ux-button/ux-button.component';
-import { UxSplitComponent } from './ux-split/ux-split.component';
-import { MaterialModule } from './material/material.module';
-
-@NgModule({
-  imports: [CommonModule, MaterialModule],
-  declarations: [UxButtonComponent, UxSplitComponent],
-  exports: [UxSplitComponent],
-})
-export class UxControlsModule {}
-```
-
-Implement the Button:
+Implement an reusable Button - short guide - look up commands from ux-spilt example:
 
 ux-button.ts & ux-button.html
 
@@ -187,7 +157,6 @@ ux-button.ts & ux-button.html
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'ux-button',
   templateUrl: './ux-button.component.html',
   styleUrls: ['./ux-button.component.scss'],
@@ -196,10 +165,8 @@ export class UxButtonComponent implements OnInit {
   @Input() disabled = false;
   @Input() label = '';
   @Input() icon = '';
-  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
-  @Output() onClick: EventEmitter<void> = new EventEmitter();
+  @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
   ngOnInit() {
@@ -213,30 +180,13 @@ export class UxButtonComponent implements OnInit {
 ```
 
 ```html
-<button mat-raised-button (click)="buttonClicked()" [disabled]="disabled">
-  <mat-icon>{{ icon }}</mat-icon>
-  <span fxHide.lt-lg>{{ label }}</span>
+<button mat-raised-button (click)="buttonClicked()" [disabled]="disabled" color="primary">
+  <mat-icon color="accent" fontIcon="bug_report"></mat-icon>
+  <span fxHide.lt-md>{{ label }}</span>
 </button>
 ```
 
-Export the button:
-
-```typescript
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UxButtonComponent } from './ux-button/ux-button.component';
-import { UxSplitComponent } from './ux-split/ux-split.component';
-import { MaterialModule } from './material/material.module';
-
-@NgModule({
-  imports: [CommonModule, MaterialModule],
-  declarations: [UxButtonComponent, UxSplitComponent],
-  exports: [UxSplitComponent, UxButtonComponent],
-})
-export class UxControlsModule {}
-```
-
-Use the Button in the two projects:
+Use the Button in the `demo-app-project`. Import `UxControlsModule` in `app.module.ts` :
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -255,7 +205,7 @@ import { UxControlsModule } from '@angular-repo/ux-controls';
 export class AppModule {}
 ```
 
-Add it to App Component
+Add it to `app.component.ts`:
 
 ```html
 <div>
@@ -288,12 +238,10 @@ export class AppComponent {
 Test the Button:
 
 ```
-nx s -o demo-app
+npx nx s demo-app -o
 ```
 
-> Note: repate the steps in the second project
-
-Show Dependency Graph
+Repate the steps in the second project in order to see a Dependency Graph where the button is used in two projects
 
 ```
 nx dep-graph
@@ -302,19 +250,3 @@ nx dep-graph
 You should see something similar:
 
 ![dep-graph](_images/dep-graph.png)
-
-## Starting with an Empty project:
-
-```typescript
-npx create-nx-workspace EmptyRepo --preset=empty
-cd empty-repo
-npm install --save-dev @nrwl/angular
-nx generate @nrwl/angular:app skills-app --e2e-test-runner=cypress --unit-test-runner=jest --style=sass
-```
-
-Add two projects:
-
-```typescript
-ng g @nrwl/angular:app demo-app --e2e-test-runner=cypress --unit-test-runner=jest --style=sass
-ng g @nrwl/angular:app ng-other
-```

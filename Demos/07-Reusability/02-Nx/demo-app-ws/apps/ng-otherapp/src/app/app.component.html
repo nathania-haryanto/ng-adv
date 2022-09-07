@@ -1,2 +1,8 @@
-<demo-app-ws-nx-welcome></demo-app-ws-nx-welcome>
-<router-outlet></router-outlet>
+<div class="container">
+  <h3>{{ title }}</h3>
+  <ux-button
+    [icon]="'Home'"
+    [label]="'Report Bug'"
+    (onClick)="doClick()"
+  ></ux-button>
+</div>

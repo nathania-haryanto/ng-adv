@@ -8,12 +8,9 @@ describe('UxButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UxButtonComponent ]
-    })
-    .compileComponents();
-  });
+      declarations: [UxButtonComponent],
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(UxButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ux-controls"],
+      "outputs": [
+        "coverage/libs/ux-controls"
+      ],
       "options": {
         "jestConfig": "libs/ux-controls/jest.config.ts",
         "passWithNoTests": true
