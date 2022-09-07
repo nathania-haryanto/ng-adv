@@ -16,9 +16,11 @@ Create a workspace demo-app, add Angular:
 npx create-nx-workspace demo-app-ws --preset angular --appName demo-app
 ```
 
+>Note: To spare yourself from executing nx-cli using npm you could also install nx-cli: `npm i -g nx`
+
 ![nx-scaffold](_images/nx-scaffold.jpg)
 
-Build the app `ng-skills`:
+Build the app `demo-app`:
 
 ```
 ng build (using default app) |
@@ -58,9 +60,70 @@ Add a split component. Notice that Nx registeres the component in the module
 ng g component ux-split --project=ux-controls --export --selector=ux-split
 ```
 
-Add Angular Material to the `ux-controls` project:
+Add Angular Material & Angular FlexLayout to the workspace to use it in the `ux-controls` project:
 
+```
+npm i -S @angular/material @angular/cdk @angular/flex-layout
+```
 
+Import `MatToolbarModule` & `FlexLayoutModule` in `ux-controls.module.ts`:
+
+```typescript
+...
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { UxSplitComponent } from './ux-split/ux-split.component';
+
+@NgModule({
+  imports: [CommonModule, MatToolbarModule, FlexLayoutModule],
+  declarations: [UxSplitComponent],
+  exports: [UxSplitComponent],
+})
+export class UxControlsModule {}
+```
+
+Update `ux-split.component.html`:
+
+```html
+<div
+  gdGap="0.5rem"
+  gdAreas="title title | main toolbar"
+  gdColumns="800px auto"
+  gdRows="60px auto"
+  class="container"
+>
+  <div gdArea="title" class="split-title">
+    <mat-toolbar mat-dialog-title>
+      <mat-toolbar-row>
+        <ng-content select=".title"></ng-content>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div gdArea="main" class="split-main">
+    <ng-content select=".main"></ng-content>
+  </div>
+  <div gdArea="toolbar" class="split-sidebar">
+    <ng-content select=".sidebar"></ng-content>
+  </div>
+</div>
+```
+
+Update `ux-split.component.scss`:
+
+```css
+.container {
+  min-height: 50vh;
+  height: 100%;
+}
+
+.split-main {
+  padding: 1rem;
+}
+
+.split-sidebar {
+  padding: 1rem;
+}
+```
 
 Add a second app used for dependency graph later on:
 
@@ -68,16 +131,10 @@ Add a second app used for dependency graph later on:
 nx generate @nrwl/angular:app ng-otherapp --routing --style=scss
 ```
 
-Add Material to nx workspace:
+Add Material to apps\demo-app & apps\ng-otherapp
 
 ```
-npm install -S @angular/material @angular/cdk @angular/flex-layout @angular/animations
-```
-
-Add Material to apps\ng-skills & apps\ng-otherapp
-
-```
-ng add @angular/material --project=ng-skills
+ng add @angular/material --project=demo-app
 ng add @angular/material --project=ng-otherapp
 ```
 
@@ -107,7 +164,7 @@ export class MaterialModule {}
 
 Add the Material Module to `ux-controls.module.ts`:
 
-```
+```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UxButtonComponent } from './ux-button/ux-button.component';
@@ -220,7 +277,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ng-skills';
+  title = 'demo-app';
 
   doClick() {
     console.log('you clicked');
@@ -231,7 +288,7 @@ export class AppComponent {
 Test the Button:
 
 ```
-nx s -o ng-skills
+nx s -o demo-app
 ```
 
 > Note: repate the steps in the second project
@@ -258,6 +315,6 @@ nx generate @nrwl/angular:app skills-app --e2e-test-runner=cypress --unit-test-r
 Add two projects:
 
 ```typescript
-ng g @nrwl/angular:app ng-skills --e2e-test-runner=cypress --unit-test-runner=jest --style=sass
+ng g @nrwl/angular:app demo-app --e2e-test-runner=cypress --unit-test-runner=jest --style=sass
 ng g @nrwl/angular:app ng-other
 ```
