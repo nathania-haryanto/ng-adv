@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ux-split',
@@ -6,6 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./split.component.scss'],
 })
 export class SplitComponent {
-  toolbar = '100px';
   constructor() {}
 }
