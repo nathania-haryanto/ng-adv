@@ -11,9 +11,9 @@
     "test": "npm run build && jasmine src/**/*_spec.js",
     "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
     "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
-    "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
-    "launch:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
-    "launch:create-demo": "cd sandbox && ng g ng-schematics-intro:create-demo-comp --name SchematicsTest --greeting 'Hello World' --dry-run false"
+    "run:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
+    "run:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
+    "run:create-demo": "cd sandbox && ng g schematics .:create-demo-comp --name mydemo --mdfile testfile --debug false --dry-run false"
   },
   "keywords": [
     "schematics"

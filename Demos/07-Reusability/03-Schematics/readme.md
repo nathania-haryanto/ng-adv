@@ -150,25 +150,36 @@ export function addExclamation(value: string): string {
 }
 ```
 
-Create folder `create-demo-comp/files/demo-__name@dasherize__` and add a file `demo-__name@dasherize__.component.ts` with the content:
+Create folder `create-demo-comp/files/__name@dasherize__` and add a file `-__name@dasherize__.component.ts` with the content:
 
 ```javascript
 import { Component } from '@angular/core';
 
 @Component({
     selector: 'demo-<%= dasherize(name) %>',
-    template: `<h1><%= greeting %> {{name}}</h1>`
+    template: `
+        <app-markdown-renderer [md]="'{{md}}'"></app-markdown-renderer>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title> {{name}} </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>                
+            </mat-card-content>
+        </mat-card>
+        `
 })
-export class Demo<%= classify(name) %>Component {
-    name = '<%= addExclamation(name) %>'
+export class Demo<%= classify(mdfile) %>Component {
+    md = '<%= mdfile %>'
 }
 ```
+
+>Note: Adds a markdown-renderer and an empty mat-card to the component. To fully implement the schematic it wourld need to register itself and a route in demos.module.ts und update db.json
 
 Build & run using:
 
 ```
 npm run build 
-schematics .:create-demo-comp --name SchematicsTest --greeting servus --debug false
+schematics .:create-demo-comp --name mydemo --mdfile testfile --debug false
 ```
 
 ## Using a Sandbox
@@ -193,9 +204,9 @@ Add untility scripts in `package.json` - optional:
     ...
     "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
     "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
-    "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
-    "launch:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
-    "launch:create-demo": "cd sandbox && ng g ng-schematics-intro:create-demo-comp --name SchematicsTest --greeting 'Hello World' --dry-run false"
+    "run:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
+    "run:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
+    "run:create-demo": "cd sandbox && ng g schematics .:create-demo-comp --name mydemo --mdfile testfile --debug false --dry-run false"
   },
 ```
 
@@ -204,7 +215,7 @@ Run in using scripts:
 ```
 npm run build
 npm run link:schematic
-npm run launch:create-file
+npm run run:create-file
 ```
 
 ---
