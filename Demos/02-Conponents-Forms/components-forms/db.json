@@ -1,0 +1,202 @@
+{
+  "demos": [
+    {
+      "url": "async-pipe",
+      "topicid": 3,
+      "title": "Async Pipe",
+      "component": "AsyncPipeComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "formcontrol",
+      "topicid": 3,
+      "title": "FormControl",
+      "component": "FormControlComponent",
+      "visible": true,
+      "sortOrder": 1
+    },
+    {
+      "url": "reactiveforms",
+      "topicid": 2,
+      "title": "Reactive Forms",
+      "component": "ReactiveFormsComponent",
+      "visible": true,
+      "sortOrder": 3
+    },
+    {
+      "url": "typedforms",
+      "topicid": 2,
+      "title": "Typed Forms",
+      "component": "ReactiveTypedComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "typedformsexplicit",
+      "topicid": 2,
+      "title": "Typed Forms Explicit",
+      "component": "ReactiveExplicitTypedComponent",
+      "visible": true,
+      "sortOrder": 5
+    },
+    {
+      "url": "type-external",
+      "topicid": 2,
+      "title": "Typed Forms Explicit Ext",
+      "component": "ReactiveExplicitTypedExternalComponent",
+      "visible": true,
+      "sortOrder": 5
+    },
+    {
+      "url": "typednonnullable",
+      "topicid": 2,
+      "title": "Typed NonNullable",
+      "component": "ReactiveFormsComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "formbuilder",
+      "topicid": 2,
+      "title": "Form Builder",
+      "component": "FormsBuilderComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "raw-value",
+      "topicid": 2,
+      "title": "GetRawValue",
+      "component": "GetRawValueComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
+      "url": "reactivenested",
+      "topicid": 2,
+      "title": "Nested Objects",
+      "component": "ReactiveNestedComponent",
+      "visible": true,
+      "sortOrder": 5
+    },
+    {
+      "url": "validation",
+      "topicid": 4,
+      "title": "Reactive Validators",
+      "component": "ReactiveValidationComponent",
+      "visible": true,
+      "sortOrder": 6
+    },
+    {
+      "url": "formarray",
+      "topicid": 4,
+      "title": "FormArray",
+      "component": "FormArrayComponent",
+      "visible": true,
+      "sortOrder": 6
+    },
+    {
+      "url": "cascade",
+      "topicid": 3,
+      "title": "Cascading",
+      "component": "ReactiveCascadeComponent",
+      "visible": true,
+      "sortOrder": 8
+    },
+    {
+      "url": "valuecontrol",
+      "topicid": 3,
+      "title": "ControlValueAccessor",
+      "component": "ControlValueAccessorComponent",
+      "visible": true,
+      "sortOrder": 8
+    },
+    {
+      "url": "ngx-formly",
+      "topicid": 3,
+      "title": "Formly",
+      "component": "NgxFormlyComponent",
+      "visible": true,
+      "sortOrder": 8
+    }
+  ],
+  "skills": [
+    { "id": "123", "name": "rxjs from api", "completed": true },
+    { "id": "456", "name": "ngrx from api", "completed": false }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "Cleo",
+      "lastname": "Whippet",
+      "age": 15,
+      "gender": "female",
+      "married": true,
+      "imgUrl": "/assets/images/cleo.png",
+      "email": "cleothewhippet@sighthounds.at",
+      "wealth": "rich",
+      "address":{
+        "street": "Stairway to heaven",
+        "city": "Better place",
+        "postalCode": "1000"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Soi",
+      "age": 9,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/soi.png"
+    },
+    {
+      "id": 3,
+      "name": "Giro",
+      "age": 11,
+      "gender": "male",
+      "married": false,
+      "imgUrl": "/assets/images/giro.png"
+    },
+    {
+      "id": 4,
+      "name": "Flora",
+      "age": 14,
+      "gender": "female",
+      "married": false,
+      "imgUrl": "/assets/images/flora.png"
+    }
+  ],
+  "tasks": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "delectus aut autem",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "quis ut nam facilis et officia qui",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 3,
+      "title": "fugiat veniam minus",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 4,
+      "title": "et porro tempora",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": 5,
+      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      "completed": false
+    }
+  ]
+}
