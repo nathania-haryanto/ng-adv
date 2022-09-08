@@ -86,24 +86,45 @@ npm run build
 schematics .:create-file --dry-run false
 ```
 
-## Using a Sandbox
-
-A Sandbox allows you to better test your schematic. To generate Sandbox from within Schematics project run:
+Add a schematic that takes a param:
 
 ```
-ng new sandbox --routing --style scss
+schematics blank --name=create-file-with-param
 ```
 
-Update Scripts in `package.json` of the sandbox project:
+Update `create-file-with-param/index.ts`:
+
+```javascript
+export function createFileWithParam(_options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+        const name = _options.name;
+        const greeting = _options.greeting;
+        const fn = 'hello.js';
+        if (tree.exists(fn)) {
+            tree.delete(fn);
+        }
+        tree.create('hello.js', `console.log('${greeting} ${name}!');`);
+        return tree;
+    };
+}
+```
+
+Examine `create-file-with-param/schema.json` and the definition of the two params:
 
 ```json
-  "scripts": {
-    ...
-    "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
-    "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
-    "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
-    "launch:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false"
-  },
+"greeting": {
+    "enum": ["Hello", "Ola", "Ahoj"],
+    "type": "string",
+    "description": "The type of greeting we want to use",
+    "default": "Hello"
+  }
+```
+
+Run using:
+
+```
+npm run build
+schematics .:create-file-withparam --greeting Ahoj --name Anika --dry-run false
 ```
 
 Scaffold a new Schematic that generates a Component - just like `ng g c NAME` does:
@@ -112,21 +133,78 @@ Scaffold a new Schematic that generates a Component - just like `ng g c NAME` do
 schematics blank --name create-demo-comp
 ```
 
-> Note: Take the implementation from the finished sampel
+Add the folowing code to `create-demo-comp/index.ts`
 
-Run in Sandbox using Scripts:
+```javascript
+export function createDemoComp(_options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+        console.log('Running schematics with following options', _options);
+        const sourceTpl = url('./files');
+        const sourceTplParametrized = apply(sourceTpl, [template({ ..._options, ...strings, addExclamation })]);
+        return mergeWith(sourceTplParametrized)(tree, _context);
+    };
+}
+
+export function addExclamation(value: string): string {
+    return `${value}!`;
+}
+```
+
+Create folder `create-demo-comp/files/demo-__name@dasherize__` and add a file `demo-__name@dasherize__.component.ts` with the content:
+
+```javascript
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'demo-<%= dasherize(name) %>',
+    template: `<h1><%= greeting %> {{name}}</h1>`
+})
+export class Demo<%= classify(name) %>Component {
+    name = '<%= addExclamation(name) %>'
+}
+```
+
+Build & run using:
 
 ```
-npm run build
-npm run link:schematic
-npm run launch:create-file
+npm run build 
+schematics .:create-demo-comp --name SchematicsTest --greeting servus --debug false
+```
+
+## Using a Sandbox
+
+A Sandbox allows you to better test your schematic. To generate Sandbox from within Schematics project run:
+
+```
+ng new sandbox --routing --style scss
 ```
 
 Run like you would do in an ordinary proj:
 
 ```
 cd .\sandbox\
-ng g ng-schematics-intro:create-comp --greeting Szia --name Emese
+ng g ng-schematics-intro:create-file --greeting Szia --name Emese
+```
+
+Add untility scripts in `package.json` - optional:
+
+```json
+  "scripts": {
+    ...
+    "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
+    "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
+    "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
+    "launch:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
+    "launch:create-demo": "cd sandbox && ng g ng-schematics-intro:create-demo-comp --name SchematicsTest --greeting 'Hello World' --dry-run false"
+  },
+```
+
+Run in using scripts:
+
+```
+npm run build
+npm run link:schematic
+npm run launch:create-file
 ```
 
 ---

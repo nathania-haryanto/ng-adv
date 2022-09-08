@@ -6,10 +6,8 @@ import { strings } from '@angular-devkit/core';
 export function createDemoComp(_options: any): Rule {
     return (tree: Tree, _context: SchematicContext) => {
         console.log('Running schematics with following options', _options);
-
         const sourceTpl = url('./files');
         const sourceTplParametrized = apply(sourceTpl, [template({ ..._options, ...strings, addExclamation })]);
-
         return mergeWith(sourceTplParametrized)(tree, _context);
     };
 }
