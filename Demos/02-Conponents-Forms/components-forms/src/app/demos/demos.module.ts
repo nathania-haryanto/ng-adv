@@ -31,6 +31,8 @@ import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nest
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
+import { MdRendererModule } from '../shared/markdown-renderer/md-renderer.module';
+import { BootstrapStandaloneComponent } from './samples/bootstrap-standalone/bootstrap-standalone.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -56,6 +58,7 @@ const appearance: MatFormFieldDefaultOptions = {
     ReactiveExplicitTypedComponent,
     GetRawValueComponent,
     ReactiveExplicitTypedExternalComponent,
+    BootstrapStandaloneComponent,
   ],
   imports: [
     CommonModule,
@@ -66,9 +69,7 @@ const appearance: MatFormFieldDefaultOptions = {
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    MarkdownModule.forRoot({
-      loader: HttpClient,
-    }),
+    MdRendererModule,
     FormlyModule.forRoot({
       validationMessages: [
         { name: 'required', message: 'This field is required' },

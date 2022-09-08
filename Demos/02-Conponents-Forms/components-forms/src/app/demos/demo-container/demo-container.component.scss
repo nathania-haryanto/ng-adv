@@ -25,6 +25,7 @@ mat-toolbar {
 mat-list-item{
   border-bottom: 1px solid var(--color-bg);
   border-top: 1px solid var(--color-bg);
+  height: 36px !important;
 }
 
 .nav-content {

@@ -1,6 +1,30 @@
 {
   "demos": [
     {
+      "url": "standalone",
+      "topicid": 3,
+      "title": "Standalone Component",
+      "component": "StandaloneComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "standalone-bootstrap",
+      "topicid": 3,
+      "title": "Boot Standalone Comp.",
+      "component": "BootstrapStandaloneComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "lazy-standalone",
+      "topicid": 3,
+      "title": "Lazy Standalone Comp.",
+      "component": "LazyStandaloneComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
       "url": "async-pipe",
       "topicid": 3,
       "title": "Async Pipe",

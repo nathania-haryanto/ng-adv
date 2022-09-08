@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
 import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
+import { BootstrapStandaloneComponent } from './samples/bootstrap-standalone/bootstrap-standalone.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
 import { FormArrayComponent } from './samples/form-array/form-array.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
@@ -16,13 +17,24 @@ import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
+import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
+import { LazyStandaloneComponent } from './samples/lazy-standalone/lazy-standalone.component';
 
 const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
     children: [
+      { path: 'standalone', component: StandaloneComponent },
+      {
+        path: 'lazy-standalone',
+        loadComponent: () =>
+          import('./samples/lazy-standalone/lazy-standalone.component').then(
+            (c) => c.LazyStandaloneComponent
+          ),
+      },
+      { path: 'standalone-bootstrap', component: BootstrapStandaloneComponent },
       { path: 'valuecontrol', component: ControlValueAccessorComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
