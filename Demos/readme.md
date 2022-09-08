@@ -93,10 +93,12 @@
 ## Reusability
 
 - Angular Building Blocks: Workspace, Apps, Libraries
-- Understanding & using Monorepos
-- Sharing Code between Projects using Angular Libraries
+- Reusable Artifacts using Angular Libraries
 - Implementing, Publishing and Consuming Libraries to / from GitHub Packages
+- Understanding Monorepos: Pro / Cons
+- Introduction to Nx Workspaces, Apps & Libs
 - Introduction to Angular Schematics
+- Implementing Web Components using Angular Elements
 
 ## Progressive (PWA) & Real Time Web Apps
 
