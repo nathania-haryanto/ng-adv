@@ -17,16 +17,16 @@
 ### Project Setup & Add Elements
 
 ```
-ng new skills-elements
-cd skills-elements
+ng new el-skills-list --routing false --style scss
+cd el-skills-list
 code .
-ng add @angular/elements
+npm i -S @angular/elements
 ```
 
 Add Polyfills:
 
 ```
-npm install -S @webcomponents/webcomponentsjs @webcomponents/custom-elements
+npm install -S @webcomponents/webcomponentsjs @webcomponents/custom-elements document-register-element
 ```
 
 Add the Polyfills to the polyfills.ts:
@@ -42,9 +42,9 @@ Add ngx-build-plus:
 ng add ngx-build-plus
 ```
 
-### Implement Component designated to be you Custom Element
+### Implement the component that will be exported as Angular Element
 
-Add a Component using:
+Add the `FormsModule` to `app.module.ts` and add a Component using:
 
 ```
 ng g c skills-list
@@ -54,22 +54,142 @@ Add a skill.model.ts file:
 
 ```typescript
 export class Skill {
-  id: number;
-  name: string;
-  hours: number;
+  id: number = 0;
+  name: string = '';
+  hours: number = 0;
   completed: boolean = false;
 }
 ```
 
-Add an `Skill[]` as `@Input()` and create a Button that triggers the current `Skill[]` as `@Output()`
+In `skills-list.component.ts` add an `Skill[]` as `@Input()` and create a Button that triggers the current `Skill[]` as `@Output()`
 
 ```typescript
-@Input() skills: Skill[];
-@Output() skillsSaved: EventEmitter<Skill[]> = new EventEmitter();
-skillToAdd: string;
+@Input() skills: Skill[] = [];
+@Output() skillsSaved: EventEmitter<Skill[]> = new EventEmitter<Skill[]>();
+skillToAdd: string = '';
 ```
 
-Create the following data to `app.component.ts`:
+In skills-list.component.html add the following html:
+
+```html
+<div class="container">
+  <h1 class="centered">These are the skills</h1>
+  <div class="centered">
+    <table>
+      <colgroup>
+        <col style="width: 10%" />
+        <col style="width: 60%" />
+        <col style="width: 15%" />
+        <col style="width: 15%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Hours</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of skills" (click)="removeSkill(s)">
+          <td>{{ s.id }}</td>
+          <td>{{ s.name }}</td>
+          <td>{{ s.hours }}</td>
+          <td>{{ s.completed }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="centered">Hover a Skill & Click to remove</h3>
+  </div>
+  <div class="addRow">
+    <label>Add a Skill:</label><input type="text" [(ngModel)]="skillToAdd" />
+    <a (click)="addSkill()">Add Skill</a>
+    <a (click)="saveSkills()">Save Skills</a>
+  </div>
+</div>
+```  
+
+Add the following css to skills-list.component.scss:
+
+```css
+tr {
+  cursor: pointer;
+}
+
+table {
+  margin: 0 auto;
+  min-width: 50vw;
+
+  tr :hover {
+    text-decoration: underline;
+  }
+
+  th,
+  td {
+    text-align: start;
+  }
+}
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+input {
+  width: 60%;
+}
+
+.addRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+  background: #c3002f;
+  color: white;
+  padding: 1rem;
+
+  a {
+    color: white;
+  }
+}
+
+.centered {
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.container {
+  background-color: lavender;
+  padding: 1rem;
+}
+```  
+
+Add the following events to `skills-list.component.ts`:
+
+```typescript
+removeSkill(item: Skill): void {
+  this.skills = this.skills.filter((s) => s.id !== item.id);
+}
+
+addSkill(): void {
+  const sk: Skill = {
+    id: this.skills.length + 1,
+    name: this.skillToAdd,
+    hours: 4,
+    completed: false,
+  };
+  this.skills.push(sk);
+}
+
+saveSkills(): void {
+  this.skillsSaved.emit(this.skills);
+}
+```
+
+Create the following data property in `app.component.ts`:
 
 ```typescript
 data = [
@@ -79,7 +199,15 @@ data = [
 ];
 ```
 
-Add skills-list to `app.component.html`:
+Add an onSave-event to app.component.ts:
+
+```typescript
+onSave(skills: Skill[]): void {
+  console.log('saved skills:', skills);
+}
+```
+
+Clean html and add skills-list to `app.component.html`:
 
 ```html
 <app-skills-list
@@ -88,9 +216,7 @@ Add skills-list to `app.component.html`:
 ></app-skills-list>
 ```
 
-> Note: You will have to implement onSave in `app.component.ts`
-
-Your result should look somehow like this:
+Run your component. Your result should look somehow like this:
 
 ![skills](_images/skills.png)
 
@@ -134,7 +260,7 @@ npm run build-elements
 
 ### Testing your Web Component created with Angular Elements
 
-Modify the HTML in `./dist/skills-elements/index.html` for Testing:
+Modify el-the HTML in `./dist/skills-elements/index.html` for Testing:
 
 ```html
 <!DOCTYPE html>
