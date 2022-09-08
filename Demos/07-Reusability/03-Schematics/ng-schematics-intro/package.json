@@ -1,0 +1,33 @@
+{
+  "name": "ng-schematics-intro",
+  "version": "14.0.0",
+  "description": "Introduction to Angular Schematics",
+  "author": {
+    "name": "Alexander Pajer",
+    "email": "alexander.pajer@integrations.at"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine src/**/*_spec.js",
+    "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
+    "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
+    "run:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
+    "run:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
+    "run:create-demo": "cd sandbox && ng g schematics .:create-demo-comp --name mydemo --mdfile testfile --debug false --dry-run false"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^14.2.1",
+    "@angular-devkit/schematics": "^14.2.1",
+    "typescript": "~4.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.15.0",
+    "@types/jasmine": "~4.0.0",
+    "jasmine": "^4.0.0"
+  }
+}

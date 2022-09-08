@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "CreateDemoCompSchematics",
+  "title": "DemoComp Options Schema",
+  "type": "object",
+  "description": "Schema for creating a demo component",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the component",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the name of the person we  want to greet?"
+    },
+    "mdfile": {      
+      "type": "string",
+      "description": "the name of the markdown file in /assets/markdown without extension",
+      "default": "mdfilename"
+    }
+  },
+  "required": ["name"]
+}

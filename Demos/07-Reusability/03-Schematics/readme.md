@@ -24,20 +24,20 @@ Install Schematics CLI:
 npm i -g @angular-devkit/schematics @angular-devkit/schematics-cli
 ```
 
-Create a Schematics Project with one Schematic called `schematics-ws`
+Create a schematics project with one schematic called `ng-schematics-intro`
 
 ```
-schematics blank --name=schematics-ws
-cd schematics-ws
+schematics blank --name=ng-schematics-intro
+cd ng-schematics-intro
 ```
 
-> Note: The schematic is registered in `collection.json` and implemented in `./schematics-ws/index.ts`
+> Note: The schematic is registered in `collection.json` and implemented in `./ng-schematics-intro/index.ts`
 
 Build & Run Schematics locally:
 
 ```
 npm run build
-schematics .:schematics-ws --dry-run false
+schematics .:ng-schematics-intro --dry-run false
 ```
 
 > Note: You can also start `npm run build -- -w` in a separate terminal so it automatically rebuild your schematic project when a file changes
@@ -48,15 +48,15 @@ Add another Schematic to the same project (from inside the folder):
 schematics blank --name=create-file
 ```
 
-collection.json should look like this:
+`collection.json` should look like this:
 
-```
+```json
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "schematics-ws": {
+    "ng-schematics-intro": {
       "description": "A blank schematic.",
-      "factory": "./schematics-ws/index#schematicsWs"
+      "factory": "./ng-schematics-intro/index#schematicsWs"
     },
     "create-file": {
       "description": "A blank schematic.",
@@ -66,59 +66,156 @@ collection.json should look like this:
 }
 ```
 
-Build & Run Schematics locally:
+Add the following code to `create-file/index.ts`:
+
+```javascript
+export function createFile(_options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+        const file = 'hello-world.js';
+        const content = `console.log('Hello ng-adv. I hope you enjoy the class!');`;
+        tree.create(file, content);
+
+        return tree;
+    };
+}
+```
+Build & run schematics locally that should create a file in the root of your project:
 
 ```
 npm run build
 schematics .:create-file --dry-run false
 ```
 
-## Using a Sandbox
-
-Generate Sandbox from within Schematics project:
+Add a schematic that takes a param:
 
 ```
-ng new sandbox
+schematics blank --name=create-file-with-param
 ```
 
-> Note: A Sandbox is used to test your Schematic
+Update `create-file-with-param/index.ts`:
 
-Update Scripts:
+```javascript
+export function createFileWithParam(_options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+        const name = _options.name;
+        const greeting = _options.greeting;
+        const fn = 'hello.js';
+        if (tree.exists(fn)) {
+            tree.delete(fn);
+        }
+        tree.create('hello.js', `console.log('${greeting} ${name}!');`);
+        return tree;
+    };
+}
+```
+
+Examine `create-file-with-param/schema.json` and the definition of the two params:
+
+```json
+"greeting": {
+    "enum": ["Hello", "Ola", "Ahoj"],
+    "type": "string",
+    "description": "The type of greeting we want to use",
+    "default": "Hello"
+  }
+```
+
+Run using:
 
 ```
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "npm run sandbox:ng-add && npm run test:sandbox",
-    "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
-    "link:schematic": "npm link && cd sandbox && npm link schematics-ws",
-    "launch:create-file": "cd sandbox && ng g schematics-ws:create-file",
-    "launch:create-file-withparam": "cd sandbox && ng g schematics-ws:create-file-withparam --greeting Szia --name Emese --dry-run false"
-  },
+npm run build
+schematics .:create-file-withparam --greeting Ahoj --name Anika --dry-run false
 ```
-
-> Note: The original "test"-script was: `"test": "npm run build && jasmine src/**/*_spec.js"`. A backup is inculeded as package.json.starter. The modified version is included as package.json.sandbox
 
 Scaffold a new Schematic that generates a Component - just like `ng g c NAME` does:
 
 ```
-schematics blank --name create-comp
+schematics blank --name create-demo-comp
 ```
 
-> Note: Take the implementation from the finished sampel
+Add the folowing code to `create-demo-comp/index.ts`
 
-Run in Sandbox using Scripts:
+```javascript
+export function createDemoComp(_options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+        console.log('Running schematics with following options', _options);
+        const sourceTpl = url('./files');
+        const sourceTplParametrized = apply(sourceTpl, [template({ ..._options, ...strings, addExclamation })]);
+        return mergeWith(sourceTplParametrized)(tree, _context);
+    };
+}
+
+export function addExclamation(value: string): string {
+    return `${value}!`;
+}
+```
+
+Create folder `create-demo-comp/files/__name@dasherize__` and add a file `-__name@dasherize__.component.ts` with the content:
+
+```javascript
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'demo-<%= dasherize(name) %>',
+    template: `
+        <app-markdown-renderer [md]="'{{md}}'"></app-markdown-renderer>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title> {{name}} </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>                
+            </mat-card-content>
+        </mat-card>
+        `
+})
+export class Demo<%= classify(mdfile) %>Component {
+    md = '<%= mdfile %>'
+}
+```
+
+>Note: Adds a markdown-renderer and an empty mat-card to the component. To fully implement the schematic it wourld need to register itself and a route in demos.module.ts und update db.json
+
+Build & run using:
 
 ```
-npm run build
-npm run link:schematic
-npm run launch:create-file
+npm run build 
+schematics .:create-demo-comp --name mydemo --mdfile testfile --debug false
+```
+
+## Using a Sandbox
+
+A Sandbox allows you to better test your schematic. To generate Sandbox from within Schematics project run:
+
+```
+ng new sandbox --routing --style scss
 ```
 
 Run like you would do in an ordinary proj:
 
 ```
 cd .\sandbox\
-ng g schematics-ws:create-comp --greeting Szia --name Emese
+ng g ng-schematics-intro:create-file --greeting Szia --name Emese
+```
+
+Add untility scripts in `package.json` - optional:
+
+```json
+  "scripts": {
+    ...
+    "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
+    "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
+    "run:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
+    "run:create-file-withparam": "cd sandbox && ng g ng-schematics-intro:create-file-withparam --greeting Szia --name Emese --dry-run false",
+    "run:create-demo": "cd sandbox && ng g schematics .:create-demo-comp --name mydemo --mdfile testfile --debug false --dry-run false"
+  },
+```
+
+Run in using scripts:
+
+```
+npm run build
+npm run link:schematic
+npm run run:create-file
 ```
 
 ---
