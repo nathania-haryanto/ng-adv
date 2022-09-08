@@ -1,4 +1,3 @@
-// TODO #7://
 class StarRating extends HTMLElement {
   
   constructor() {
