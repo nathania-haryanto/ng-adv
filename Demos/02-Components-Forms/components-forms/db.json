@@ -27,7 +27,7 @@
     {
       "url": "temp-vs-container",
       "topicid": 3,
-      "title": "Templ. vs Container",
+      "title": "ng-template / ng-content",
       "component": "TemplateVsContainerComponent",
       "visible": true,
       "sortOrder": 2

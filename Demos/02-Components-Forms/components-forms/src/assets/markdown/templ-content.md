@@ -1,0 +1,1 @@
+Notice the current time as well as the times in ng-content and ng-template after expanding. Expand and collapse each item several times to get the point

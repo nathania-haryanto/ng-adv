@@ -37,8 +37,9 @@ import { HostBindingListenerComponent } from './samples/host-binding-listener/ho
 import { TemplateVsContainerComponent } from './samples/template-vs-container/template-vs-container.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { ContentChildComponent } from './samples/content-child/content-child.component';
-import { ExpanderComponent } from './samples/template-vs-container/expander/expander.component';
+import { ExpanderComponent } from './samples/template-vs-container/expander-content/expander.component';
 import { ClockComponent } from './samples/template-vs-container/clock/clock.component';
+import { ExpanderTemplateComponent } from './samples/template-vs-container/expander-template/expander-template.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -71,6 +72,7 @@ const appearance: MatFormFieldDefaultOptions = {
     ContentChildComponent,
     ExpanderComponent,
     ClockComponent,
+    ExpanderTemplateComponent,
   ],
   imports: [
     CommonModule,
