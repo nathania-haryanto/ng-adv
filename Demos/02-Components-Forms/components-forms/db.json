@@ -25,6 +25,38 @@
       "sortOrder": 2
     },
     {
+      "url": "temp-vs-container",
+      "topicid": 3,
+      "title": "Templ. vs Container",
+      "component": "TemplateVsContainerComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "viewchild",
+      "topicid": 3,
+      "title": "ViewChild / Children",
+      "component": "ViewChildComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "contentchild",
+      "topicid": 3,
+      "title": "ContentChild / Children",
+      "component": "ContentChildComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "hostbinding",
+      "topicid": 3,
+      "title": "Hostbinding / Listener",
+      "component": "HostBindingListenerComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
       "url": "async-pipe",
       "topicid": 3,
       "title": "Async Pipe",

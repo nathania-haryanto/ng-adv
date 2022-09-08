@@ -33,6 +33,12 @@ import { ReactiveValidationComponent } from './samples/reactive-validation/react
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { MdRendererModule } from '../shared/markdown-renderer/md-renderer.module';
 import { BootstrapStandaloneComponent } from './samples/bootstrap-standalone/bootstrap-standalone.component';
+import { HostBindingListenerComponent } from './samples/host-binding-listener/host-binding-listener.component';
+import { TemplateVsContainerComponent } from './samples/template-vs-container/template-vs-container.component';
+import { ViewChildComponent } from './samples/view-child/view-child.component';
+import { ContentChildComponent } from './samples/content-child/content-child.component';
+import { ExpanderComponent } from './samples/template-vs-container/expander/expander.component';
+import { ClockComponent } from './samples/template-vs-container/clock/clock.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -59,6 +65,12 @@ const appearance: MatFormFieldDefaultOptions = {
     GetRawValueComponent,
     ReactiveExplicitTypedExternalComponent,
     BootstrapStandaloneComponent,
+    HostBindingListenerComponent,
+    TemplateVsContainerComponent,
+    ViewChildComponent,
+    ContentChildComponent,
+    ExpanderComponent,
+    ClockComponent,
   ],
   imports: [
     CommonModule,
