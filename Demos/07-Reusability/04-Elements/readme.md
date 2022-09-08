@@ -246,13 +246,15 @@ export class AppModule {
 }
 ```
 
+>Note: Comment the old bootstrapping info so that you can switch back at any time
+
 Add custom build script to `package.json`
 
 ```
 "build-elements": "ng build --prod --keep-polyfills --single-bundle true --output-hashing none"
 ```
 
-Create the build:
+Create the build and examine output in `dist-folder`:
 
 ```
 npm run build-elements
@@ -260,7 +262,7 @@ npm run build-elements
 
 ### Testing your Web Component created with Angular Elements
 
-Modify el-the HTML in `./dist/skills-elements/index.html` for Testing:
+Modify el-the HTML in `./dist/el-skills-list/index.html` for Testing:
 
 ```html
 <!DOCTYPE html>
@@ -291,22 +293,22 @@ To set the `@Input()` and handle the `@Output()` add the following script `index
 Contents of `index.js`:
 
 ```javascript
-  document.addEventListener("DOMContentLoaded", function (event) {
-    const element = document.getElementsByTagName("ng-skills")[0];
-    if (element) {
-      // pass data
-      const data = [
-        { id: 1, name: "node.js", hours: 2, completed: false },
-        { id: 2, name: "type script", hours: 2, completed: false },
-        { id: 3, name: "java script", hours: 1, completed: false },
-      ];
-      element.skills = data;
-      // handle event
-      element.addEventListener("skillsSaved", (data) =>
-        console.log("Data received from ng-skills:", data.detail)
-      );
-    }
-  });
+document.addEventListener("DOMContentLoaded", function (event) {
+  const element = document.getElementsByTagName("ng-skills")[0];
+  if (element) {
+    // pass data
+    const data = [
+      { id: 1, name: "node.js", hours: 2, completed: false },
+      { id: 2, name: "type script", hours: 2, completed: false },
+      { id: 3, name: "java script", hours: 1, completed: false },
+    ];
+    element.skills = data;
+    // handle event
+    element.addEventListener("skillsSaved", (data) =>
+      console.log("Data received from ng-skills:", data.detail)
+    );
+  }
+});
 ```
 
 Install a tool that can serve static pages, ie `angular-http-server`:

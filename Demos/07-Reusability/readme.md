@@ -1,6 +1,6 @@
 # Reusability
 
-- Angular Libraries
-- Publish and Comsume Package from GitHub
+- Use Angular Libraries & Publish and Comsume Package from GitHub
+- Use Nx to do the same as above - optional
 - Understanding and Implementing Schematics
-- Nx (Optional)
+- Angular Elements

@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-elements": "ng build --keep-polyfills --single-bundle true --output-hashing none"
   },
   "private": true,
   "dependencies": {
