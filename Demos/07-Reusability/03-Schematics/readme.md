@@ -99,7 +99,6 @@ Update Scripts in `package.json` of the sandbox project:
 ```json
   "scripts": {
     ...
-    "testsandbox": "npm run sandbox:ng-add && npm run test:sandbox",
     "clean": "git checkout HEAD -- sandbox && git clean -f -d sandbox",
     "link:schematic": "npm link && cd sandbox && npm link ng-schematics-intro",
     "launch:create-file": "cd sandbox && ng g ng-schematics-intro:create-file",
