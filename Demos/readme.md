@@ -8,13 +8,17 @@
 - Best of Both: Combining Bootstrap & Angular Material
 - Building a Reusable Theme
 - Theming Custom Components
-- Introduction to Visual Feedback (Saved, Loading, ...)
 
-## Reactive Forms Deep Dive
+## Components & Forms Deep Dive
 
-- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, Forms Array)
+- Standalone Components: Creation, Lazy Loading, Bootstrapping
+- Templates TemplateRef, *ngTemplateOutlet
+- Compoarision: ng-template vs ng-content - pro / cons
+- ViewChild, -Children, ContentChild, -Children
+- HostBinding & HostListener
+- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl)
 - Untyped Forms vs Typed Forms 
-- Typed Forms Nullability, NonNullableFormBuilder
+- Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
 - Typed Forms Validation & Custom Validators
 - Cascading Form Controls
@@ -24,28 +28,34 @@
 ## Advanced Observables & Reactive Programming
 
 - Recap: Observables, Operators & Subjects
+- Unscubscribing: when & patterns
+- Debugging & Visualizing Observables
 - Base Operators: Mapping, Filtering, Merging, Scanning, ...
 - Understanding & Implementing Marble Diagrams
-- Debugging & Visualizing Observables
+- Marbletesting RxJs
 - Data- vs Action-Streams
 - Higher Order Mapping Operators
 - Data Composition - Joining Observable Streams
 - Data Caching & Invalidation
 - Error Handling Strategies
-- Implementing Custom Observable Operators
+- Implementing & Testing Custom Observable Operators
 
 ## Advanced State Management using NgRx
 
 - Overview State Management Patterns
-- Observable Data Services & Event Bus
-- Scaffolding using NgRx Schematics
+- Statefull Services with Behaviour Subject
+- Intra Component Communication using Event Bus Pattern
+- Introduction to NgRx
 - Using Store, Actions and Reducers
 - Debugging NgRx using Redux Dev Tools
 - Feature State and ActionReducerMap
-- Selectors, Effects, Facades, NgRx Entity Adapters
-- Simplifying Data Access with NgRx Data
+- Scaffolding using NgRx Schematics
+- Selectors, Effects, Facades, @ngrx/enitity Adapters
+- Simplifying Data Access with @ngrx/data
 - NgRx Data Optimistic & Pessimistic Update and Delete
 - NgRx Container Presenter Best Practices
+- Understanding & Optimizing Angular Change Detection
+- Optimize Change Detection using @ngrx/component & ngrxPush
 
 ## Advanced Routing and App Initalization
 
@@ -55,7 +65,11 @@
 - Implementing Global Error Handling and Retry-Patterns
 - Integrating Route Guards & Interceptors with State
 - Chaining Route Guards & Interceptors
-- Implementing an App Shell
+- Optimizing Modules & Loading Times
+- Using Auxilary Routes for Authentication
+- Preloading Component Data from NgRx using Resolvers
+- Introduction to Visual Feedback (Loading-, Saving-, ...-Indicator)
+- Implementing Page Transitions using Animations
 
 ## Securing Angular using NgRx and using Cloud Identities
 
@@ -72,7 +86,6 @@
 - Complex Forms Testing
 - Async Component Testing (done, fakeAsync, waitForAsync)
 - Material Testing using Component Harnesses
-- Introduction to Marble Testing
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
 - Using Jest for Unit Testing (Setup, Changes in spec, Snapshot Tests)
 - End-2-End Testing using Cypress
@@ -80,10 +93,12 @@
 ## Reusability
 
 - Angular Building Blocks: Workspace, Apps, Libraries
-- Understanding & using Monorepos
-- Sharing Code between Projects using Angular Libraries
+- Reusable Artifacts using Angular Libraries
 - Implementing, Publishing and Consuming Libraries to / from GitHub Packages
+- Understanding Monorepos: Pro / Cons
+- Introduction to Nx Workspaces, Apps & Libs
 - Introduction to Angular Schematics
+- Implementing Web Components using Angular Elements
 
 ## Progressive (PWA) & Real Time Web Apps
 
@@ -93,16 +108,6 @@
 - Push Notifications
 - Real Time Connected UI's
 
-## Micro Frontends
-
-- Micro Frontends Intro
-- Client Side UI Composition Pattern
-- Standalone Components
-- Bootstrapping Components
-- Lazy Loading Components
-- Creating reusable Web Components using Angular Elements
-- Module Federation
-
 ## Optimizing Applications
 
 - Using Linting and Autoformat with Prettier
@@ -110,8 +115,6 @@
 - Understanding & Using Page Traces
 - Analysing and Optimizing Bundles & Modules
 - Code-Splitting and Module Pre-Loading
-- Understanding & Optimizing Angular Change Detection
-- Optimize Change Detection using @ngrx/component & ngrxPush
 
 ## Server Side Rendering (SSR) using Angular Universal
 
