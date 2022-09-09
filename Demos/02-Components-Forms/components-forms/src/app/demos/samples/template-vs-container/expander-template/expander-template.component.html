@@ -1,0 +1,9 @@
+<div class="expander" (click)="toggleExpander()">
+    <h1>{{title}} - click to {{expanded ? "collapse": "expand" }}</h1>
+</div>
+<div class="content" *ngIf="expanded">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
+
+
+
