@@ -108,16 +108,6 @@
 - Push Notifications
 - Real Time Connected UI's
 
-## Micro Frontends
-
-- Micro Frontends Intro
-- Client Side UI Composition Pattern
-- Standalone Components
-- Bootstrapping Components
-- Lazy Loading Components
-- Creating reusable Web Components using Angular Elements
-- Module Federation
-
 ## Optimizing Applications
 
 - Using Linting and Autoformat with Prettier
