@@ -42,6 +42,7 @@ import { ClockComponent } from './samples/template-vs-container/clock/clock.comp
 import { ExpanderTemplateComponent } from './samples/template-vs-container/expander-template/expander-template.component';
 import { BindingComponent } from './samples/host-binding-listener/binding/binding.component';
 import { HoverListenerDirective } from './samples/host-binding-listener/hover-listener.directive';
+import { ProjectorComponent } from './samples/content-child/projector/projector.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -77,6 +78,7 @@ const appearance: MatFormFieldDefaultOptions = {
     ExpanderTemplateComponent,
     BindingComponent,
     HoverListenerDirective,
+    ProjectorComponent,
   ],
   imports: [
     CommonModule,
