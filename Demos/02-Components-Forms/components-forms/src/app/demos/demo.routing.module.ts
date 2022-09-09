@@ -16,6 +16,7 @@ import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-expli
 import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
+import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
@@ -43,6 +44,7 @@ const demoRoutes: Routes = [
       { path: 'temp-vs-container', component: TemplateVsContainerComponent },
       { path: 'hostbinding', component: HostBindingListenerComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
+      { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'actionstream', component: ActionStreamsComponent },
       { path: 'formbuilder', component: FormsBuilderComponent },

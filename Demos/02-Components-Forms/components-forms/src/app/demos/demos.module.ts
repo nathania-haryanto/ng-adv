@@ -41,6 +41,7 @@ import { ExpanderTemplateComponent } from './samples/template-vs-container/expan
 import { TemplateVsContainerComponent } from './samples/template-vs-container/template-vs-container.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
+import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -76,6 +77,7 @@ const appearance: MatFormFieldDefaultOptions = {
     BindingComponent,
     HoverListenerDirective,
     ProjectorComponent,
+    ReactiveTypedValidatonComponent,
   ],
   imports: [
     CommonModule,

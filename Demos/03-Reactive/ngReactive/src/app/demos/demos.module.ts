@@ -25,6 +25,8 @@ import { TransformationComponent } from './samples/transformation/transformation
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.component';
+import { SignPadComponent } from './samples/unsubscribing/sign-pad/sign-pad.component';
+import { RegisterComponent } from './samples/unsubscribing/register/register.component';
 
 const demoRoutes: Routes = [
   {
@@ -73,6 +75,8 @@ const demoRoutes: Routes = [
     LangFeaturesComponent,
     TransformationComponent,
     MarbleTestingComponent,
+    SignPadComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,

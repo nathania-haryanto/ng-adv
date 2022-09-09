@@ -139,8 +139,16 @@
     {
       "url": "validation",
       "topicid": 4,
-      "title": "Reactive Validators",
+      "title": "Validators",
       "component": "ReactiveValidationComponent",
+      "visible": true,
+      "sortOrder": 6
+    },
+    {
+      "url": "validation-typed",
+      "topicid": 4,
+      "title": "Form Validation",
+      "component": "ReactiveTypedValidatonComponent",
       "visible": true,
       "sortOrder": 6
     },

@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
@@ -84,6 +83,7 @@ export class ReactiveValidationComponent {
     }
     return errors;
   }
+
   private logControl(name: string, control: FormControl) {
     let s = `${name} - pristine:${control.pristine} - dirty:${
       control.dirty

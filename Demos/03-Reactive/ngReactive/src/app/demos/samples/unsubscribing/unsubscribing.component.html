@@ -1,14 +1,14 @@
+<app-markdown-renderer [md]="'unsubscribe'"></app-markdown-renderer>
+
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      Works with Mock Data - No Service needed
+      Individual Unsubscribe in sign-pad.component.ts
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content fxLayout="column" fxLayoutGap="10px">
-    <canvas #signPad class="signPad"></canvas>
-    <div>signPad - Mouse Moved at X: {{ result.X }} Y: {{ result.Y }}</div>
-    <a mat-raised-button color="accent" (click)="unsubscribeMouseEvt()"
-      >Unsubscribe Mouse Events</a
-    >
+  <mat-card-content>
+    <app-sign-pad></app-sign-pad>
   </mat-card-content>
 </mat-card>
+
+<app-register></app-register>
