@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
-import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
 import { BootstrapStandaloneComponent } from './samples/bootstrap-standalone/bootstrap-standalone.component';
 import { ContentChildComponent } from './samples/content-child/content-child.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
@@ -48,7 +47,6 @@ const demoRoutes: Routes = [
       { path: 'actionstream', component: ActionStreamsComponent },
       { path: 'formbuilder', component: FormsBuilderComponent },
       { path: 'formcontrol', component: FormControlComponent },
-      { path: 'async-pipe', component: AsyncPipeComponent },
       { path: 'formarray', component: FormArrayComponent },
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },

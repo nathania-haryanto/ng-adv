@@ -37,12 +37,6 @@
       "visible": true
     },
     {
-      "url": "subsink",
-      "title": "SubSink",
-      "component": "SubsinkComponent",
-      "visible": true
-    },
-    {
       "url": "marble-testing",
       "title": "Marble Testing",
       "component": "MarbleTestingComponent"

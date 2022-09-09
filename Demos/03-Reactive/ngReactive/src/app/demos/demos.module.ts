@@ -16,7 +16,6 @@ import { FlexLayoutApiComponent } from './samples/flex-layout-api/flex-layout-ap
 import { MouseDomObservablesComponent } from './samples/mouse-dom-observables/mouse-dom-observables.component';
 import { OperatorsComponent } from './samples/operators/operators.component';
 import { SubjectsComponent } from './samples/subjects/subjects.component';
-import { SubsinkComponent } from './samples/subsink/subsink.component';
 import { UnsubscribingComponent } from './samples/unsubscribing/unsubscribing.component';
 import { WatchRxJsComponent } from './samples/watchrxjs/watchrxjs.component';
 import { SharedModule } from '../shared/shared.module';
@@ -41,7 +40,6 @@ const demoRoutes: Routes = [
       { path: 'debounced', component: DebouncedSearchComponent },
       { path: 'flexlayoutapi', component: FlexLayoutApiComponent },
       { path: 'unsubscribe', component: UnsubscribingComponent },
-      { path: 'subsink', component: SubsinkComponent },
       { path: 'asyncpipe', component: AsyncPipeComponent },
       { path: 'customops', component: CustomOperatorsComponent },
       { path: 'errhandling', component: ErrHandlingComponent },
@@ -64,7 +62,6 @@ const demoRoutes: Routes = [
     OperatorsComponent,
     FlexLayoutApiComponent,
     UnsubscribingComponent,
-    SubsinkComponent,
     SubjectsComponent,
     CustomOperatorsComponent,
     AsyncPipeComponent,
