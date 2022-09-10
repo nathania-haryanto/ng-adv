@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './unsubscribing.component.html',
   styleUrls: ['./unsubscribing.component.scss'],
 })
-export class UnsubscribingComponent {}
+export class UnsubscribingComponent {
+  constructor() {}
+}

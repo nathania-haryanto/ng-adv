@@ -26,7 +26,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.component';
 import { SignPadComponent } from './samples/unsubscribing/sign-pad/sign-pad.component';
-import { RegisterComponent } from './samples/unsubscribing/register/register.component';
+import { ImperativeComponent } from './samples/imperative/imperative.component';
+import { ReifiedReactiveComponent } from './samples/reified-reactive/reified-reactive.component';
 
 const demoRoutes: Routes = [
   {
@@ -36,6 +37,8 @@ const demoRoutes: Routes = [
     children: [
       { path: 'langfeatures', component: LangFeaturesComponent },
       { path: 'subjects', component: SubjectsComponent },
+      { path: 'imperative', component: ImperativeComponent },
+      { path: 'reactive', component: ReifiedReactiveComponent },
       { path: 'creating', component: CreatingObservableComponent },
       { path: 'mousedomobs', component: MouseDomObservablesComponent },
       { path: 'operators', component: OperatorsComponent },
@@ -76,7 +79,8 @@ const demoRoutes: Routes = [
     TransformationComponent,
     MarbleTestingComponent,
     SignPadComponent,
-    RegisterComponent,
+    ImperativeComponent,
+    ReifiedReactiveComponent,
   ],
   imports: [
     CommonModule,

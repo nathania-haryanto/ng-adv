@@ -37,6 +37,20 @@
       "visible": true
     },
     {
+      "url": "imperative",
+      "topicid": 3,
+      "title": "Imperative Programming",
+      "component": "ImperativeComponent",
+      "visible": true
+    },
+    {
+      "url": "reactive",
+      "topicid": 3,
+      "title": "Reactive Programming",
+      "component": "ImperativeComponent",
+      "visible": true
+    },
+    {
       "url": "marble-testing",
       "title": "Marble Testing",
       "component": "MarbleTestingComponent"

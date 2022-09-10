@@ -5,15 +5,14 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { fromEvent, map, tap } from 'rxjs';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { fromEvent, map, Subscription, tap } from 'rxjs';
 
 @Component({
   selector: 'app-sign-pad',
   templateUrl: './sign-pad.component.html',
   styleUrls: ['./sign-pad.component.scss'],
 })
-export class SignPadComponent implements OnDestroy, AfterViewInit {
+export class SignPadComponent implements OnDestroy {
   @ViewChild('signPad', { static: true }) canvas: ElementRef;
 
   constructor() {}
@@ -21,16 +20,19 @@ export class SignPadComponent implements OnDestroy, AfterViewInit {
   subMouseEvents: Subscription;
   result: { X: number; Y: number } = { X: 0, Y: 0 };
 
-  ngAfterViewInit(): void {
-    this.subscribeCanvas();
-  }
-
   ngOnDestroy() {
-    this.subMouseEvents.unsubscribe();
-    console.log('Mouse Subscription unsubscribed');
+    this.unsubscribeMouseEvts();
   }
 
-  subscribeCanvas() {
+  //used from ngOnDestroy and mouse event
+  unsubscribeMouseEvts() {
+    if (this.subMouseEvents) {
+      this.subMouseEvents.unsubscribe();
+      console.log('unsubscribed from Mouse Event');
+    }
+  }
+
+  subscribeMouseEvts() {
     if (this.canvas) {
       const evtMouse = fromEvent(this.canvas.nativeElement, 'mousemove').pipe(
         tap((data: any) => console.log('original data', data)),
@@ -45,10 +47,5 @@ export class SignPadComponent implements OnDestroy, AfterViewInit {
         console.log('Mouse Moved @: ', point);
       });
     }
-  }
-
-  unsubscribeMouseEvt() {
-    this.subMouseEvents.unsubscribe();
-    console.log('unsubscribed from Mouse Event');
   }
 }
