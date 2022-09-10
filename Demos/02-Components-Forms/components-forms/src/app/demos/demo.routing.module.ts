@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { ActionStreamsComponent } from './samples/action-streams/action-streams.component';
-import { AsyncPipeComponent } from './samples/async-pipe/async-pipe.component';
 import { BootstrapStandaloneComponent } from './samples/bootstrap-standalone/bootstrap-standalone.component';
 import { ContentChildComponent } from './samples/content-child/content-child.component';
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
@@ -17,6 +16,7 @@ import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-expli
 import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
 import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
+import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
 import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
 import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
@@ -44,11 +44,11 @@ const demoRoutes: Routes = [
       { path: 'temp-vs-container', component: TemplateVsContainerComponent },
       { path: 'hostbinding', component: HostBindingListenerComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
+      { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'actionstream', component: ActionStreamsComponent },
       { path: 'formbuilder', component: FormsBuilderComponent },
       { path: 'formcontrol', component: FormControlComponent },
-      { path: 'async-pipe', component: AsyncPipeComponent },
       { path: 'formarray', component: FormArrayComponent },
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },

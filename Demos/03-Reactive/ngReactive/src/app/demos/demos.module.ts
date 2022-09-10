@@ -16,7 +16,6 @@ import { FlexLayoutApiComponent } from './samples/flex-layout-api/flex-layout-ap
 import { MouseDomObservablesComponent } from './samples/mouse-dom-observables/mouse-dom-observables.component';
 import { OperatorsComponent } from './samples/operators/operators.component';
 import { SubjectsComponent } from './samples/subjects/subjects.component';
-import { SubsinkComponent } from './samples/subsink/subsink.component';
 import { UnsubscribingComponent } from './samples/unsubscribing/unsubscribing.component';
 import { WatchRxJsComponent } from './samples/watchrxjs/watchrxjs.component';
 import { SharedModule } from '../shared/shared.module';
@@ -26,6 +25,9 @@ import { TransformationComponent } from './samples/transformation/transformation
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { MarbleTestingComponent } from './samples/marble-testing/marble-testing.component';
+import { SignPadComponent } from './samples/unsubscribing/sign-pad/sign-pad.component';
+import { ImperativeComponent } from './samples/imperative/imperative.component';
+import { ReifiedReactiveComponent } from './samples/reified-reactive/reified-reactive.component';
 
 const demoRoutes: Routes = [
   {
@@ -35,13 +37,14 @@ const demoRoutes: Routes = [
     children: [
       { path: 'langfeatures', component: LangFeaturesComponent },
       { path: 'subjects', component: SubjectsComponent },
+      { path: 'imperative', component: ImperativeComponent },
+      { path: 'reactive', component: ReifiedReactiveComponent },
       { path: 'creating', component: CreatingObservableComponent },
       { path: 'mousedomobs', component: MouseDomObservablesComponent },
       { path: 'operators', component: OperatorsComponent },
       { path: 'debounced', component: DebouncedSearchComponent },
       { path: 'flexlayoutapi', component: FlexLayoutApiComponent },
       { path: 'unsubscribe', component: UnsubscribingComponent },
-      { path: 'subsink', component: SubsinkComponent },
       { path: 'asyncpipe', component: AsyncPipeComponent },
       { path: 'customops', component: CustomOperatorsComponent },
       { path: 'errhandling', component: ErrHandlingComponent },
@@ -64,7 +67,6 @@ const demoRoutes: Routes = [
     OperatorsComponent,
     FlexLayoutApiComponent,
     UnsubscribingComponent,
-    SubsinkComponent,
     SubjectsComponent,
     CustomOperatorsComponent,
     AsyncPipeComponent,
@@ -76,6 +78,9 @@ const demoRoutes: Routes = [
     LangFeaturesComponent,
     TransformationComponent,
     MarbleTestingComponent,
+    SignPadComponent,
+    ImperativeComponent,
+    ReifiedReactiveComponent,
   ],
   imports: [
     CommonModule,

@@ -37,9 +37,17 @@
       "visible": true
     },
     {
-      "url": "subsink",
-      "title": "SubSink",
-      "component": "SubsinkComponent",
+      "url": "imperative",
+      "topicid": 3,
+      "title": "Imperative Programming",
+      "component": "ImperativeComponent",
+      "visible": true
+    },
+    {
+      "url": "reactive",
+      "topicid": 3,
+      "title": "Reactive Programming",
+      "component": "ImperativeComponent",
       "visible": true
     },
     {

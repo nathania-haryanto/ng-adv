@@ -1,6 +1,6 @@
 # Topics
 
-## Theming & Visual Feedback (Animations)
+## Theming
 
 - Styling Angular Components Deep Dive
 - Comparing Angular Material & Bootstrap
