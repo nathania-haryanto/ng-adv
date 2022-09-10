@@ -1,3 +1,4 @@
+<app-markdown-renderer [md]="'creating'"></app-markdown-renderer>
 <mat-card>
   <mat-card-header>
     <mat-card-title> Observable Basics - Creating & Consuming</mat-card-title>
@@ -11,6 +12,7 @@
     <button mat-raised-button color="accent" (click)="useOfwithSpread()">
       of() with spread()
     </button>
+    <button mat-raised-button color="accent" (click)="useNewObs()">new Observabl()</button>
     <button mat-raised-button color="accent" (click)="wrappingCallbacks()">
       Wrapping Callbacks
     </button>
@@ -22,5 +24,3 @@
     </button>    
   </mat-card-content>
 </mat-card>
-
-<app-debounced-search></app-debounced-search>
