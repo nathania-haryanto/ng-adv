@@ -15,7 +15,7 @@ export class AsyncPipeComponent implements OnInit {
   // Classic subscribe Pattern
   tasks: TaskItem[];
 
-  // Declarative Approach using async pipe
+  // Reactive declarative Approach using async pipe
   tasks$: Observable<TaskItem[]> = this.ts.getTasks();
   completed$: Observable<TaskItem> = this.tasks$.pipe(
     mergeMap((tasks: TaskItem[]) => tasks),
