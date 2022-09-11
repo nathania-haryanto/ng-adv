@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillsService } from '../skills.service';
-import { Skill } from '../model';
+import { FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
+import { Skill } from './skill.model';
+import { SkillsService } from './skills.service';
 
 @Component({
   selector: 'app-skills',
@@ -8,24 +10,26 @@ import { Skill } from '../model';
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent implements OnInit {
-  skills: Skill[];
-  skillToAdd: string;
+  skills$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
+  skillToAdd = new FormControl<string>('', { nonNullable: true });
 
-  constructor(private service: SkillsService) {
-    this.skills = [];
-    this.skillToAdd = '';
-  }
+  constructor(private service: SkillsService) {}
 
-  ngOnInit() {
-    this.service.getSkills().subscribe((data) => (this.skills = data));
+  ngOnInit(): void {
+    this.service.getSkills().subscribe((skills) => {
+      this.skills$.next(skills);
+    });
   }
 
   removeSkill(s: Skill) {
-    this.skills = this.skills.filter((i: Skill) => i !== s);
+    const skills = this.skills$.getValue().filter((i: Skill) => i !== s);
+    this.skills$.next(skills);
   }
 
   addSkill() {
-    let sk: Skill = { id: this.skills.length + 1, name: this.skillToAdd };
-    this.skills.push(sk);
+    const skills = this.skills$.getValue();
+    skills.push({ id: skills.length + 1, name: this.skillToAdd.value });
+    this.skills$.next(skills);
+    this.skillToAdd.setValue('');
   }
 }
