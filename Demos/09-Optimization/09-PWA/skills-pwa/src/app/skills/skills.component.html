@@ -1,6 +1,6 @@
 <div>
   <div class="addRow">
-    <label>Add a Skill:</label><input type="text" [(ngModel)]="skillToAdd" />
+    <label>Add a Skill:</label><input type="text" [formControl]="skillToAdd" />
     <button mat-raised-button (click)="addSkill()">Add Skill</button>
   </div>
   <div>Here are the skills</div>
@@ -13,12 +13,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let s of skills" (click)="removeSkill(s)">
+        <tr *ngFor="let s of skills$ | async" (click)="removeSkill(s)">
           <td>{{ s.id }}</td>
           <td>{{ s.name }}</td>
         </tr>
       </tbody>
     </table>
-    <p>Hover & Click a skill to remove it</p>
+    <h2>Hover & Click a skill to remove it</h2>
   </div>
 </div>

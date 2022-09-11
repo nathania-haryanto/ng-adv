@@ -8,7 +8,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'Angular PWA Skills';
   msgGreeting = 'Angular Developer';
   message: any;
 
