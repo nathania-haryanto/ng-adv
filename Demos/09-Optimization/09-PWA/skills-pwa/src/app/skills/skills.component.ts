@@ -1,9 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { Skill } from '../model';
-import { SkillsService } from '../skills.service';
-import { map, takeUntil } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
+import { Skill } from './skill.model';
+import { SkillsService } from './skills.service';
 
 @Component({
   selector: 'app-skills',
