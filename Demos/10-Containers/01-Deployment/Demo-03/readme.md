@@ -2,7 +2,9 @@
 
 Sample is located [here](https://github.com/arambazamba/az-static-web-app)
 
-Create a secret `AZURE_STATIC_WEB_APPS_API_TOKEN` in GitHub: 
+Create a static web app in Azure
+
+Create a repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN` in GitHub: 
 
 GitHub Action in `github/workflows/`:
 
