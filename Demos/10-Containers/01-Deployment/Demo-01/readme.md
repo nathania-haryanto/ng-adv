@@ -12,7 +12,7 @@ Install firebase cli:
 npm install -g firebase-tools
 ```
 
-Create a project & app
+Create a project & app in [firebase console](https://console.firebase.google.com/).
 
 ```
 firebase login
@@ -32,29 +32,21 @@ Add Firebase Deploy:
 ng add @angular/fire
 ```
 
-> Note: Adds `@angular/fire`, `firebase` and some util libs as dev dependencies
-
-Updates `.firebaserc`:
-
-```json
-"targets": {
-    "ng-deploy-ap": {
-      "hosting": {
-        "ngDeploy": [
-          "ng-deploy-ap"
-        ]
-      }
-    }
-  }
-```
+> Note: ng add @angular/fire adds `@angular/fire`, `firebase` and some util libs as dev dependencies and updates `.firebaserc`:
 
 Updates angular.json:
 
 ```json
 "deploy": {
-            "builder": "@angular/fire:deploy",
-            "options": {}
-          }
+  "builder": "@angular/fire:deploy",
+  "options": {
+    "prerender": false,
+    "ssr": false,
+    "browserTarget": "ngDeploy:build:production",
+    "firebaseProject": "fir-app-de2ba",
+    "firebaseHostingSite": "fir-app-de2ba"
+  }
+}
 ```
 
 Run deployment:
@@ -62,4 +54,3 @@ Run deployment:
 ```
 ng deploy
 ```
-
