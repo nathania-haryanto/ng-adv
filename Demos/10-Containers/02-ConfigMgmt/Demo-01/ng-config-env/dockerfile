@@ -25,4 +25,4 @@ CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.transform.j
 
 # Publish Image to dockerhub
 # docker tag ng-config-env arambazamba/ng-config-env
-# docker push arambazamba/config-env
+# docker push arambazamba/ng-config-env
