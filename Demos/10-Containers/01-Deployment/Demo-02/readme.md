@@ -4,6 +4,4 @@
 
 ## Demos
 
->Note: Update the apiUrl from your deployment in the angular config.
-
 - Deploy to Azure Storage Account and CDN using `create-blob-with-cdn.azcli`

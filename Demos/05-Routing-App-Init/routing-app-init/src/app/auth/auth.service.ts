@@ -12,7 +12,9 @@ export class AuthService {
   private authenticated: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
-  private user: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private user: BehaviorSubject<string | null> = new BehaviorSubject<string>(
+    null
+  );
 
   private authEnabled = of(environment.authEnabled);
 
