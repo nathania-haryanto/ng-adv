@@ -6,15 +6,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ConfigService {
-  cfg: AppConfig | null = null;
+  cfg: AppConfig = new AppConfig();
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    console.log('ConfigService constructor');
+  }
 
   loadConfig() {
     return this.httpClient
       .get<AppConfig>('./assets/config.json')
       .subscribe((config: AppConfig) => {
         this.cfg = config;
+        console.log('config loaded :', this.cfg);
       });
   }
 }
