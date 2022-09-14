@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppConfig } from './config/app.config.model';
 import { ConfigService } from './config/config.service';
 
 @Component({
@@ -8,14 +10,14 @@ import { ConfigService } from './config/config.service';
 })
 export class AppComponent {
   title = 'ng-config-srv';
-  apiUrl = 'url not set';
+  cfg: Observable<AppConfig | null> = this.cs.cfg;
+  apiUrl = this.cs.apiUrl;
 
-  constructor(private cs: ConfigService) {
+  constructor(public cs: ConfigService) {
     console.log('AppComponent constructor');
   }
 
   ngOnInit() {
     console.log('AppComponent ngOnInit');
-    this.apiUrl = this.cs.cfg?.apiUrl;
   }
 }

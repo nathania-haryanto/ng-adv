@@ -11,6 +11,11 @@ import { ConfigService } from './config/config.service';
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useValue: () => console.log('APP_INITIALIZER'),
+    //   multi: true,
+    // },
     {
       provide: APP_INITIALIZER,
       useFactory: configFactory,
