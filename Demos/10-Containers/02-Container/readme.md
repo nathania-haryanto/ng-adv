@@ -9,7 +9,7 @@ Use `arambazamba/ng-config-env`-image created earlier this module.
 - Introduction to Azure Container Instances (ACI)
 - Host on Azure Container Instances (ACI) with injected config
 
-### Multistage build of `food-ui` publish to DockerHub
+### Multistage build of `ng-config-env` publish to DockerHub
 
 Explain section in `dockerfile`:
 

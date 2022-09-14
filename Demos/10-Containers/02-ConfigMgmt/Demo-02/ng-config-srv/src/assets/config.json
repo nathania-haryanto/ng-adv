@@ -1,0 +1,6 @@
+{
+    "authEnabled": false,
+    "title": "Using Config Service",
+    "markdownPath": "/assets/markdown/",
+    "apiUrl": "http://localhost:3000/"
+}

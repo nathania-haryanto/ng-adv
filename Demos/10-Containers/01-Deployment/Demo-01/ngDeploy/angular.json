@@ -116,7 +116,13 @@
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {}
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ngDeploy:build:production",
+            "firebaseProject": "fir-app-de2ba",
+            "firebaseHostingSite": "fir-app-de2ba"
+          }
         }
       }
     }

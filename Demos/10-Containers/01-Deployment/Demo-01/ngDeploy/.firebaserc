@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-app-de2ba": {
+      "hosting": {
+        "ngDeploy": [
+          "fir-app-de2ba"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-app-de2ba"
+  }
+}
