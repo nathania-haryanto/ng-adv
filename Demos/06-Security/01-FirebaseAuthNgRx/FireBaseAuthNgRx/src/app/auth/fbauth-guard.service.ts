@@ -3,9 +3,9 @@ import { CanLoad } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthState } from './store/auth.reducer';
-import { LoginRedirect } from './store/auth.actions';
-import { getUser } from './store/auth.selectors';
+import { AuthState } from './state/auth.reducer';
+import { LoginRedirect } from './state/auth.actions';
+import { getUser } from './state/auth.selectors';
 @Injectable({
   providedIn: 'root',
 })

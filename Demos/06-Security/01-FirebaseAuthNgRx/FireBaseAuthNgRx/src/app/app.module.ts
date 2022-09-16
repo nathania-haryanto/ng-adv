@@ -20,7 +20,6 @@ import { SharedModule } from './shared/shared.module';
 import { reducers, metaReducers } from './store';
 import { ErrPageComponent } from './error/err-page/err-page.component';
 import { FBAuthModule } from './auth/fbauth.module';
-import { CustomRouterSerializer } from './store/reducers/custom-serializer';
 import { GlobalErrService } from './error/global-err-handler';
 import { FBAuthInterceptor } from './auth/fbauth.interceptor';
 import { HttpErrorInterceptor } from './error/globle-http-err-handler';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AuthFacade } from './store/auth.facade';
+import { AuthFacade } from './state/auth.facade';
 
 @Injectable({
   providedIn: 'root',

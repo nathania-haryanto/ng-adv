@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RouterState } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getComponent } from '../selectors/router.selectors';
+import { getComponent } from './router.selectors';
 
 @Injectable({
   providedIn: 'root',

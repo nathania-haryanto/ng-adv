@@ -8,8 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { authFeatureKey, AuthReducer } from './store/auth.reducer';
-import { AuthEffects } from './store/auth.effects';
+import { authFeatureKey, AuthReducer } from './state/auth.reducer';
+import { AuthEffects } from './state/auth.effects';
 import { MaterialModule } from '../material.module';
 import { LogoutComponent } from './components/logout/logout.component';
 

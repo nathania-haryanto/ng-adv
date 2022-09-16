@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthFacade } from '../../store/auth.facade';
+import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
   selector: 'app-logout',

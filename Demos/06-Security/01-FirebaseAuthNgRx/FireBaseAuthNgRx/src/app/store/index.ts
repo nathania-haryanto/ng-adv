@@ -1,9 +1,9 @@
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { AppReducer, AppState } from './reducers/app.reducer';
-import { RouterStateUrl } from './reducers/router.reducer';
-import { AuthReducer, AuthState } from '../auth/store/auth.reducer';
+import { reducer as AppReducer, AppState } from './app.reducer';
+import { RouterStateUrl } from './router.reducer';
+import { AuthReducer, AuthState } from '../auth/state/auth.reducer';
 
 // State
 export interface State {
