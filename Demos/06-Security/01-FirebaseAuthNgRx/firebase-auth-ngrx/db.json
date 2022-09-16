@@ -1,0 +1,52 @@
+{
+  "demos": [
+    {
+      "url": "login",
+      "title": "Login",
+      "component": "LoginComponent",
+      "id": 2,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "register",
+      "title": "Register",
+      "component": "RegisterComponent",
+      "id": 3,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "logout",
+      "title": "Logout",
+      "component": "LogoutComponent",
+      "id": 4,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    }
+  ],"skills": [
+    {
+      "id": 1,
+      "name": "RxJs",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "name": "NgRx",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "name": "Angular",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "name": "TypeScript",
+      "completed": true
+    }
+  ]
+}
