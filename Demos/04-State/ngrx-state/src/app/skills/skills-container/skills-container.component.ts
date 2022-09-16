@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatest, Observable, of } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { combineLatestWith, map, startWith } from 'rxjs/operators';
 import { Skill } from '../skill.model';
 import { SkillsEntityService } from '../skills-entity.service';
 
@@ -12,26 +11,17 @@ import { SkillsEntityService } from '../skills-entity.service';
 })
 export class SkillsContainerComponent {
   fcToggle = new FormControl(true);
-  skills: Observable<Skill[]>;
-  view: Observable<Skill[]>;
+  skills = this.skillsService.entities$.pipe(
+    combineLatestWith(this.fcToggle.valueChanges.pipe(startWith(true))),
+    map(([skills, showAll]) => {
+      return showAll ? skills : skills.filter((sk) => sk.completed === showAll);
+    })
+  );
 
-  constructor(private skillsService: SkillsEntityService) {
-    this.skills = this.skillsService.entities$;
-  }
+  constructor(private skillsService: SkillsEntityService) {}
 
   ngOnInit(): void {
     this.skillsService.getAll();
-
-    this.view = combineLatest([
-      this.skills,
-      this.fcToggle.valueChanges.pipe(startWith(true)),
-    ]).pipe(
-      map(([skills, showAll]) => {
-        return showAll
-          ? skills
-          : skills.filter((sk) => sk.completed === showAll);
-      })
-    );
   }
 
   addItem(): void {
