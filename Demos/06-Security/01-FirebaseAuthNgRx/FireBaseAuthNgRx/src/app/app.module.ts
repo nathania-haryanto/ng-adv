@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
-import { reducers, metaReducers } from './store';
+import { reducers, metaReducers } from './state';
 import { ErrPageComponent } from './error/err-page/err-page.component';
 import { FBAuthModule } from './auth/fbauth.module';
 import { GlobalErrService } from './error/global-err-handler';

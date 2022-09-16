@@ -5,7 +5,6 @@ import { reducer as AppReducer, AppState } from './app.reducer';
 import { RouterStateUrl } from './router.reducer';
 import { AuthReducer, AuthState } from '../auth/state/auth.reducer';
 
-// State
 export interface State {
   app: AppState;
   routerReducer: RouterReducerState<RouterStateUrl>;

@@ -13,22 +13,19 @@ import {
   loadDemosSuccess,
 } from './demos.actions';
 
-// State
 export const demosFeatureKey = 'demos';
+export interface DemoState extends EntityState<DemoItem> {
+  selected: DemoItem;
+  filter: string;
+}
+export const demosAdapter: EntityAdapter<DemoItem> =
+  createEntityAdapter<DemoItem>();
 
 // internal entity structure
 // interface EntityState<T> {
 //   ids: string[];
 //   entities: { [id: string]: T };
 // }
-
-export interface DemoState extends EntityState<DemoItem> {
-  selected: DemoItem;
-  filter: string;
-}
-
-export const demosAdapter: EntityAdapter<DemoItem> =
-  createEntityAdapter<DemoItem>();
 
 export const defaultDemoItemState: DemoState = {
   ids: [],

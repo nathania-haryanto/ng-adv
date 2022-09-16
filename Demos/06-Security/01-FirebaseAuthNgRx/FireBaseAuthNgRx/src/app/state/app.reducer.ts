@@ -1,3 +1,6 @@
+import { createReducer, on } from '@ngrx/store';
+import * as app from './app.actions';
+
 export const appFeatureKey = 'app';
 
 export interface AppState {
@@ -7,9 +10,6 @@ export interface AppState {
 export const initialAppState: AppState = {
   title: 'Advanced Angular Development',
 };
-
-import { createReducer, on, props } from '@ngrx/store';
-import * as app from './app.actions';
 
 export const reducer = createReducer(
   initialAppState,
