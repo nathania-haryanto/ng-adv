@@ -8,10 +8,10 @@ import {
   SetToken,
   LoginRedirect,
 } from '../actions/auth.actions';
-import { LoginVM } from '../../login-credential.model';
 import { getUser, getLoggedIn, hasToken } from '../selectors/auth.selectors';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
+import { LoginCredentials } from '../../credential.model';
 
 @Injectable({
   providedIn: 'root',
@@ -35,7 +35,7 @@ export class AuthFacade {
       .pipe(map((token) => environment.authEnabled == false || token));
   }
 
-  logIn(login: LoginVM) {
+  logIn(login: LoginCredentials) {
     this.store.dispatch(new Login(login));
   }
 
@@ -43,7 +43,7 @@ export class AuthFacade {
     this.store.dispatch(new Logout());
   }
 
-  register(login: LoginVM) {
+  register(login: LoginCredentials) {
     this.store.dispatch(new Register(login));
   }
 

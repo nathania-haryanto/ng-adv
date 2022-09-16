@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { AuthFacade } from '../../store/facades/auth.facade';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginCredentials } from '../../credential.model';
+import { FBAuthService } from '../../fbauth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  constructor(private af: AuthFacade) {}
+export class LoginComponent {
+  constructor(private as: FBAuthService) {}
 
-  loginForm: UntypedFormGroup;
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+    ]),
+  });
 
-  ngOnInit() {
-    this.loginForm = new UntypedFormGroup({
-      email: new UntypedFormControl('', [Validators.required, Validators.email]),
-      password: new UntypedFormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ])
-    });
-  }
-
-  logIn(form: UntypedFormGroup) {
-    this.af.logIn(form.value);
+  logIn(form: FormGroup) {
+    let vm: LoginCredentials = form.value;
+    this.as.logOn(vm.email, vm.password);
   }
 }

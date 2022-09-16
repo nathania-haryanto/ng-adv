@@ -10,10 +10,9 @@ import {
   RegisterErr,
   RegisterSuccess,
 } from '../actions/auth.actions';
-import { LoginVM } from '../../login-credential.model';
-import { routerRequestAction, RouterRequestAction } from '@ngrx/router-store';
 import { Router } from '@angular/router';
 import { EMPTY } from 'rxjs';
+import { LoginCredentials } from '../../credential.model';
 
 @Injectable()
 export class AuthEffects {
@@ -27,7 +26,7 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(AuthActionTypes.Login),
       pluck('payload'),
-      exhaustMap((pl: LoginVM) =>
+      exhaustMap((pl: LoginCredentials) =>
         this.as
           .logOn(pl.email, pl.password)
           .then((cred) => new LoginSuccess(cred.user))
@@ -40,7 +39,7 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(AuthActionTypes.Register),
       pluck('payload'),
-      exhaustMap((pl: LoginVM) =>
+      exhaustMap((pl: LoginCredentials) =>
         this.as
           .createUser(pl.email, pl.password)
           .then((cred) => new RegisterSuccess(cred.user))
