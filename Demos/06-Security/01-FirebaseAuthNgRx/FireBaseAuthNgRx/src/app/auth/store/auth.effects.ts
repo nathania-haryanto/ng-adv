@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { exhaustMap, pluck, tap } from 'rxjs/operators';
-import { FBAuthService } from '../../fbauth.service';
+import { EMPTY } from 'rxjs';
+import { exhaustMap, pluck } from 'rxjs/operators';
+import { LoginCredentials } from '../credential.model';
+import { FBAuthService } from '../fbauth.service';
 import {
   AuthActionTypes,
   LoginErr,
@@ -9,10 +12,7 @@ import {
   LogoutComplete,
   RegisterErr,
   RegisterSuccess,
-} from '../actions/auth.actions';
-import { Router } from '@angular/router';
-import { EMPTY } from 'rxjs';
-import { LoginCredentials } from '../../credential.model';
+} from './auth.actions';
 
 @Injectable()
 export class AuthEffects {

@@ -3,7 +3,7 @@ import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { AppReducer, AppState } from './reducers/app.reducer';
 import { RouterStateUrl } from './reducers/router.reducer';
-import { AuthReducer, AuthState } from '../auth/store/reducers/auth.reducer';
+import { AuthReducer, AuthState } from '../auth/store/auth.reducer';
 
 // State
 export interface State {

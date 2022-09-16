@@ -8,8 +8,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { first, mergeMap } from 'rxjs/operators';
-import { AuthState } from './store/reducers/auth.reducer';
-import { getToken } from './store/selectors/auth.selectors';
+import { AuthState } from './store/auth.reducer';
+import { getToken } from './store/auth.selectors';
 
 @Injectable({
   providedIn: 'root',

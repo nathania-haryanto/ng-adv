@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthState } from '../reducers/auth.reducer';
 import {
   Login,
   Logout,
   Register,
   SetToken,
   LoginRedirect,
-} from '../actions/auth.actions';
-import { getUser, getLoggedIn, hasToken } from '../selectors/auth.selectors';
+} from './auth.actions';
+import { getUser, getLoggedIn, hasToken } from './auth.selectors';
 import { map } from 'rxjs/operators';
-import { environment } from '../../../../environments/environment';
-import { LoginCredentials } from '../../credential.model';
+import { environment } from '../../../environments/environment';
+import { LoginCredentials } from '../credential.model';
+import { AuthState } from './auth.reducer';
 
 @Injectable({
   providedIn: 'root',

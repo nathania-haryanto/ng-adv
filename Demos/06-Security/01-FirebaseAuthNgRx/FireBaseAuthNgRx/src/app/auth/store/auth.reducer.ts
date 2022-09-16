@@ -1,4 +1,4 @@
-import { AuthActions, AuthActionTypes } from '../actions/auth.actions';
+import { AuthActions, AuthActionTypes } from './auth.actions';
 
 export const authFeatureKey = 'auth';
 

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { LoginCredentials } from '../../credential.model';
+import { LoginCredentials } from '../credential.model';
 
 export enum AuthActionTypes {
   Register = '[Auth] Register',
