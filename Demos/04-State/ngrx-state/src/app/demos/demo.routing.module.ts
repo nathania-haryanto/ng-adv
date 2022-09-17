@@ -9,6 +9,8 @@ import { SkillsComponent } from './samples/skills/skills.component';
 import { EffectsComponent } from './samples/effects/effects.component';
 import { FacadesComponent } from './samples/facades/facades.component';
 import { StatefullComponent } from './samples/statefull/statefull.component';
+import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
+import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
 
 export const demoRoutes: Routes = [
   {
@@ -25,6 +27,8 @@ export const demoRoutes: Routes = [
       { path: 'effects', component: EffectsComponent },
       { path: 'facades', component: FacadesComponent },
       { path: 'skills', component: SkillsComponent },
+      { path: 'cd-intro', component: ChangeDetectionComponent },
+      { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent },
     ],
   },
 ];

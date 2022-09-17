@@ -1,5 +1,5 @@
 export class CommentItem {
-  id: number;
+  id: number = 0;
   url: string = '';
   title: string = '';
   comment: string = '';

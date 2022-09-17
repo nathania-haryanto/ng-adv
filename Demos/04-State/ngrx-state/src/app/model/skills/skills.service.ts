@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SkillBS } from './skills';
+import { SkillBS } from './skills-bs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
@@ -19,15 +19,15 @@ export class SkillsService {
     return this.httpClient.get<SkillBS>(`${environment.apiUrl}skills${id}`);
   }
 
-  insertSkill(skill: SkillBS): Observable<any> {
+  insertSkill(skill: SkillBS) {
     return this.httpClient.post<SkillBS>(`${environment.apiUrl}skills`, skill);
   }
 
-  updateSkill(skill: SkillBS): Observable<any> {
+  updateSkill(skill: SkillBS) {
     return this.httpClient.put<SkillBS>(`${environment.apiUrl}skills`, skill);
   }
 
-  deleteSkill(id: number): Observable<any> {
+  deleteSkill(id: number) {
     return this.httpClient.delete(`${environment.apiUrl}skills/${id}`);
   }
 }

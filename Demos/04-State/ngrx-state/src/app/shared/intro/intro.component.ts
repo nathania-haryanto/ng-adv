@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./intro.component.scss'],
 })
 export class IntroComponent implements OnInit {
-  @Input() title: string;
-  @Input() subtitle: string;
-  @Input() img: string;
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() img: string = '';
 
   constructor() {}
 

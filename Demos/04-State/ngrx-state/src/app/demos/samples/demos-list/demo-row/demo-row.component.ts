@@ -7,7 +7,7 @@ import { DemoItem } from '../../../demo-base/demo-item.model';
   styleUrls: ['./demo-row.component.scss'],
 })
 export class DemoRowComponent implements OnInit {
-  @Input() item: DemoItem;
+  @Input() item: DemoItem = new DemoItem();
   @Output() onDelete = new EventEmitter<DemoItem>();
   @Output() onSelect = new EventEmitter<DemoItem>();
   @Output() onChangeVisibility = new EventEmitter<DemoItem>();

@@ -7,7 +7,7 @@ import { CommentItem } from '../../comment.model';
   styleUrls: ['./comment-edit.component.scss'],
 })
 export class CommentEditComponent implements OnInit {
-  @Input() comment: CommentItem;
+  @Input() comment: CommentItem = new CommentItem();
 
   constructor() {}
 

@@ -1,8 +1,8 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { Observable, combineLatest } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { DemoItem } from 'src/app/demos/demo-base/demo-item.model';
 import { StatefulDemoService } from '../stateful-demo.service';
 
@@ -11,7 +11,7 @@ import { StatefulDemoService } from '../stateful-demo.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   constructor(private ds: StatefulDemoService) {}
 
   // Data Stream
@@ -34,8 +34,6 @@ export class ListComponent implements OnInit {
         : demos;
     })
   );
-
-  ngOnInit() {}
 
   drop(event: CdkDragDrop<DemoItem[]>) {
     this.demos$.subscribe((arr) => {

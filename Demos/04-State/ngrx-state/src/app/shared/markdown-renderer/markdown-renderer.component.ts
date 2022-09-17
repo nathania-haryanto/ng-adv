@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./markdown-renderer.component.scss'],
 })
 export class MarkdownRendererComponent implements OnInit {
-  @Input() md: string;
+  @Input() md: string ='';
   panelOpenState = true;
 
   constructor() {}

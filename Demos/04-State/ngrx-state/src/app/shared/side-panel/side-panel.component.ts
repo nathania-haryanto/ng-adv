@@ -19,7 +19,7 @@ export class SidePanelComponent implements OnInit {
     private service: StatefulDemoService
   ) {}
 
-  editorDisplayed: boolean;
+  editorDisplayed: boolean = false;
 
   ngOnInit() {
     this.editorDisplayed = false;
