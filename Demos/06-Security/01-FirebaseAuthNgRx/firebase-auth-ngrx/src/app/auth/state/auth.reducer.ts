@@ -1,4 +1,12 @@
-import { AuthActions, AuthActionTypes } from './auth.actions';
+import { createReducer, on } from '@ngrx/store';
+import {
+  logInFailure,
+  logInSuccess,
+  logOutComplete,
+  registerUserFailure,
+  registerUserSuccess,
+  setUser,
+} from './auth.actions';
 
 export const authFeatureKey = 'auth';
 
@@ -12,41 +20,30 @@ export const initialState: AuthState = {
   token: '',
 };
 
-export function AuthReducer(
-  state: AuthState = initialState,
-  action: AuthActions
-): AuthState {
-  switch (action.type) {
-    case AuthActionTypes.RegisterSuccess: {
-      // add your code
-      return {
-        ...state,
-        user: action.payload as firebase.default.User,
-      };
-    }
-    case AuthActionTypes.RegisterErr: {
-      // add your code
-      return { ...state, user: null, token: null };
-    }
-    case AuthActionTypes.LoginErr: {
-      // add your code
-      return { ...state, user: null, token: null };
-    }
-    case AuthActionTypes.LoginSuccess: {
-      return {
-        ...state,
-        user: action.payload as firebase.default.User,
-      };
-    }
-    case AuthActionTypes.LogoutComplete: {
-      // add your code
-      return { ...state, user: null, token: null };
-    }
-    case AuthActionTypes.SetToken: {
-      // add your code
-      return { ...state, token: action.payload };
-    }
-    default:
-      return state;
-  }
-}
+export const reducer = createReducer(
+  initialState,
+  on(registerUserSuccess, logInSuccess, (state, action) => ({
+    ...state,
+    user: action.user as firebase.default.User,
+  })),
+  on(logOutComplete, (state) => ({
+    ...state,
+    user: null,
+    token: null,
+  })),
+  on(registerUserFailure, logInFailure, (state, action) => {
+    console.log('register or logIn error:', action.err);
+    return {
+      ...state,
+      user: null,
+      token: null,
+    };
+  }),
+  on(setUser, (state, action) => {
+    return {
+      ...state,
+      user: action.user,
+      token: action.token,
+    };
+  })
+);

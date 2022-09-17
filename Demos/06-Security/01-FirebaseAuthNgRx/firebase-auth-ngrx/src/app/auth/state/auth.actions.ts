@@ -1,81 +1,45 @@
-import { Action } from '@ngrx/store';
+import { props } from '@ngrx/store';
 import { LoginCredentials } from '../credential.model';
 
-export enum AuthActionTypes {
-  Register = '[Auth] Register',
-  RegisterSuccess = '[Auth] RegisterSuccess',
-  RegisterErr = '[Auth] RegisterErr',
-  Login = '[Auth] Login',
-  LoginSuccess = '[Auth] LoginSuccess',
-  LoginErr = '[Auth] LoginErr',
-  Logout = '[Auth] Logout',
-  LogoutComplete = '[Auth] LogoutComplete',
-  SetToken = '[Auth] SetToken',
-  LoginRedirect = '[Auth] LoginRedirect',
-  LoginStatusChanged = '[Auth] LoginStatusChanged',
-}
+import { createAction } from '@ngrx/store';
 
-export class Register implements Action {
-  readonly type = AuthActionTypes.Register;
+export const registerUser = createAction(
+  '[auth] register User',
+  props<{ credentials: LoginCredentials }>()
+);
 
-  constructor(public payload: LoginCredentials) {}
-}
+export const registerUserSuccess = createAction(
+  '[auth] registerUser Success',
+  props<{ user: any }>()
+);
 
-export class RegisterSuccess implements Action {
-  readonly type = AuthActionTypes.RegisterSuccess;
+export const registerUserFailure = createAction(
+  '[auth] registerUser Failure',
+  props<{ err: Error }>()
+);
 
-  constructor(public payload: any) {}
-}
+export const logIn = createAction(
+  '[auth] logIn',
+  props<{ credentials: LoginCredentials }>()
+);
 
-export class RegisterErr implements Action {
-  readonly type = AuthActionTypes.RegisterErr;
+export const logInSuccess = createAction(
+  '[auth] logInSuccess',
+  props<{ user: any }>()
+);
 
-  constructor(public payload: string) {}
-}
+export const logInFailure = createAction(
+  '[auth] logIn Failure',
+  props<{ err: Error }>()
+);
 
-export class Login implements Action {
-  readonly type = AuthActionTypes.Login;
-  constructor(public payload: LoginCredentials) {}
-}
+export const logOut = createAction('[auth] logOut');
 
-export class LoginSuccess implements Action {
-  readonly type = AuthActionTypes.LoginSuccess;
-  constructor(public payload: any) {}
-}
+export const logOutComplete = createAction('[auth] logOutComplete');
 
-export class LoginErr implements Action {
-  readonly type = AuthActionTypes.LoginErr;
-  constructor(public payload: string) {}
-}
+export const setUser = createAction(
+  '[auth] setUser',
+  props<{ user: any; token: string }>()
+);
 
-export class Logout implements Action {
-  readonly type = AuthActionTypes.Logout;
-  constructor() {}
-}
-
-export class LogoutComplete implements Action {
-  readonly type = AuthActionTypes.LogoutComplete;
-  constructor() {}
-}
-
-export class SetToken implements Action {
-  readonly type = AuthActionTypes.SetToken;
-  constructor(public payload: string) {}
-}
-
-export class LoginRedirect implements Action {
-  readonly type = AuthActionTypes.LoginRedirect;
-  constructor() {}
-}
-
-export type AuthActions =
-  | Login
-  | LoginSuccess
-  | LoginErr
-  | Register
-  | RegisterSuccess
-  | Logout
-  | LogoutComplete
-  | RegisterErr
-  | SetToken
-  | LoginRedirect;
+export const redirectToLogin = createAction('[auth] redirectToLogin');

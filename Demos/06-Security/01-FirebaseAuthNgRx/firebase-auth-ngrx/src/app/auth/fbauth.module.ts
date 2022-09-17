@@ -7,13 +7,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { MaterialModule } from '../material.module';
-import { LoginComponent } from './components/login/login.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { RegisterComponent } from './components/register/register.component';
-import { AuthEffects } from './state/auth.effects';
-import { authFeatureKey, AuthReducer } from './state/auth.reducer';
 import { AuthComponent } from './components/auth.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { FBAuthRoutingModule } from './fbauth-routing.module';
+import { AuthEffects } from './state/auth.effects';
+import { authFeatureKey, reducer as AuthReducer } from './state/auth.reducer';
 
 const comps = [LogoutComponent, AuthComponent];
 

@@ -3,15 +3,10 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { LoginCredentials } from '../credential.model';
-import {
-  Login,
-  LoginRedirect,
-  Logout,
-  Register,
-  SetToken,
-} from './auth.actions';
+import { logIn, redirectToLogin, registerUser, setUser } from './auth.actions';
 import { AuthState } from './auth.reducer';
 import { getLoggedIn, getUser, hasToken } from './auth.selectors';
+import { logOut } from './auth.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -36,26 +31,25 @@ export class AuthFacade {
   }
 
   signIn(login: LoginCredentials) {
-    this.store.dispatch(new Login(login));
+    this.store.dispatch(logIn({ credentials: login }));
   }
 
   signOut() {
-    this.store.dispatch(new Logout());
+    this.store.dispatch(logOut());
   }
 
   register(login: LoginCredentials) {
-    this.store.dispatch(new Register(login));
+    this.store.dispatch(registerUser({ credentials: login }));
   }
 
   redirectToLogin() {
-    this.store.dispatch(new LoginRedirect());
+    this.store.dispatch(redirectToLogin());
   }
 
   userChanged(user: any) {
-    if (user != null) {
+    if (user)
       user
         .getIdToken()
-        .then((token: string) => this.store.dispatch(new SetToken(token)));
-    }
+        .then((token: string) => this.store.dispatch(setUser({ user, token })));
   }
 }

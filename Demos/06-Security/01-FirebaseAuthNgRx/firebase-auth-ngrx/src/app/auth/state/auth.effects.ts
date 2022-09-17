@@ -6,12 +6,14 @@ import { exhaustMap, pluck } from 'rxjs/operators';
 import { LoginCredentials } from '../credential.model';
 import { FBAuthService } from '../fbauth.service';
 import {
-  AuthActionTypes,
-  LoginErr,
-  LoginSuccess,
-  LogoutComplete,
-  RegisterErr,
-  RegisterSuccess,
+  logIn,
+  logInFailure,
+  logInSuccess,
+  logOut,
+  logOutComplete,
+  registerUser,
+  registerUserSuccess,
+  registerUserFailure,
 } from './auth.actions';
 
 @Injectable()
@@ -24,65 +26,65 @@ export class AuthEffects {
 
   loginUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AuthActionTypes.Login),
-      pluck('payload'),
+      ofType(logIn),
+      pluck('credentials'),
       exhaustMap((pl: LoginCredentials) =>
         this.as
           .logIn(pl.email, pl.password)
-          .then((cred) => new LoginSuccess(cred.user))
-          .catch((err) => new LoginErr(err))
+          .then((cred) => logInSuccess({ user: cred }))
+          .catch((err: Error) => logInFailure({ err }))
       )
     )
   );
 
   registerUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AuthActionTypes.Register),
-      pluck('payload'),
+      ofType(registerUser),
+      pluck('credentials'),
       exhaustMap((pl: LoginCredentials) =>
         this.as
           .createUser(pl.email, pl.password)
-          .then((cred) => new RegisterSuccess(cred.user))
-          .catch((err) => new RegisterErr(err))
+          .then((cred) => registerUserSuccess({ user: cred }))
+          .catch((err) => registerUserFailure(err))
       )
     )
   );
 
   logoutUser$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AuthActionTypes.Logout),
+      ofType(logOut),
       pluck('payload'),
-      exhaustMap(() => this.as.logOut().then(() => new LogoutComplete()))
+      exhaustMap(() => this.as.logOut().then(() => logOutComplete()))
     )
   );
 
   // Redirect to login page
 
-  loginRedirect$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(AuthActionTypes.LoginRedirect),
-        pluck('payload'),
-        exhaustMap(() => {
-          this.router.navigate(['demos', 'login']);
-          return EMPTY;
-        })
-      ),
-    { dispatch: false }
-  );
+  // loginRedirect$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(this.loginRedirect$),
+  //       pluck('payload'),
+  //       exhaustMap(() => {
+  //         this.router.navigate(['demos', 'login']);
+  //         return EMPTY;
+  //       })
+  //     ),
+  //   { dispatch: false }
+  // );
 
   // Redirects after RegisterSuccess and RegisterErr
 
-  registerUserResult$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(AuthActionTypes.RegisterSuccess, AuthActionTypes.RegisterErr),
-        pluck('payload'),
-        exhaustMap(() => {
-          this.router.navigate(['demos']);
-          return EMPTY;
-        })
-      ),
-    { dispatch: false }
-  );
+  // registerUserResult$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(registerSuccess, registerFailure),
+  //       pluck('payload'),
+  //       exhaustMap(() => {
+  //         this.router.navigate(['demos']);
+  //         return EMPTY;
+  //       })
+  //     ),
+  //   { dispatch: false }
+  // );
 }

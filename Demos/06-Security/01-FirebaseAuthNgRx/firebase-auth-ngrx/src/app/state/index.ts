@@ -3,7 +3,6 @@ import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { reducer as AppReducer, AppState } from './app.reducer';
 import { RouterStateUrl } from './router.reducer';
-import { AuthReducer, AuthState } from '../auth/state/auth.reducer';
 
 export interface State {
   app: AppState;
@@ -14,8 +13,9 @@ export interface State {
 
 export const reducers: ActionReducerMap<State> = {
   app: AppReducer,
-  // auth: AuthReducer,
   routerReducer: routerReducer,
+  // auth: AuthReducer,
+  // demos: DemoReducer -> Lazy Loaded
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

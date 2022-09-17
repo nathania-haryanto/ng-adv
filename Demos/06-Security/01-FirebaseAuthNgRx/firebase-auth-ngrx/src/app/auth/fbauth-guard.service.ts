@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthState } from './state/auth.reducer';
-import { LoginRedirect } from './state/auth.actions';
 import { getUser } from './state/auth.selectors';
+import { redirectToLogin } from './state/auth.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class FBAuthGuard implements CanLoad {
     return this.store.select(getUser).pipe(
       map((fbUser) => {
         if (!(fbUser && fbUser.email)) {
-          this.store.dispatch(new LoginRedirect());
+          this.store.dispatch(redirectToLogin());
           return false;
         }
         return true;
