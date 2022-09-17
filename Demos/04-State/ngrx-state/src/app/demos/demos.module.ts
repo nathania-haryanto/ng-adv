@@ -30,6 +30,7 @@ import { StatefullComponent } from './samples/statefull/statefull.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
+import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ChangeDetectionComponent } from './samples/change-detection/change-dete
     EffectsComponent,
     ListComponent,
     ChangeDetectionComponent,
+    ContainerPresenterNgrxComponent,
   ],
   imports: [
     CommonModule,

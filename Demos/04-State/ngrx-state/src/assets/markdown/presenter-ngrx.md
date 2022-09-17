@@ -1,0 +1,1 @@
+ A `Container-Presenter` pattern using NgRx is implemented in `skill-row.component.ts` and `skills-container.component.ts`.
