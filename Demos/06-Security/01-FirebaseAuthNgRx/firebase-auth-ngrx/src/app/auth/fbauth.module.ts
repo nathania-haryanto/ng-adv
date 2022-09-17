@@ -8,12 +8,13 @@ import { StoreModule } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { MaterialModule } from '../material.module';
 import { AuthComponent } from './components/auth.component';
-import { LogoutComponent } from './components/logout/logout.component';
 import { FBAuthRoutingModule } from './fbauth-routing.module';
 import { AuthEffects } from './state/auth.effects';
 import { authFeatureKey, reducer as AuthReducer } from './state/auth.reducer';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { CurrentUserComponent } from './components/current-user/current-user.component';
 
-const comps = [LogoutComponent, AuthComponent];
+const comps = [AuthComponent, LogoutButtonComponent, CurrentUserComponent];
 
 @NgModule({
   declarations: comps,
