@@ -28,14 +28,14 @@ export const reducer = createReducer(
   })),
   on(logOutComplete, (state) => ({
     ...state,
-    user: null,
+    user: {},
     token: null,
   })),
   on(registerUserFailure, logInFailure, (state, action) => {
     console.log('register or logIn error:', action.err);
     return {
       ...state,
-      user: null,
+      user: {},
       token: null,
     };
   }),

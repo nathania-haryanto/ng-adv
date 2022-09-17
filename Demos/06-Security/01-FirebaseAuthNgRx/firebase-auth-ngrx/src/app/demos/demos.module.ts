@@ -15,9 +15,16 @@ import { DemosRoutingModule } from './demos-routing.module';
 import { MarkdownEditorComponent } from './markdown-editor/markdown-editor.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { FirebaseAuthComponent } from './samples/firebase-auth/firebase-auth.component';
+import { LogInModule } from '../auth/components/login/login.module';
+import { RegisterModule } from '../auth/components/register/register.module';
 
 @NgModule({
-  declarations: [DemoContainerComponent, MarkdownEditorComponent],
+  declarations: [
+    DemoContainerComponent,
+    MarkdownEditorComponent,
+    FirebaseAuthComponent,
+  ],
   imports: [
     CommonModule,
     UxModule,
@@ -25,6 +32,8 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     ReactiveFormsModule,
     DemosRoutingModule,
     FBAuthModule,
+    LogInModule,
+    RegisterModule,
     MaterialModule,
     HttpClientModule,
     MarkdownModule.forRoot({

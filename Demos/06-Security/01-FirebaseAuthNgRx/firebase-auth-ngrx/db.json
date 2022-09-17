@@ -1,9 +1,9 @@
 {
   "demos": [
     {
-      "url": "login",
-      "title": "Login",
-      "component": "LoginComponent",
+      "url": "fb-auth-basics",
+      "title": "Auth Basics",
+      "component": "FirebaseAuthComponent",
       "id": 2,
       "topicid": 1,
       "visible": true,
