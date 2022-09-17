@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -13,6 +14,7 @@ import { environment } from 'src/environments/environment';
   selector: 'app-skill-row',
   templateUrl: './skill-row.component.html',
   styleUrls: ['./skill-row.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillRowComponent implements OnInit {
   @Input() skill: Skill = new Skill();

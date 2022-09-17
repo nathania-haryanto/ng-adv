@@ -80,6 +80,15 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 3
+    },
+    {
+      "url": "cd-intro",
+      "title": "Change Detection",
+      "component": "ChangeDetectionComponent",
+      "id": 12,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
     }
   ],
   "skills": [

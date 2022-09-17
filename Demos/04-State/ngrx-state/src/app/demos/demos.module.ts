@@ -29,6 +29,7 @@ import { ListComponent } from './samples/statefull/list/list.component';
 import { StatefullComponent } from './samples/statefull/statefull.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     FacadesComponent,
     EffectsComponent,
     ListComponent,
+    ChangeDetectionComponent,
   ],
   imports: [
     CommonModule,
