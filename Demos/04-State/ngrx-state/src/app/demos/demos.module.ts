@@ -31,6 +31,7 @@ import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
 import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
+import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ContainerPresenterNgrxComponent } from './samples/container-presenter-n
     ListComponent,
     ChangeDetectionComponent,
     ContainerPresenterNgrxComponent,
+    ChangeDetectorRefComponent,
   ],
   imports: [
     CommonModule,

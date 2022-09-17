@@ -11,6 +11,7 @@ import { FacadesComponent } from './samples/facades/facades.component';
 import { StatefullComponent } from './samples/statefull/statefull.component';
 import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
 import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
+import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
 
 export const demoRoutes: Routes = [
   {
@@ -29,6 +30,10 @@ export const demoRoutes: Routes = [
       { path: 'skills', component: SkillsComponent },
       { path: 'cd-intro', component: ChangeDetectionComponent },
       { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent },
+      {
+        path: 'change-detector-ref',
+        component: ChangeDetectorRefComponent,
+      },
     ],
   },
 ];
