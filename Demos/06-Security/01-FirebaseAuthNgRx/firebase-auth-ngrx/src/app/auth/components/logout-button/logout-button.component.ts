@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
@@ -7,6 +7,7 @@ import { AuthFacade } from '../../state/auth.facade';
   styleUrls: ['./logout-button.component.scss'],
 })
 export class LogoutButtonComponent {
+  @Input() defaultButton = true;
   constructor(private af: AuthFacade) {}
 
   logOut() {
