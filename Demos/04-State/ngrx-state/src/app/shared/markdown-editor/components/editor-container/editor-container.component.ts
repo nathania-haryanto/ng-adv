@@ -12,7 +12,7 @@ export class EditorContainerComponent implements OnInit {
 
   comments = this.ef.getComments();
   editorEdit = false;
-  current: CommentItem;
+  current: CommentItem | null = null;
 
   ngOnInit() {
     this.ef.hasLoaded().subscribe((hasLoaded) => {
@@ -33,7 +33,9 @@ export class EditorContainerComponent implements OnInit {
   }
 
   saveComment() {
-    this.ef.saveComment(this.current);
+    if (this.current) {
+      this.ef.saveComment(this.current);
+    }
   }
 
   deleteComment(item: CommentItem) {

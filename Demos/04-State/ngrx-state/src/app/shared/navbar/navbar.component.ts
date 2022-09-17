@@ -14,9 +14,8 @@ export class NavbarComponent implements OnInit {
   constructor(private ms: MenuService, private sns: SnackbarService) {}
 
   title = 'Advanced Angular Development';
-  editorDisplayed: boolean;
-  rootRoutes: Route[];
-  menuItems: Observable<MenuItem[]>;
+  editorDisplayed: boolean = false;
+  menuItems: Observable<MenuItem[]> | null = null;
 
   ngOnInit() {
     this.editorDisplayed = false;

@@ -7,7 +7,7 @@ import { Skill } from '../skill.model';
   styleUrls: ['./skill-row.component.scss'],
 })
 export class SkillRowComponent implements OnInit {
-  @Input() skill: Skill;
+  @Input() skill: Skill = new Skill();
   @Output() itemDeleted: EventEmitter<Skill> = new EventEmitter();
   @Output() itemCompleted: EventEmitter<Skill> = new EventEmitter();
 

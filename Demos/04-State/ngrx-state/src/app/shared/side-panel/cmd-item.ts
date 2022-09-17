@@ -1,6 +1,5 @@
-
-export class CmdItem{
-    title: string;
-    action: string;
-    icon?: string;
+export class CmdItem {
+  title: string = '';
+  action: string = '';
+  icon?: string;
 }
