@@ -40,7 +40,7 @@ export class FBAuthService {
     );
   }
 
-  signIn(
+  logIn(
     email: string,
     password: string
   ): Promise<firebase.default.auth.UserCredential> {
@@ -61,7 +61,7 @@ export class FBAuthService {
     );
   }
 
-  signOut() {
+  logOut() {
     return this.fireAuth
       .signOut()
       .catch((err) => console.log('Error logging out', err));

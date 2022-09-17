@@ -21,6 +21,6 @@ export class LoginComponent {
 
   logIn(form: FormGroup) {
     let vm: LoginCredentials = form.value;
-    this.as.signIn(vm.email, vm.password);
+    this.as.logIn(vm.email, vm.password);
   }
 }

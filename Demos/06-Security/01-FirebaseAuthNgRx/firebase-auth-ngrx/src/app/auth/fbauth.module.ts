@@ -12,8 +12,10 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthEffects } from './state/auth.effects';
 import { authFeatureKey, AuthReducer } from './state/auth.reducer';
+import { AuthComponent } from './components/auth.component';
+import { FBAuthRoutingModule } from './fbauth-routing.module';
 
-const comps = [LoginComponent, RegisterComponent, LogoutComponent];
+const comps = [LogoutComponent, AuthComponent];
 
 @NgModule({
   declarations: comps,
@@ -25,6 +27,7 @@ const comps = [LoginComponent, RegisterComponent, LogoutComponent];
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AuthModule,
     MaterialModule,
+    FBAuthRoutingModule,
     StoreModule.forFeature(authFeatureKey, AuthReducer),
     EffectsModule.forFeature([AuthEffects]),
   ],
