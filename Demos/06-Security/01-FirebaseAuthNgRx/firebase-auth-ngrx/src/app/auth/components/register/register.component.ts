@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { combineLatestWith, map } from 'rxjs/operators';
 import { FBAuthService } from '../../fbauth.service';
 
 @Component({
@@ -13,7 +16,31 @@ import { FBAuthService } from '../../fbauth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  constructor(private as: FBAuthService) {}
+  @ViewChild('dialog')
+  template!: TemplateRef<any>;
+
+  constructor(
+    private as: FBAuthService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
+
+  ngAfterViewInit() {
+    this.dialog
+      .open(this.template, { width: '350px' })
+      .afterClosed()
+      .pipe(
+        combineLatestWith(this.as.isAuthenticated()),
+        map(([close, isAuthenticated]) => {
+          if (isAuthenticated) {
+            this.router.navigate(['demos']);
+          } else {
+            this.router.navigate(['/']);
+          }
+        })
+      )
+      .subscribe();
+  }
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
