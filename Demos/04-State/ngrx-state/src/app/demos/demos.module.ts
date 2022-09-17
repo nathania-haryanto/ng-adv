@@ -8,7 +8,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MarkdownModule } from 'ngx-markdown';
 import { MaterialModule } from '../material.module';
-import { SkillsService } from '../model/skills/skills.service';
 import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.module';
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
@@ -26,10 +25,10 @@ import { FacadesComponent } from './samples/facades/facades.component';
 import { SelectorsComponent } from './samples/selectors/selectors.component';
 import { SkillsComponent } from './samples/skills/skills.component';
 import { KpiComponent } from './samples/statefull/kpi/kpi.component';
-import { DemosEffects } from './state/demos.effects';
-import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { ListComponent } from './samples/statefull/list/list.component';
 import { StatefullComponent } from './samples/statefull/statefull.component';
+import { DemosEffects } from './state/demos.effects';
+import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 
 @NgModule({
   declarations: [
@@ -66,6 +65,6 @@ import { StatefullComponent } from './samples/statefull/statefull.component';
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
   ],
-  providers: [SkillsService],
+  providers: [],
 })
 export class DemosModule {}
