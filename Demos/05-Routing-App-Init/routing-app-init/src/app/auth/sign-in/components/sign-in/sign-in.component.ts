@@ -35,7 +35,7 @@ export class SignInComponent implements AfterViewInit {
   }
 
   signIn() {
-    this.as.login('mockUser');
+    this.as.signIn('mockUser');
     this.dialog.closeAll();
   }
 }

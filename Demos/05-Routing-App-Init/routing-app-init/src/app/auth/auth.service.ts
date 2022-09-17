@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { combineLatestWith, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -31,12 +31,12 @@ export class AuthService {
     return this.user.asObservable();
   }
 
-  login(user: string) {
+  signIn(user: string) {
     this.user.next(user);
     this.authenticated.next(true);
   }
 
-  logout() {
+  signOut() {
     this.authenticated.next(false);
   }
 }

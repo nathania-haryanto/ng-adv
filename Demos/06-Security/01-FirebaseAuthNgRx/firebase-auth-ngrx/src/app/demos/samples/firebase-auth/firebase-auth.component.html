@@ -1,0 +1,9 @@
+<ng-container *ngIf="(user$ | async | json) ==  ({} | json)">
+    <app-register></app-register>
+    <app-login></app-login>
+</ng-container>
+
+<ng-container *ngIf="(user$ | async | json) !=  ({} | json)">
+    <app-current-user></app-current-user>
+    <app-logout-button></app-logout-button>
+</ng-container>
