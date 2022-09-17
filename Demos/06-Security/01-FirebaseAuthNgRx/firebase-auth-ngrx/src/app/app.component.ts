@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FBAuthService } from './auth/fbauth.service';
 import { ThemeService } from './shared/theme/theme.service';
@@ -19,9 +19,12 @@ export class AppComponent {
 
   title: string = environment.title;
   selectedTheme: string = 'default';
-  isAuthenticated: Observable<boolean> = this.auth.isAuthenticated();
+  isAuthenticated: Observable<boolean> = of(false);
 
   ngOnInit() {
+    this.isAuthenticated = this.auth
+      .isAuthenticated()
+      .pipe(tap((auth) => console.log('auth changed to autheticated: ', auth)));
     this.titleService.setTitle(this.title);
     this.ts.getTheme().subscribe((t) => {
       this.selectedTheme = t;

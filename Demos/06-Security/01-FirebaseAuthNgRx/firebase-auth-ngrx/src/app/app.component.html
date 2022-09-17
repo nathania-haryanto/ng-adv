@@ -7,7 +7,7 @@
   class="grid"
 >
   <div gdArea="navbar">
-    <app-navbar></app-navbar>
+    <app-navbar *ngIf="isAuthenticated | async"></app-navbar>
   </div>
   <div gdArea="main">
     <router-outlet></router-outlet>

@@ -19,9 +19,11 @@ export class AuthFacade {
   }
 
   isAuthenticated() {
-    return this.store
-      .select(getLoggedIn)
-      .pipe(map((loggedIn) => environment.authEnabled == false || loggedIn));
+    return this.store.select(getLoggedIn).pipe(
+      map((loggedIn) => {
+        return environment.authEnabled == false || loggedIn;
+      })
+    );
   }
 
   hasToken() {

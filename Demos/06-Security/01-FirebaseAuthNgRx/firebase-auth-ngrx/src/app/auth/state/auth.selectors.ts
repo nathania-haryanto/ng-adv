@@ -20,7 +20,7 @@ export const getToken = createSelector(
 
 export const getLoggedIn = createSelector(
   getAuthState,
-  (state: AuthState) => state.user != null
+  (state: AuthState) => state.user.email
 );
 
 export const hasToken = createSelector(
