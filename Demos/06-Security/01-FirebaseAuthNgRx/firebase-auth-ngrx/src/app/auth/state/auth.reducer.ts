@@ -5,13 +5,11 @@ export const authFeatureKey = 'auth';
 export interface AuthState {
   user: any;
   token: string | null;
-  isLoggedIn: boolean;
 }
 
 export const initialState: AuthState = {
   user: {},
-  token: 'abc',
-  isLoggedIn: false,
+  token: '',
 };
 
 export function AuthReducer(
@@ -23,28 +21,26 @@ export function AuthReducer(
       // add your code
       return {
         ...state,
-        isLoggedIn: true,
         user: action.payload as firebase.default.User,
       };
     }
     case AuthActionTypes.RegisterErr: {
       // add your code
-      return { ...state, isLoggedIn: false, user: null, token: null };
+      return { ...state, user: null, token: null };
     }
     case AuthActionTypes.LoginErr: {
       // add your code
-      return { ...state, isLoggedIn: false, user: null, token: null };
+      return { ...state, user: null, token: null };
     }
     case AuthActionTypes.LoginSuccess: {
       return {
         ...state,
-        isLoggedIn: true,
         user: action.payload as firebase.default.User,
       };
     }
     case AuthActionTypes.LogoutComplete: {
       // add your code
-      return { ...state, isLoggedIn: false, user: null, token: null };
+      return { ...state, user: null, token: null };
     }
     case AuthActionTypes.SetToken: {
       // add your code

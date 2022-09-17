@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { of } from 'rxjs';
 import { AuthFacade } from './state/auth.facade';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FBAuthService {
   private persistence = 'none';
+  private authEnabled = of(environment.authEnabled);
 
   constructor(
     private fireAuth: AngularFireAuth,
@@ -19,6 +22,10 @@ export class FBAuthService {
     this.fireAuth.authState.subscribe((user) =>
       this.authFacade.userChanged(user)
     );
+  }
+
+  isAuthenticated() {
+    return this.authFacade.isAuthenticated();
   }
 
   createUser(

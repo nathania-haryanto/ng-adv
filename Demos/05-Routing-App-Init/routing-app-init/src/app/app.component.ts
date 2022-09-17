@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(
     private titleService: Title,
     private ts: ThemeService,
-    private mockAuth: AuthService
+    private auth: AuthService
   ) {}
 
   title: string = environment.title;
@@ -23,7 +23,7 @@ export class AppComponent {
   isAuthenticated: Observable<boolean>;
 
   ngOnInit() {
-    this.isAuthenticated = this.mockAuth
+    this.isAuthenticated = this.auth
       .isAuthenticated()
       .pipe(tap((auth) => console.log('auth changed to autheticated: ', auth)));
     this.titleService.setTitle(this.title);
