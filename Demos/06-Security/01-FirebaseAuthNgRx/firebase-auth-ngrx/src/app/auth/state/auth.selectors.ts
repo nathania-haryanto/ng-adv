@@ -27,3 +27,8 @@ export const hasToken = createSelector(
   getAuthState,
   (state: AuthState) => state.token != ''
 );
+
+export const getAuthEnabled = createSelector(
+  getAuthState,
+  (state: AuthState) => state.authEnabled
+);

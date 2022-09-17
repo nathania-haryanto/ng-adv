@@ -12,12 +12,12 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <div *ngIf="isAuthenticated">
+    <div *ngIf="!authEnabled">
       <button mat-raised-button routerLink="/demos" color="primary">
         Proceed
       </button>
     </div>
-    <div *ngIf="!isAuthenticated">
+    <div *ngIf="authEnabled">
       <button
         mat-raised-button
         [routerLink]="[{ outlets: { actions: ['auth', 'sign-in'] } }]"

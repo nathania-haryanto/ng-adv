@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { environment } from '../../../environments/environment';
 import {
   logInFailure,
   logInSuccess,
@@ -13,11 +14,13 @@ export const authFeatureKey = 'auth';
 export interface AuthState {
   user: any;
   token: string | null;
+  authEnabled: boolean;
 }
 
 export const initialState: AuthState = {
   user: {},
   token: '',
+  authEnabled: environment.authEnabled,
 };
 
 export const reducer = createReducer(

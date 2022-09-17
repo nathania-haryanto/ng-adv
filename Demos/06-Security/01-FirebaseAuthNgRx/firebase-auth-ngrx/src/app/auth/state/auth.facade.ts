@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
+import { map, combineLatestWith } from 'rxjs/operators';
 import { LoginCredentials } from '../credential.model';
 import { logIn, redirectToLogin, registerUser, setUser } from './auth.actions';
 import { AuthState } from './auth.reducer';
-import { getLoggedIn, getUser, hasToken } from './auth.selectors';
+import {
+  getAuthEnabled,
+  getLoggedIn,
+  getUser,
+  hasToken,
+} from './auth.selectors';
 import { logOut } from './auth.actions';
 
 @Injectable({
@@ -20,16 +24,15 @@ export class AuthFacade {
 
   isAuthenticated() {
     return this.store.select(getLoggedIn).pipe(
-      map((loggedIn) => {
-        return environment.authEnabled == false || loggedIn;
+      combineLatestWith(this.store.select(getAuthEnabled)),
+      map(([loggedIn, authEnabled]) => {
+        return authEnabled == false || loggedIn;
       })
     );
   }
 
   hasToken() {
-    return this.store
-      .select(hasToken)
-      .pipe(map((token) => environment.authEnabled == false || token));
+    return this.store.select(hasToken).pipe(map((token) => token));
   }
 
   signIn(login: LoginCredentials) {

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { FBAuthService } from 'src/app/auth/fbauth.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-intro',
@@ -9,7 +11,9 @@ export class IntroComponent {
   @Input() title: string = '';
   @Input() subtitle: string = '';
   @Input() img: string = '';
-  @Input() isAuthenticated: boolean = false;
+  authEnabled = environment.authEnabled;
 
-  constructor() {}
+  constructor(private auth: FBAuthService) {}
+
+  ngOnInit(): void {}
 }
