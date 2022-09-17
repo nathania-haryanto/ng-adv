@@ -33,5 +33,7 @@ export class SkillsContainerComponent {
     this.skillsService.delete(item);
   }
 
-  toggleItemComplete(item: Skill): void {}
+  toggleItemComplete(item: Skill): void {
+    this.skillsService.update({ ...item, completed: !item.completed });
+  }
 }
