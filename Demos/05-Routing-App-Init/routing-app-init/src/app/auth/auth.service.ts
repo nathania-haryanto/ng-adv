@@ -31,12 +31,12 @@ export class AuthService {
     return this.user.asObservable();
   }
 
-  login(user: string) {
+  signIn(user: string) {
     this.user.next(user);
     this.authenticated.next(true);
   }
 
-  logout() {
+  signOut() {
     this.authenticated.next(false);
   }
 }

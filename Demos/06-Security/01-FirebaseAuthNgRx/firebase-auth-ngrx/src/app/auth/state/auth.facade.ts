@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {
-  Login,
-  Logout,
-  Register,
-  SetToken,
-  LoginRedirect,
-} from './auth.actions';
-import { getUser, getLoggedIn, hasToken } from './auth.selectors';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { LoginCredentials } from '../credential.model';
+import {
+  Login,
+  LoginRedirect,
+  Logout,
+  Register,
+  SetToken,
+} from './auth.actions';
 import { AuthState } from './auth.reducer';
+import { getLoggedIn, getUser, hasToken } from './auth.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -35,11 +35,11 @@ export class AuthFacade {
       .pipe(map((token) => environment.authEnabled == false || token));
   }
 
-  logIn(login: LoginCredentials) {
+  signIn(login: LoginCredentials) {
     this.store.dispatch(new Login(login));
   }
 
-  logOff() {
+  signOut() {
     this.store.dispatch(new Logout());
   }
 

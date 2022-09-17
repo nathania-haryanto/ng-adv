@@ -26,6 +26,12 @@ const routes: Routes = [
     canLoad: [FBAuthGuard],
   },
   {
+    path: 'auth',
+    outlet: 'actions',
+    loadChildren: () =>
+      import('./auth/fbauth.module').then((m) => m.FBAuthModule),
+  },
+  {
     path: 'error',
     component: ErrPageComponent,
   },

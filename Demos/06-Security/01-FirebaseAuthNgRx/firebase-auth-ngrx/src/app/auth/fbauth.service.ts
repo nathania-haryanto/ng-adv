@@ -6,14 +6,14 @@ import { AuthFacade } from './state/auth.facade';
   providedIn: 'root',
 })
 export class FBAuthService {
+  private persistence = 'none';
+
   constructor(
     private fireAuth: AngularFireAuth,
     private authFacade: AuthFacade
   ) {
     this.onUserChanged();
   }
-
-  private persistence = 'none';
 
   private onUserChanged() {
     this.fireAuth.authState.subscribe((user) =>
@@ -40,7 +40,7 @@ export class FBAuthService {
     );
   }
 
-  logOn(
+  signIn(
     email: string,
     password: string
   ): Promise<firebase.default.auth.UserCredential> {
@@ -61,7 +61,7 @@ export class FBAuthService {
     );
   }
 
-  logOff() {
+  signOut() {
     return this.fireAuth
       .signOut()
       .catch((err) => console.log('Error logging out', err));

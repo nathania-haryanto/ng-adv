@@ -5,8 +5,12 @@
   gdColumns="auto"
   gdColumns.lt-md="100%"
   class="grid"
- 
 >
-  <div gdArea="navbar"><app-navbar></app-navbar></div>
-  <div gdArea="main"><router-outlet></router-outlet></div>
+  <div gdArea="navbar">
+    <app-navbar></app-navbar>
+  </div>
+  <div gdArea="main">
+    <router-outlet></router-outlet>
+    <router-outlet name="actions"></router-outlet>
+  </div>
 </div>

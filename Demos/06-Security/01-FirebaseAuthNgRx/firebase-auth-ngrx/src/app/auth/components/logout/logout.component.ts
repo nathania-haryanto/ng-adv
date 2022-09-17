@@ -12,6 +12,6 @@ export class LogoutComponent implements OnInit {
   ngOnInit() {}
 
   logOut() {
-    this.af.logOff();
+    this.af.signOut();
   }
 }

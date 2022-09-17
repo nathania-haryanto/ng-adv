@@ -28,7 +28,7 @@ export class AuthEffects {
       pluck('payload'),
       exhaustMap((pl: LoginCredentials) =>
         this.as
-          .logOn(pl.email, pl.password)
+          .signIn(pl.email, pl.password)
           .then((cred) => new LoginSuccess(cred.user))
           .catch((err) => new LoginErr(err))
       )
@@ -52,7 +52,7 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(AuthActionTypes.Logout),
       pluck('payload'),
-      exhaustMap(() => this.as.logOff().then(() => new LogoutComplete()))
+      exhaustMap(() => this.as.signOut().then(() => new LogoutComplete()))
     )
   );
 

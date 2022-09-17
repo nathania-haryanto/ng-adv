@@ -31,7 +31,6 @@ import { EntityDataModule } from '@ngrx/data';
     FBAuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
-      // Needed to avoid TypeError: Cannot freeze with firebase lib
       runtimeChecks: {
         strictStateImmutability: false,
         strictActionImmutability: false,
