@@ -17,10 +17,7 @@ import { DemosEffects } from './store/effects/demos.effects';
 import { LoggerComponent } from './samples/logger/logger.component';
 import { BundlesComponent } from './samples/bundles/bundles.component';
 import { ConsoleComponent } from './samples/console/console.component';
-import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
 import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
-import { SkillsListComponent } from './samples/change-detection/skills-list/skills-list.component';
-import { SkillComponent } from './samples/change-detection/skill/skill.component';
 import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
 import { InjectConfigComponent } from './samples/inject-config/inject-config.component';
 import { NgrxpushComponent } from './samples/ngrxpush/ngrxpush.component';
@@ -28,10 +25,8 @@ import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { NgforComponent } from './samples/ngfor/ngfor.component';
 import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
-import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { FBAuthModule } from '../auth/fbauth.module';
 import { SimpleComponent } from './samples/dynamic-loading/simple.component';
-import { ChangeDetectionDetailComponent } from './samples/change-detection/change-detection-detail.component';
 
 const demoRoutes: Routes = [
   {
@@ -44,8 +39,6 @@ const demoRoutes: Routes = [
       { path: 'webworker', component: WebWorkerComponent },
       { path: 'lighthouse', component: LighthouseComponent },
       { path: 'debug-statements', component: DebugStatementsComponent },
-      { path: 'changedetection', component: ChangeDetectionComponent },
-      { path: 'code-splitting', component: CodeSplittingComponent },
       { path: 'vscroll', component: VirtualScrollComponent },
       { path: 'ngfor', component: NgforComponent },
       {
@@ -63,11 +56,7 @@ const demoRoutes: Routes = [
     LoggerComponent,
     BundlesComponent,
     ConsoleComponent,
-    ChangeDetectionComponent,
-    ChangeDetectionDetailComponent,
     WebWorkerComponent,
-    SkillsListComponent,
-    SkillComponent,
     DebugStatementsComponent,
     InjectConfigComponent,
     NgrxpushComponent,
@@ -76,7 +65,6 @@ const demoRoutes: Routes = [
     NgforComponent,
     DynamicLoadingComponent,
     SimpleComponent,
-    CodeSplittingComponent,
   ],
   imports: [
     CommonModule,

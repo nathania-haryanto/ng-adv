@@ -1,9 +1,8 @@
-import { Injectable, OnInit } from '@angular/core';
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, ResolveEnd, Router } from '@angular/router';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { filter } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { SubSink } from 'subsink';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +10,7 @@ import { SubSink } from 'subsink';
 export class AppInsightsService {
   constructor(private router: Router) {
     this.appInsights.loadAppInsights();
-    this.sub.sink = this.router.events
+    this.router.events
       .pipe(filter((event) => event instanceof ResolveEnd))
       .subscribe((event: ResolveEnd) => {
         const activatedComponent = this.getActivatedComponent(event.state.root);
@@ -31,8 +30,6 @@ export class AppInsightsService {
       instrumentationKey: environment.azure.appInsights.instrumentationKey,
     },
   });
-
-  sub: SubSink = new SubSink();
 
   setUserId(userId: string) {
     this.appInsights.setAuthenticatedUserContext(userId);
