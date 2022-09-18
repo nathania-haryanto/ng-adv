@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { DetectorChildComponent } from './detector-child/detector-child.component';
 
 @Component({
   selector: 'app-change-detector-ref',
   templateUrl: './change-detector-ref.component.html',
-  styleUrls: ['./change-detector-ref.component.scss']
+  styleUrls: ['./change-detector-ref.component.scss'],
 })
-export class ChangeDetectorRefComponent implements OnInit {
+export class ChangeDetectorRefComponent implements AfterViewInit {
+  @ViewChild(DetectorChildComponent) child: DetectorChildComponent | null =
+    null;
+  produceErr = true;
+  handleErr = true;
 
-  constructor() { }
+  constructor(private cd: ChangeDetectorRef) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    let childVal = this.child?.childData;
+    if (this.handleErr) {
+      this.cd.detectChanges();
+    }
+    console.log('childVal', childVal);
   }
 
+  ngOnInit(): void {}
 }

@@ -1,4 +1,4 @@
-`environment.ts` contains settings to log change detection cycles. This is useful to see how often change detection is triggered. The following settings are available:
+Change Detection Loggin is implemented in skill-row.component.ts and skills-container.component.ts. `environment.ts` contains settings to log change detection cycles. This is useful to see how often change detection is triggered. The following settings are available:
 
 ```typescript
 export const environment = {

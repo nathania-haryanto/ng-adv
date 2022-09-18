@@ -100,6 +100,15 @@
       "sortOrder": 3
     },
     {
+      "url": "cd-profile",
+      "title": "Profile Change Detection",
+      "component": "ChangeDetectionProfileComponent",
+      "id": 20,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
+    },
+    {
       "url": "change-detector-ref",
       "title": "ChangeDetectorRef",
       "component": "ChangeDetectorRefComponent",
