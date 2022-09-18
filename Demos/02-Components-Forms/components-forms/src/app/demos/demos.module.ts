@@ -22,7 +22,7 @@ import { ControlValueAccessorComponent } from './samples/control-value-accessor/
 import { NumberPickerComponent } from './samples/control-value-accessor/number-picker/number-picker.component';
 import { FormArrayComponent } from './samples/form-array/form-array.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
-import { FormsBuilderComponent } from './samples/forms-builder/forms-builder.component';
+import { FormBuilderComponent } from './samples/forms-builder/forms-builder.component';
 import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
 import { BindingComponent } from './samples/host-binding-listener/binding/binding.component';
 import { HostBindingListenerComponent } from './samples/host-binding-listener/host-binding-listener.component';
@@ -51,7 +51,7 @@ const appearance: MatFormFieldDefaultOptions = {
   declarations: [
     DemoContainerComponent,
     ReactiveFormsComponent,
-    FormsBuilderComponent,
+    FormBuilderComponent,
     FormControlComponent,
     FormArrayComponent,
     ReactiveValidationComponent,

@@ -7,7 +7,7 @@ import { ContentChildComponent } from './samples/content-child/content-child.com
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
 import { FormArrayComponent } from './samples/form-array/form-array.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
-import { FormsBuilderComponent } from './samples/forms-builder/forms-builder.component';
+import { FormBuilderComponent } from './samples/forms-builder/forms-builder.component';
 import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
 import { HostBindingListenerComponent } from './samples/host-binding-listener/host-binding-listener.component';
 import { NgxFormlyComponent } from './samples/ngx-formly/ngx-formly.component';
@@ -47,7 +47,7 @@ const demoRoutes: Routes = [
       { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'actionstream', component: ActionStreamsComponent },
-      { path: 'formbuilder', component: FormsBuilderComponent },
+      { path: 'formbuilder', component: FormBuilderComponent },
       { path: 'formcontrol', component: FormControlComponent },
       { path: 'formarray', component: FormArrayComponent },
       { path: 'validation', component: ReactiveValidationComponent },

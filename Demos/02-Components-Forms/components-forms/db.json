@@ -81,6 +81,14 @@
       "sortOrder": 3
     },
     {
+      "url": "formbuilder",
+      "topicid": 2,
+      "title": "Form Builder",
+      "component": "FormBuilderComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
       "url": "typedforms",
       "topicid": 2,
       "title": "Typed Forms",
@@ -109,14 +117,6 @@
       "topicid": 2,
       "title": "Typed NonNullable",
       "component": "ReactiveFormsComponent",
-      "visible": true,
-      "sortOrder": 4
-    },
-    {
-      "url": "formbuilder",
-      "topicid": 2,
-      "title": "Form Builder",
-      "component": "FormsBuilderComponent",
       "visible": true,
       "sortOrder": 4
     },
