@@ -137,6 +137,22 @@
       "sortOrder": 5
     },
     {
+      "url": "formarray",
+      "topicid": 4,
+      "title": "FormArray",
+      "component": "FormArrayComponent",
+      "visible": true,
+      "sortOrder": 6
+    },
+    {
+      "url": "cascade",
+      "topicid": 3,
+      "title": "Cascad Controls",
+      "component": "ReactiveCascadeComponent",
+      "visible": true,
+      "sortOrder": 8
+    },
+    {
       "url": "validation",
       "topicid": 4,
       "title": "Validators",
@@ -159,22 +175,6 @@
       "component": "ReactiveTypedValidatonComponent",
       "visible": true,
       "sortOrder": 6
-    },
-    {
-      "url": "formarray",
-      "topicid": 4,
-      "title": "FormArray",
-      "component": "FormArrayComponent",
-      "visible": true,
-      "sortOrder": 6
-    },
-    {
-      "url": "cascade",
-      "topicid": 3,
-      "title": "Cascading",
-      "component": "ReactiveCascadeComponent",
-      "visible": true,
-      "sortOrder": 8
     },
     {
       "url": "valuecontrol",

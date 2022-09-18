@@ -19,7 +19,7 @@ export class FormArrayComponent implements OnInit {
   ngOnInit() {}
 
   addSkill() {
-    const skillsGrp = this.skillForm.controls['skillsGrp'] as FormArray;
+    const skillsGrp = this.skillForm.controls.skillsGrp as FormArray;
     skillsGrp.push(
       this.fb.group({
         skillname: '',
@@ -29,10 +29,10 @@ export class FormArrayComponent implements OnInit {
   }
 
   saveForm() {
-    console.log('saving ...', this.skillForm.value);
+    console.log('form saved', this.skillForm);
   }
 
   getElementsInFormArray() {
-    return (this.skillForm.controls['skillsGrp'] as FormArray).controls;
+    return (this.skillForm.controls.skillsGrp as FormArray).controls;
   }
 }
