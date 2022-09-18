@@ -45,6 +45,6 @@ export class ReactiveCascadeComponent {
   }
 
   saveForm() {
-    console.log('Mocking save:', this.profileForm.value);
+    console.log('form saves:', this.profileForm);
   }
 }
