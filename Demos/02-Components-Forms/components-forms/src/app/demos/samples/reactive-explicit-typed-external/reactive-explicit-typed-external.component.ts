@@ -6,7 +6,7 @@ import {
   Validators,
   NgForm,
 } from '@angular/forms';
-import { PersonFormType } from '../person.form';
+import { PersonFormType } from '../person/person.form';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 
