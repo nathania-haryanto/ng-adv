@@ -23,6 +23,7 @@ import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { TemplateVsContainerComponent } from './samples/template-vs-container/template-vs-container.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
+import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
 
 const demoRoutes: Routes = [
   {
@@ -50,6 +51,7 @@ const demoRoutes: Routes = [
       { path: 'formbuilder', component: FormBuilderComponent },
       { path: 'formcontrol', component: FormControlComponent },
       { path: 'formarray', component: FormArrayComponent },
+      { path: 'form-errors', component: FormErrorsComponent },
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },
       { path: 'ngx-formly', component: NgxFormlyComponent },

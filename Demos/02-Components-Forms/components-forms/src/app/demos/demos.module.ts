@@ -42,6 +42,7 @@ import { TemplateVsContainerComponent } from './samples/template-vs-container/te
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
+import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -78,6 +79,7 @@ const appearance: MatFormFieldDefaultOptions = {
     HoverListenerDirective,
     ProjectorComponent,
     ReactiveTypedValidatonComponent,
+    FormErrorsComponent,
   ],
   imports: [
     CommonModule,
