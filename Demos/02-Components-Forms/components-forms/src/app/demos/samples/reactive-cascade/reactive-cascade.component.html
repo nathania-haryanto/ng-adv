@@ -29,8 +29,9 @@
         <div
           *ngFor="let skills of this.profileForm.controls['skills'].controls; let i = index"
           [formGroup]="skillsGrp"
+          class="border"
         >
-          <h4>Skill {{ i + 1 }}</h4>
+          <h3>Select skill {{ i + 1 }}:</h3>
           <div>
             <mat-form-field>
               <mat-label>Select a Criteria</mat-label>

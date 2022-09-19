@@ -22,7 +22,6 @@ export class PersonService {
 
   save(form: NgForm) {
     console.log('ngForm:', form);
-    console.log('value:', form.value);
   }
 
   checkMailExists(email: string): Observable<boolean> {

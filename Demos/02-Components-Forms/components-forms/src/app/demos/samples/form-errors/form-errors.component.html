@@ -15,8 +15,8 @@
             placeholder="Enter Name:"
           />
         </mat-form-field>
-        <div *ngIf="skillForm.get('name')?.value">
-          <div class="skills">Skills:</div>
+        <div *ngIf="skillForm.get('name')?.value" class="border">
+          <h3>Skills:</h3>
           <div
             formArrayName="skillsGrp"
             *ngFor="let skill of getElementsInFormArray(); let i = index"
