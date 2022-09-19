@@ -6,6 +6,7 @@
     </mat-card-header>
     <mat-card-content>
       <mat-form-field>
+        <mat-label>Name</mat-label>
         <input
           matInput
           type="text"
@@ -13,7 +14,7 @@
           placeholder="Enter Name:"
         />
       </mat-form-field>
-      <div *ngIf="skillForm.get('name')?.value" class="border">
+      <div *ngIf="skillForm.controls.name.value" class="border">
         <h3>Skills:</h3>
         <div
           formArrayName="skillsGrp"
@@ -36,7 +37,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
+      <button mat-raised-button *ngIf="skillForm.controls.name.value" (click)="addSkill()" color="accent">Add Skill</button>
       <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
     </mat-card-actions>
   </mat-card>

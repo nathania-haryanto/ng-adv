@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormArray, FormBuilder } from '@angular/forms';
+import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-form-array',
@@ -8,13 +9,11 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 })
 export class FormArrayComponent implements OnInit {
   public skillForm = this.fb.group({
-    name: 'Giro',
-    skillsGrp: this.fb.array([
-      this.fb.group({ skillname: 'Hunting', years: 9 }),
-    ]),
+    name: '',
+    skillsGrp: this.fb.array([]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private ps: PersonService) {}
 
   ngOnInit() {}
 
