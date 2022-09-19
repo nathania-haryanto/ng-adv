@@ -16,12 +16,7 @@
       <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput type="text" placeholder="Name" formControlName="name" />
-        <mat-error
-          *ngIf="
-            personForm.controls['name'].errors != undefined &&
-            personForm.controls['name'].errors['nameError']
-          "
-        >
+        <mat-error *ngIf="personForm.controls.name.touched && personForm.controls.name.hasError('nameError')">
           The Name Hugo is not allowed
         </mat-error>
         <mat-error *ngIf="violatesMinLenght()">
@@ -32,13 +27,13 @@
       <mat-form-field>
         <mat-label>Last Name</mat-label>
         <input matInput type="text" placeholder="Lastname" formControlName="lastname" />
-        <mat-error *ngIf="(errors$|async)?.lastname.required">
+        <mat-error *ngIf="personForm.controls.lastname.hasError('required')">
           Lastname is required
         </mat-error>
-        <mat-error *ngIf="(errors$|async)?.lastname.nameError">
+        <mat-error *ngIf="personForm.controls.lastname.hasError('nameError')">
           This name is not allowed
         </mat-error>
-        <mat-error *ngIf="(errors$|async)?.lastname?.lengthError">
+        <mat-error *ngIf="personForm.controls.lastname.hasError('lengthError')">
           Length must be between 4 and 15 characters 
         </mat-error>
       
@@ -47,7 +42,7 @@
       <mat-form-field>
         <mat-label>Age</mat-label>
         <input matInput type="number" placeholder="Age" formControlName="age" />
-        <mat-error *ngIf="personForm.controls['age'].errors != undefined">
+        <mat-error *ngIf="personForm.controls.lastname.hasError('lengthError')">
           Person must be between 18 and 99
         </mat-error>
       </mat-form-field>
@@ -90,7 +85,7 @@
       <button mat-raised-button color="accent" (click)="validateForm()">
         Validate
       </button>
-      <button mat-raised-button color="accent" type="submit" [disabled]="!personForm.valid" >Submit</button>
+      <button mat-raised-button color="accent" type="submit">Submit</button>
     </form>
   </mat-card-content>
 </mat-card>
@@ -100,12 +95,12 @@
     <mat-card-title>Control State - "Name" Field</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    Name Fld is dirty: {{ personForm.controls['name'].dirty }}<br />
-    Name Fld is pristine: {{ personForm.controls['name'].pristine }}<br />
-    Name Fld is valid: {{ personForm.controls['name'].valid }}<br />
-    Name Fld is invalid: {{ personForm.controls['name'].invalid }}<br />
-    Name Fld is touched: {{ personForm.controls['name'].touched }}<br />
-    Name Fld is untouched: {{ personForm.controls['name'].untouched }}
+    Name Fld is dirty: {{ personForm.controls.name.dirty }}<br />
+    Name Fld is pristine: {{ personForm.controls.name.pristine }}<br />
+    Name Fld is valid: {{ personForm.controls.name.valid }}<br />
+    Name Fld is invalid: {{ personForm.controls.name.invalid }}<br />
+    Name Fld is touched: {{ personForm.controls.name.touched }}<br />
+    Name Fld is untouched: {{ personForm.controls.name.untouched }}
   </mat-card-content>
 </mat-card>
 
@@ -115,7 +110,7 @@
   </mat-card-header>
   <mat-card-content>
     Form is dirty: {{ personForm.dirty }}<br />
-    Form is pristine ('unberührt'): {{ personForm.pristine }}<br />
+    Form is pristine: {{ personForm.pristine }}<br />
     Form is valid: {{ personForm.valid }}<br />
     Form is invalid: {{ personForm.invalid }}<br />
     Form is touched: {{ personForm.touched }}<br />
