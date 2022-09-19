@@ -14,8 +14,14 @@
             formControlName="name"
             placeholder="Enter Name:"
           />
+          <mat-error *ngIf="skillForm.controls.name.hasError('required')">
+            Lastname is required
+          </mat-error>
+          <mat-error *ngIf="skillForm.controls.name.hasError('minlength') || skillForm.controls.name.hasError('maxlength')">
+            Length must be between 4 and 15 characters 
+          </mat-error>
         </mat-form-field>
-        <div *ngIf="skillForm.get('name')?.value" class="border">
+        <div *ngIf="skillForm.controls.name?.valid" class="border">
           <h3>Skills:</h3>
           <div
             formArrayName="skillsGrp"
@@ -38,10 +44,12 @@
         </div>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
+        <button mat-raised-button *ngIf="skillForm.controls.name.valid" (click)="addSkill()" color="accent">Add Skill</button>
         <button mat-raised-button type="submit" color="accent">Save</button>
       </mat-card-actions>
     </mat-card>
   </form>
   
-  <div>{{errors$ |json}}</div>
+  <div *ngIf="skillForm.invalid">
+    <h3>Form is invalid</h3>
+  </div>
