@@ -24,6 +24,7 @@ import { TemplateVsContainerComponent } from './samples/template-vs-container/te
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
+import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 
 const demoRoutes: Routes = [
   {
@@ -52,6 +53,7 @@ const demoRoutes: Routes = [
       { path: 'formcontrol', component: FormControlComponent },
       { path: 'formarray', component: FormArrayComponent },
       { path: 'form-errors', component: FormErrorsComponent },
+      { path: 'err-state-matcher', component: ErrStateMatcherComponent },
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },
       { path: 'ngx-formly', component: NgxFormlyComponent },

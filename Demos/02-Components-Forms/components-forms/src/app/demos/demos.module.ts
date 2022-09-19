@@ -43,6 +43,7 @@ import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-non
 import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
 import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
+import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'standard',
@@ -80,6 +81,7 @@ const appearance: MatFormFieldDefaultOptions = {
     ProjectorComponent,
     ReactiveTypedValidatonComponent,
     FormErrorsComponent,
+    ErrStateMatcherComponent,
   ],
   imports: [
     CommonModule,

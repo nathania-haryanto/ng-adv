@@ -183,8 +183,14 @@
       "component": "FormErrorsComponent",
       "visible": true,
       "sortOrder": 6
-    },
-
+    },    {
+      "url": "err-state-matcher",
+      "topicid": 4,
+      "title": "ErrorStateMatcher",
+      "component": "ErrStateMatcherComponent",
+      "visible": true,
+      "sortOrder": 6
+    },   
     {
       "url": "ngx-formly",
       "topicid": 3,
