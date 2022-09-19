@@ -34,8 +34,8 @@ export class ReactiveTypedValidatonComponent {
 
   registerUser(form: FormGroup) {
     const usr = {
-      email: form.value.email,
-      password: form.value.passwords.password,
+      email: form.controls['email'].value,
+      password: form.controls['password'].value,
     };
     console.log('Form: ', form);
     console.log('User to register: ', usr);
