@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { combineLatest, Observable } from 'rxjs';
-import { distinct, map, delay } from 'rxjs/operators';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Person, wealthOptsValues } from '../person/person.model';
 import { PersonService } from '../person/person.service';
 import { AsyncMailExistsValidator } from './asyncMailExistsValidator';
@@ -49,7 +44,7 @@ export class ReactiveValidationComponent {
   constructor(
     private fb: FormBuilder,
     private ps: PersonService,
-    private mailExistsValidator: AsyncMailExistsValidator
+    private mailExistsValidator: AsyncMailExistsValidator //Sample for custom Async Validator
   ) {}
 
   ngOnInit() {
@@ -59,42 +54,7 @@ export class ReactiveValidationComponent {
       .subscribe((p) => {
         this.personForm.patchValue(p);
       });
-    // this.subscribeChanges();
   }
-
-  // private subscribeChanges() {
-  //   this.errors$ = combineLatest([
-  //     this.personForm.valueChanges,
-  //     this.personForm.statusChanges.pipe(distinct()),
-  //   ]).pipe(map((el) => this.checkFormErrors(el)));
-  // }
-
-  // private checkFormErrors(val_stat_changes: [{ Person: any }, string]) {
-  //   let state = val_stat_changes[1];
-  //   let person = val_stat_changes[0];
-  //   let errors: any = { lastname: {} };
-  //   if (state === 'INVALID') {
-  //     let mod_fields = Object.keys(this.personForm.controls);
-  //     for (let el of mod_fields) {
-  //       let fp = this.personForm.get(el);
-  //       if (fp && fp.invalid && (fp.dirty || fp.touched)) {
-  //         errors[el] = fp.errors;
-  //       }
-  //     }
-  //   }
-  //   return errors;
-  // }
-
-  // private logControl(name: string, control: FormControl) {
-  //   let s = `${name} - pristine:${control.pristine} - dirty:${
-  //     control.dirty
-  //   } - touched:${control.touched} - untouched:${control.untouched} - value:${
-  //     control.value
-  //   } - status:${control.status} - valid:${control.valid} - invalid:${
-  //     control.invalid
-  //   } - errors:${JSON.stringify(control.errors)}`;
-  //   console.log(s);
-  // }
 
   savePerson(personForm: any): void {
     this.ps.save(personForm);
@@ -102,7 +62,7 @@ export class ReactiveValidationComponent {
 
   //Sample for custom Validator - name
   validateName(control: FormControl): { [s: string]: boolean } | null {
-    if (control.value === 'Hugo') {
+    if ((control.value as string).toLowerCase() === 'asshole') {
       return { nameError: true };
     }
     return null;

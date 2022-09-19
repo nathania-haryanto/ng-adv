@@ -1,3 +1,4 @@
+<app-markdown-renderer [md]="'reactive-validation'"></app-markdown-renderer>
 <mat-card>
   <mat-card-header>
     <mat-card-title>
@@ -17,7 +18,7 @@
         <mat-label>Name</mat-label>
         <input matInput type="text" placeholder="Name" formControlName="name" />
         <mat-error *ngIf="personForm.controls.name.touched && personForm.controls.name.hasError('nameError')">
-          The Name Hugo is not allowed
+          No harsh words please!!
         </mat-error>
         <mat-error *ngIf="violatesMinLenght()">
           Name is required (minimum 4 characters).
