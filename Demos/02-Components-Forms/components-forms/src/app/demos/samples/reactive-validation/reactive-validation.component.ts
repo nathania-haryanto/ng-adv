@@ -52,7 +52,7 @@ export class ReactiveValidationComponent {
 
   ngOnInit() {
     this.loadData();
-    this.subscribeChanges();
+    // this.subscribeChanges();
   }
 
   private loadData() {

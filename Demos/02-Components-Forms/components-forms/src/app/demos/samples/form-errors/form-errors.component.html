@@ -1,5 +1,5 @@
 <app-markdown-renderer [md]="'form-errors'"></app-markdown-renderer>
-<div [formGroup]="skillForm" (ngSubmit)="saveForm()">
+<form [formGroup]="skillForm" (ngSubmit)="saveForm()">
     <mat-card>
       <mat-card-header>
         <mat-card-title>Skills Sheet</mat-card-title>
@@ -7,6 +7,7 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field>
+          <mat-label>Name</mat-label>
           <input
             matInput
             type="text"
@@ -38,8 +39,9 @@
       </mat-card-content>
       <mat-card-actions align="end">
         <button mat-raised-button (click)="addSkill()" color="accent">Add Skill</button>
-        <button mat-raised-button (click)="saveForm()" color="accent">Save</button>
+        <button mat-raised-button type="submit" color="accent">Save</button>
       </mat-card-actions>
     </mat-card>
-  </div>
+  </form>
   
+  <div>{{errors$ |json}}</div>

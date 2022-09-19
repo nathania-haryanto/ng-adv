@@ -14,18 +14,17 @@
     >
       <input matInput type="text" formControlName="id"  class="hidden"/>
       <mat-form-field>
+        <mat-label>Name</mat-label>
         <input matInput type="text" placeholder="Name" formControlName="name" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput type="text" placeholder="Last Name" formControlName="lastname" />
-      </mat-form-field>
-
-      <mat-form-field>
+        <mat-label>Age</mat-label>
         <input matInput type="number" placeholder="Age" formControlName="age" />
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>E-Mail</mat-label>
         <input
           matInput
           type="text"
@@ -35,6 +34,7 @@
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Gender</mat-label>
         <mat-select placeholder="Gender" formControlName="gender">
           <mat-option value="male">Male</mat-option>
           <mat-option value="female">Female</mat-option>
@@ -51,15 +51,19 @@
           opt
         }}</mat-radio-button>
       </mat-radio-group>
-      <div formGroupName="address" fxLayout="column">
+      <div formGroupName="address" fxLayout="column" class="border">
+        <h3>Address</h3>
         <mat-form-field>
+          <mat-label>Street</mat-label>
           <input matInput type="text" placeholder="Street" formControlName="street" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="City" formControlName="city" />
+          <mat-label>Postal Code</mat-label>
+          <input matInput type="text" placeholder="Postal Code" formControlName="postalCode" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="text" placeholder="Postal Code" formControlName="postalCode" />
+          <mat-label>City</mat-label>
+          <input matInput type="text" placeholder="City" formControlName="city" />
         </mat-form-field>
       </div>
 
