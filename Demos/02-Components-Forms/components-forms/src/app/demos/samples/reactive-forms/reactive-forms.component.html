@@ -1,3 +1,4 @@
+<app-markdown-renderer [md]="'reactive-forms'"></app-markdown-renderer>
 <mat-card>
   <mat-card-header>
     <mat-card-title>
@@ -10,21 +11,25 @@
       (ngSubmit)="savePerson(personForm)"
       novalidate
       fxLayout="column"
-    >
+    >      
       <input matInput type="text" formControlName="id"  class="hidden"/>
       <mat-form-field>
+        <mat-label>Name</mat-label>
         <input matInput type="text" placeholder="Name" formControlName="name" />
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Last Name</mat-label>
         <input matInput type="text" placeholder="Last Name" formControlName="lastname" />
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Age</mat-label>
         <input matInput type="number" placeholder="Age" formControlName="age" />
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>E-Mail</mat-label>
         <input
           matInput
           type="text"
@@ -34,6 +39,7 @@
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Gender</mat-label>
         <mat-select placeholder="Gender" formControlName="gender">
           <mat-option value="male">Male</mat-option>
           <mat-option value="female">Female</mat-option>

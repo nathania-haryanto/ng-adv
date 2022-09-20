@@ -8,7 +8,7 @@ import { PersonService } from '../person/person.service';
   templateUrl: './forms-builder.component.html',
   styleUrls: ['./forms-builder.component.scss'],
 })
-export class FormsBuilderComponent implements OnInit {
+export class FormBuilderComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
   genderPattern = '^(male|female)';

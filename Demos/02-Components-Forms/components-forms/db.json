@@ -81,6 +81,14 @@
       "sortOrder": 3
     },
     {
+      "url": "formbuilder",
+      "topicid": 2,
+      "title": "Form Builder",
+      "component": "FormBuilderComponent",
+      "visible": true,
+      "sortOrder": 4
+    },
+    {
       "url": "typedforms",
       "topicid": 2,
       "title": "Typed Forms",
@@ -113,14 +121,6 @@
       "sortOrder": 4
     },
     {
-      "url": "formbuilder",
-      "topicid": 2,
-      "title": "Form Builder",
-      "component": "FormsBuilderComponent",
-      "visible": true,
-      "sortOrder": 4
-    },
-    {
       "url": "raw-value",
       "topicid": 2,
       "title": "GetRawValue",
@@ -137,22 +137,6 @@
       "sortOrder": 5
     },
     {
-      "url": "validation",
-      "topicid": 4,
-      "title": "Validators",
-      "component": "ReactiveValidationComponent",
-      "visible": true,
-      "sortOrder": 6
-    },
-    {
-      "url": "validation-typed",
-      "topicid": 4,
-      "title": "Form Validation",
-      "component": "ReactiveTypedValidatonComponent",
-      "visible": true,
-      "sortOrder": 6
-    },
-    {
       "url": "formarray",
       "topicid": 4,
       "title": "FormArray",
@@ -163,7 +147,7 @@
     {
       "url": "cascade",
       "topicid": 3,
-      "title": "Cascading",
+      "title": "Cascad Controls",
       "component": "ReactiveCascadeComponent",
       "visible": true,
       "sortOrder": 8
@@ -177,9 +161,40 @@
       "sortOrder": 8
     },
     {
+      "url": "validation-typed",
+      "topicid": 4,
+      "title": "Validation Intro",
+      "component": "ReactiveTypedValidatonComponent",
+      "visible": true,
+      "sortOrder": 6
+    },
+    {
+      "url": "validation",
+      "topicid": 4,
+      "title": "Form State & Validators",
+      "component": "ReactiveValidationComponent",
+      "visible": true,
+      "sortOrder": 6
+    },
+    {
+      "url": "form-errors",
+      "topicid": 4,
+      "title": "Form Errors",
+      "component": "FormErrorsComponent",
+      "visible": true,
+      "sortOrder": 6
+    },    {
+      "url": "err-state-matcher",
+      "topicid": 4,
+      "title": "ErrorStateMatcher",
+      "component": "ErrStateMatcherComponent",
+      "visible": true,
+      "sortOrder": 6
+    },   
+    {
       "url": "ngx-formly",
       "topicid": 3,
-      "title": "Formly",
+      "title": "Dynamic Forms - Formly",
       "component": "NgxFormlyComponent",
       "visible": true,
       "sortOrder": 8

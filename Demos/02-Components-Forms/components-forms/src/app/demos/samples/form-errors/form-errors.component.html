@@ -1,0 +1,85 @@
+<app-markdown-renderer [md]="'form-errors'"></app-markdown-renderer>
+<form [formGroup]="skillForm" (ngSubmit)="saveForm()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Skills Sheet</mat-card-title>
+      <mat-card-subtitle>Add your skills</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="name"
+          placeholder="Enter Name:"
+        />
+        <mat-error *ngIf="skillForm.controls.name.hasError('required')">
+          Lastname is required
+        </mat-error>
+        <mat-error
+          *ngIf="
+            skillForm.controls.name.hasError('minlength') ||
+            skillForm.controls.name.hasError('maxlength')
+          "
+        >
+          Length must be between 4 and 15 characters
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="age"
+          placeholder="Enter Age:"
+        />
+        <mat-error *ngIf="skillForm.controls.age.hasError('min')">
+          You must be 18+ to fill out this form
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="skillForm.controls.name?.valid" class="border">
+        <h3>Skills:</h3>
+        <div
+          formArrayName="skillsGrp"
+          *ngFor="let skill of getElementsInFormArray(); let i = index"
+        >
+          <div [formGroupName]="i" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Skill Name"
+                formControlName="skillname"
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Years" formControlName="years" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button
+        mat-raised-button
+        *ngIf="skillForm.controls.name.valid"
+        (click)="addSkill()"
+        color="accent"
+      >
+        Add Skill
+      </button>
+      <button mat-raised-button type="submit" color="accent">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>FormControl Validation Erros</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <pre>{{ errors$ | async | json }}</pre>
+  </mat-card-content>
+</mat-card>

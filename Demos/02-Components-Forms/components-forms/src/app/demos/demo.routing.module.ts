@@ -7,22 +7,24 @@ import { ContentChildComponent } from './samples/content-child/content-child.com
 import { ControlValueAccessorComponent } from './samples/control-value-accessor/control-value-accessor.component';
 import { FormArrayComponent } from './samples/form-array/form-array.component';
 import { FormControlComponent } from './samples/form-control/form-control.component';
-import { FormsBuilderComponent } from './samples/forms-builder/forms-builder.component';
+import { FormBuilderComponent } from './samples/forms-builder/forms-builder.component';
 import { GetRawValueComponent } from './samples/get-raw-value/get-raw-value.component';
 import { HostBindingListenerComponent } from './samples/host-binding-listener/host-binding-listener.component';
 import { NgxFormlyComponent } from './samples/ngx-formly/ngx-formly.component';
-import { ReactiveCascadeComponent } from './samples/reactive-cascade/reactive-cascade.component';
-import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
-import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
+import { ReactiveCascadeComponent } from './samples/cascade/reactive-cascade.component';
+import { ReactiveExplicitTypedExternalComponent } from './samples/explicit-typed-external/reactive-explicit-typed-external.component';
+import { ReactiveExplicitTypedComponent } from './samples/explicit-typed/reactive-explicit-typed.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
-import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
-import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
-import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
-import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
+import { ReactiveNestedComponent } from './samples/nested-objects/reactive-nested.component';
+import { ReactiveTypedValidatonComponent } from './samples/validaton-intro/reactive-typed-validaton.component';
+import { ReactiveTypedComponent } from './samples/typed/reactive-typed.component';
+import { ReactiveValidationComponent } from './samples/state-validators/reactive-validation.component';
 import { StandaloneComponent } from './samples/standalone/standalone.component';
 import { TemplateVsContainerComponent } from './samples/template-vs-container/template-vs-container.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
+import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
+import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 
 const demoRoutes: Routes = [
   {
@@ -47,9 +49,11 @@ const demoRoutes: Routes = [
       { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'actionstream', component: ActionStreamsComponent },
-      { path: 'formbuilder', component: FormsBuilderComponent },
+      { path: 'formbuilder', component: FormBuilderComponent },
       { path: 'formcontrol', component: FormControlComponent },
       { path: 'formarray', component: FormArrayComponent },
+      { path: 'form-errors', component: FormErrorsComponent },
+      { path: 'err-state-matcher', component: ErrStateMatcherComponent },
       { path: 'validation', component: ReactiveValidationComponent },
       { path: 'cascade', component: ReactiveCascadeComponent },
       { path: 'ngx-formly', component: NgxFormlyComponent },
