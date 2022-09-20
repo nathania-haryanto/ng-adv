@@ -37,8 +37,8 @@ export class ReactiveTypedValidatonComponent {
       email: form.controls['email'].value,
       password: form.controls['password'].value,
     };
-    console.log('Form: ', form);
     console.log('User to register: ', usr);
+    console.log('Form: ', form);
   }
 
   passwordsMatchValidator(control: AbstractControl): ValidationErrors | null {

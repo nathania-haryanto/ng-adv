@@ -1,3 +1,4 @@
+<app-markdown-renderer [md]="'validation-intro'"></app-markdown-renderer>
 <form
   [formGroup]="registerForm"
   (ngSubmit)="registerUser(registerForm)"
@@ -5,7 +6,7 @@
 >
   <mat-card>
     <mat-card-header fxLayoutAlign="center center">
-      <mat-card-title>Register Form</mat-card-title>
+      <mat-card-title>Validation Intro - Register Form</mat-card-title>
     </mat-card-header>
     <mat-card-content fxLayout="column">
       <mat-form-field>
@@ -55,3 +56,21 @@
     </mat-card-actions>
   </mat-card>
 </form>
+
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>FormControl Validation Erros - password</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      {{this.registerForm.controls.password.errors | json}}
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Form Validation Erros</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        {{this.registerForm.errors | json}}
+    </mat-card-content>
+</mat-card>

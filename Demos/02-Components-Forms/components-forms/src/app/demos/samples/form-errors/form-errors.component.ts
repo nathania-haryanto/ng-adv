@@ -4,9 +4,17 @@ import {
   FormBuilder,
   FormControl,
   FormControlStatus,
+  ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { combineLatest, distinct, map, Observable, tap } from 'rxjs';
+import {
+  combineLatest,
+  distinct,
+  Observable,
+  tap,
+  BehaviorSubject,
+  map,
+} from 'rxjs';
 import { PersonService } from '../person/person.service';
 
 @Component({
@@ -20,15 +28,25 @@ export class FormErrorsComponent implements OnInit {
       '',
       [Validators.required, Validators.minLength(4), Validators.maxLength(15)],
     ],
+    age: [0, [Validators.required, Validators.min(18)]],
     skillsGrp: this.fb.array([]),
   });
 
-  errors$: Observable<any> | undefined;
+  errors$: Observable<ValidationErrors[]> | undefined;
 
   constructor(private fb: FormBuilder, private ps: PersonService) {}
 
   ngOnInit() {
-    this.subscribeChanges();
+    this.errors$ = this.skillForm.valueChanges.pipe(
+      map(() => {
+        const errors: ValidationErrors[] = [];
+        Object.keys(this.skillForm.controls).forEach((key) => {
+          let err = this.skillForm.get(key)?.errors;
+          if (err) errors.push(err);
+        });
+        return errors;
+      })
+    );
   }
 
   addSkill() {
@@ -55,52 +73,5 @@ export class FormErrorsComponent implements OnInit {
       return { nameError: true };
     }
     return null;
-  }
-
-  //Form array no duplicates validator
-  //TODO: implement no duplicates validator
-
-  // Errors
-
-  //TODO: write out all errors in a combined view
-  private subscribeChanges() {
-    this.errors$ = combineLatest([
-      this.skillForm.valueChanges,
-      this.skillForm.statusChanges.pipe(distinct()),
-    ]).pipe(
-      tap((form) => console.log('form', form))
-      // map((el) => this.getFormErrors(el))
-    );
-  }
-
-  private getFormErrors(
-    form: [
-      Partial<{
-        name: string | null;
-        skillsGrp: Partial<{
-          skillname: string | null;
-          years: number | null;
-        }>[];
-      }>,
-      FormControlStatus
-    ]
-  ) {
-    console.log('form', form);
-  }
-
-  private checkFormErrors(val_stat_changes: [{ form: any }, string]) {
-    let state = val_stat_changes[1];
-    let skill = val_stat_changes[0];
-    let errors: any = { lastname: {} };
-    if (state === 'INVALID') {
-      let mod_fields = Object.keys(this.skillForm.controls);
-      for (let el of mod_fields) {
-        let fp = this.skillForm.get(el);
-        if (fp && fp.invalid && (fp.dirty || fp.touched)) {
-          errors[el] = fp.errors;
-        }
-      }
-    }
-    return errors;
   }
 }
