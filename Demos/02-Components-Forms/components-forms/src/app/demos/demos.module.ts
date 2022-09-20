@@ -28,20 +28,20 @@ import { BindingComponent } from './samples/host-binding-listener/binding/bindin
 import { HostBindingListenerComponent } from './samples/host-binding-listener/host-binding-listener.component';
 import { HoverListenerDirective } from './samples/host-binding-listener/hover-listener.directive';
 import { NgxFormlyComponent } from './samples/ngx-formly/ngx-formly.component';
-import { ReactiveCascadeComponent } from './samples/reactive-cascade/reactive-cascade.component';
-import { ReactiveExplicitTypedExternalComponent } from './samples/reactive-explicit-typed-external/reactive-explicit-typed-external.component';
-import { ReactiveExplicitTypedComponent } from './samples/reactive-explicit-typed/reactive-explicit-typed.component';
+import { ReactiveCascadeComponent } from './samples/cascade/reactive-cascade.component';
+import { ReactiveExplicitTypedExternalComponent } from './samples/explicit-typed-external/reactive-explicit-typed-external.component';
+import { ReactiveExplicitTypedComponent } from './samples/explicit-typed/reactive-explicit-typed.component';
 import { ReactiveFormsComponent } from './samples/reactive-forms/reactive-forms.component';
-import { ReactiveNestedComponent } from './samples/reactive-nested/reactive-nested.component';
-import { ReactiveTypedComponent } from './samples/reactive-typed/reactive-typed.component';
-import { ReactiveValidationComponent } from './samples/reactive-validation/reactive-validation.component';
+import { ReactiveNestedComponent } from './samples/nested-objects/reactive-nested.component';
+import { ReactiveTypedComponent } from './samples/typed/reactive-typed.component';
+import { ReactiveValidationComponent } from './samples/state-validators/reactive-validation.component';
 import { ClockComponent } from './samples/template-vs-container/clock/clock.component';
 import { ExpanderComponent } from './samples/template-vs-container/expander-content/expander.component';
 import { ExpanderTemplateComponent } from './samples/template-vs-container/expander-template/expander-template.component';
 import { TemplateVsContainerComponent } from './samples/template-vs-container/template-vs-container.component';
 import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-nonnullable.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
-import { ReactiveTypedValidatonComponent } from './samples/reactive-typed-validaton/reactive-typed-validaton.component';
+import { ReactiveTypedValidatonComponent } from './samples/validaton-intro/reactive-typed-validaton.component';
 import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
 import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 
