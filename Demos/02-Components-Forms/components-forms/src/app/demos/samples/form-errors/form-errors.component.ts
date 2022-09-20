@@ -3,18 +3,10 @@ import {
   FormArray,
   FormBuilder,
   FormControl,
-  FormControlStatus,
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import {
-  combineLatest,
-  distinct,
-  Observable,
-  tap,
-  BehaviorSubject,
-  map,
-} from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { PersonService } from '../person/person.service';
 
 @Component({
