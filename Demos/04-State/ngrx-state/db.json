@@ -46,15 +46,6 @@
       "sortOrder": 3
     },
     {
-      "url": "demos-list",
-      "title": "Feature Module State",
-      "component": "DemoListHostComponent",
-      "id": 5,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 4
-    },
-    {
       "url": "effects",
       "title": "Effects",
       "component": "EffectsComponent",
@@ -62,6 +53,15 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 3
+    },
+    {
+      "url": "demos-list",
+      "title": "Feature Module State",
+      "component": "DemoListHostComponent",
+      "id": 5,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 4
     },
     {
       "url": "demos-state",

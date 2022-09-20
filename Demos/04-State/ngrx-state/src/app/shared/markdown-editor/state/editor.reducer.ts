@@ -1,12 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { CommentItem } from '../comment.model';
-import {
-  deleteCommentSuccess,
-  loadCommentsFailure,
-  loadCommentsSuccess,
-  saveCommentFailure,
-  saveCommentSuccess,
-} from './editor.actions';
+import { MarkdownEditorActions } from './editor.actions';
 
 // State
 export const editorFeatureKey = 'mdeditor';
@@ -24,10 +18,10 @@ export const initialEditorState: EditorState = {
 // Reducer
 export const editorReducer = createReducer(
   initialEditorState,
-  on(loadCommentsSuccess, (state, action) => {
+  on(MarkdownEditorActions.loadcommentssuccess, (state, action) => {
     return { ...state, comments: action.items, hasLoaded: true };
   }),
-  on(saveCommentSuccess, (state, action) => {
+  on(MarkdownEditorActions.savecommentssuccess, (state, action) => {
     //Notice to clone an Array we use [] instead of {}
     const clone = Object.assign([], state.comments) as Array<CommentItem>;
     let idx = clone.findIndex((c) => c.id == action.item.id);
@@ -38,14 +32,18 @@ export const editorReducer = createReducer(
     }
     return { ...state, comments: clone };
   }),
-  on(deleteCommentSuccess, (state, action) => {
+  on(MarkdownEditorActions.deletecommentssuccess, (state, action) => {
     const clone = Object.assign(
       [],
       state.comments.filter((c) => c.id != action.item.id)
     ) as Array<CommentItem>;
     return { ...state, comments: clone };
   }),
-  on(loadCommentsFailure, saveCommentFailure, (state, action) => {
-    return { ...state };
-  })
+  on(
+    MarkdownEditorActions.loadcommentsfailure,
+    MarkdownEditorActions.savecommentsfailure,
+    (state, action) => {
+      return { ...state };
+    }
+  )
 );
