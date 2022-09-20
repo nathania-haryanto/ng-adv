@@ -3,13 +3,14 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { CommentService } from '../comment.service';
-import { deleteComment, deleteCommentFailure } from './editor.actions';
-import {
-  loadComments,
-  loadCommentsFailure,
-  saveComment,
-  saveCommentFailure,
-} from './editor.actions';
+import { MarkdownEditorActions } from './editor.actions';
+// import { deleteComment, deleteCommentFailure, loadComments, MockEditorActions } from './editor.actions';
+// import {
+//   loadComments,
+//   loadCommentsFailure,
+//   saveComment,
+//   saveCommentFailure,
+// } from './editor.actions';
 
 @Injectable()
 export class EditorEffects {
@@ -17,14 +18,15 @@ export class EditorEffects {
 
   loadDemos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadComments),
+      ofType(MarkdownEditorActions.loadcomments),
       mergeMap(() =>
         this.service.getComments().pipe(
-          map((comments) => ({
-            type: '[Comments] loadComments Success',
-            items: comments,
-          })),
-          catchError((err) => of(loadCommentsFailure({ err })))
+          map((comments) =>
+            MarkdownEditorActions.loadcommentssuccess({ items: comments })
+          ),
+          catchError((err) =>
+            of(MarkdownEditorActions.loadcommentsfailure({ err }))
+          )
         )
       )
     )
@@ -32,14 +34,15 @@ export class EditorEffects {
 
   saveComment$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(saveComment),
+      ofType(MarkdownEditorActions.savecomments),
       mergeMap((action) =>
         this.service.saveComment(action.item).pipe(
-          map((comment) => ({
-            type: '[Comments] saveComment Success',
-            item: comment,
-          })),
-          catchError((err) => of(saveCommentFailure({ err })))
+          map((comment) =>
+            MarkdownEditorActions.savecommentssuccess({ item: comment })
+          ),
+          catchError((err) =>
+            of(MarkdownEditorActions.savecommentsfailure({ err }))
+          )
         )
       )
     )
@@ -47,14 +50,15 @@ export class EditorEffects {
 
   deleteComment$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(deleteComment),
+      ofType(MarkdownEditorActions.deletecomments),
       mergeMap((action) =>
         this.service.deleteComment(action.item).pipe(
-          map(() => ({
-            type: '[Comments] deleteComment Success',
-            item: action.item,
-          })),
-          catchError((err) => of(deleteCommentFailure({ err })))
+          map(() =>
+            MarkdownEditorActions.deletecommentssuccess({ item: action.item })
+          ),
+          catchError((err) =>
+            of(MarkdownEditorActions.deletecommentsfailure({ err }))
+          )
         )
       )
     )

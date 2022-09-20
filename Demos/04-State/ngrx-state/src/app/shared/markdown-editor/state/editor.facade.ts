@@ -4,7 +4,7 @@ import { ActionsSubject, Store } from '@ngrx/store';
 import { Subject, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { CommentItem } from '../comment.model';
-import { deleteComment, loadComments, saveComment } from './editor.actions';
+import { MarkdownEditorActions } from './editor.actions';
 import { EditorState } from './editor.reducer';
 import { getComments, hasLoaded } from './editor.selectors';
 
@@ -22,13 +22,14 @@ export class EditorFacade implements OnDestroy {
   ) {
     //Could be used to respond to effects completion to trigger an action in the UI
     //As an alternative you could also hook into the loading indicator
+    //TODO: Refactor to Reactive approach
     this.subs = this.actions
       .pipe(
         ofType(
-          '[Comments] saveComment Success',
-          '[Comments] saveComment Failure',
-          '[Comments] deleteComment Success',
-          '[Comments] deleteComment Failure'
+          MarkdownEditorActions.savecommentssuccess,
+          MarkdownEditorActions.savecommentsfailure,
+          MarkdownEditorActions.deletecommentssuccess,
+          MarkdownEditorActions.deletecommentsfailure
         )
       )
       .subscribe((data) => {
@@ -42,7 +43,7 @@ export class EditorFacade implements OnDestroy {
   }
 
   init() {
-    this.store.dispatch(loadComments());
+    this.store.dispatch(MarkdownEditorActions.loadcomments());
   }
 
   hasLoaded() {
@@ -54,10 +55,10 @@ export class EditorFacade implements OnDestroy {
   }
 
   saveComment(item: CommentItem) {
-    this.store.dispatch(saveComment({ item }));
+    this.store.dispatch(MarkdownEditorActions.savecomments({ item }));
   }
 
   deleteComment(item: CommentItem) {
-    this.store.dispatch(deleteComment({ item }));
+    this.store.dispatch(MarkdownEditorActions.deletecomments({ item }));
   }
 }

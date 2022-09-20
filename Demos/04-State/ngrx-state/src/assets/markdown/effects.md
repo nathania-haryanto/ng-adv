@@ -1,3 +1,6 @@
+- The mock markdown-editor is using effects and the actions are created using createActionGroup:
+
+
 - Effects are basically async actions that typically interact with the data store
 
 - Examine the `saveComment` method of the `comment.service.ts`
