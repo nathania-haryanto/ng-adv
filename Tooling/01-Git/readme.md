@@ -155,7 +155,7 @@ Cleaning up after branch switches - ie to remove untracked files from other bran
 -fx flag is used to remove untracked and ignored files.
 
 ```
-git clean -f | git clean -f folderpath 
+git clean -fd | git clean -f folderpath 
 ```
 
 Update a Branch from master / main:
@@ -290,7 +290,7 @@ git submodule update --remote --merge
 
 > Note: I use submodules to include samples in classes that are used in different classes or to shorten / avoid path problems in devops
 
-## Git-flow
+## Git-Flow
 
 GitFlow is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team.
 
