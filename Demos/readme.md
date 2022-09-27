@@ -16,11 +16,12 @@
 - Compoarision: ng-template vs ng-content - pro / cons
 - ViewChild, -Children, ContentChild, -Children
 - HostBinding & HostListener
-- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl)
+- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
 - Untyped Forms vs Typed Forms 
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
 - Typed Forms Validation & Custom Validators
+- Handling FormErrors & FormErrorsStateMatcher
 - Cascading Form Controls
 - Implementing Custom Controls using ControlValueAccessor
 - Dynamic Form Generation
@@ -28,16 +29,17 @@
 ## Advanced Observables & Reactive Programming
 
 - Recap: Observables, Operators & Subjects
-- Unscubscribing: when & patterns
-- Debugging & Visualizing Observables
-- Base Operators: Mapping, Filtering, Merging, Scanning, ...
-- Understanding & Implementing Marble Diagrams
-- Marbletesting RxJs
 - Data- vs Action-Streams
+- Unscubscribing: When & Patterns
+- Understanding Marble Diagrams & Debugging Observables
+- Imperative vs Reified Reactive Programming
+- Base Operators: Mapping, Filtering, Merging, Scanning, ...
+- Implementing Side Effects using tap
+- Marbletesting RxJs
 - Higher Order Mapping Operators
 - Data Composition - Joining Observable Streams
 - Data Caching & Invalidation
-- Error Handling Strategies
+- Retry & Error Handling Strategies
 - Implementing & Testing Custom Observable Operators
 
 ## Advanced State Management using NgRx
@@ -45,17 +47,18 @@
 - Overview State Management Patterns
 - Statefull Services with Behaviour Subject
 - Intra Component Communication using Event Bus Pattern
-- Introduction to NgRx
-- Using Store, Actions and Reducers
+- Introduction to the Redux Pattern & NgRx
+- Using Store, Selectors, Actions, createActionGroup and Reducers
 - Debugging NgRx using Redux Dev Tools
 - Feature State and ActionReducerMap
-- Scaffolding using NgRx Schematics
-- Selectors, Effects, Facades, @ngrx/enitity Adapters
+- Effects, Facades, @ngrx/enitity adapters
 - Simplifying Data Access with @ngrx/data
 - NgRx Data Optimistic & Pessimistic Update and Delete
 - NgRx Container Presenter Best Practices
-- Understanding & Optimizing Angular Change Detection
-- Optimize Change Detection using @ngrx/component & ngrxPush
+- Understanding, Profiling & Optimizing Angular Change Detection
+- Optimize Change Detection using ngrxPush, ChangeDetectioRef
+- @ngrx/component-store vs Store
+- Using @ngrx/component in Components
 
 ## Advanced Routing and App Initalization
 
@@ -65,18 +68,19 @@
 - Implementing Global Error Handling and Retry-Patterns
 - Integrating Route Guards & Interceptors with State
 - Chaining Route Guards & Interceptors
-- Optimizing Modules & Loading Times
-- Using Auxilary Routes for Authentication
+- Optimizing Modules using Code Splitting & Preloading
+- Auxilary Routes: Common use cases
 - Preloading Component Data from NgRx using Resolvers
 - Introduction to Visual Feedback (Loading-, Saving-, ...-Indicator)
 - Implementing Page Transitions using Animations
 
 ## Securing Angular using NgRx and using Cloud Identities
 
-- Token based Authentication in Angular with NgRx
 - Recap Jwt, OAuth 2.0 & OpenID Connect
-- Persisting Auth State in NgRx
-- Using Cloud based Identities: Azure AD and @azure/msal-angular
+- Token based Authentication in Angular with NgRx
+- Impelmenting an AuthModule using a Facade Service, Components, Guards & Interceptors
+- Optimizing Application Flow for Authetication
+- Authentication using Microsoft Identity, Azure AD and @azure/msal-angular
 
 ## Advanced Testing including Jest & Cypress
 
