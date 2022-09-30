@@ -1,6 +1,6 @@
 # Topics
 
-## Theming
+## Creating a re-usable theme
 
 - Styling Angular Components Deep Dive
 - Comparing Angular Material & Bootstrap
@@ -20,13 +20,13 @@
 - Untyped Forms vs Typed Forms 
 - Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
 - Partial Values, Optional Controls, Dynamic Groups and FormRecord
-- Typed Forms Validation & Custom Validators
-- Handling FormErrors & FormErrorsStateMatcher
 - Cascading Form Controls
 - Implementing Custom Controls using ControlValueAccessor
+- Typed Forms Validation & Custom Validators
+- Handling FormErrors & ErrorStateMatcher
 - Dynamic Form Generation
 
-## Advanced Observables & Reactive Programming
+## Mastering Reactive Programming
 
 - Recap: Observables, Operators & Subjects
 - Data- vs Action-Streams
@@ -58,7 +58,7 @@
 - Understanding, Profiling & Optimizing Angular Change Detection
 - Optimize Change Detection using ngrxPush, ChangeDetectioRef
 - @ngrx/component-store vs Store
-- Using @ngrx/component in Components
+- Using @ngrx/component-store in Components
 
 ## Advanced Routing and App Initalization
 
@@ -84,15 +84,18 @@
 
 ## Advanced Testing including Jest & Cypress
 
-- Mock Data & Http Testing
 - Using Testbed & Spies
-- Interacting with Components in Tests
+- Testing Components & Components interaction
 - Complex Forms Testing
 - Async Component Testing (done, fakeAsync, waitForAsync)
+- Testing Observables & BehaviourSubjects
+- Mock Data & Http Testing
+- Interacting with Components in Tests
 - Material Testing using Component Harnesses
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
 - Using Jest for Unit Testing (Setup, Changes in spec, Snapshot Tests)
 - End-2-End Testing using Cypress
+- Introduction to Test driven development (TDD)
 
 ## Reusability
 
@@ -104,14 +107,6 @@
 - Introduction to Angular Schematics
 - Implementing Web Components using Angular Elements
 
-## Progressive (PWA) & Real Time Web Apps
-
-- What are Progressive Web Apps
-- Understanding and Configuring Service Workers & Manifests
-- Installing & Updating Progressive Web Apps
-- Push Notifications
-- Real Time Connected UI's
-
 ## Optimizing Applications
 
 - Using Linting and Autoformat with Prettier
@@ -120,7 +115,7 @@
 - Analysing and Optimizing Bundles & Modules
 - Code-Splitting and Module Pre-Loading
 
-## Server Side Rendering (SSR) using Angular Universal
+## Introduction to Server Side Rendering (SSR) using Angular Universal
 
 - Why Server Side Rendering
 - Angular Universal Architecture
@@ -128,10 +123,17 @@
 - Configure Server Side Rendering
 - Prerender static pages
 
+## Introduction to Progressive (PWA) & Real Time Web Apps
+
+- What are Progressive Web Apps
+- Understanding and Configuring Service Workers & Manifests
+- Installing & Updating Progressive Web Apps
+- Push Notifications
+- Real Time Connected UI's using WebSockets, SignalR & Azure PubSub
+
 ## Advanced Angular Publishing & DevOps using Containers
 
 - Deployment Overview & Cloud Hosting Options
 - Configuration Management and Config Injection Options
 - Docker Introduction & Building an Angular Multi-Stage Docker Image
 - Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
-- Building & Deploying an Angular App to Azure Kubernetes Services
