@@ -1,11 +1,36 @@
-# Reactive Forms Deep Dive
+# Components & Forms Deep Dive
 
-- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, Forms Array)
-- Form Validation
-- Implementing Custom Validators
+- Standalone Components: Creation, Lazy Loading, Bootstrapping
+- Templates TemplateRef, *ngTemplateOutlet
+- Compoarision: ng-template vs ng-content - pro / cons
+- ViewChild, -Children, ContentChild, -Children
+- HostBinding & HostListener
+- Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
+- Untyped Forms vs Typed Forms 
+- Typed Forms Nullability, NonNullableFormBuilder, GetRawValue
+- Partial Values, Optional Controls, Dynamic Groups and FormRecord
 - Cascading Form Controls
-- Dynamic Form Generation & Validation (Manual & ngx-formly)
-- Declarative Binding in Reactive Forms using RxJS
+- Implementing Custom Controls using ControlValueAccessor
+- Typed Forms Validation & Custom Validators
+- Handling FormErrors & ErrorStateMatcher
+- Dynamic Form Generation
+
+## Standalone Components: Bootstrapping
+
+Update main.ts:
+
+```typescript
+import { enableProdMode } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+bootstrapApplication(AppComponent).catch((err) => console.error(err));
+```
+## Readings
 
 [Dynamic Forms: ngx-formly](https://github.com/ngx-formly/ngx-formly)
 
