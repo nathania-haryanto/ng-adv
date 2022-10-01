@@ -116,6 +116,15 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 3
+    },
+    {
+      "url": "component-store",
+      "title": "@ngrx/component-store",
+      "component": "ComponentStoreComponent",
+      "id": 44,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
     }
   ],
   "skills": [

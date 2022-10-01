@@ -34,6 +34,7 @@ import { ContainerPresenterNgrxComponent } from './samples/container-presenter-n
 import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
 import { DetectorChildComponent } from './samples/change-detector-ref/detector-child/detector-child.component';
 import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
+import { ComponentStoreComponent } from './samples/component-store/component-store.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ChangeDetectionProfileComponent } from './samples/change-detection-prof
     ChangeDetectorRefComponent,
     DetectorChildComponent,
     ChangeDetectionProfileComponent,
+    ComponentStoreComponent,
   ],
   imports: [
     CommonModule,

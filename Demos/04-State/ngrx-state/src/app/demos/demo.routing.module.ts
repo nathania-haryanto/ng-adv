@@ -13,6 +13,7 @@ import { ChangeDetectionComponent } from './samples/change-detection/change-dete
 import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
 import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
 import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
+import { ComponentStoreComponent } from './samples/component-store/component-store.component';
 
 export const demoRoutes: Routes = [
   {
@@ -31,6 +32,7 @@ export const demoRoutes: Routes = [
       { path: 'skills', component: SkillsComponent },
       { path: 'cd-intro', component: ChangeDetectionComponent },
       { path: 'cd-profile', component: ChangeDetectionProfileComponent },
+      { path: 'component-store', component: ComponentStoreComponent },
       { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent },
       {
         path: 'change-detector-ref',
