@@ -113,17 +113,12 @@
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
 - Understanding & Using Page Traces
 - Analysing and Optimizing Bundles & Modules
-- Code-Splitting and Module Pre-Loading
-
-## Introduction to Server Side Rendering (SSR) using Angular Universal
-
+- Introduction to Server Side Rendering (SSR) using Angular Universal
 - Why Server Side Rendering
-- Angular Universal Architecture
-- Node Express Introduction
-- Configure Server Side Rendering
-- Prerender static pages
+- Configure Server Side Rendering & prerender static pages
 
-## Introduction to Progressive (PWA) & Real Time Web Apps
+## Implementing Real Time connected Microfrontends
+
 
 - What are Progressive Web Apps
 - Understanding and Configuring Service Workers & Manifests
@@ -131,9 +126,9 @@
 - Push Notifications
 - Real Time Connected UI's using WebSockets, SignalR & Azure PubSub
 
-## Advanced Angular Publishing & DevOps using Containers
+## Publishing Angular App using Containers and Config Injection
 
 - Deployment Overview & Cloud Hosting Options
 - Configuration Management and Config Injection Options
-- Docker Introduction & Building an Angular Multi-Stage Docker Image
-- Introduction to Angular DevOps using GitHub Actions & Azure DevOps pipelines
+- Creting an Angular Multi-Stage Docker Image using environment variables
+- Publishing to a Cloud Container Host and executing Cypress E2E Tests
