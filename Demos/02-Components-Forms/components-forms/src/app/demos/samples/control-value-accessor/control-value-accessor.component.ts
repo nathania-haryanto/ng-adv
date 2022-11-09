@@ -22,7 +22,15 @@ export class ControlValueAccessorComponent implements OnInit {
 
   cartItem = { itemName: 'sunflower oil', quantity: 4 };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.shoppingForm.controls.quantity.valueChanges.subscribe((value) => {
+      console.log('Quantity changed:', value);
+    });
+
+    this.shoppingForm.valueChanges.subscribe((value) => {
+      console.log('Form changed:', value);
+    });
+  }
 
   ngOnInit(): void {
     this.shoppingForm = this.fb.group({
