@@ -119,12 +119,12 @@
 
 ## Implementing Real Time connected Microfrontends
 
-
-- What are Progressive Web Apps
+- Introduction to Microfrontends and Event Driven Architecture (EDA)
+- Implementing a Real Time connected Microfrontend listening to CloudEvents
+- Using `@ngrx/component-store`
+- Introduction to Progressive Web Apps
 - Understanding and Configuring Service Workers & Manifests
 - Installing & Updating Progressive Web Apps
-- Push Notifications
-- Real Time Connected UI's using WebSockets, SignalR & Azure PubSub
 
 ## Publishing Angular App using Containers and Config Injection
 
