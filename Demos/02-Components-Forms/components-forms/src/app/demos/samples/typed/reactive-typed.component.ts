@@ -23,7 +23,11 @@ export class ReactiveTypedComponent implements OnInit {
     wealth: new FormControl(this.person.wealth),
   });
 
-  constructor(private ps: PersonService) {}
+  constructor(private ps: PersonService) {
+    this.personForm.controls.age.valueChanges.subscribe((value) => {
+      console.log('Age changed:', value);
+    });
+  }
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {

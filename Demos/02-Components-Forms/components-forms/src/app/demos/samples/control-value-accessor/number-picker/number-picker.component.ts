@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -16,12 +16,12 @@ import {
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NumberPickerComponent,
+      useExisting: forwardRef(() => NumberPickerComponent),
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: NumberPickerComponent,
+      useExisting: forwardRef(() => NumberPickerComponent),
     },
   ],
 })
@@ -31,9 +31,9 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
   @Input() increment: number = 1;
   @Input() label: string = '';
 
-  onChange = (quantity: number) => {};
+  private onChange: Function = (quantity: number) => {};
 
-  onTouched = () => {};
+  private onTouched: Function = () => {};
 
   touched = false;
 
@@ -59,12 +59,12 @@ export class NumberPickerComponent implements ControlValueAccessor, Validator {
     this.quantity = quantity;
   }
 
-  registerOnChange(onChange: any) {
-    this.onChange = onChange;
+  registerOnChange(fn: any) {
+    this.onChange = fn;
   }
 
-  registerOnTouched(onTouched: any) {
-    this.onTouched = onTouched;
+  registerOnTouched(fn: any) {
+    this.onTouched = fn;
   }
 
   markAsTouched() {
