@@ -1,4 +1,4 @@
-# Real Time connected Microfrontends
+# Real-time connected Angular Microfrontend that is a part of an Event Driven Architecture (EDA)
 
-- Realt time connected Microfrontends
+- Realt time connected Microfrontend
 - Progressive Web Apps
