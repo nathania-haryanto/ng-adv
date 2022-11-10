@@ -1,10 +1,11 @@
 # Topics
 
-## Creating a re-usable theme
+## Theming Angular Apps
 
+- Migrating to MDC-based Angular Material Components using Angular 15+
 - Styling Angular Components Deep Dive
 - Comparing Angular Material & Bootstrap
-- Bootstrap Resets, Layout Helper & Utiliies
+- Bootstrap Resets, Layout Helper & Utilities
 - Best of Both: Combining Bootstrap & Angular Material
 - Building a Reusable Theme
 - Theming Custom Components
@@ -12,8 +13,9 @@
 ## Components & Forms Deep Dive
 
 - Standalone Components: Creation, Lazy Loading, Bootstrapping
+- Using Angular Directives Composition Api
 - Templates TemplateRef, *ngTemplateOutlet
-- Compoarision: ng-template vs ng-content - pro / cons
+- Comparison: ng-template vs ng-content - pro / cons
 - ViewChild, -Children, ContentChild, -Children
 - HostBinding & HostListener
 - Recap Reactive Forms Revisited (FormGroup, Form Builder, FormControl, FormArray)
@@ -30,12 +32,12 @@
 
 - Recap: Observables, Operators & Subjects
 - Data- vs Action-Streams
-- Unscubscribing: When & Patterns
+- Unsubscribing: When & Patterns
 - Understanding Marble Diagrams & Debugging Observables
 - Imperative vs Reified Reactive Programming
 - Base Operators: Mapping, Filtering, Merging, Scanning, ...
 - Implementing Side Effects using tap
-- Marbletesting RxJs
+- Marble-testing RxJs
 - Higher Order Mapping Operators
 - Data Composition - Joining Observable Streams
 - Data Caching & Invalidation
@@ -58,9 +60,9 @@
 - Understanding, Profiling & Optimizing Angular Change Detection
 - Optimize Change Detection using ngrxPush, ChangeDetectioRef
 - @ngrx/component-store vs Store
-- Using @ngrx/component-store in Components
+- Using @ngrx/component-store
 
-## Advanced Routing and App Initalization
+## Advanced Routing and App Initialization
 
 - Dependency Injection in Depth: Resolution modifiers and Dependency providers
 - APP_INITIALIZER, Injection & forwardRef
@@ -97,7 +99,7 @@
 - End-2-End Testing using Cypress
 - Introduction to Test driven development (TDD)
 
-## Reusability
+## Supporting Reusability with Libraries and Packages
 
 - Angular Building Blocks: Workspace, Apps, Libraries
 - Reusable Artifacts using Angular Libraries
@@ -112,6 +114,7 @@
 - Using Linting and Autoformat with Prettier
 - Using Chrome Dev Tools & Lighthouse for Performance Optimization
 - Understanding & Using Page Traces
+- Optimizing Images using NgOptimizedImage 
 - Analysing and Optimizing Bundles & Modules
 - Introduction to Server Side Rendering (SSR) using Angular Universal
 - Why Server Side Rendering
@@ -120,7 +123,7 @@
 ## Implementing Real Time connected Microfrontends
 
 - Introduction to Microfrontends and Event Driven Architecture (EDA)
-- Implementing a Real Time connected Microfrontend listening to CloudEvents
+- Implementing a Real Time connected Microfrontend listening to Cloud Events
 - Using `@ngrx/component-store`
 - Introduction to Progressive Web Apps
 - Understanding and Configuring Service Workers & Manifests
@@ -130,5 +133,5 @@
 
 - Deployment Overview & Cloud Hosting Options
 - Configuration Management and Config Injection Options
-- Creting an Angular Multi-Stage Docker Image using environment variables
+- Creating an Angular Multi-Stage Docker Image using environment variables
 - Publishing to a Cloud Container Host and executing Cypress E2E Tests

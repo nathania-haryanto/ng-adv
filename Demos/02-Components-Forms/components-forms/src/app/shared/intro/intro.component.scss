@@ -6,10 +6,12 @@
     min-height: 80vh;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card{
     min-width: 500px;    
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card-header {
     display: flex;
     flex-direction: row;
@@ -20,12 +22,13 @@ mat-card-header {
     color: var(--color-fg);;
 }
 
-.mat-card-subtitle {
+.mat-mdc-card-subtitle {
     color: var(--color-fg);;
     font-size: 1.2rem;
     text-align: center;
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card-actions{
     display: flex;
     flex-direction: row;

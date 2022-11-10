@@ -25,6 +25,14 @@
       "sortOrder": 2
     },
     {
+      "url": "directives-composition",
+      "topicid": 3,
+      "title": "Directives Composition",
+      "component": "DirectiveCompositionComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
       "url": "temp-vs-container",
       "topicid": 3,
       "title": "ng-template / ng-content",

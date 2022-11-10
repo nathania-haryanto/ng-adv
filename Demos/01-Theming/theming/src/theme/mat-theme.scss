@@ -1,6 +1,8 @@
-//Provides theme funcitonality
+//Provides theme functionality
 @use '@angular/material' as mat;
 @import '@angular/material/theming';
+//Mixin for typography
+@include mat.all-component-typographies();
 //Mixin for common material styles
 @include mat.core();
 

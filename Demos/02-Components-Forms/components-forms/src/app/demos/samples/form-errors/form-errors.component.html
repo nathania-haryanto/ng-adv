@@ -1,6 +1,6 @@
 <app-markdown-renderer [md]="'form-errors'"></app-markdown-renderer>
 <form [formGroup]="skillForm" (ngSubmit)="saveForm()">
-  <mat-card>
+  <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>Skills Sheet</mat-card-title>
       <mat-card-subtitle>Add your skills</mat-card-subtitle>
@@ -75,7 +75,7 @@
   </mat-card>
 </form>
 
-<mat-card>
+<mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title>FormControl Validation Erros</mat-card-title>
   </mat-card-header>

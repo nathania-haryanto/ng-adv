@@ -11,10 +11,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   `,
   styles: [
     `
-      .divclass {
-        border: blue 4px solid;
-      }
-    `,
+           .divclass {
+             border: blue 4px solid;
+           }
+         `,
   ],
 })
 export class FirstChildComponent implements OnInit {
