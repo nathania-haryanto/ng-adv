@@ -1,3 +1,5 @@
+
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card {
     margin-top: var(--gap-small);
   }
@@ -6,6 +8,7 @@ mat-card {
     width: 100%
   }
   
+  /* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
   mat-card-content {
     margin: 0px;
     padding: 5px 0;
