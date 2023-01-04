@@ -6,10 +6,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   template: ` <div class="divclass">Second Child</div> `,
   styles: [
     `
-      .divclass {
-        border: green 4px solid;
-      }
-    `,
+           .divclass {
+             border: green 4px solid;
+           }
+         `,
   ],
   // encapsulation:ViewEncapsulation.Emulated
   // encapsulation:ViewEncapsulation.None

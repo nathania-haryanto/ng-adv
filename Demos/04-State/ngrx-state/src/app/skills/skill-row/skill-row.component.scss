@@ -4,7 +4,7 @@
 }
 
 
-.mat-stroked-button{
+.mat-mdc-outlined-button{
   height: 30px;    
 }
 
@@ -14,7 +14,8 @@
   justify-content: center;
 }
 // this is the parent span angular inserts for icon inside mat-fab
-::ng-deep.mat-fab .mat-button-wrapper {
+/* TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
+::ng-deep.mat-mdc-fab .mat-button-wrapper {
   display: flex !important;
   justify-content: center !important;
 }

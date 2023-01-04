@@ -9,8 +9,16 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2020",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "es2018", "dom", "esnext"]
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "es2018",
+      "dom",
+      "esnext"
+    ],
+    "useDefineForClassFields": false
   }
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "use-ngrx": {
+    "ngrx-state": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/use-ngrx",
+            "outputPath": "dist/ngrx-state",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -81,10 +81,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "use-ngrx:build:production"
+              "browserTarget": "ngrx-state:build:production"
             },
             "development": {
-              "browserTarget": "use-ngrx:build:development"
+              "browserTarget": "ngrx-state:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +92,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "use-ngrx:build"
+            "browserTarget": "ngrx-state:build"
           }
         },
         "test": {
@@ -129,6 +129,9 @@
     }
   },
   "cli": {
-    "analytics": "9c057ce0-a02e-414c-b3c0-f33f626d3b71"
+    "analytics": "9c057ce0-a02e-414c-b3c0-f33f626d3b71",
+    "cache": {
+      "enabled": false
+    }
   }
 }

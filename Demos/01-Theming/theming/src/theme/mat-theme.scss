@@ -1,8 +1,11 @@
-//Provides theme funcitonality
+//Provides theme functionality
 @use '@angular/material' as mat;
-@import '@angular/material/theming';
-//Mixin for common material styles
 @include mat.core();
+
+@import '@angular/material/theming';
+
+@include mat.all-component-typographies();
+//Mixin for common material styles
 
 //Pick colors here: https://material.io/resources/color/
 $primary: mat.define-palette(mat.$brown-palette, 400);

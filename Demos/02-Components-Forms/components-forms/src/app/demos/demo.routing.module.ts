@@ -25,6 +25,7 @@ import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-non
 import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
 import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
+import { DirectiveCompositionComponent } from './samples/directive-composition/directive-composition.component';
 
 const demoRoutes: Routes = [
   {
@@ -68,6 +69,10 @@ const demoRoutes: Routes = [
         component: GetRawValueComponent,
       },
       { path: 'typednonnullable', component: TypedNonnullableComponent },
+      {
+        path: 'directives-composition',
+        component: DirectiveCompositionComponent,
+      },
     ],
   },
 ];

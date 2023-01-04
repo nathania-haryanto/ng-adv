@@ -2,6 +2,10 @@
 @use '@angular/material' as mat;
 @import '@angular/material/theming';
 //Mixin for common material styles
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  Instead an explicit typography include has been automatically added here.
+//  If you add typography styles elsewhere, you may want to remove this.
+@include mat.all-component-typographies();
 @include mat.core();
 
 //Pick colors here: https://material.io/resources/color/
