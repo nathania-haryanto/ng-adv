@@ -109,6 +109,10 @@
   "cli": {
     "schematicCollections": [
       "@ngrx/schematics"
-    ]
+    ],
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
   }
 }
