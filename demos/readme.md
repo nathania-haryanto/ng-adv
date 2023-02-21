@@ -9,6 +9,7 @@
 - Best of Both: Combining Bootstrap & Angular Material
 - Building a Reusable Theme
 - Theming Custom Components
+- Material Design Migration to MDC
 
 ## Components & Forms Deep Dive
 
