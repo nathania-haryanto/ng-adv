@@ -25,6 +25,7 @@ import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component
 import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
 import { ClassicThemingComponent } from './samples/material-vs-bootstrap/classic-theming/classic-theming.component';
 import { AlternativeThemingComponent } from './samples/material-vs-bootstrap/alternative-theming/alternative-theming.component';
+import { MdcMigrationComponent } from './samples/mdc-migration/mdc-migration.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AlternativeThemingComponent } from './samples/material-vs-bootstrap/alt
     VisualFeedbackComponent,
     ClassicThemingComponent,
     AlternativeThemingComponent,
+    MdcMigrationComponent,
   ],
   imports: [
     CommonModule,

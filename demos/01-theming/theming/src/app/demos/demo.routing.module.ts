@@ -9,6 +9,7 @@ import { StyleInheritanceComponent } from './samples/style-inheritance/style-inh
 import { MaterialVsBootstrapComponent } from './samples/material-vs-bootstrap/material-vs-bootstrap.component';
 import { MultiThemeComponent } from './samples/multi-theme/multi-theme.component';
 import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedback.component';
+import { MdcMigrationComponent } from './samples/mdc-migration/mdc-migration.component';
 
 const demoRoutes: Routes = [
   {
@@ -24,6 +25,7 @@ const demoRoutes: Routes = [
       { path: 'bootstrap', component: MaterialVsBootstrapComponent },
       { path: 'multi-theme', component: MultiThemeComponent },
       { path: 'feedback', component: VisualFeedbackComponent },
+      { path: 'mdc-migration', component: MdcMigrationComponent },
     ],
   },
 ];

@@ -39,6 +39,11 @@
       "url": "feedback",
       "title": "Visual Feedback",
       "component": "VisualFeedbackComponent"
+    },
+    {
+      "url": "mdc-migration",
+      "title": "MDC Migration",
+      "component": "VisualFeedbackComponent"
     }
   ],
   "posts": [
