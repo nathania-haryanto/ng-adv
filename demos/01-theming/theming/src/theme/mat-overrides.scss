@@ -95,9 +95,8 @@ mat-expansion-panel-header {
   color: var(--color-fg);
 }
 
-//mat-table
-// mat-header-row {
-//   background-color: var(--color-primary);
-//   color: var(--color-fg);
-// }
+//mat-toolbar
+.mat-toolbar{
+  margin: 0.8rem 0;
+}
 
