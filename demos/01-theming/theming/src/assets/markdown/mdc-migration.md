@@ -2,6 +2,7 @@ In Angular Material v15, many of the components have been refactored to be based
 
 In order to execute migration use:
 
-```
+```bash
+ng update @angular/material
 ng generate @angular/material:mdc-migration
 ```
