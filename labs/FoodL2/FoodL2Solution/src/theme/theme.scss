@@ -1,7 +1,16 @@
-@use '~@angular/material' as mat;
-@import '~@angular/material/theming';
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
 @import 'stylevars.scss';
 
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
+@include mat.all-component-typographies();
 @include mat.core();
 
 $app-primary: mat.define-palette(mat.$brown-palette, 400);
@@ -28,25 +37,25 @@ $app-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  .mat-card {
+  .mat-mdc-card {
     background-color: mat.get-color-from-palette($accent, 400);
     margin-bottom: $big-gap;
     padding: 0 !important;
   }
 
-  .mat-card-header {
+  .mat-mdc-card-header {
     background-color: mat.get-color-from-palette($primary, 400);
     color: white;
     min-height: $medium-toolbar;
     padding-top: $small-gap;
   }
 
-  .mat-card-content {
+  .mat-mdc-card-content {
     padding: $medium-gap;
     margin-bottom: 0 !important;
   }
 
-  .mat-card-actions {
+  .mat-mdc-card-actions {
     padding: $medium-gap;
     margin-left: $medium-gap !important;
     margin-right: $medium-gap !important;
@@ -65,11 +74,11 @@ $app-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
 
-  .mat-table {
+  .mat-mdc-table {
     background: mat.get-color-from-palette($accent);
   }
 
-  .mat-header-cell {
+  .mat-mdc-header-cell {
     background-color: mat.get-color-from-palette($primary);
     color: white;
     font-size: 1rem;

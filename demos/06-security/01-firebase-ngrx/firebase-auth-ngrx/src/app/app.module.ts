@@ -49,10 +49,6 @@ import { EntityDataModule } from '@ngrx/data';
   ],
   providers: [
     {
-      provide: ErrorHandler,
-      useClass: GlobalErrService,
-    },
-    {
       provide: HTTP_INTERCEPTORS,
       useClass: FBAuthInterceptor,
       multi: true,
@@ -60,4 +56,4 @@ import { EntityDataModule } from '@ngrx/data';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
