@@ -44,7 +44,7 @@ const demoRoutes: Routes = [
       { path: 'valuecontrol', component: ControlValueAccessorComponent },
       { path: 'viewchild', component: ViewChildComponent },
       { path: 'contentchild', component: ContentChildComponent },
-      { path: 'temp-vs-container', component: TemplateVsContainerComponent },
+      { path: 'template-vs-container', component: TemplateVsContainerComponent },
       { path: 'hostbinding', component: HostBindingListenerComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
       { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
@@ -81,4 +81,4 @@ const demoRoutes: Routes = [
   imports: [RouterModule.forChild(demoRoutes)],
   exports: [RouterModule],
 })
-export class DemoRoutingModule {}
+export class DemoRoutingModule { }
