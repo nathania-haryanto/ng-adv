@@ -47,9 +47,9 @@ Update `index.html` to execute `env.js` to set the default env vars:
 Build image and run container:
 
 ```bash
-docker build --rm -f "dockerfile" -t ng-config-env .
-docker tag ng-config-env arambazamba/ng-config-env
-docker push arambazamba/ng-config-env
+docker build --rm -f Dockerfile -t config-ui .
+docker tag config-ui arambazamba/config-ui
+docker push arambazamba/config-ui
 ```
 
 >Note: We will use the `arambazamba/ng-config-env`-image for the rest of this module. Update your Docker Hub username.
@@ -57,6 +57,6 @@ docker push arambazamba/ng-config-env
 Run container:
 
 ```bash
-docker run -d --rm -p 5052:80 ng-config-env --env ENV_API_URL="https://food-api-staging-4591.azurewebsites.net"
+docker run -d --rm -p 5052:80 --env ENV_API_URL="https://food-api-staging-4591.azurewebsites.net" config-ui 
 http://localhost:5052
 ```
