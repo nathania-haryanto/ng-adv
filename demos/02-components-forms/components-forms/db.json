@@ -33,6 +33,14 @@
       "sortOrder": 2
     },
     {
+      "url": "content-projection",
+      "topicid": 3,
+      "title": "Content Projection",
+      "component": "ContentProjectionComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
       "url": "template-vs-container",
       "topicid": 3,
       "title": "ng-template / ng-content",

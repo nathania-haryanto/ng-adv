@@ -26,6 +26,7 @@ import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
 import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 import { DirectiveCompositionComponent } from './samples/directive-composition/directive-composition.component';
+import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
 
 const demoRoutes: Routes = [
   {
@@ -48,6 +49,7 @@ const demoRoutes: Routes = [
       { path: 'hostbinding', component: HostBindingListenerComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
       { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
+      { path: 'content-projection', component: ContentProjectionComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'actionstream', component: ActionStreamsComponent },
       { path: 'formbuilder', component: FormBuilderComponent },
