@@ -26,11 +26,6 @@
       "component": "PopupContainerComponent"
     },
     {
-      "url": "projection",
-      "title": "Content Projection",
-      "component": "SplitSampleComponent"
-    },
-    {
       "url": "multi-theme",
       "title": "Multi Theme",
       "component": "MultiThemeComponent"
