@@ -26,6 +26,7 @@ import { VisualFeedbackComponent } from './samples/visual-feedback/visual-feedba
 import { ClassicThemingComponent } from './samples/material-vs-bootstrap/classic-theming/classic-theming.component';
 import { AlternativeThemingComponent } from './samples/material-vs-bootstrap/alternative-theming/alternative-theming.component';
 import { MdcMigrationComponent } from './samples/mdc-migration/mdc-migration.component';
+import { NgOptimizedImageComponent } from './samples/ng-optimized-image/ng-optimized-image.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MdcMigrationComponent } from './samples/mdc-migration/mdc-migration.com
     ClassicThemingComponent,
     AlternativeThemingComponent,
     MdcMigrationComponent,
+    NgOptimizedImageComponent,
   ],
   imports: [
     CommonModule,
