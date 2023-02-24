@@ -51,23 +51,35 @@ For device testing it might be helpful to enable remote access - by default the 
 `dotnet run --urls https://0.0.0.0:5001`
 
 ---
-### Create a new Angular project and add PWA support
+### Skills PWA
+
+Create a new Angular project and add PWA support:
 
 ```
-ng new skills-pwa
+ng new skills-pwa --routing --style=scss
 cd skills-pwa
 ng add @angular/pwa --project skills-pwa
 ```
 
-Make sure you adjust your `environment.prod` to match IP config of your dev machine
+Add environment config:
+
+```
+ng g environments --project skills-pwa
+```
+
+Make sure you adjust your `environment.ts` and `environment.development.ts` to match IP config of your dev machine
 
 ```
 export const environment = {
-  production: true,
-  api: 'https://localhost:5001/api/',
+    api: 'https://localhost:5001/api/'
 };
 ```
->Note: PWA implementation code is skipped here. Copy `skills` and `hello` to your project and add them to app.component.ts:
+
+Add `HttpClientModule` and `ReactiveFromsModule` to `app.module.ts`:
+
+```typescript
+
+>Note: PWA implementation code is skipped here. Copy `skills` and `hello` to your project and add them to `app.module.ts` and `app.component.ts`:
 
 ```html
 <div class="card">
@@ -78,16 +90,11 @@ export const environment = {
 </div>
 ```
 
-Create a build:
-
-```
-ng build -c production [--delete-output-path false]
-```
-
-> Note: Make sure your envirenment.prod.ts matches environment.ts
+Test the app - see if it works
 
 ---
-### Serving your app using ngrok & Install PWA
+
+### Serving your app using ngrok & install the PWA
 
 To serve the build you need an http-server. Use `angular-http-server` or `http-server`
 
@@ -119,7 +126,7 @@ ngOnInit() {
 
 private attachUpdateHandler() {
   if (this.swUpdate.isEnabled) {
-    this.swUpdate.available.subscribe(() => {
+    this.swUpdate.versionUpdates.subscribe(() => {
       if (confirm('New version available. Load New Version?')) {
         window.location.reload();
       }

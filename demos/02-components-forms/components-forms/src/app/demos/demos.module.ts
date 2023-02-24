@@ -46,6 +46,11 @@ import { TypedNonnullableComponent } from './samples/typed-nonnullable/typed-non
 import { ReactiveTypedComponent } from './samples/typed/reactive-typed.component';
 import { ReactiveTypedValidatonComponent } from './samples/validaton-intro/reactive-typed-validaton.component';
 import { ViewChildComponent } from './samples/view-child/view-child.component';
+import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
+import { uxSplitComponent } from './samples/content-projection/ux-split/ux-split.component';
+import { uxButtonComponent } from './samples/content-projection/ux-button/ux-button.component';
+import { SplitPopupComponent } from './samples/content-projection/split-popup/split-popup.component';
+
 
 const appearance: MatFormFieldDefaultOptions = {
   appearance: 'outline',
@@ -56,6 +61,7 @@ const appearance: MatFormFieldDefaultOptions = {
     DemoContainerComponent,
     ReactiveFormsComponent,
     FormBuilderComponent,
+    ContentProjectionComponent,
     FormControlComponent,
     FormArrayComponent,
     ReactiveValidationComponent,
@@ -86,6 +92,9 @@ const appearance: MatFormFieldDefaultOptions = {
     ErrStateMatcherComponent,
     DirectiveCompositionComponent,
     BoxedDirective,
+    uxSplitComponent,
+    uxButtonComponent,
+    SplitPopupComponent
   ],
   imports: [
     CommonModule,
@@ -111,4 +120,4 @@ const appearance: MatFormFieldDefaultOptions = {
     },
   ],
 })
-export class DemosModule {}
+export class DemosModule { }

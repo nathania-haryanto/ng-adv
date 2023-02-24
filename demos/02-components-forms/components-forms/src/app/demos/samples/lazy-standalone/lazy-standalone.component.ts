@@ -11,8 +11,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './lazy-standalone.component.html',
   styleUrls: ['./lazy-standalone.component.scss'],
 })
-export class LazyStandaloneComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class LazyStandaloneComponent {
+  constructor() { }
 }

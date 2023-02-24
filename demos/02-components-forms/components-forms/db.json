@@ -9,18 +9,18 @@
       "sortOrder": 2
     },
     {
-      "url": "standalone-bootstrap",
-      "topicid": 3,
-      "title": "Boot Standalone Comp.",
-      "component": "BootstrapStandaloneComponent",
-      "visible": true,
-      "sortOrder": 2
-    },
-    {
       "url": "lazy-standalone",
       "topicid": 3,
       "title": "Lazy Standalone Comp.",
       "component": "LazyStandaloneComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "standalone-bootstrap",
+      "topicid": 3,
+      "title": "Boot Standalone Comp.",
+      "component": "BootstrapStandaloneComponent",
       "visible": true,
       "sortOrder": 2
     },
@@ -33,7 +33,15 @@
       "sortOrder": 2
     },
     {
-      "url": "temp-vs-container",
+      "url": "content-projection",
+      "topicid": 3,
+      "title": "Content Projection",
+      "component": "ContentProjectionComponent",
+      "visible": true,
+      "sortOrder": 2
+    },
+    {
+      "url": "template-vs-container",
       "topicid": 3,
       "title": "ng-template / ng-content",
       "component": "TemplateVsContainerComponent",
@@ -61,14 +69,6 @@
       "topicid": 3,
       "title": "Hostbinding / Listener",
       "component": "HostBindingListenerComponent",
-      "visible": true,
-      "sortOrder": 2
-    },
-    {
-      "url": "async-pipe",
-      "topicid": 3,
-      "title": "Async Pipe",
-      "component": "AsyncPipeComponent",
       "visible": true,
       "sortOrder": 2
     },

@@ -26,6 +26,7 @@ import { ViewChildComponent } from './samples/view-child/view-child.component';
 import { FormErrorsComponent } from './samples/form-errors/form-errors.component';
 import { ErrStateMatcherComponent } from './samples/err-state-matcher/err-state-matcher.component';
 import { DirectiveCompositionComponent } from './samples/directive-composition/directive-composition.component';
+import { ContentProjectionComponent } from './samples/content-projection/content-projection.component';
 
 const demoRoutes: Routes = [
   {
@@ -44,10 +45,11 @@ const demoRoutes: Routes = [
       { path: 'valuecontrol', component: ControlValueAccessorComponent },
       { path: 'viewchild', component: ViewChildComponent },
       { path: 'contentchild', component: ContentChildComponent },
-      { path: 'temp-vs-container', component: TemplateVsContainerComponent },
+      { path: 'template-vs-container', component: TemplateVsContainerComponent },
       { path: 'hostbinding', component: HostBindingListenerComponent },
       { path: 'reactivenested', component: ReactiveNestedComponent },
       { path: 'validation-typed', component: ReactiveTypedValidatonComponent },
+      { path: 'content-projection', component: ContentProjectionComponent },
       { path: 'reactiveforms', component: ReactiveFormsComponent },
       { path: 'actionstream', component: ActionStreamsComponent },
       { path: 'formbuilder', component: FormBuilderComponent },
@@ -81,4 +83,4 @@ const demoRoutes: Routes = [
   imports: [RouterModule.forChild(demoRoutes)],
   exports: [RouterModule],
 })
-export class DemoRoutingModule {}
+export class DemoRoutingModule { }
