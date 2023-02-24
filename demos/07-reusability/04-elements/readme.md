@@ -311,6 +311,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 ```
 
+>Note: You can also copy index.html and index.js from the root of this demo project
+
 Install a tool that can serve static pages, ie `angular-http-server`:
 
 ```
