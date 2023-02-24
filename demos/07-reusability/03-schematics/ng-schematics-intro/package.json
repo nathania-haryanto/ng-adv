@@ -1,11 +1,12 @@
 {
   "name": "ng-schematics-intro",
-  "version": "14.0.0",
-  "description": "Introduction to Angular Schematics",
   "author": {
     "name": "Alexander Pajer",
-    "email": "alexander.pajer@integrations.at"
+    "email": "alexander.pajer@integrations.at",
+    "url": "https://www.integrations.at"
   },
+  "version": "14.0.0",
+  "description": "Introduction to Angular Schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js",
