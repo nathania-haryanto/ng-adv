@@ -29,15 +29,6 @@
       "sortOrder": 0
     },
     {
-      "url": "inject-config",
-      "title": "Inject Config",
-      "component": "InjectConfigComponent",
-      "id": 4,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "bundles",
       "title": "Bundle Analyzer",
       "component": "BundlesComponent",
