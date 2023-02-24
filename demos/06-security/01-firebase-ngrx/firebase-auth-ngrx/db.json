@@ -1,19 +1,19 @@
 {
   "demos": [
     {
-      "url": "fb-auth-basics",
-      "title": "Auth Basics",
-      "component": "FirebaseAuthComponent",
-      "id": 2,
+      "url": "register",
+      "title": "Register",
+      "component": "RegisterComponent",
+      "id": 3,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "register",
-      "title": "Register",
-      "component": "RegisterComponent",
-      "id": 3,
+      "url": "fb-auth-basics",
+      "title": "Login",
+      "component": "FirebaseAuthComponent",
+      "id": 2,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
