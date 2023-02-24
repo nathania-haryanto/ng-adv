@@ -1,27 +1,26 @@
-//Provides theme funcitonality
+//Provides theme functionality
 @use '@angular/material' as mat;
-@import "@angular/material/theming";
-//Mixin for common material styles
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
-@include mat.all-component-typographies();
 @include mat.core();
+@import '@angular/material/theming';
 
 //Pick colors here: https://material.io/resources/color/
 $primary: mat.define-palette(mat.$brown-palette, 400);
 $accent: mat.define-palette(mat.$grey-palette, 400);
 $warn: mat.define-palette(mat.$red-palette);
 $fg: mat.define-palette(mat.$grey-palette, 100);
-$bg: mat.define-palette(mat.$blue-grey-palette,100);
+$bg: mat.define-palette(mat.$blue-grey-palette, 100);
 
 //Build theme
-$theme: mat.define-light-theme($primary, $accent, $warn);
+$theme: mat.define-light-theme((
+ color: (
+   primary: $primary,
+   accent: $accent,
+   warn: $warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
 //Include theme
 @include angular-material-theme($theme);
 
@@ -36,6 +35,7 @@ $theme: mat.define-light-theme($primary, $accent, $warn);
   --gap-small: 0.5rem;
   --gap-medium: 0.8rem;
   --gap-big: 1.1rem;
+  --toolbar-xl: 85px;
   --toolbar-big: 70px;
   --toolbar-medium: 40px;
   --toolbar-small: 35px;
@@ -43,19 +43,3 @@ $theme: mat.define-light-theme($primary, $accent, $warn);
   --font-medium: 1.2rem;
   --font-big: 1.4rem;
 }
-
-//theme for custom component
-@mixin ux-spilt-theme($theme) {
-  .split-title {
-    mat-toolbar {
-      background-color: var(--color-primary);
-    }
-  }
-
-  .split-main,
-  .split-sidebar {
-    background-color: var(--color-bg);
-  }
-}
-
-@include ux-spilt-theme($theme);

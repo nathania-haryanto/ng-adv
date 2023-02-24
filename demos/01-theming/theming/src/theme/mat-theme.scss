@@ -1,11 +1,7 @@
 //Provides theme functionality
 @use '@angular/material' as mat;
 @include mat.core();
-
 @import '@angular/material/theming';
-
-@include mat.all-component-typographies();
-//Mixin for common material styles
 
 //Pick colors here: https://material.io/resources/color/
 $primary: mat.define-palette(mat.$brown-palette, 400);
@@ -15,7 +11,16 @@ $fg: mat.define-palette(mat.$grey-palette, 100);
 $bg: mat.define-palette(mat.$blue-grey-palette, 100);
 
 //Build theme
-$theme: mat.define-light-theme($primary, $accent, $warn);
+$theme: mat.define-light-theme((
+ color: (
+   primary: $primary,
+   accent: $accent,
+   warn: $warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
 //Include theme
 @include angular-material-theme($theme);
 
