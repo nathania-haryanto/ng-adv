@@ -33,7 +33,7 @@ Add a script to track First Contenful Pain (FCP) to `index.html`:
 
 > Note: Reade more about [PerformanceObserver](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver) on MDN
 
-Build Client und Server side & track values. Use different splits
+Build Client und Server side & track values. Use multiple terminals:
 
 ```
 ng s -o
