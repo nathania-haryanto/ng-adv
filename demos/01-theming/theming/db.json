@@ -31,6 +31,11 @@
       "component": "MultiThemeComponent"
     },
     {
+      "url": "ngoptimizedimg",
+      "title": "NgOptimizedImage",
+      "component": "NgOptimizedImageComponent"
+    },
+    {
       "url": "feedback",
       "title": "Visual Feedback",
       "component": "VisualFeedbackComponent"
@@ -38,7 +43,7 @@
     {
       "url": "mdc-migration",
       "title": "MDC Migration",
-      "component": "VisualFeedbackComponent"
+      "component": "MdcMigrationComponent"
     }
   ],
   "posts": [
