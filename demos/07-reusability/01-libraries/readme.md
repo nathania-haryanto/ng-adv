@@ -65,11 +65,11 @@ Update PeerDependencies in `package.json` of the library:
 
 ```typescript
 "peerDependencies": {
-    "@angular/common": "^14.2.0",
-    "@angular/core": "^14.2.0",
-    "@angular/animations": "^14.2.0",
-    "@angular/flex-layout": "^14.0.0-beta.40",
-    "@angular/material": "^14.2.0",
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@angular/animations": "^15.2.0",
+    "@angular/flex-layout": "^15.0.0-beta.42",
+    "@angular/material": "^15.2.0"
   },
 ```
 
@@ -180,9 +180,10 @@ Add it to `app.component.ts` and run `ng s -o`:
 Test the component:
 
 ```
-ng serve -o --project ng-lib
+ng serve -o --project ux-lib
 ```
-### Publish Library to GitHub Packages
+---
+## Publish Library to GitHub Packages
 
 In your GitHub Account go to `Settings/Developer settings`, create an new token with `write:packages` and `delete:packages` and copy it afterwards:
 
@@ -227,11 +228,12 @@ ng new ux-lib-consumer --routing --style scss
 Add an .npmrc:
 
 ```
+//npm.pkg.github.com/:_authToken=<TOEKEN>
 @<GITHubUSERNAME>:registry=https://npm.pkg.github.com/
 ```
 
 Install the package:
 
 ```
-npm i -S @arambazamba/ux-controls@0.0.1
+npm install -S @arambazamba/ux-controls@15.0.0
 ```
