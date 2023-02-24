@@ -1,21 +1,15 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
-LABEL author="Alexander Pajer"
-WORKDIR /app
+# Build Image
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+WORKDIR /build
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
-WORKDIR /src
-
-COPY ["*.csproj", "."]
-RUN dotnet restore "SkillsApi.csproj"
 COPY . .
-RUN dotnet build "SkillsApi.csproj" -c Release -o /app
+RUN dotnet restore "SkillsApi.csproj"
+RUN dotnet publish -c Release -o /app
 
-FROM build AS publish
-RUN dotnet publish "SkillsApi.csproj" -c Release -o /app
-
-FROM base AS final
+# Runtime Image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=build /app .
 ENTRYPOINT ["dotnet", "SkillsApi.dll"]
 
 # Build Image
