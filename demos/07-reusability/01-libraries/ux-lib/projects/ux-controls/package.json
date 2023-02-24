@@ -1,6 +1,11 @@
 {
   "name": "@arambazamba/ux-controls",
-  "version": "0.0.1",
+  "author": {
+    "name": "Alexander Pajer",
+    "email": "alexander.pajer@integrations.at",
+    "url": "https://www.integrations.at"
+  },
+  "version": "15.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/arambazamba/ng-adv.git"
@@ -9,11 +14,11 @@
     "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@angular/animations": "^14.2.0",
-    "@angular/flex-layout": "^14.0.0-beta.40",
-    "@angular/material": "^14.2.0"
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@angular/animations": "^15.2.0",
+    "@angular/flex-layout": "^15.0.0-beta.42",
+    "@angular/material": "^15.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
