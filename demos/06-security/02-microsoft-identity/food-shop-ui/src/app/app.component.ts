@@ -44,6 +44,10 @@ export class AppComponent implements OnDestroy {
       .subscribe((mode: string) => {
         this.sidenavMode = mode as MatDrawerMode;
       });
+
+    if (this.authEnabled === false) {
+      this.router.navigate(['food']);
+    }
   }
 
   ngOnDestroy() {
