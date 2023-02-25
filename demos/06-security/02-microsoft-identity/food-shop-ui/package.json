@@ -12,7 +12,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "cypress": "cypress open",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "dev:ssr": "ng run food-shop-ui:serve-ssr",
+    "serve:ssr": "node dist/food-shop-ui/server/main.js",
+    "build:ssr": "ng build && ng run food-shop-ui:server",
+    "prerender": "ng run food-shop-ui:prerender"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +29,7 @@
     "@angular/material": "^15.2.0",
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
+    "@angular/platform-server": "^15.2.0",
     "@angular/router": "^15.2.0",
     "@azure/msal-angular": "^2.5.3",
     "@azure/msal-browser": "^2.33.0",
@@ -36,6 +41,8 @@
     "@ngrx/router-store": "^15.3.0",
     "@ngrx/schematics": "^15.3.0",
     "@ngrx/store": "^15.3.0",
+    "@nguniversal/express-engine": "^15.2.0",
+    "express": "^4.15.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -51,7 +58,10 @@
     "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "^15.2.0",
     "@ngrx/store-devtools": "^15.3.0",
+    "@nguniversal/builders": "^15.2.0",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~4.3.1",
+    "@types/node": "^14.15.0",
     "@typescript-eslint/eslint-plugin": "5.53.0",
     "@typescript-eslint/parser": "5.53.0",
     "cypress": "^12.7.0",

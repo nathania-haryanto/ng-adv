@@ -31,7 +31,7 @@ const bootstrap = environment.authEnabled
   declarations: [AppComponent, AboutComponent, HomeComponent],
 
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
