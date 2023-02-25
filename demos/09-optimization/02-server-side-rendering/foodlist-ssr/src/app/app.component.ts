@@ -7,5 +7,5 @@ import { FoodListComponent } from './food/food-list/food-list.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'foodlist-ssr';
+  title = 'Foodlist SSR';
 }

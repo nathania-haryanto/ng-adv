@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FoodService } from '../food.service';
 import { ShopItemComponent } from '../shop-item/shop-item.component';
+import { FoodCartItem } from '../food-item.model';
 
 @Component({
   selector: 'app-food-list',
@@ -17,5 +18,8 @@ export class FoodListComponent {
 
   constructor(private fs: FoodService) { }
 
-
+  updateCart(cartItem: FoodCartItem) {
+    console.log(cartItem);
+    localStorage.setItem(cartItem.id.toString(), JSON.stringify(cartItem));
+  }
 }

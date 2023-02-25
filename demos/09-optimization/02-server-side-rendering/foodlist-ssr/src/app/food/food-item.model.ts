@@ -7,3 +7,7 @@ export class FoodItem {
     pictureUrl?: string = ''
     description?: string = '';
 }
+
+export class FoodCartItem extends FoodItem {
+    quantity: number = 0;
+}

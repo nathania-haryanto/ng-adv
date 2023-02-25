@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FoodItem } from './food-item.model';
+import { FoodCartItem, FoodItem } from './food-item.model';
 import { environment } from '../../environments/environment.development';
 
 @Injectable({
@@ -12,5 +12,9 @@ export class FoodService {
 
   getFood() {
     return this.http.get<FoodItem[]>(environment.api);
+  }
+
+  setFoodCart(food: FoodCartItem[]) {
+    return this.http.post(environment.api, food);
   }
 }
