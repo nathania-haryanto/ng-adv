@@ -7,7 +7,7 @@
 
 ## Install Software
 
-To install Software run the script `setup-az-204.ps1` from an elevated PowerShell prompt:
+To install Software run the script `setup-angular-dev.ps1` from an elevated PowerShell prompt:
 
 ![run-as](_images/run-as.jpg)
 
