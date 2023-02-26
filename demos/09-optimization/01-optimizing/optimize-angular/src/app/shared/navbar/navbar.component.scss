@@ -1,0 +1,14 @@
+@import "mixins.scss";
+
+.navLink {
+  @include link(var(--color-fg), var(--font-big)); 
+  margin-top: -0.5rem;
+}
+
+.navLinkActive{
+  text-decoration: underline;
+}
+
+mat-toolbar-row {
+  min-height: var(--toolbar-big);
+}
