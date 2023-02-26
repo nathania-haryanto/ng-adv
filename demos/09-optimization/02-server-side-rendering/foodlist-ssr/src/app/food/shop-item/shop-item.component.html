@@ -11,6 +11,11 @@
     </div>
   </mat-card-content>
   <mat-card-actions align="end">
+    <button
+    [routerLink]="['/food', food.id]"
+  >
+    <mat-icon>edit</mat-icon>
+  </button>
     <app-number-picker
       (amountChanged)="handleAmountChange($event)" [formControl]="nbrPicker"
     ></app-number-picker>

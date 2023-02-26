@@ -10,11 +10,29 @@ export class FoodService {
 
   constructor(private http: HttpClient) { }
 
+  static prefix = 'foodcartitem-';
+
   getFood() {
     return this.http.get<FoodItem[]>(environment.api);
   }
 
-  setFoodCart(food: FoodCartItem[]) {
-    return this.http.post(environment.api, food);
+  getFoodById(id: number) {
+    return this.http.get<FoodItem>(`${environment.api}/${id}`);
+  }
+
+  getFoodCart() {
+    var cart: FoodCartItem[] = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key != null && key.includes(FoodService.prefix)) {
+        var food = JSON.parse((localStorage.getItem(key)) || '{}') as FoodCartItem;
+        cart.push(food);
+      }
+    }
+    return cart;
+  }
+
+  setFoodCart(food: FoodCartItem) {
+    return localStorage.setItem(`${FoodService.prefix}${food.id.toString()}`, JSON.stringify(food));
   }
 }

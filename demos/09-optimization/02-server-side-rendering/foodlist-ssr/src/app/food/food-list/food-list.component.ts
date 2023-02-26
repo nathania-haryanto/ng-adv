@@ -16,10 +16,13 @@ export class FoodListComponent {
 
   food = this.fs.getFood();
 
+  cart: FoodCartItem[] = []
+
   constructor(private fs: FoodService) { }
 
   updateCart(cartItem: FoodCartItem) {
-    console.log(cartItem);
-    localStorage.setItem(cartItem.id.toString(), JSON.stringify(cartItem));
+    this.fs.setFoodCart(cartItem)
+    this.cart = this.fs.getFoodCart()
+    console.log(this.cart);
   }
 }
