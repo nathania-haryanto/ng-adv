@@ -2,7 +2,7 @@
 
 - Install Software
 - Install Windows Subsystem Linux - Optional
-- Setup Docker Support
+- Setup local container support - Optional
 - Create Lab VM - Optional
 
 ## Install Software
