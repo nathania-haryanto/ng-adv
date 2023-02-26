@@ -1,44 +1,45 @@
-# Advanced State Management using NgRx
+# Optimizing Angular
 
-- Overview State Management Patterns
-- Observable Data Services & Event Bus
-- Introduction to the Redux Pattern
-- Understanding NgRx and know when to use it
-- Using Store, Actions and Reducers
-- Debugging NgRx using Redux Dev Tools
-- Implementin & Using Selectors
-- Using Effects
-- Scaffolding using NgRx Schematics
-- NgRx Entity
-- Using NgRx Facades
+## Building & Optimizing Applications
 
-## Installation & Setup
+- Using Linting and Autoformat with Prettier
+- Using Chrome Dev Tools & Lighthouse for Performance Optimization
+- Understanding & Using Page Traces
+- Advanced Angular Debugging using @angular/core/global
+- Analyzing and Optimizing Bundles & Modules
+- Code-Splitting and Module Pre-Loading
+- Server Side Rendering using Angular Universal
 
-Installation:
+[Lighthouse](https://developers.google.com/web/tools/lighthouse)
+
+[Angular AOT Compiler](https://angular.io/guide/aot-compiler)
+
+[Angular Debug Statements](https://angular.io/api/core/global)
+
+## Analyzing Bundles
+
+[Performance Budget Calculator](https://perf-budget-calculator.firebaseapp.com/)
+
+[ngx-quickling - preloading](https://github.com/mgechev/ngx-quicklink)
+
+Replace older Libs with newer:
+
+ie Moment.js with [date-fns](https://date-fns.org/)
+
+Install Source Map Explorer:
 
 ```
-npm i @ngrx/store @ngrx/effects @ngrx/enitity -S
-npm i @ngrx/store-devtools -D
-ng add @ngrx/schematics
+npm i -S source-map-explorer
 ```
 
-## Scaffolding Guide (Module Sample: ngState)
-
-### Root
-
-Create Root State & Root actions:
+Create Production Build:
 
 ```
- ng g store State --root true --statePath store
- ng g action store/app --group
+ng build --prod
 ```
 
-> Note: Adjust as needed
+Analyze Chunks:
 
-Create Demos State:
-
-ng g a demos/store/Demos --group
-ng g r demos/store/Demos --group
-ng g ef demos/store/Demos --group
-
-> Note: Find out what scaffolding is good for you
+```
+source-map-explorer dist/main-es5.28a67cbad0b0a3f17e1e.js
+```

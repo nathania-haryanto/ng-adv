@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   authEnabled: false,
-  title: 'State & NgRx',
+  title: 'Optimizing',
   logChangeDetection: true,
   logChanges: true,
   markdownPath: '/assets/markdown/',

@@ -3,8 +3,6 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 import { SidePanelService } from './sidepanel.service';
 import { SidebarActions } from './sidebar.actions';
 import { ThemeService } from '../theme/theme.service';
-import { StatefulDemoService } from '../../demos/samples/statefull/stateful-demo.service';
-import { addDemo } from '../../demos/state/demos.actions';
 
 @Component({
   selector: 'app-side-panel',
@@ -15,9 +13,8 @@ export class SidePanelComponent implements OnInit {
   constructor(
     private sns: SnackbarService,
     private eb: SidePanelService,
-    private ts: ThemeService,
-    private service: StatefulDemoService
-  ) {}
+    private ts: ThemeService
+  ) { }
 
   editorDisplayed: boolean = false;
 
@@ -42,15 +39,4 @@ export class SidePanelComponent implements OnInit {
     this.sns.displayAlert('Info', 'Uploading to Cloud');
   }
 
-  addDemo() {
-    this.service.addDemo({
-      url: 'mock',
-      title: 'The added item',
-      component: 'StatefullComponentxxx',
-      id: 111,
-      topicid: 1,
-      visible: true,
-      sortOrder: 0,
-    });
-  }
 }

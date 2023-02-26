@@ -1,42 +1,31 @@
 import { Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { AppStateComponent } from './samples/app-state/app-state.component';
-import { DemoListHostComponent } from './samples/demos-list/demo-list-host..component';
-import { DemosStateComponent } from './samples/demos-state/demos-state.component';
-import { EventbusComponent } from './samples/eventbus/eventbus.component';
-import { SelectorsComponent } from './samples/selectors/selectors.component';
-import { SkillsComponent } from './samples/skills/skills.component';
-import { EffectsComponent } from './samples/effects/effects.component';
-import { FacadesComponent } from './samples/facades/facades.component';
-import { StatefullComponent } from './samples/statefull/statefull.component';
-import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
-import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
-import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
-import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
-import { ComponentStoreComponent } from './samples/component-store/component-store.component';
+import { BundlesComponent } from './samples/bundles/bundles.component';
+import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
+import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
+import { InjectConfigComponent } from './samples/inject-config/inject-config.component';
+import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
+import { LoggerComponent } from './samples/logger/logger.component';
+import { NgforComponent } from './samples/ngfor/ngfor.component';
+import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
+import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
 
 export const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
-
     children: [
-      { path: 'statefull', component: StatefullComponent },
-      { path: 'ebus', component: EventbusComponent },
-      { path: 'demos-state', component: DemosStateComponent },
-      { path: 'demos-list', component: DemoListHostComponent },
-      { path: 'app-state', component: AppStateComponent },
-      { path: 'selectors', component: SelectorsComponent },
-      { path: 'effects', component: EffectsComponent },
-      { path: 'facades', component: FacadesComponent },
-      { path: 'skills', component: SkillsComponent },
-      { path: 'cd-intro', component: ChangeDetectionComponent },
-      { path: 'cd-profile', component: ChangeDetectionProfileComponent },
-      { path: 'component-store', component: ComponentStoreComponent },
-      { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent },
+      { path: 'logger', component: LoggerComponent },
+      { path: 'bundles', component: BundlesComponent },
+      { path: 'inject-config', component: InjectConfigComponent },
+      { path: 'webworker', component: WebWorkerComponent },
+      { path: 'lighthouse', component: LighthouseComponent },
+      { path: 'debug-statements', component: DebugStatementsComponent },
+      { path: 'vscroll', component: VirtualScrollComponent },
+      { path: 'ngfor', component: NgforComponent },
       {
-        path: 'change-detector-ref',
-        component: ChangeDetectorRefComponent,
+        path: 'dynamic-loading',
+        component: DynamicLoadingComponent,
       },
     ],
   },

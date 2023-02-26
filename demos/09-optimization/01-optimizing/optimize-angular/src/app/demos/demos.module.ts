@@ -12,54 +12,36 @@ import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
-import { AppStateComponent } from './samples/app-state/app-state.component';
-import { DemoEditComponent } from './samples/demos-list/demo-edit/demo-edit.component';
-import { DemoFilterComponent } from './samples/demos-list/demo-filter/demo-filter.component';
-import { DemoListHostComponent } from './samples/demos-list/demo-list-host..component';
-import { DemoListComponent } from './samples/demos-list/demo-list/demo-list.component';
-import { DemoRowComponent } from './samples/demos-list/demo-row/demo-row.component';
-import { DemosStateComponent } from './samples/demos-state/demos-state.component';
-import { EffectsComponent } from './samples/effects/effects.component';
-import { EventbusComponent } from './samples/eventbus/eventbus.component';
-import { FacadesComponent } from './samples/facades/facades.component';
-import { SelectorsComponent } from './samples/selectors/selectors.component';
-import { SkillsComponent } from './samples/skills/skills.component';
-import { KpiComponent } from './samples/statefull/kpi/kpi.component';
-import { ListComponent } from './samples/statefull/list/list.component';
-import { StatefullComponent } from './samples/statefull/statefull.component';
+import { BundlesComponent } from './samples/bundles/bundles.component';
+import { ConsoleComponent } from './samples/console/console.component';
+import { DebugStatementsComponent } from './samples/debug-statements/debug-statements.component';
+import { DynamicLoadingComponent } from './samples/dynamic-loading/dynamic-loading.component';
+import { SimpleComponent } from './samples/dynamic-loading/simple.component';
+import { InjectConfigComponent } from './samples/inject-config/inject-config.component';
+import { LighthouseComponent } from './samples/lighthouse/lighthouse.component';
+import { LoggerComponent } from './samples/logger/logger.component';
+import { NgforComponent } from './samples/ngfor/ngfor.component';
+import { NgrxpushComponent } from './samples/ngrxpush/ngrxpush.component';
+import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
+import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
-import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
-import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
-import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
-import { DetectorChildComponent } from './samples/change-detector-ref/detector-child/detector-child.component';
-import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
-import { ComponentStoreComponent } from './samples/component-store/component-store.component';
 
 @NgModule({
   declarations: [
     DemoContainerComponent,
-    StatefullComponent,
-    DemoRowComponent,
-    EventbusComponent,
-    DemoFilterComponent,
-    DemoEditComponent,
-    DemoListComponent,
-    KpiComponent,
-    AppStateComponent,
-    SkillsComponent,
-    DemoListHostComponent,
-    DemosStateComponent,
-    SelectorsComponent,
-    FacadesComponent,
-    EffectsComponent,
-    ListComponent,
-    ChangeDetectionComponent,
-    ContainerPresenterNgrxComponent,
-    ChangeDetectorRefComponent,
-    DetectorChildComponent,
-    ChangeDetectionProfileComponent,
-    ComponentStoreComponent,
+    LoggerComponent,
+    BundlesComponent,
+    ConsoleComponent,
+    WebWorkerComponent,
+    DebugStatementsComponent,
+    InjectConfigComponent,
+    NgrxpushComponent,
+    LighthouseComponent,
+    VirtualScrollComponent,
+    NgforComponent,
+    DynamicLoadingComponent,
+    SimpleComponent,
   ],
   imports: [
     CommonModule,
@@ -79,4 +61,4 @@ import { ComponentStoreComponent } from './samples/component-store/component-sto
   ],
   providers: [],
 })
-export class DemosModule {}
+export class DemosModule { }

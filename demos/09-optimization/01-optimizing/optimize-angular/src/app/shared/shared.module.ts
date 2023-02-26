@@ -37,4 +37,4 @@ const comps = [
   declarations: comps,
   exports: comps,
 })
-export class SharedModule {}
+export class SharedModule { }
