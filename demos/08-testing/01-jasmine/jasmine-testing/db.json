@@ -1,188 +1,173 @@
 {
   "demos": [
     {
-      "url": "statefull",
-      "title": "Statefull Service",
-      "component": "StatefullComponent",
+      "url": "unittesting",
+      "title": "Into Unit Testing",
       "id": 1,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "ebus",
-      "title": "EventBus",
-      "component": "EventbusComponent",
-      "id": 2,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 2
-    },
-    {
-      "url": "app-state",
-      "title": "App State",
-      "component": "AppStateComponent",
+      "url": "simpleservice",
+      "title": "Simple Service",
       "id": 3,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "selectors",
-      "title": "Selectors",
-      "component": "SelectorsComponent",
-      "id": 9,
+      "url": "directive",
+      "title": "Test Directive",
+      "id": 88,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "facades",
-      "title": "Facades",
-      "component": "FacadesComponent",
-      "id": 15,
+      "url": "testpipe",
+      "title": "Test Pipe",
+      "id": 2,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "effects",
-      "title": "Effects",
-      "component": "EffectsComponent",
-      "id": 16,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
-    },
-    {
-      "url": "demos-list",
-      "title": "Feature Module State",
-      "component": "DemoListHostComponent",
-      "id": 5,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 4
-    },
-    {
-      "url": "demos-state",
-      "title": "@ngrx/entity",
-      "component": "DemosStateComponent",
+      "url": "mock",
+      "title": "Use Mock",
       "id": 4,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 4
+      "sortOrder": 0
     },
     {
-      "url": "skills",
-      "title": "@ngrx/data",
-      "component": "SkillsComponent",
+      "url": "component-test",
+      "title": "Component Test",
+      "id": 5,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "component-write",
+      "title": "Component Write",
+      "id": 63,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "component-events",
+      "title": "Component Events",
+      "id": 89,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "integrationtests",
+      "title": "Integration Tests",
       "id": 6,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
+
     {
-      "url": "presenter-ngrx",
-      "title": "Presenter NgRx",
-      "component": "ContainerPresenterNgrxComponent",
-      "id": 13,
+      "url": "httptests",
+      "title": "Http Tests",
+      "id": 8,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "cd-intro",
-      "title": "Change Detection",
-      "component": "ChangeDetectionComponent",
+      "url": "async",
+      "title": "Async Tests",
+      "id": 9,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "material-async",
+      "title": "Material Async",
       "id": 12,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "cd-profile",
-      "title": "Profile Change Detection",
-      "component": "ChangeDetectionProfileComponent",
-      "id": 20,
+      "url": "material",
+      "title": "Material Harness",
+      "id": 19,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "change-detector-ref",
-      "title": "ChangeDetectorRef",
-      "component": "ChangeDetectorRefComponent",
-      "id": 14,
+      "url": "marbles",
+      "title": "Marbles",
+      "id": 10,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
     },
     {
-      "url": "component-store",
-      "title": "@ngrx/component-store",
-      "component": "ComponentStoreComponent",
-      "id": 44,
+      "url": "ngrx",
+      "title": "NgRx Tests",
+      "id": 11,
       "topicid": 1,
       "visible": true,
-      "sortOrder": 3
+      "sortOrder": 0
+    },
+    {
+      "url": "cypress",
+      "title": "Cypress",
+      "id": 66,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    }
+  ],
+  "food": [
+    {
+      "name": "Pad Thai",
+      "rating": 1
+    },
+    {
+      "name": "Butter Chicken",
+      "rating": 2
+    },
+    {
+      "name": "Cannelloni",
+      "rating": 2
+    },
+    {
+      "name": "Cordon Bleu",
+      "rating": 4
     }
   ],
   "skills": [
     {
-      "id": 1,
+      "id": "123",
       "name": "RxJs",
       "completed": false
     },
     {
-      "id": 2,
+      "id": "456",
       "name": "NgRx",
       "completed": false
     },
     {
-      "id": 3,
+      "id": "223",
       "name": "Angular",
-      "completed": false
+      "completed": true
     },
     {
-      "id": 4,
+      "id": "436",
       "name": "TypeScript",
       "completed": true
-    },
-    {
-      "id": 5,
-      "name": "Material",
-      "completed": true
-    },
-    {
-      "id": 6,
-      "name": "Node",
-      "completed": false
-    },
-    {
-      "id": 7,
-      "name": "Forms",
-      "completed": true
-    },
-    {
-      "id": 8,
-      "name": "Authentication",
-      "completed": true
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "url": "",
-      "title": "Placeholder",
-      "comment": "abc",
-      "saved": "2020-09-16T20:10:06.925Z"
-    },
-    {
-      "id": 2,
-      "url": "",
-      "title": "Other Placeholder",
-      "comment": "abc",
-      "saved": "2020-09-16T20:10:06.925Z"
     }
   ]
 }
