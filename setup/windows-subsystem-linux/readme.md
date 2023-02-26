@@ -13,21 +13,36 @@ Finish installation of Ubuntu 20.04 LTS from the Microsoft Store:
 
 ![wsl-finish](_images/wsl-finish.png)
 
-### WSL Frameworks & Runtimes
+## WSL Frameworks & Runtimes Setup
 
 [Introduction to Bash Scripting](https://www.taniarascia.com/how-to-create-and-use-bash-scripts/)
 
-#### Node
+### Node & Angular CLI
 
-Install Node 16.x on WSL
+Install NVM (Node Version Manager):
 
 ```bash
-sudo apt update
-sudo curl -sL https://deb.nodesource.com/setup_16.x | sudo bash
-sudo apt-get install -y nodejs
+sudo apt-get install curl
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+sudo apt-get install build-essential
 ```
 
-#### .NET 6 
+Install & use Node 16.x using NVM:
+
+```bash
+nvm install 16.15.0
+nvm use 16.15.0
+```
+
+Install Angular CLI:
+
+```bash
+npm install -g @angular/cli
+``` 
+
+#### .NET 6 - Optional
+
+>Note: All required .NET Api's are available as containers on [Docker Hub](https://hub.docker.com/repositories/arambazamba). You need to sign up for a free account to use Docker Hub.
 
 Register Packages:
 
@@ -44,15 +59,10 @@ sudo apt-get update && \
 sudo apt-get install -y dotnet-sdk-6.0
 ```
 
-#### Azure CLI
+### Azure CLI - Optional
 
 ```
+sudo apt install curl
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 az config set extension.use_dynamic_install=yes
-```
-
-#### Azure Function Core Tools V4
-
-```
-sudo npm install -g azure-functions-core-tools@4 --unsafe-perm true
 ```
