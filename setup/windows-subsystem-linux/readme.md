@@ -40,19 +40,15 @@ Install Angular CLI:
 npm install -g @angular/cli
 ``` 
 
-#### .NET 6 - Optional
+#### .NET 6 SDK - Optional
 
->Note: All required .NET Api's are available as containers on [Docker Hub](https://hub.docker.com/repositories/arambazamba). You need to sign up for a free account to use Docker Hub.
+>Note: All required .NET Api's are available containerized at [https://hub.docker.com/repositories/arambazamba](https://hub.docker.com/repositories/arambazamba) if you want to skip .NET SDK installation. You need to sign up for a [free Docker Hub account](https://hub.docker.com/) to access the images.
 
-Register Packages:
+Install .NET 6 SDK:
 
 ```
 wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
-```
-Install .NET:
-
-```
 sudo apt-get update; \
 sudo apt-get install -y apt-transport-https && \
 sudo apt-get update && \
