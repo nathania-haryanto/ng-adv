@@ -2,7 +2,7 @@
 
 Companion Material for Class Delivery by [Alexander Pajer](https://www.integrations.at/kontakt.aspx) containing:
 
-- [Class Software Setup](./setup)
+- [Class Environment Setup](./setup)
   - [Installing class software requirements](./setup/)
   - [Setup Windows Subsystem for Linux 2 - WSL2](./setup/windows-subsystem-linux/)
   - [Setup local container support](./setup/docker/)
@@ -14,7 +14,7 @@ Companion Material for Class Delivery by [Alexander Pajer](https://www.integrati
 - [Instructor Demos](./demos)
 - [Labs](./labs)
 
-## Required Cloud Ressources
+## Recommended Cloud Ressources
 
 [Firebase Account](https://firebase.google.com/)
 
