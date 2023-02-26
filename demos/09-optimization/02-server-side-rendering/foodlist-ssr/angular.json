@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "food-shop-ui": {
+    "foodlist-ssr": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,10 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/food-shop-ui/browser",
+            "outputPath": "dist/foodlist-ssr/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -28,14 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "/theme/"
-              ]
-            },
             "scripts": []
           },
           "configurations": {
@@ -43,19 +40,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.6mb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kb",
-                  "maximumError": "8kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ],
               "outputHashing": "all"
@@ -66,7 +57,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -75,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "food-shop-ui:build:production"
+              "browserTarget": "foodlist-ssr:build:production"
             },
             "development": {
-              "browserTarget": "food-shop-ui:build:development"
+              "browserTarget": "foodlist-ssr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,66 +83,48 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "food-shop-ui:build"
+            "browserTarget": "foodlist-ssr:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "/theme/"
-              ]
-            },
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/food-shop-ui/server",
+            "outputPath": "dist/foodlist-ssr/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "/theme/"
-              ]
-            },
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {
-              "outputHashing": "media",
+              "outputHashing": "media"
+            },
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.development.ts"
                 }
-              ]
-            },
-            "development": {
+              ],
               "optimization": false,
               "sourceMap": true,
               "extractLicenses": false,
@@ -158,12 +137,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "food-shop-ui:build:development",
-              "serverTarget": "food-shop-ui:server:development"
+              "browserTarget": "foodlist-ssr:build:development",
+              "serverTarget": "foodlist-ssr:server:development"
             },
             "production": {
-              "browserTarget": "food-shop-ui:build:production",
-              "serverTarget": "food-shop-ui:server:production"
+              "browserTarget": "foodlist-ssr:build:production",
+              "serverTarget": "foodlist-ssr:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -177,12 +156,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "food-shop-ui:build:production",
-              "serverTarget": "food-shop-ui:server:production"
+              "browserTarget": "foodlist-ssr:build:production",
+              "serverTarget": "foodlist-ssr:server:production"
             },
             "development": {
-              "browserTarget": "food-shop-ui:build:development",
-              "serverTarget": "food-shop-ui:server:development"
+              "browserTarget": "foodlist-ssr:build:development",
+              "serverTarget": "foodlist-ssr:server:development"
             }
           },
           "defaultConfiguration": "production"
@@ -191,12 +170,6 @@
     }
   },
   "cli": {
-    "analytics": "c3b5fd73-4358-48ba-89c4-f54edacf1b34",
-    "cache": {
-      "enabled": false
-    },
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "analytics": false
   }
 }

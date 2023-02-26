@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { MenusModule } from './menus/menus.module';
 import { metaReducers, reducers } from './state/state';
+import { SSRWindow } from './common/ssr-window/ssr-window.service';
 
 registerLocaleData(localeDe);
 
@@ -31,7 +32,7 @@ const bootstrap = environment.authEnabled
   declarations: [AppComponent, AboutComponent, HomeComponent],
 
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -54,7 +55,8 @@ const bootstrap = environment.authEnabled
   providers: [
     { provide: ErrorHandler, useClass: ErrHandlerService },
     { provide: LOCALE_ID, useValue: 'de' },
+    SSRWindow
   ],
   bootstrap: bootstrap,
 })
-export class AppModule {}
+export class AppModule { }
