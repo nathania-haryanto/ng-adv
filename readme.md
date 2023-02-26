@@ -2,17 +2,17 @@
 
 Companion Material for Class Delivery by [Alexander Pajer](https://www.integrations.at/kontakt.aspx) containing:
 
-- [Requirements / Tooling](./Tooling)
-  - [Git & GitHub Basics](./Tooling/01-Github)
-  - [Visual Studio Code Intro](./Tooling/02-VSCode)
-  - [Document Repos using Markdown](./Tooling/03-Markdown)
-- [Instructor Demos](./Demos)
-- [Guided Scripts to setup an Azure hosted Development & Lab VM](./Setup)
-  - [Using Azure CLI](./Tooling/04-CLI)
-  - [Base Dev Environment Setup inkluding Visual Studio Code Extensions](./Setup/#basics)
-  - [Setup Windows Subsystem for Linux 2 - WSL2](./Setup/#wsl)
-  - [Setup Docker & Kubernetes](./Setup/#docker-wsl)
-- [Labs](./Labs)
+- [Requirements / Tooling](./tooling)
+  - [Git & GitHub Basics](./tooling/01-git)
+  - [Visual Studio Code Intro](./tooling/02-vs-code)
+  - [Document Repos using Markdown](./tooling/03-markdown)
+- [Instructor Demos](./demos)
+- [Guided Scripts to setup an Azure hosted Development & Lab VM](./setup)
+  - [Using Azure CLI](./tooling/04-cli)
+  - [Base Dev Environment Setup inkluding Visual Studio Code Extensions](./setup/#basics)
+  - [Setup Windows Subsystem for Linux 2 - WSL2](./setup/#wsl)
+  - [Setup Docker & Kubernetes](./setup/#docker-wsl)
+- [Labs](./labs)
 
 ## Required Cloud Ressources
 
