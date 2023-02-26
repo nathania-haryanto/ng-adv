@@ -3,7 +3,7 @@
 Companion Material for Class Delivery by [Alexander Pajer](https://www.integrations.at/kontakt.aspx) containing:
 
 - [Class Environment Setup](./setup)
-  - [Installing class software requirements](./setup/)
+  - [Install class software requirements](./setup/)
   - [Setup Windows Subsystem for Linux 2 - WSL2](./setup/windows-subsystem-linux/)
   - [Setup local container support](./setup/docker/)
 - [Requirements / Tooling](./tooling)
