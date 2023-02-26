@@ -51,24 +51,12 @@ npm run dev:ssr
 
 ## Use Prerendering
 
-Investigate `prerender` section in `angular.json`:
-
-```
-"prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "browserTarget": "ng-universal:build:production",
-            "serverTarget": "ng-universal:server:production",
-            "routes": ["/1", "/2", "/3", "/4"]
-          },
-          "configurations": {
-            "production": {}
-          }
-        }
-```
+Investigate `routes.txt` in the root folder. It defines routes to prerender:
 
 Create prerendered pages:
 
+```bash
+ng run foodlist-ssr:prerender --routes-file routes.txt
 ```
-npm run prerender
-```
+
+Examine the `dist/foodlist-ssr/browser/food` folder. You will find the prerendered pages.
