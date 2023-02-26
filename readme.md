@@ -2,19 +2,19 @@
 
 Companion Material for Class Delivery by [Alexander Pajer](https://www.integrations.at/kontakt.aspx) containing:
 
-- [Requirements / Tooling](./Tooling)
-  - [Git & GitHub Basics](./Tooling/01-Github)
-  - [Visual Studio Code Intro](./Tooling/02-VSCode)
-  - [Document Repos using Markdown](./Tooling/03-Markdown)
-- [Instructor Demos](./Demos)
-- [Guided Scripts to setup an Azure hosted Development & Lab VM](./Setup)
-  - [Using Azure CLI](./Tooling/04-CLI)
-  - [Base Dev Environment Setup inkluding Visual Studio Code Extensions](./Setup/#basics)
-  - [Setup Windows Subsystem for Linux 2 - WSL2](./Setup/#wsl)
-  - [Setup Docker & Kubernetes](./Setup/#docker-wsl)
-- [Labs](./Labs)
+- [Class Environment Setup](./setup)
+  - [Installing class software requirements](./setup/)
+  - [Setup Windows Subsystem for Linux 2 - WSL2](./setup/windows-subsystem-linux/)
+  - [Setup local container support](./setup/docker/)
+- [Requirements / Tooling](./tooling)
+  - [Getting Started with Source Control](./tooling/01-git)
+  - [Visual Studio Code Essentials](./tooling/02-vs-code)
+  - [Repo Documentation & Colloboration using Markdown](./tooling/03-markdown)
+  - [Introduction to Azure CLI](./tooling/04-cli)
+- [Instructor Demos](./demos)
+- [Labs](./labs)
 
-## Required Cloud Ressources
+## Recommended Cloud Ressources
 
 [Firebase Account](https://firebase.google.com/)
 
