@@ -6,14 +6,11 @@ Set-ExecutionPolicy Bypass -Scope Process -Force;
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install chrome-remote-desktop-chrome -y
-choco install microsoft-edge -y
 choco install vscode -y
-choco install dotnetcore-sdk -y
+choco install dotnet-6.0-sdk
 choco install azure-cli -y
 choco install git -y
-choco install gitextensions -y
 choco install curl -y
-choco install 7zip -y
 choco install nvm -y
 
 # Install VS Code Extensions
@@ -42,11 +39,10 @@ Write-Host "Refresh Path Env - 4/6" -ForegroundColor yellow
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-# Install tooling
-npm i -g http-server json-server
-
-# Install Angular
+# Install Node & Angular
 Write-Host "Installing Angular - 6/6" -ForegroundColor yellow
+nvm install 16.15.0
+nvm use 16.15.0
 
 npx @angular/cli@latest analytics off
 npm i -g @angular/cli
