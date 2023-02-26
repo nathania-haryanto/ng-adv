@@ -1,4 +1,4 @@
-# Using Azure CLI
+# Introduction to Azure CLI
 
 ## Readings
 
