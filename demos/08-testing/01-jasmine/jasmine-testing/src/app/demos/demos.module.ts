@@ -12,54 +12,81 @@ import { MarkdownEditorModule } from '../shared/markdown-editor/markdown-editor.
 import { SharedModule } from '../shared/shared.module';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
 import { demoRoutes } from './demo.routing.module';
-import { AppStateComponent } from './samples/app-state/app-state.component';
-import { DemoEditComponent } from './samples/demos-list/demo-edit/demo-edit.component';
-import { DemoFilterComponent } from './samples/demos-list/demo-filter/demo-filter.component';
-import { DemoListHostComponent } from './samples/demos-list/demo-list-host..component';
-import { DemoListComponent } from './samples/demos-list/demo-list/demo-list.component';
-import { DemoRowComponent } from './samples/demos-list/demo-row/demo-row.component';
-import { DemosStateComponent } from './samples/demos-state/demos-state.component';
-import { EffectsComponent } from './samples/effects/effects.component';
-import { EventbusComponent } from './samples/eventbus/eventbus.component';
-import { FacadesComponent } from './samples/facades/facades.component';
-import { SelectorsComponent } from './samples/selectors/selectors.component';
-import { SkillsComponent } from './samples/skills/skills.component';
-import { KpiComponent } from './samples/statefull/kpi/kpi.component';
-import { ListComponent } from './samples/statefull/list/list.component';
-import { StatefullComponent } from './samples/statefull/statefull.component';
+import { AsyncComponent } from './samples/async/async.component';
+import { SimpleAuthWhenStableComponent } from './samples/async/simple-auth-async-when-stable/simple-auth-when-stable.component';
+import { SimpleAuthAsyncComponent } from './samples/async/simple-auth-async/simple-auth-async.component';
+import { SimpleAuthDoneComponent } from './samples/async/simple-auth-done/simple-auth-done.component';
+import { SimpleAuthFakeAsyncComponent } from './samples/async/simple-auth-fake-async/simple-auth-fake-async.component';
+import { ComponentEventsComponent } from './samples/component-events/component-events.component';
+import { ComponentTestComponent } from './samples/component-test/component-test.component';
+import { SimpleFoodComponent } from './samples/component-test/simple-food/simple-food.component';
+import { ComponentWriteComponent } from './samples/component-write/component-write.component';
+import { CypressComponent } from './samples/cypress/cypress.component';
+import { DemoEditComponent } from './samples/demo-edit/demo-edit.component';
+import { DemoFilterComponent } from './samples/demo-filter/demo-filter.component';
+import { DemoListComponent } from './samples/demo-list/demo-list.component';
+import { DemoRowComponent } from './samples/demo-row/demo-row.component';
+import { CapitalizeDirective } from './samples/directive/capitalize.directive';
+import { DirectiveComponent } from './samples/directive/directive.component';
+import { FoodHttpComponent } from './samples/http-tests/food-http/food-http.component';
+import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
+import { FoodListComponent } from './samples/integration-tests/food-list/food-list.component';
+import { FoodRowComponent } from './samples/integration-tests/food-row/food-row.component';
+import { IntegrationTestComponent } from './samples/integration-tests/integration-test.component';
+import { MarblesComponent } from './samples/marbles/marbles.component';
+import { UserMarblesComponent } from './samples/marbles/user-marbles/user-marbles.component';
+import { MaterialAsyncComponent } from './samples/material-async/material-async.component';
+import { MaterialComponent } from './samples/material/material.component';
+import { MockStoreComponent } from './samples/mock-store/mock-store.component';
+import { NgrxComponent } from './samples/ngrx/ngrx.component';
+import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
+import { RatingPipe } from './samples/pipe/rating.pipe';
+import { TestPipeComponent } from './samples/pipe/test-pipe.component';
+import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
+import { UnitTestingComponent } from './samples/simple-tests/unit-testing.component';
+import { MockAuthComponent } from './samples/use-mock/mock-auth/mock-auth.component';
+import { UseMockComponent } from './samples/use-mock/use-mock.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
-import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
-import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
-import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
-import { DetectorChildComponent } from './samples/change-detector-ref/detector-child/detector-child.component';
-import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
-import { ComponentStoreComponent } from './samples/component-store/component-store.component';
 
 @NgModule({
   declarations: [
     DemoContainerComponent,
-    StatefullComponent,
     DemoRowComponent,
-    EventbusComponent,
     DemoFilterComponent,
     DemoEditComponent,
     DemoListComponent,
-    KpiComponent,
-    AppStateComponent,
-    SkillsComponent,
-    DemoListHostComponent,
-    DemosStateComponent,
-    SelectorsComponent,
-    FacadesComponent,
-    EffectsComponent,
-    ListComponent,
-    ChangeDetectionComponent,
-    ContainerPresenterNgrxComponent,
-    ChangeDetectorRefComponent,
-    DetectorChildComponent,
-    ChangeDetectionProfileComponent,
-    ComponentStoreComponent,
+    UnitTestingComponent,
+    TestPipeComponent,
+    SimpleFoodComponent,
+    IntegrationTestComponent,
+    SimpleServiceComponent,
+    TestPipeComponent,
+    RatingPipe,
+    FoodRowComponent,
+    FoodListComponent,
+    UseMockComponent,
+    AsyncComponent,
+    MarblesComponent,
+    NgrxComponent,
+    MockStoreComponent,
+    PhonenumberPipe,
+    SimpleAuthAsyncComponent,
+    MockAuthComponent,
+    ComponentTestComponent,
+    UserMarblesComponent,
+    SimpleAuthDoneComponent,
+    SimpleAuthFakeAsyncComponent,
+    SimpleAuthWhenStableComponent,
+    HttpTestsComponent,
+    FoodHttpComponent,
+    DirectiveComponent,
+    CapitalizeDirective,
+    ComponentEventsComponent,
+    CypressComponent,
+    ComponentWriteComponent,
+    MaterialComponent,
+    MaterialAsyncComponent,
   ],
   imports: [
     CommonModule,
@@ -79,4 +106,4 @@ import { ComponentStoreComponent } from './samples/component-store/component-sto
   ],
   providers: [],
 })
-export class DemosModule {}
+export class DemosModule { }

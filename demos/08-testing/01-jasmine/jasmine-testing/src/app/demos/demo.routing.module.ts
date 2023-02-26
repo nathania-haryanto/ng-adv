@@ -1,43 +1,45 @@
 import { Routes } from '@angular/router';
 import { DemoContainerComponent } from './demo-container/demo-container.component';
-import { AppStateComponent } from './samples/app-state/app-state.component';
-import { DemoListHostComponent } from './samples/demos-list/demo-list-host..component';
-import { DemosStateComponent } from './samples/demos-state/demos-state.component';
-import { EventbusComponent } from './samples/eventbus/eventbus.component';
-import { SelectorsComponent } from './samples/selectors/selectors.component';
-import { SkillsComponent } from './samples/skills/skills.component';
-import { EffectsComponent } from './samples/effects/effects.component';
-import { FacadesComponent } from './samples/facades/facades.component';
-import { StatefullComponent } from './samples/statefull/statefull.component';
-import { ChangeDetectionComponent } from './samples/change-detection/change-detection.component';
-import { ContainerPresenterNgrxComponent } from './samples/container-presenter-ngrx/container-presenter-ngrx.component';
-import { ChangeDetectorRefComponent } from './samples/change-detector-ref/change-detector-ref.component';
-import { ChangeDetectionProfileComponent } from './samples/change-detection-profile/change-detection-profile.component';
-import { ComponentStoreComponent } from './samples/component-store/component-store.component';
+import { AsyncComponent } from './samples/async/async.component';
+import { ComponentEventsComponent } from './samples/component-events/component-events.component';
+import { ComponentTestComponent } from './samples/component-test/component-test.component';
+import { ComponentWriteComponent } from './samples/component-write/component-write.component';
+import { CypressComponent } from './samples/cypress/cypress.component';
+import { DirectiveComponent } from './samples/directive/directive.component';
+import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
+import { IntegrationTestComponent } from './samples/integration-tests/integration-test.component';
+import { MarblesComponent } from './samples/marbles/marbles.component';
+import { MaterialAsyncComponent } from './samples/material-async/material-async.component';
+import { MaterialComponent } from './samples/material/material.component';
+import { MockStoreComponent } from './samples/mock-store/mock-store.component';
+import { NgrxComponent } from './samples/ngrx/ngrx.component';
+import { TestPipeComponent } from './samples/pipe/test-pipe.component';
+import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
+import { UnitTestingComponent } from './samples/simple-tests/unit-testing.component';
+import { UseMockComponent } from './samples/use-mock/use-mock.component';
 
 export const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
-
     children: [
-      { path: 'statefull', component: StatefullComponent },
-      { path: 'ebus', component: EventbusComponent },
-      { path: 'demos-state', component: DemosStateComponent },
-      { path: 'demos-list', component: DemoListHostComponent },
-      { path: 'app-state', component: AppStateComponent },
-      { path: 'selectors', component: SelectorsComponent },
-      { path: 'effects', component: EffectsComponent },
-      { path: 'facades', component: FacadesComponent },
-      { path: 'skills', component: SkillsComponent },
-      { path: 'cd-intro', component: ChangeDetectionComponent },
-      { path: 'cd-profile', component: ChangeDetectionProfileComponent },
-      { path: 'component-store', component: ComponentStoreComponent },
-      { path: 'presenter-ngrx', component: ContainerPresenterNgrxComponent },
-      {
-        path: 'change-detector-ref',
-        component: ChangeDetectorRefComponent,
-      },
+      { path: 'unittesting', component: UnitTestingComponent },
+      { path: 'component-events', component: ComponentEventsComponent },
+      { path: 'component-write', component: ComponentWriteComponent },
+      { path: 'testpipe', component: TestPipeComponent },
+      { path: 'directive', component: DirectiveComponent },
+      { path: 'simpleservice', component: SimpleServiceComponent },
+      { path: 'component-test', component: ComponentTestComponent },
+      { path: 'integrationtests', component: IntegrationTestComponent },
+      { path: 'mock', component: UseMockComponent },
+      { path: 'httptests', component: HttpTestsComponent },
+      { path: 'async', component: AsyncComponent },
+      { path: 'material-async', component: MaterialAsyncComponent },
+      { path: 'material', component: MaterialComponent },
+      { path: 'marbles', component: MarblesComponent },
+      { path: 'ngrx', component: NgrxComponent },
+      { path: 'mockstore', component: MockStoreComponent },
+      { path: 'cypress', component: CypressComponent },
     ],
   },
 ];
