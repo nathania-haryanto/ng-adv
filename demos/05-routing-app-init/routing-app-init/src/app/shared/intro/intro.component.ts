@@ -1,15 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
 })
-export class IntroComponent {
-  @Input() title: string;
-  @Input() subtitle: string;
-  @Input() img: string;
-  @Input() isAuthenticated: boolean;
+export class IntroComponent implements OnInit {
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() img: string = '';
 
   constructor() {}
+
+  ngOnInit(): void {}
 }
