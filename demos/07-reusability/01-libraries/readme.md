@@ -203,6 +203,13 @@ Build the project:
 ng build -c production --project ux-controls 
 ```
 
+Login to GitHub Packages:
+
+```bash
+npm login --registry=https://npm.pkg.github.com
+npm adduser
+```
+
 Publish the lib from the folder of the lib:
 
 ```
