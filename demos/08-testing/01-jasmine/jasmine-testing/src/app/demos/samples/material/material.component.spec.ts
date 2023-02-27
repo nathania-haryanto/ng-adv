@@ -9,6 +9,8 @@ import { HarnessLoader } from '@angular/cdk/testing';
 import { MatSliderHarness } from '@angular/material/slider/testing';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('MaterialComponent', () => {
   let component: MaterialComponent;
@@ -19,7 +21,7 @@ describe('MaterialComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatSliderModule, MatButtonModule, BrowserAnimationsModule],
+      imports: [MatCardModule, ReactiveFormsModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule],
       declarations: [MaterialComponent],
     }).compileComponents();
   });
