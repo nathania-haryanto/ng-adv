@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -25,6 +25,7 @@ const comps = [
     FormsModule,
     RouterModule,
     MaterialModule,
+    NgOptimizedImage,
     MarkdownModule.forRoot({
       loader: HttpClient,
     }),
@@ -32,4 +33,4 @@ const comps = [
   declarations: comps,
   exports: comps,
 })
-export class SharedModule {}
+export class SharedModule { }
