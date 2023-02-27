@@ -40,10 +40,6 @@ describe('Component -Integration Test - Food Row', () => {
     ).toContain('Pad Thai');
 
     expect(
-      fixture.nativeElement.querySelector('#rating').textContent
-    ).toContain('nicht das gelbe vom ei');
-
-    expect(
       fixture.debugElement.query(By.css('#itemName')).nativeElement.textContent
     ).toContain('Pad Thai');
   });

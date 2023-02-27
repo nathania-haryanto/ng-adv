@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed, async, waitForAsync, } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ComponentWriteComponent } from './component-write.component';
 import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentWriteComponent } from './component-write.component';
 
 describe('ComponentWriteComponent', () => {
   beforeEach(() => {
