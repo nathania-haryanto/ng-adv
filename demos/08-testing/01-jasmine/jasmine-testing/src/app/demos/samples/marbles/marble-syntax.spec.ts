@@ -1,80 +1,32 @@
-import { cold, hot } from 'jasmine-marbles';
-import { of } from 'rxjs';
+import { map } from 'rxjs';
+import { TestScheduler } from 'rxjs/testing';
 
-describe('Marbles - Basic Syntax', () => {
-  it('should understand marble diagram', () => {
-    const source = cold('--');
-    const expected = cold('--');
+describe('Marble Testing', () => {
+  let testScheduler: TestScheduler;
 
-    expect(source).toBeObservable(expected);
-  });
-
-  describe('cold observable', () => {
-    it('should support basic string values', () => {
-      const source = cold('-a-|');
-      const expected = cold('-a-|');
-
-      expect(source).toBeObservable(expected);
-    });
-
-    it('should support basic values provided as params (number)', () => {
-      const source = cold('-a-|', { a: 1 });
-      const expected = cold('-a-|', { a: 1 });
-
-      expect(source).toBeObservable(expected);
-    });
-
-    it('should support basic values provided as params (object)', () => {
-      const source = cold('-a-|', { a: { key: 'value' } });
-      const expected = cold('-a-|', { a: { key: 'value' } });
-
-      expect(source).toBeObservable(expected);
-    });
-
-    it('should support basic values provided as params (object)', () => {
-      const source = cold('-a-|', { a: { key: 'value' } });
-      const expected = cold('-a-|', { a: { key: 'value' } });
-
-      expect(source).toBeObservable(expected);
-    });
-
-    it('should support basic errors', () => {
-      const source = cold('--#');
-      const expected = cold('--#');
-
-      expect(source).toBeObservable(expected);
-    });
-
-    it('should support custom errors', () => {
-      const source = cold('--#', null, new Error('Oops!'));
-      const expected = cold('--#', null, new Error('Oops!'));
-
-      expect(source).toBeObservable(expected);
-    });
-
-    it('should support multiple emission in the same time frame', () => {
-      const source = of(1, 2, 3);
-      const expected = cold('(abc|)', { a: 1, b: 2, c: 3 });
-
-      expect(source).toBeObservable(expected);
+  beforeEach(() => {
+    testScheduler = new TestScheduler((actual, expected) => {
+      expect(actual).toEqual(expected);
     });
   });
 
-  describe('hot observable', () => {
-    it('should support basic hot observable', () => {
-      const source = hot('-^a-|', { a: 5 });
-      const expected = cold('-a-|', { a: 5 });
+  it('test with simple values', () => {
+    testScheduler.run((helpers) => {
+      const { cold, expectObservable } = helpers;
+      const source$ = cold('a--b-c|', { a: 1, b: 3, c: 5 });
+      const expected = 'a--b-c|';
 
-      expect(source).toBeObservable(expected);
+      expectObservable(source$).toBe(expected, { a: 1, b: 3, c: 5 });
     });
+  });
 
-    // it('should support testing subscriptions', () => {
-    //   const source = hot('-a-^b---c-|');
-    //   const subscription = '^------!';
-    //   const expected = cold('-b---c-|');
-
-    //   expect(source).toBeObservable(expected);
-    //   expect(source).toHaveSubscriptions(subscription);
-    // });
+  it('test with operator', () => {
+    // destructuring cold anad expectObservable from RunHelpers
+    testScheduler.run(({ cold, expectObservable }) => {
+      const source$ = cold('a--b-c|', { a: 1, b: 3, c: 5 });
+      const piperesult$ = source$.pipe(map((v) => v * 10));
+      const expected = 'a--b-c|';
+      expectObservable(piperesult$).toBe(expected, { a: 10, b: 30, c: 50 });
+    });
   });
 });

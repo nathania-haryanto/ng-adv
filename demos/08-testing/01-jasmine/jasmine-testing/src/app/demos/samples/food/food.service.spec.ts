@@ -10,7 +10,7 @@ import { FoodService } from './food.service';
 describe('Service - HttpTest -FoodService', () => {
   let service: FoodService;
   let controller: HttpTestingController;
-  let data = [];
+  let data: any[] = [];
 
   beforeEach(() => {
     (data = [
@@ -26,7 +26,7 @@ describe('Service - HttpTest -FoodService', () => {
     controller = TestBed.inject(HttpTestingController);
 
     // setup the service mock
-    const url = `${environment.api}food`;
+    const url = `${environment.apiUrl}food`;
     const req = controller.expectOne(url);
     expect(req.request.method).toEqual('GET');
 
@@ -78,22 +78,6 @@ describe('Service - HttpTest -FoodService', () => {
       expect(items[1].name).toEqual('Leberkäse');
       done();
     });
-  });
-
-  it('isEquivalent works as expected', () => {
-    expect(
-      service.isEquivalent(
-        { name: 'Gulasch', rating: 2 },
-        { name: 'Gulasch', rating: 2 }
-      )
-    ).toBe(true);
-
-    expect(
-      service.isEquivalent(
-        { name: 'Gulasch', rating: 3 },
-        { name: 'Gulasch', rating: 2 }
-      )
-    ).toBe(false);
   });
 
   it('should have the correct number of items after delete', (done) => {

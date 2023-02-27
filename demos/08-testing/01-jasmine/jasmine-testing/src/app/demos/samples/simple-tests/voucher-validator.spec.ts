@@ -1,9 +1,10 @@
 import { VoucherValidator } from './voucher-validator';
+import { Voucher } from './voucher.mode';
 
 describe('Class - VoucherValidator', () => {
-  let goodvoucher;
-  let badvoucher;
-  let nullVoucher;
+  let goodvoucher: Voucher;
+  let badvoucher: Voucher;
+  let nullVoucher: Voucher;
 
   beforeEach(() => {
     goodvoucher = {
@@ -21,7 +22,7 @@ describe('Class - VoucherValidator', () => {
           AccountID: 1,
           Text: 'USB Stick',
           Amount: 11,
-          Comment: null,
+          Comment: "",
         },
         {
           ID: 7,
@@ -29,7 +30,7 @@ describe('Class - VoucherValidator', () => {
           AccountID: 6,
           Text: 'Game of Thrones, Season 6',
           Amount: 29,
-          Comment: null,
+          Comment: "",
         },
       ],
     };
@@ -49,7 +50,7 @@ describe('Class - VoucherValidator', () => {
           AccountID: 1,
           Text: 'USB Stick',
           Amount: 11,
-          Comment: null,
+          Comment: "",
         },
         {
           ID: 7,
@@ -57,7 +58,7 @@ describe('Class - VoucherValidator', () => {
           AccountID: 6,
           Text: 'Game of Thrones, Season 6',
           Amount: 55,
-          Comment: null,
+          Comment: "",
         },
       ],
     };
@@ -70,13 +71,12 @@ describe('Class - VoucherValidator', () => {
       Paid: false,
       Expense: false,
       Remark: true,
-      Details: null,
+      Details: [],
     };
   });
 
   it('returns true when correct data is passed', () =>
     expect(VoucherValidator.validate(goodvoucher)).toEqual(true));
-
   it('returns false when bad data is passed', () =>
     expect(VoucherValidator.validate(badvoucher)).toEqual(false));
 

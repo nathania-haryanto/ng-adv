@@ -29,7 +29,7 @@ describe('Component -Integration Test - Food Row', () => {
 
   // Does it make sense to test this?
   it('should have the correct food item', () => {
-    expect(fixture.componentInstance.food.name).toEqual('Pad Thai');
+    expect(fixture.componentInstance.food?.name).toEqual('Pad Thai');
   });
 
   // Test for component rendering

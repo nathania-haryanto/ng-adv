@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../../../material.module';
 import { MaterialAsyncComponent } from './material-async.component';
@@ -6,8 +6,8 @@ import { User } from './user-model';
 import { usersdata } from './users-data';
 
 describe('MaterialAsyncComponent', () => {
-  let fixture;
-  let component;
+  let fixture: ComponentFixture<MaterialAsyncComponent>;
+  let component: MaterialAsyncComponent;
   let testUsers: User[] = usersdata;
 
   beforeEach(
