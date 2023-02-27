@@ -11,6 +11,7 @@ import { MatButtonHarness } from '@angular/material/button/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 describe('MaterialComponent', () => {
   let component: MaterialComponent;
@@ -21,7 +22,7 @@ describe('MaterialComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatCardModule, ReactiveFormsModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule],
+      imports: [MatCardModule, ReactiveFormsModule, MatSliderHarness, MatButtonModule, BrowserAnimationsModule],
       declarations: [MaterialComponent],
     }).compileComponents();
   });

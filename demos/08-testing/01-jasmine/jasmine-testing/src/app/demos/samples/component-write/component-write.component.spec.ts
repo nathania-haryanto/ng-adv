@@ -4,11 +4,13 @@ import { ComponentWriteComponent } from './component-write.component';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ComponentWriteComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, MatCardModule],
+      imports: [FormsModule, MatCardModule, MatInputModule, NoopAnimationsModule],
       declarations: [ComponentWriteComponent],
     });
   });
