@@ -4,18 +4,16 @@ import { msgs } from './test-data';
 describe('Service - No Injection - SimpleMessageService', () => {
   let service: SimpleMessageService;
 
-  beforeEach(() => {});
+  beforeEach(() => { });
 
   it('should have no messages to start', () => {
     service = new SimpleMessageService();
-
     expect(service.messages.length).toBe(0);
   });
 
   it('should add a message when add is called', () => {
     service = new SimpleMessageService();
     service.add('message1');
-
     expect(service.messages.length).toBe(1);
   });
 
@@ -23,7 +21,6 @@ describe('Service - No Injection - SimpleMessageService', () => {
     service = new SimpleMessageService();
     service.add('message1');
     service.clear();
-
     expect(service.messages.length).toBe(0);
   });
 
@@ -31,11 +28,10 @@ describe('Service - No Injection - SimpleMessageService', () => {
     service = new SimpleMessageService();
     service.messages = msgs;
     service.delete('Hello World');
-
     expect(service.messages.length).toBe(2);
     expect(service.messages).toContain(
-      'Servas die Buam',
-      'Griaß eich die Madln'
+      'Szia World',
+      'Servus Welt'
     );
   });
 });

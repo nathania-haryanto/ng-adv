@@ -16,7 +16,9 @@ import { NgrxComponent } from './samples/ngrx/ngrx.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
-import { UseMockComponent } from './samples/use-mock/use-mock.component';
+import { ComponentClassComponent } from './samples/component-class/component-class.component';
+import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
+import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
 
 export const demoRoutes: Routes = [
   {
@@ -40,6 +42,8 @@ export const demoRoutes: Routes = [
       { path: 'ngrx', component: NgrxComponent },
       { path: 'mockstore', component: MockStoreComponent },
       { path: 'cypress', component: CypressComponent },
+      { path: 'component-class', component: ComponentClassComponent },
+      { path: 'spy', component: UseSpyComponent },
     ],
   },
 ];

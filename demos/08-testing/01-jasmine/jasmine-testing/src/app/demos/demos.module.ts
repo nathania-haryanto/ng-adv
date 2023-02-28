@@ -44,10 +44,11 @@ import { RatingPipe } from './samples/pipe/rating.pipe';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
-import { MockAuthComponent } from './samples/use-mock/mock-auth/mock-auth.component';
-import { UseMockComponent } from './samples/use-mock/use-mock.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { ComponentClassComponent } from './samples/component-class/component-class.component';
+import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
+import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,6 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     MockStoreComponent,
     PhonenumberPipe,
     SimpleAuthAsyncComponent,
-    MockAuthComponent,
     ComponentTestComponent,
     UserMarblesComponent,
     SimpleAuthDoneComponent,
@@ -87,6 +87,8 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     ComponentWriteComponent,
     MaterialComponent,
     MaterialAsyncComponent,
+    ComponentClassComponent,
+    UseSpyComponent
   ],
   imports: [
     CommonModule,

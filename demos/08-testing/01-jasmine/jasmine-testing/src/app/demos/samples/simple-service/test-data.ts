@@ -1,1 +1,1 @@
-export const msgs = ['Hello World', 'Servas die Buam', 'Griaß eich die Madln'];
+export const msgs = ['Hello World', 'Szia World', 'Servus Welt'];
