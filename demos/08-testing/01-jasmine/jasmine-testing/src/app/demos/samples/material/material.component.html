@@ -5,12 +5,16 @@
   <mat-card-content fxLayout="column">
     <form [formGroup]="sliderForm" fxLayout="column" fxLayoutGap="16px">
       <div>
-        <mat-slider
+        <!-- <mat-slider
           formControlName="slider"
           min="1"
           max="100"
           step="1"
-        ></mat-slider>
+        ></mat-slider> -->
+        <mat-slider min="1"
+        max="100">
+          <input matSliderThumb formControlName="slider">
+        </mat-slider>
       </div>
       <div>
         <button

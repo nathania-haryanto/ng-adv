@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MaterialComponent } from './material.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,35 +15,28 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
 describe('MaterialComponent', () => {
   let component: MaterialComponent;
   let fixture: ComponentFixture<MaterialComponent>;
-  let sliderHarness: MatSliderHarness;
-  let btnReset: MatButtonHarness;
   let loader: HarnessLoader;
+  let sliderHarness: MatSliderHarness;
+  let btnResetHarness: MatButtonHarness;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [MatCardModule, ReactiveFormsModule, MatSliderHarness, MatButtonModule, BrowserAnimationsModule],
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [MaterialComponent],
+      imports: [MatCardModule, ReactiveFormsModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule],
     }).compileComponents();
-  });
-
-  beforeEach(async () => {
     fixture = TestBed.createComponent(MaterialComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
-
     loader = TestbedHarnessEnvironment.loader(fixture);
-    sliderHarness = await loader.getHarness(MatSliderHarness);
-    btnReset = await loader.getHarness(
-      MatButtonHarness.with({ text: 'Reset' })
-    );
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 
   it('should btnReset the slider when btnReset is clicked', async () => {
-    await btnReset.click();
-    // expect(await sliderHarness.getValue()).toBe(1);
+    btnResetHarness = await loader.getHarness(
+      MatButtonHarness.with({ text: 'Reset' })
+    );
+    sliderHarness = await loader.getHarness(MatSliderHarness);
+
+    await btnResetHarness.click();
+    const thumb = await sliderHarness.getEndThumb();
+    expect(await thumb.getValue()).toBe(1);
   });
 });
