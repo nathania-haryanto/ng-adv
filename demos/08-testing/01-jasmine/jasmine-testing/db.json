@@ -31,26 +31,34 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
+    },    
+    {
+      "url": "httptests",
+      "title": "Service Http",
+      "id": 8,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "httptests",
+      "title": "Service BS Http",
+      "id": 83,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
     },
     {
       "url": "component-class",
-      "title": "Test Component Class",
+      "title": "Test Comp Class",
       "id": 77,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "component-test",
-      "title": "Component Test",
-      "id": 5,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "mock",
-      "title": "Component Inject Mock",
+      "title": "Comp Inject Mock",
       "id": 4,
       "topicid": 1,
       "visible": true,
@@ -58,8 +66,16 @@
     },
     {
       "url": "spy",
-      "title": "Component Inject Spy",
+      "title": "Comp Inject Spy",
       "id": 44,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "component-test",
+      "title": "Comp Spy returnValue",
+      "id": 5,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -82,24 +98,15 @@
     },
     {
       "url": "integrationtests",
-      "title": "Integration Tests",
+      "title": "Component Nested",
       "id": 6,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-
-    {
-      "url": "httptests",
-      "title": "Http Tests",
-      "id": 8,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
       "url": "async",
-      "title": "Async Tests",
+      "title": "Component Async",
       "id": 9,
       "topicid": 1,
       "visible": true,
@@ -123,7 +130,7 @@
     },
     {
       "url": "marbles",
-      "title": "Marbles",
+      "title": "RxJs Marbles",
       "id": 10,
       "topicid": 1,
       "visible": true,

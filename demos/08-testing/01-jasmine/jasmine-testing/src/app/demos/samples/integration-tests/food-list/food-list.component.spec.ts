@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { FoodListComponent } from './food-list.component';
 import { FoodRowComponent } from '../food-row/food-row.component';
 import { RatingPipe } from '../../pipe/rating.pipe';
-import { FoodService } from '../../food/food.service';
+import { FoodServiceBS } from '../../food/food.service-bs';
 
 describe('Component - Integration Test', () => {
   let fs: any;
@@ -21,7 +21,7 @@ describe('Component - Integration Test', () => {
     { name: 'Cannelloni', rating: 4 },
   ];
 
-  const deleteItem = { name: 'Cordon Bleu', rating: 2 };
+  const deleteItem = { id: 4, name: 'Cordon Bleu', rating: 2 };
 
   let fixture: ComponentFixture<FoodListComponent>;
   let comp: FoodListComponent;
@@ -32,7 +32,7 @@ describe('Component - Integration Test', () => {
 
     const module = {
       declarations: [FoodListComponent, FoodRowComponent, RatingPipe],
-      providers: [{ provide: FoodService, useValue: fs }],
+      providers: [{ provide: FoodServiceBS, useValue: fs }],
       schemas: [NO_ERRORS_SCHEMA],
     };
 

@@ -7,7 +7,7 @@ import { FoodItem } from '../food/food.model';
   styleUrls: ['./integration-test.component.scss'],
 })
 export class IntegrationTestComponent implements OnInit {
-  f: FoodItem = { name: 'Cordon Bleu', rating: 4 };
+  f: FoodItem = { id: 99, name: 'Cordon Bleu', rating: 4 };
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

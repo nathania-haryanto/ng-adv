@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import * as _ from 'lodash';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FoodItem } from './food.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FoodService {
+export class FoodServiceBS {
   constructor(private httpClient: HttpClient) {
     this.initData();
   }
@@ -28,15 +29,19 @@ export class FoodService {
     this.Items.next(this.items);
   }
 
-  getItems() {
-    return this.httpClient.get<FoodItem[]>(`${environment.apiUrl}food`)
+  getItems(): Observable<FoodItem[]> {
+    return this.Items.asObservable();
   }
 
-  deleteItem(item: FoodItem) {
-    return this.httpClient.delete(`${environment.apiUrl}food/${item.id}`)
+  deleteItem(item: FoodItem): Observable<boolean> {
+    this.items = this.items.filter((f) => _.isEqual(f, item) == false);
+    this.Items.next(this.items);
+    return of(true);
   }
 
-  addItem(item: FoodItem) {
-    return this.httpClient.put<FoodItem>(`${environment.apiUrl}food`, item)
+  addItem(item: FoodItem): Observable<boolean> {
+    this.items.push(item);
+    this.Items.next(this.items);
+    return of(true);
   }
 }

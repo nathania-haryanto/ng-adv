@@ -13,4 +13,12 @@ describe('Pipe - Phonenumber', () => {
 
     expect(result).toBe('(333) 333 3333');
   });
+
+  it('should display nothing when input is too long', () => {
+    const phoneNumber = '333333333344';
+    const pipe = new PhonenumberPipe();
+    const result = pipe.transform(phoneNumber);
+
+    expect(result).toBe('');
+  });
 });

@@ -10,7 +10,7 @@ describe('Component -Integration Test - Food Row', () => {
   let deleteFld: ElementRef;
   let editFld: ElementRef;
 
-  const food = { name: 'Pad Thai', rating: 5 };
+  const food = { id: 1, name: 'Pad Thai', rating: 5 };
 
   beforeEach(() => {
     TestBed.configureTestingModule({

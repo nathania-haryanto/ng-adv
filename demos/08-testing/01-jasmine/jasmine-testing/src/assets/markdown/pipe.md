@@ -1,3 +1,19 @@
-Navigate to folder `\pipe`
+Navigate to folder `\pipe` and examine `phonenumber.pipe.ts` and `phonenumber.pipe.spec.ts`
 
-Investigate `test-pipe.component.ts` and `test-pipe.component.spec.ts`
+```typescript
+export class PhonenumberPipe implements PipeTransform {
+  transform(value: any, args?: any): any {
+    if (undefined !== value && value.length === 10) {
+      return (
+        '(' +
+        value.substring(0, 3) +
+        ') ' +
+        value.substring(3, 6) +
+        ' ' +
+        value.substring(6)
+      );
+    }
+    return '';
+  }
+}
+```

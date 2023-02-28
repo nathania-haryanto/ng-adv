@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-pipe.component.scss'],
 })
 export class TestPipeComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  phone = "3333333333";
+
+  ngOnInit() { }
 }
