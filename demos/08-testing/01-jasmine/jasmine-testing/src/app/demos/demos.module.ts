@@ -49,6 +49,9 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { ComponentClassComponent } from './samples/component-class/component-class.component';
 import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
 import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
+import { MockHostComponent } from './samples/mocking/mock-host/mock-host.component';
+import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
+import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +91,10 @@ import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
     MaterialComponent,
     MaterialAsyncComponent,
     ComponentClassComponent,
-    UseSpyComponent
+    UseSpyComponent,
+    MockHostComponent,
+    SpyHostComponent,
+    DirectiveHostComponent
   ],
   imports: [
     CommonModule,

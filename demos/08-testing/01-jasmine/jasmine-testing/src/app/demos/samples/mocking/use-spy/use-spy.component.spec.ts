@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthService } from '../auth.service';
 import { UseSpyComponent } from './use-spy.component';
+import { MatCardModule } from '@angular/material/card';
 
 describe('UseMockComponent with MockAuth Service', () => {
   let spy: any;
@@ -15,7 +16,7 @@ describe('UseMockComponent with MockAuth Service', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [],
+      imports: [MatCardModule],
       declarations: [UseSpyComponent],
       providers: [{ provide: AuthService, useValue: spy }],
     }).compileComponents();

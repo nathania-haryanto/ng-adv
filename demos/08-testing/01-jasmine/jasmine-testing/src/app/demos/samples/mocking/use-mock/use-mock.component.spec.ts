@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockAuthService } from './auth.service.mock';
 import { UseMockComponent } from './use-mock.component';
 import { AuthService } from '../auth.service';
+import { MatCardModule } from '@angular/material/card';
 
 describe('UseMockComponent with MockAuth Service', () => {
   const mock = new MockAuthService();
@@ -14,7 +15,7 @@ describe('UseMockComponent with MockAuth Service', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [],
+      imports: [MatCardModule],
       declarations: [UseMockComponent],
       providers: [{ provide: AuthService, useValue: mock }],
     }).compileComponents();
