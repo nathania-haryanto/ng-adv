@@ -20,6 +20,10 @@ import { NgrxComponent } from './samples/ngrx/ngrx.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
+import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
+import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
+import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
+import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 
 export const demoRoutes: Routes = [
   {
@@ -40,11 +44,15 @@ export const demoRoutes: Routes = [
       { path: 'material-async', component: MaterialAsyncComponent },
       { path: 'material', component: MaterialComponent },
       { path: 'marbles', component: MarblesComponent },
-      { path: 'ngrx', component: NgrxComponent },
       { path: 'mockstore', component: MockStoreComponent },
       { path: 'cypress', component: CypressComponent },
       { path: 'component-class', component: ComponentClassComponent },
       { path: 'spy', component: SpyHostComponent },
+      { path: 'ngrx', component: NgrxComponent },
+      { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
+      { path: 'ngrx-mock-selectors', component: NgrxMockSelectorsComponent },
+      { path: 'ngrx-selectors', component: NgrxSelectorsComponent },
+      { path: 'ngrx-reducers', component: NgrxReducersComponent },
     ],
   },
 ];

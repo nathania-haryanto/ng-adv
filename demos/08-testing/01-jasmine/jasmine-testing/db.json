@@ -98,7 +98,7 @@
     },
     {
       "url": "integrationtests",
-      "title": "Component Nested",
+      "title": "Component Integration",
       "id": 6,
       "topicid": 1,
       "visible": true,
@@ -114,7 +114,7 @@
     },
     {
       "url": "material-async",
-      "title": "Material Async",
+      "title": "Component Material",
       "id": 12,
       "topicid": 1,
       "visible": true,
@@ -122,7 +122,7 @@
     },
     {
       "url": "material",
-      "title": "Material Harness",
+      "title": "Component Harness",
       "id": 19,
       "topicid": 1,
       "visible": true,
@@ -130,7 +130,7 @@
     },
     {
       "url": "marbles",
-      "title": "RxJs Marbles",
+      "title": "Component Marbles",
       "id": 10,
       "topicid": 1,
       "visible": true,
@@ -140,6 +140,35 @@
       "url": "ngrx",
       "title": "NgRx Tests",
       "id": 11,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "ngrx-mock-store",
+      "title": "NgRx Mock Store",
+      "id": 51,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },    {
+      "url": "ngrx-mock-selectors",
+      "title": "NgRx Mock Selectors",
+      "id": 52,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },    {
+      "url": "ngrx-selectors",
+      "title": "NgRx Selectors",
+      "id": 53,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },    {
+      "url": "ngrx-reducers",
+      "title": "NgRx Reducers",
+      "id": 54,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0

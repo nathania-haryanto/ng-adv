@@ -52,6 +52,10 @@ import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
 import { MockHostComponent } from './samples/mocking/mock-host/mock-host.component';
 import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
 import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
+import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
+import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
+import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
+import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +98,11 @@ import { DirectiveHostComponent } from './samples/directive/directive-host/direc
     UseSpyComponent,
     MockHostComponent,
     SpyHostComponent,
-    DirectiveHostComponent
+    DirectiveHostComponent,
+    NgrxMockstoreComponent,
+    NgrxMockSelectorsComponent,
+    NgrxSelectorsComponent,
+    NgrxReducersComponent
   ],
   imports: [
     CommonModule,
