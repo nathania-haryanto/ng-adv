@@ -8,7 +8,7 @@ import { RatingPipe } from '../../pipe/rating.pipe';
 import { FoodService } from '../../food/food.service';
 
 describe('Component - Integration Test', () => {
-  let fs;
+  let fs: any;
   const foodData = [
     { name: 'Pad Thai', rating: 5 },
     { name: 'Butter Chicken', rating: 5 },

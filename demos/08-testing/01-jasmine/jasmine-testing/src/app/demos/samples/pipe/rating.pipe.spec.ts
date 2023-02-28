@@ -1,7 +1,7 @@
 import { RatingPipe } from './rating.pipe';
 
 describe('Pipe - RatingPipe', () => {
-  let p;
+  let p: RatingPipe;
 
   beforeEach(() => {
     p = new RatingPipe();

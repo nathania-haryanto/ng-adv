@@ -1,6 +1,7 @@
 import { CapitalizeDirective } from './capitalize.directive';
 import { DirectiveComponent } from './directive.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
 
 describe('Component - Directive - CapitalizeDirective', () => {
   let component: DirectiveComponent;
@@ -9,6 +10,7 @@ describe('Component - Directive - CapitalizeDirective', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DirectiveComponent, CapitalizeDirective],
+      imports: [MatCardModule],
     });
 
     fixture = TestBed.createComponent(DirectiveComponent);
@@ -21,7 +23,8 @@ describe('Component - Directive - CapitalizeDirective', () => {
 
   it('should capitalize text when initially clicked', () => {
     const debugEl: HTMLElement = fixture.debugElement.nativeElement;
-    const div: HTMLElement = debugEl.querySelector('#divDirective');
+
+    const div: HTMLElement = debugEl.querySelector('#divDirective') as HTMLElement;
     div.click();
     fixture.detectChanges();
 
@@ -30,7 +33,7 @@ describe('Component - Directive - CapitalizeDirective', () => {
 
   it('should lowercase when clicked twice', () => {
     const debugEl: HTMLElement = fixture.debugElement.nativeElement;
-    const div: HTMLElement = debugEl.querySelector('#divDirective');
+    const div: HTMLElement = debugEl.querySelector('#divDirective') as HTMLElement;
     div.click();
     fixture.detectChanges();
     div.click();

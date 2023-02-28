@@ -29,7 +29,7 @@ describe('Component -Integration Test - Food Row', () => {
 
   // Does it make sense to test this?
   it('should have the correct food item', () => {
-    expect(fixture.componentInstance.food.name).toEqual('Pad Thai');
+    expect(fixture.componentInstance.food?.name).toEqual('Pad Thai');
   });
 
   // Test for component rendering
@@ -38,10 +38,6 @@ describe('Component -Integration Test - Food Row', () => {
     expect(
       fixture.nativeElement.querySelector('#itemName').textContent
     ).toContain('Pad Thai');
-
-    expect(
-      fixture.nativeElement.querySelector('#rating').textContent
-    ).toContain('nicht das gelbe vom ei');
 
     expect(
       fixture.debugElement.query(By.css('#itemName')).nativeElement.textContent

@@ -54,8 +54,5 @@ describe('Component - AsyncTest - done', () => {
 
   afterEach(() => {
     localStorage.removeItem('token');
-    fixture = null;
-    component = null;
-    service = null;
   });
 });

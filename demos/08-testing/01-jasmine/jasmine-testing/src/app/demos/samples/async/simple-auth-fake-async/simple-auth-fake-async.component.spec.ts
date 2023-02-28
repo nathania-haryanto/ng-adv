@@ -61,8 +61,5 @@ describe('Component - AsyncTest - FakeAsync', () => {
 
   afterEach(() => {
     localStorage.removeItem('token');
-    fixture = null;
-    component = null;
-    service = null;
   });
 });

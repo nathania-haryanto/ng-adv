@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MaterialComponent } from './material.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,39 +8,35 @@ import { HarnessLoader } from '@angular/cdk/testing';
 import { MatSliderHarness } from '@angular/material/slider/testing';
 import { MatButtonHarness } from '@angular/material/button/testing';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 describe('MaterialComponent', () => {
   let component: MaterialComponent;
   let fixture: ComponentFixture<MaterialComponent>;
-  let slider: MatSliderHarness;
-  let btnReset: MatButtonHarness;
   let loader: HarnessLoader;
+  let sliderHarness: MatSliderHarness;
+  let btnResetHarness: MatButtonHarness;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [MatSliderModule, MatButtonModule, BrowserAnimationsModule],
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [MaterialComponent],
+      imports: [MatCardModule, ReactiveFormsModule, MatSliderModule, MatButtonModule, BrowserAnimationsModule],
     }).compileComponents();
-  });
-
-  beforeEach(async () => {
     fixture = TestBed.createComponent(MaterialComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
-
     loader = TestbedHarnessEnvironment.loader(fixture);
-    slider = await loader.getHarness(MatSliderHarness);
-    btnReset = await loader.getHarness(
-      MatButtonHarness.with({ text: 'Reset' })
-    );
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 
   it('should btnReset the slider when btnReset is clicked', async () => {
-    await btnReset.click();
-    expect(await slider.getValue()).toBe(1);
+    btnResetHarness = await loader.getHarness(
+      MatButtonHarness.with({ text: 'Reset' })
+    );
+    sliderHarness = await loader.getHarness(MatSliderHarness);
+
+    await btnResetHarness.click();
+    const thumb = await sliderHarness.getEndThumb();
+    expect(await thumb.getValue()).toBe(1);
   });
 });

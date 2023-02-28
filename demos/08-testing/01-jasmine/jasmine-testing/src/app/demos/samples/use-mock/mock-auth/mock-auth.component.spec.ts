@@ -2,17 +2,17 @@ import { MockAuthComponent } from './mock-auth.component';
 import { AuthService } from '../auth.service';
 
 class MockAuthService extends AuthService {
-  protected isAuth = true;
+  protected override isAuth = true;
 
-  isAuthenticated(): boolean {
+  override isAuthenticated(): boolean {
     return this.isAuth;
   }
 
-  logIn() {
+  override logIn() {
     this.isAuth = true;
   }
 
-  logOff() {
+  override logOff() {
     this.isAuth = false;
   }
 }

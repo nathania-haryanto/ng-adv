@@ -24,8 +24,6 @@ describe('Component - AsyncTest - Login - Symetric Test', () => {
 
   afterEach(() => {
     localStorage.removeItem('token');
-    service = null;
-    component = null;
   });
 });
 
@@ -50,7 +48,5 @@ describe('Component - Spy - Login', () => {
 
   afterEach(() => {
     localStorage.removeItem('token');
-    service = null;
-    component = null;
   });
 });

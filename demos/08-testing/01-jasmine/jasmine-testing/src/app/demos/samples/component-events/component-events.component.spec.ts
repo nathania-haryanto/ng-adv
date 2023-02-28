@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ComponentEventsComponent } from './component-events.component';
 import { By } from '@angular/platform-browser';
+import { MatCardModule } from '@angular/material/card';
 
 describe('Component - Events - EventsComponent', () => {
   let component: ComponentEventsComponent;
@@ -10,6 +11,7 @@ describe('Component - Events - EventsComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [ComponentEventsComponent],
+        imports: [MatCardModule],
       }).compileComponents();
     })
   );
