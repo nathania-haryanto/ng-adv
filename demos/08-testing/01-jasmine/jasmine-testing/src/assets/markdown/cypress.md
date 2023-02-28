@@ -1,2 +1,6 @@
-Investigate specs in cypress folder
-Start Cypress using: ng e2e
+- Examine specs in `/cypress/e2e` folder
+- Start Cypress using: 
+
+    ```bash
+    npx cypress open
+    ```

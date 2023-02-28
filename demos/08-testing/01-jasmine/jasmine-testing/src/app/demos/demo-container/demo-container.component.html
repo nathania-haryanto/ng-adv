@@ -9,7 +9,7 @@
       <mat-toolbar class="menu">
         <span>Please select:</span>
       </mat-toolbar>
-        <mat-list-item role="listitem" *ngFor="let item of demos$ | async" [routerLink]="['./' + item.url]">{{ item.title }}</mat-list-item>
+        <mat-list-item role="listitem" class="demoitem" *ngFor="let item of demos$ | async" [routerLink]="['./' + item.url]">{{ item.title }}</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

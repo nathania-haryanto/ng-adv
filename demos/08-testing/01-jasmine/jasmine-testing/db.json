@@ -31,7 +31,7 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
-    },    
+    },
     {
       "url": "httptests",
       "title": "Service Http",
@@ -151,21 +151,24 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
-    },    {
+    },
+    {
       "url": "ngrx-mock-selectors",
       "title": "NgRx Mock Selectors",
       "id": 52,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
-    },    {
+    },
+    {
       "url": "ngrx-selectors",
       "title": "NgRx Selectors",
       "id": 53,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
-    },    {
+    },
+    {
       "url": "ngrx-reducers",
       "title": "NgRx Reducers",
       "id": 54,
@@ -209,12 +212,12 @@
     {
       "id": "456",
       "name": "NgRx",
-      "completed": false
+      "completed": true
     },
     {
       "id": "223",
       "name": "Angular",
-      "completed": true
+      "completed": false
     },
     {
       "id": "436",

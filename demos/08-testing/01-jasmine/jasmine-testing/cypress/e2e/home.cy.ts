@@ -1,8 +1,6 @@
-/// <reference types="Cypress" />
-
-context('Home', () => {
+describe('Home', () => {
   beforeEach(() => {
-    cy.visit('https://localhost:4200/');
+    cy.visit('http://localhost:4200/');
   });
 
   describe('My Bogus Test', () => {
@@ -13,7 +11,7 @@ context('Home', () => {
 
   describe('Navbar', () => {
     it('Has the correct Title', () => {
-      cy.get('.navTitle').should(
+      cy.get('.mat-mdc-card-title').should(
         'contain.text',
         'Advanced Angular Development'
       );

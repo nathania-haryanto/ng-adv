@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatestWith, map, startWith } from 'rxjs/operators';
+import { combineLatestWith, map, startWith, switchMap, filter } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Skill } from '../skill.model';
 import { SkillsEntityService } from '../skills-entity.service';
@@ -19,7 +19,12 @@ export class SkillsContainerComponent {
     })
   );
 
-  constructor(private skillsService: SkillsEntityService) {}
+  todo = this.skills.pipe(
+    switchMap(skills => skills),
+    filter(skill => !skill.completed),
+  );
+
+  constructor(private skillsService: SkillsEntityService) { }
 
   ngOnInit(): void {
     this.skillsService.getAll();
