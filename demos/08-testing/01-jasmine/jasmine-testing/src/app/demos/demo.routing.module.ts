@@ -15,7 +15,7 @@ import { MockStoreComponent } from './samples/mock-store/mock-store.component';
 import { NgrxComponent } from './samples/ngrx/ngrx.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
-import { UnitTestingComponent } from './samples/simple-tests/unit-testing.component';
+import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
 import { UseMockComponent } from './samples/use-mock/use-mock.component';
 
 export const demoRoutes: Routes = [

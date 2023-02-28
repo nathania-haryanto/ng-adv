@@ -9,9 +9,9 @@
       "sortOrder": 0
     },
     {
-      "url": "simpleservice",
-      "title": "Simple Service",
-      "id": 3,
+      "url": "testpipe",
+      "title": "Test Pipe",
+      "id": 2,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -25,9 +25,9 @@
       "sortOrder": 0
     },
     {
-      "url": "testpipe",
-      "title": "Test Pipe",
-      "id": 2,
+      "url": "simpleservice",
+      "title": "Simple Service",
+      "id": 3,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0

@@ -1,4 +1,4 @@
-Navigate to folder `\demos\samples\simple-tests`
+Navigate to folder `\intro-unit-testsing`
 
 Investigate `simple-class.ts` and `simple-class.spec.ts`
 

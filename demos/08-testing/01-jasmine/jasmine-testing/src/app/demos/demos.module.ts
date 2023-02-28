@@ -43,7 +43,7 @@ import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
 import { RatingPipe } from './samples/pipe/rating.pipe';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
-import { UnitTestingComponent } from './samples/simple-tests/unit-testing.component';
+import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
 import { MockAuthComponent } from './samples/use-mock/mock-auth/mock-auth.component';
 import { UseMockComponent } from './samples/use-mock/use-mock.component';
 import { DemosEffects } from './state/demos.effects';
