@@ -7,7 +7,7 @@ import {
   SimpleChanges,
   OnChanges,
 } from '@angular/core';
-import { FoodItem } from 'src/app/food/foodItem';
+import { FoodItem } from 'src/app/food/food-item.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
 

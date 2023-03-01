@@ -9,12 +9,11 @@
 
 ## Guide
 
-Installation:
+NgRx installation:
 
 ```
 npm i @ngrx/store @ngrx/effects @ngrx/entity -S
 npm i @ngrx/store-devtools -D
-ng add @ngrx/schematics
 ```
 
 ### Scaffolding (Module Sample: ngState)

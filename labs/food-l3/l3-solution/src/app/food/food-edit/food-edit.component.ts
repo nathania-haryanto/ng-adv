@@ -6,7 +6,7 @@ import {
   EventEmitter,
   SimpleChanges,
 } from '@angular/core';
-import { FoodItem } from 'src/app/food/foodItem';
+import { FoodItem } from 'src/app/food/food-item.model';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -29,7 +29,7 @@ export class FoodEditComponent implements OnInit {
 
   form: UntypedFormGroup;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.food != undefined) {
