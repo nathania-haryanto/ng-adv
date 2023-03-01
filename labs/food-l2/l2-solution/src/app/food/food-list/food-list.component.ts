@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { FoodItem } from 'src/app/food/foodItem';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-food-list',
@@ -16,7 +17,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./food-list.component.scss'],
 })
 export class FoodListComponent implements OnInit, OnChanges {
-  constructor() {}
+  constructor() { }
 
   @Input()
   food: FoodItem[];
@@ -24,6 +25,8 @@ export class FoodListComponent implements OnInit, OnChanges {
   editSelected: EventEmitter<FoodItem> = new EventEmitter();
   @Output()
   deleteSelected: EventEmitter<FoodItem> = new EventEmitter();
+
+  filter = new FormControl('');
 
   displayedColumns: string[] = [
     'id',
@@ -35,15 +38,15 @@ export class FoodListComponent implements OnInit, OnChanges {
   ];
   dataSource: MatTableDataSource<FoodItem> = new MatTableDataSource([]);
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.filter.valueChanges.subscribe((filterString) => {
+      this.dataSource.filter = filterString.trim().toLowerCase();
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes.food.currentValue);
     this.dataSource = new MatTableDataSource(changes.food.currentValue);
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   addFood() {
