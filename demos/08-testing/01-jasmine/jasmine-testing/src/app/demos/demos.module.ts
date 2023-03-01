@@ -28,7 +28,6 @@ import { DemoListComponent } from './samples/demo-list/demo-list.component';
 import { DemoRowComponent } from './samples/demo-row/demo-row.component';
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 import { DirectiveComponent } from './samples/directive/directive.component';
-import { FoodHttpComponent } from './samples/http-tests/food-http/food-http.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { FoodListComponent } from './samples/integration-tests/food-list/food-list.component';
 import { FoodRowComponent } from './samples/integration-tests/food-row/food-row.component';
@@ -56,6 +55,7 @@ import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.
 import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
+import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +86,6 @@ import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.com
     SimpleAuthFakeAsyncComponent,
     SimpleAuthWhenStableComponent,
     HttpTestsComponent,
-    FoodHttpComponent,
     DirectiveComponent,
     CapitalizeDirective,
     ComponentEventsComponent,
@@ -102,7 +101,8 @@ import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.com
     NgrxMockstoreComponent,
     NgrxMockSelectorsComponent,
     NgrxSelectorsComponent,
-    NgrxReducersComponent
+    NgrxReducersComponent,
+    HttpTestsBsComponent
   ],
   imports: [
     CommonModule,

@@ -24,6 +24,7 @@ import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.
 import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
+import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 
 export const demoRoutes: Routes = [
   {
@@ -40,6 +41,7 @@ export const demoRoutes: Routes = [
       { path: 'integrationtests', component: IntegrationTestComponent },
       { path: 'mock', component: MockHostComponent },
       { path: 'httptests', component: HttpTestsComponent },
+      { path: 'httptests-bs', component: HttpTestsBsComponent },
       { path: 'async', component: AsyncComponent },
       { path: 'material-async', component: MaterialAsyncComponent },
       { path: 'material', component: MaterialComponent },
