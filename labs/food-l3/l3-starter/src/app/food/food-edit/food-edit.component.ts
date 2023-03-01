@@ -4,15 +4,15 @@ import {
   Input,
   Output,
   EventEmitter,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
-import { FoodItem } from 'src/app/food/food.model';
+import { FoodItem } from 'src/app/food/foodItem';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-food-edit',
   templateUrl: './food-edit.component.html',
-  styleUrls: ['./food-edit.component.scss']
+  styleUrls: ['./food-edit.component.scss'],
 })
 export class FoodEditComponent implements OnInit {
   constructor(private fb: UntypedFormBuilder) {
@@ -20,7 +20,7 @@ export class FoodEditComponent implements OnInit {
       id: 0,
       name: ['', [Validators.required, Validators.minLength(3)]],
       price: [0, Validators.min(1)],
-      calories: 0
+      calories: 0,
     });
   }
 
