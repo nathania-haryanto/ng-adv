@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuService } from './menu/menu.service';
+import { MenuFacade } from './state/menu.facade';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { MenuService } from './menu/menu.service';
 export class AppComponent {
   title = 'FirstAngular';
 
-  constructor(public ms: MenuService) {}
+  constructor(public ms: MenuFacade) { }
 }

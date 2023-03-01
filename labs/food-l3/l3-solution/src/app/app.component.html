@@ -6,10 +6,9 @@
   <mat-sidenav-container style="width: 100%">
     <mat-sidenav
       #sidenav
-      [opened]="ms.visible$ | async"
-      [mode]="ms.position$ | async"
-      class="sidebar"
-    >
+      [opened]="ms.sideNavVisible | async"
+      [mode]="ms.sideNavPosition | async"
+      class="sidebar">
       Sidenav content
     </mat-sidenav>
     <mat-sidenav-content class="workbench">

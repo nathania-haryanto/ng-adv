@@ -242,3 +242,35 @@ StoreDevtoolsModule.instrument({
 Run the app and check the [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd). You should see the initial state of the app.
 
 ![Redux DevTools](_images/redux-dev-tools.png)
+
+Open `navbar.component.ts` and inject the MenuFacade insted of the MenuService:
+
+```typescript
+constructor(private ms: MenuFacade) { }
+
+...
+
+toggleMenu() {
+    this.ms.toggleMenuVisibility();
+}
+```
+
+Open `app.component.ts` and inject the MenuFacade insted of the MenuService:
+
+```typescript
+constructor(private ms: MenuFacade) { }
+```
+
+Update the code in in app.component.html:
+
+```html
+<mat-sidenav
+    #sidenav
+    [opened]="ms.sideNavVisible | async"
+    [mode]="ms.sideNavPosition | async"
+    class="sidebar">
+    Sidenav content
+</mat-sidenav>
+```
+
+Congratulations! You have successfully migrated the responsive side menu to NgRx.
