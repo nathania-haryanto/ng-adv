@@ -27,7 +27,6 @@
 - Implementing Custom Controls using ControlValueAccessor
 - Typed Forms Validation & Custom Validators
 - Handling FormErrors & ErrorStateMatcher
-- Dynamic Form Generation
 
 ## Mastering Reactive Programming
 
@@ -84,7 +83,7 @@
 - Optimizing Application Flow for Authetication
 - Authentication using Microsoft Identity, Azure AD and @azure/msal-angular
 
-## Advanced Testing including Jest & Cypress
+## Advanced Testing & Cypress Introduction
 
 - Using Testbed & Spies
 - Testing Components & Components interaction
@@ -97,7 +96,6 @@
 - Testing NgRx: Mock Store, Mock Selectors, Reducers, ...
 - Using Jest for Unit Testing (Setup, Changes in spec, Snapshot Tests)
 - End-2-End Testing using Cypress
-- Introduction to Test driven development (TDD)
 
 ## Supporting Reusability with Libraries and Packages
 
