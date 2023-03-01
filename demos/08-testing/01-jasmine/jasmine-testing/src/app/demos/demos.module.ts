@@ -28,7 +28,6 @@ import { DemoListComponent } from './samples/demo-list/demo-list.component';
 import { DemoRowComponent } from './samples/demo-row/demo-row.component';
 import { CapitalizeDirective } from './samples/directive/capitalize.directive';
 import { DirectiveComponent } from './samples/directive/directive.component';
-import { FoodHttpComponent } from './samples/http-tests/food-http/food-http.component';
 import { HttpTestsComponent } from './samples/http-tests/http-tests.component';
 import { FoodListComponent } from './samples/integration-tests/food-list/food-list.component';
 import { FoodRowComponent } from './samples/integration-tests/food-row/food-row.component';
@@ -43,11 +42,20 @@ import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
 import { RatingPipe } from './samples/pipe/rating.pipe';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
-import { UnitTestingComponent } from './samples/simple-tests/unit-testing.component';
-import { MockAuthComponent } from './samples/use-mock/mock-auth/mock-auth.component';
-import { UseMockComponent } from './samples/use-mock/use-mock.component';
+import { UnitTestingComponent } from './samples/intro-unit-testing/unit-testing.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { ComponentClassComponent } from './samples/component-class/component-class.component';
+import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
+import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
+import { MockHostComponent } from './samples/mocking/mock-host/mock-host.component';
+import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
+import { DirectiveHostComponent } from './samples/directive/directive-host/directive-host.component';
+import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
+import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
+import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
+import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
+import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
 
 @NgModule({
   declarations: [
@@ -72,14 +80,12 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     MockStoreComponent,
     PhonenumberPipe,
     SimpleAuthAsyncComponent,
-    MockAuthComponent,
     ComponentTestComponent,
     UserMarblesComponent,
     SimpleAuthDoneComponent,
     SimpleAuthFakeAsyncComponent,
     SimpleAuthWhenStableComponent,
     HttpTestsComponent,
-    FoodHttpComponent,
     DirectiveComponent,
     CapitalizeDirective,
     ComponentEventsComponent,
@@ -87,6 +93,16 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     ComponentWriteComponent,
     MaterialComponent,
     MaterialAsyncComponent,
+    ComponentClassComponent,
+    UseSpyComponent,
+    MockHostComponent,
+    SpyHostComponent,
+    DirectiveHostComponent,
+    NgrxMockstoreComponent,
+    NgrxMockSelectorsComponent,
+    NgrxSelectorsComponent,
+    NgrxReducersComponent,
+    HttpTestsBsComponent
   ],
   imports: [
     CommonModule,

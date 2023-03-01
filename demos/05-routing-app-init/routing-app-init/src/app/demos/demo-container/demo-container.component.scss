@@ -22,6 +22,10 @@ mat-toolbar {
   background: var(--color-bg)
 }
 
+.mat-mdc-list-base .mat-mdc-list-item, .mat-list-base .mat-list-option {
+  height: 36px;
+}
+
 /* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version. */
 mat-list-item{
   border-bottom: 1px solid var(--color-bg);

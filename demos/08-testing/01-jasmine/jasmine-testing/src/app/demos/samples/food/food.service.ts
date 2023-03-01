@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as _ from 'lodash';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { from, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FoodItem } from './food.model';
 
@@ -9,39 +8,23 @@ import { FoodItem } from './food.model';
   providedIn: 'root',
 })
 export class FoodService {
-  constructor(private httpClient: HttpClient) {
-    this.initData();
+  constructor(private httpClient: HttpClient) { }
+
+  getFood() {
+    return this.httpClient.get<FoodItem[]>(`${environment.apiUrl}food`)
   }
 
-  private items: FoodItem[] = [];
-  private Items: BehaviorSubject<FoodItem[]> = new BehaviorSubject(this.items);
-
-  initData() {
-    this.httpClient
-      .get<FoodItem[]>(`${environment.apiUrl}food`)
-      .subscribe((data) => {
-        this.setState(data);
-      });
+  getAvailableFood() {
+    return from(this.getFood()).pipe(
+      map((items) => items.filter((item) => item.discontinued !== true)
+      ))
   }
 
-  private setState(data: any) {
-    this.items = data;
-    this.Items.next(this.items);
+  deleteFood(item: FoodItem) {
+    return this.httpClient.delete(`${environment.apiUrl}food/${item.id}`)
   }
 
-  getItems(): Observable<FoodItem[]> {
-    return this.Items.asObservable();
-  }
-
-  deleteItem(item: FoodItem): Observable<boolean> {
-    this.items = this.items.filter((f) => _.isEqual(f, item) == false);
-    this.Items.next(this.items);
-    return of(true);
-  }
-
-  addItem(item: FoodItem): Observable<boolean> {
-    this.items.push(item);
-    this.Items.next(this.items);
-    return of(true);
+  addFood(item: FoodItem) {
+    return this.httpClient.put<FoodItem>(`${environment.apiUrl}food`, item)
   }
 }

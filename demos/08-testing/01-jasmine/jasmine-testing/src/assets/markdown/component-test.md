@@ -1,4 +1,4 @@
-Navigate to folder `\demos\component-test\simple-food`: Investigate `simple-food.component.ts` & and `simple-food.component.spec.ts`
+Navigate to folder `\component-test\simple-food` and examine `simple-food.component.ts` & and `simple-food.component.spec.ts`
 
 Navigate to folder `\demos\foodService\`: `food.service.ts`
 

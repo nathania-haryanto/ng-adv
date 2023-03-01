@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodItem } from '../../food/food.model';
-import { FoodService } from '../../food/food.service';
+import { FoodServiceBS } from '../../food/food.service-bs';
 
 @Component({
   selector: 'app-food-list',
@@ -10,7 +10,7 @@ import { FoodService } from '../../food/food.service';
 export class FoodListComponent implements OnInit {
   food: FoodItem[] = [];
 
-  constructor(private fs: FoodService) { }
+  constructor(private fs: FoodServiceBS) { }
 
   ngOnInit() {
     this.fs.getItems().subscribe((data) => {

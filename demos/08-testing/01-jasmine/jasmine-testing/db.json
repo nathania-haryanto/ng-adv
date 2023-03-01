@@ -9,9 +9,9 @@
       "sortOrder": 0
     },
     {
-      "url": "simpleservice",
-      "title": "Simple Service",
-      "id": 3,
+      "url": "testpipe",
+      "title": "Test Pipe",
+      "id": 2,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -25,24 +25,56 @@
       "sortOrder": 0
     },
     {
-      "url": "testpipe",
-      "title": "Test Pipe",
-      "id": 2,
+      "url": "simpleservice",
+      "title": "Simple Service",
+      "id": 3,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "httptests",
+      "title": "Service Http",
+      "id": 8,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "httptests-bs",
+      "title": "Service BS Http",
+      "id": 83,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "component-class",
+      "title": "Test Comp Class",
+      "id": 77,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
       "url": "mock",
-      "title": "Use Mock",
+      "title": "Comp Inject Mock",
       "id": 4,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
+      "url": "spy",
+      "title": "Comp Inject Spy",
+      "id": 44,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "component-test",
-      "title": "Component Test",
+      "title": "Comp Spy returnValue",
       "id": 5,
       "topicid": 1,
       "visible": true,
@@ -66,24 +98,15 @@
     },
     {
       "url": "integrationtests",
-      "title": "Integration Tests",
+      "title": "Component Integration",
       "id": 6,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-
-    {
-      "url": "httptests",
-      "title": "Http Tests",
-      "id": 8,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
       "url": "async",
-      "title": "Async Tests",
+      "title": "Component Async",
       "id": 9,
       "topicid": 1,
       "visible": true,
@@ -91,7 +114,7 @@
     },
     {
       "url": "material-async",
-      "title": "Material Async",
+      "title": "Component Material",
       "id": 12,
       "topicid": 1,
       "visible": true,
@@ -99,7 +122,7 @@
     },
     {
       "url": "material",
-      "title": "Material Harness",
+      "title": "Component Harness",
       "id": 19,
       "topicid": 1,
       "visible": true,
@@ -107,7 +130,7 @@
     },
     {
       "url": "marbles",
-      "title": "Marbles",
+      "title": "Component Marbles",
       "id": 10,
       "topicid": 1,
       "visible": true,
@@ -117,6 +140,38 @@
       "url": "ngrx",
       "title": "NgRx Tests",
       "id": 11,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "ngrx-mock-store",
+      "title": "NgRx Mock Store",
+      "id": 51,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "ngrx-mock-selectors",
+      "title": "NgRx Mock Selectors",
+      "id": 52,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "ngrx-selectors",
+      "title": "NgRx Selectors",
+      "id": 53,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "ngrx-reducers",
+      "title": "NgRx Reducers",
+      "id": 54,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -157,12 +212,12 @@
     {
       "id": "456",
       "name": "NgRx",
-      "completed": false
+      "completed": true
     },
     {
       "id": "223",
       "name": "Angular",
-      "completed": true
+      "completed": false
     },
     {
       "id": "436",
