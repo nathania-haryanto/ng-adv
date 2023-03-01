@@ -75,7 +75,6 @@
 - Auxilary Routes: Common use cases
 - Preloading Component Data from NgRx using Resolvers
 - Introduction to Visual Feedback (Loading-, Saving-, ...-Indicator)
-- Implementing Page Transitions using Animations
 
 ## Securing Angular using NgRx and using Cloud Identities
 
