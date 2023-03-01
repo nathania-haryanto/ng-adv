@@ -2,7 +2,9 @@
 
 ## Theming
 
-- Implement a Custom Material Theme with a Custom Color Scheme. Create a Theme Mixin for Toolbar, Card and Table
+- Implement a Custom Material Theme with a Custom Color Scheme of your choice
+
+- Create a Theme Mixin for Toolbar, Card and Table
 
 ![buttons](_images/food-design.png)
 
@@ -45,6 +47,3 @@
   </mat-card-actions>
 </mat-card>
 ```
-
-
-

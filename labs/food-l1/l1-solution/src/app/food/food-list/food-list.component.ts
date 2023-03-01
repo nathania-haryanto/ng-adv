@@ -8,7 +8,7 @@ import {
   OnChanges,
 } from '@angular/core';
 import { FoodItem } from 'src/app/food/foodItem';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-food-list',
