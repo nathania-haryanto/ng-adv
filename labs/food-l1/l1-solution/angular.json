@@ -120,6 +120,9 @@
   },
   "defaultProject": "FirstAngular",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
   }
 }
