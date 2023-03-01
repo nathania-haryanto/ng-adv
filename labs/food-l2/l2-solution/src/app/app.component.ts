@@ -7,7 +7,7 @@ import { MenuService } from './menu/menu.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'FirstAngular';
+  title = 'Food App';
 
-  constructor(public ms: MenuService) {}
+  constructor(public ms: MenuService) { }
 }

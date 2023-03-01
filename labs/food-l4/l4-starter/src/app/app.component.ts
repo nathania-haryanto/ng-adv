@@ -7,7 +7,7 @@ import { MenuFacade } from './state/menu.facade';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'FirstAngular';
+  title = 'Food App';
 
   constructor(public ms: MenuFacade) { }
 }
