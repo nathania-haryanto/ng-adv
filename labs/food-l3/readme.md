@@ -274,3 +274,8 @@ Update the code in in app.component.html:
 ```
 
 Congratulations! You have successfully migrated the responsive side menu to NgRx.
+
+## Guide: Migrate to NgRx the food.module.ts to use @ngrx/data
+
+>Note: This guide assumes that you have already completed the previous guide or at least have done a basic setup of NgRx.
+
