@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import { AuthFacade } from '../../store/facades/auth.facade';
+import { AuthFacade } from '../../state/auth.facade';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ import { AuthFacade } from '../../store/facades/auth.facade';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private af: AuthFacade) {}
+  constructor(private af: AuthFacade) { }
 
   registerForm: FormGroup;
 

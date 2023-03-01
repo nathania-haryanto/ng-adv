@@ -8,12 +8,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { authFeatureKey, AuthReducer } from './store/reducers/auth.reducer';
-import { AuthEffects } from './store/effects/auth.effects';
+
 import { MaterialModule } from '../material.module';
 import { LogoutComponent } from './components/logout/logout.component';
 import { LoginSplashComponent } from './components/login-splash/login-splash.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { authFeatureKey, reducer } from './state/auth.reducer';
+import { AuthEffects } from './state/auth.effects';
 
 const comps = [
   LoginComponent,
@@ -33,8 +34,8 @@ const comps = [
     AuthModule,
     FlexLayoutModule,
     MaterialModule,
-    StoreModule.forFeature(authFeatureKey, AuthReducer),
+    StoreModule.forFeature(authFeatureKey, reducer),
     EffectsModule.forFeature([AuthEffects]),
   ],
 })
-export class FBAuthModule {}
+export class FBAuthModule { }

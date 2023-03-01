@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { exhaustMap, pluck } from 'rxjs/operators';
-import { LoginCredentials } from '../credential.model';
 import { FBAuthService } from '../fbauth.service';
+import { LoginCredentials } from '../login-credential.model';
 import {
   logIn,
   logInFailure,

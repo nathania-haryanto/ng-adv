@@ -16,6 +16,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './state';
 import { environment } from 'src/environments/environment';
+import { FBAuthModule } from './auth/fbauth.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import { environment } from 'src/environments/environment';
     MaterialModule,
     FlexLayoutModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production,
     }),
+    FBAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
