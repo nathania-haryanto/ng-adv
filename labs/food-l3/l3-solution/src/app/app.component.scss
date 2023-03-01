@@ -6,7 +6,7 @@
 }
 
 .sidebar {
-  background-color: mat.get-color-from-palette($app-primary, 200);
+  background-color: var(--color-primary);
   width: 240px;
   padding: 1rem;
 }

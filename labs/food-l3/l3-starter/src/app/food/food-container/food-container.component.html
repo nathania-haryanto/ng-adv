@@ -5,7 +5,7 @@
 ></app-food-list>
 
 <app-food-edit
-  *ngIf="selected != null"
+  *ngIf="selected"
   [food]="selected"
   (saveFood)="foodSaved($event)"
 ></app-food-edit>

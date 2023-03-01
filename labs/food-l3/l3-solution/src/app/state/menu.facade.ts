@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Store } from '@ngrx/store';
-import {
-  ChangeSideNavPosition,
-  ChangeSideNavVisible,
-  ToggleSideNavVisible,
-  SetSideNavEnabled,
-} from '../actions/app.actions';
-import { AppState } from '../reducers/app.reducer';
-import {
-  getSideNavPosition,
-  getSideNavVisible,
-  getSideNavEnabled,
-} from '../selectors/app.selector';
+
 import { combineLatest } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import {
+  changeSideNavPosition,
+  changeSideNavVisible,
+  setSideNavEnabled,
+  toggleSideNav
+} from './app.actions';
+import { AppState } from './app.reducer';
+import {
+  getSideNavEnabled, getSideNavPosition, getSideNavVisible
+} from './app.selector';
 
 @Injectable({
   providedIn: 'root',
@@ -52,13 +51,13 @@ export class MenuFacade {
         ? 'side'
         : 'over';
 
-      this.store.dispatch(new ChangeSideNavPosition(position));
-      this.store.dispatch(new ChangeSideNavVisible(visible));
+      this.store.dispatch(changeSideNavPosition({ position }));
+      this.store.dispatch(changeSideNavVisible({ visible }));
     });
   }
 
-  setSideNavEnabled(val: boolean) {
-    this.store.dispatch(new SetSideNavEnabled(val));
+  setSideNavEnabled(enabled: boolean) {
+    this.store.dispatch(setSideNavEnabled({ enabled }));
   }
 
   adjustSidenavToScreen(mq: string): boolean {
@@ -75,6 +74,6 @@ export class MenuFacade {
   }
 
   toggleMenuVisibility() {
-    this.store.dispatch(new ToggleSideNavVisible());
+    this.store.dispatch(toggleSideNav());
   }
 }

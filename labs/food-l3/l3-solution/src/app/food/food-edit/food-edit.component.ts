@@ -5,9 +5,8 @@ import {
   Output,
   EventEmitter,
   SimpleChanges,
-  OnChanges,
 } from '@angular/core';
-import { FoodItem } from 'src/app/food/food.model';
+import { FoodItem } from 'src/app/food/food-item.model';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,7 +14,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
   templateUrl: './food-edit.component.html',
   styleUrls: ['./food-edit.component.scss'],
 })
-export class FoodEditComponent implements OnInit, OnChanges {
+export class FoodEditComponent implements OnInit {
   constructor(private fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       id: 0,
@@ -30,7 +29,7 @@ export class FoodEditComponent implements OnInit, OnChanges {
 
   form: UntypedFormGroup;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.food != undefined) {

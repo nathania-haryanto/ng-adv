@@ -2,118 +2,35 @@
 
 ## Tasks
 
-- Refactor the "food"-folder to be a lazy loaded feature module
-- Use the guide to get started to migrate to NgRx
-- Refactor MenuService to use ngrx
-- Implement as much of the "food" functionality (CRUD) using NgRx
+- Refactor the "food"-folder to be a lazy loaded feature module 
+- Refactor MenuService to use NgRx. You can take the demo app as a reference or use the guide below
 
-## Guide
+## Guide: Getting Started with NgRx
 
-Installation:
+NgRx installation:
 
 ```
-npm i @ngrx/store @ngrx/effects @ngrx/entity -S
+npm i @ngrx/store @ngrx/effects @ngrx/entity @ngrx/data -S
 npm i @ngrx/store-devtools -D
-ng add @ngrx/schematics
 ```
 
-### Scaffolding (Module Sample: ngState)
+## Guide: Migrate MenuServie to NgRx
 
-#### Root
+### 1. Create the store
 
-Add Food Data to json-server
-
-```
- "food": [
-    { "id": 1, "name": "Butter Chicken", "price": 9, "calories": 1200 },
-    { "id": 2, "name": "Curry Wurst", "price": 2.7, "calories": 730 },
-    { "id": 3, "name": "Blini with Salmon", "price": 8.3, "calories": 600 }
-  ]
-```
-
-Create Root State & Root actions:
-
-```
- ng g store State --root true --statePath store
-```
-
-Add Store to app.module.ts
+Create a new folder called state inside the root folder and add the following code to index.ts:
 
 ```typescript
-import { reducers, metaReducers } from './store';
-import { EffectsModule } from '@ngrx/effects';
-import { environment } from 'src/environments/environment';
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
-...
-
-FoodModule,
-StoreModule.forRoot(reducers, {
-  metaReducers,
-  runtimeChecks: {
-    strictStateImmutability: true,
-    strictActionImmutability: true
-  }
-}),
-  EffectsModule.forRoot([]),
-  !environment.production ? StoreDevtoolsModule.instrument() : [];
-```
-
-> Note: Adjust as needed
-
-#### Feature Module
-
-Create Feature State - a: Action, r: Reducer, ef: Effekt
-
-> Note: General Syntax: ng g TYPE PATH/NAME --group
-
-> Path can be PATH/SUBPATH
-
-```
-ng g r food/store/food --group
-ng g a food/store/food --group
-ng g ef food/store/food --group
-```
-
-> Note: Rename classes to FoodReducer, FoodState, .... Later you can use abstract names like reducer and use Import Aliases
-
-```typescript
-import { Action } from '@ngrx/store';
-
-export const foodFeatureKey = 'food';
-
-export interface FoodState {}
-
-export const initialState: FoodState = {};
-
-export function FoodReducer(state = initialState, action: Action): FoodState {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-```
-
-Register Store & Effects in Feature Module:
-
-```
-StoreModule.forFeature(foodFeatureKey, FoodReducer),
-EffectsModule.forFeature([FoodEffects])]
-```
-
-### Use NgRx in Feature Module
-
-Add FoodState to RootState:
-
-```typescript
-import { FoodState, FoodReducer } from '../food/store/reducers/food.reducer';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { environment } from '../../environments/environment';
+import { appReducer, AppState } from './app.reducer';
 
 export interface State {
-  food: FoodState;
+  app: AppState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  food: FoodReducer,
+  app: appReducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production
@@ -121,142 +38,238 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
   : [];
 ```
 
-Add Food Actions:
+>Note: You might have an import error as the appReducer is not yet created. We will create it in the next steps.
 
-```typescript
-import { FoodItem } from '../../food.model';
+Create the actions in `app.actions.ts`:
 
-export enum FoodActionTypes {
-  LoadFoods = '[Food] Load Foods',
-  LoadFoods_Success = '[Food] LoadFoods_Success',
-  LoadFoods_Error = '[Food] LoadFoods_Error',
-}
+```typescript   
+import { createAction, props } from '@ngrx/store';
 
-export class LoadFoods implements Action {
-  readonly type = FoodActionTypes.LoadFoods;
-}
+export const setSideNavEnabled = createAction(
+  '[Menu] changeSideNavEnabled',
+  props<{ enabled: boolean }>()
+);
 
-export class LoadFood_Success implements Action {
-  readonly type = FoodActionTypes.LoadFoods_Success;
-  constructor(public payload: FoodItem[]) {}
-}
+export const toggleSideNav = createAction('[Menu] toggleSideNavVisible');
 
-export class LoadFood_Error implements Action {
-  readonly type = FoodActionTypes.LoadFoods_Error;
-  constructor(public payload: Error) {}
-}
+export const changeSideNavVisible = createAction(
+  '[Menu] changeSideNavVisible',
+  props<{ visible: boolean }>()
+);
 
-export type FoodActions = LoadFoods | LoadFood_Success | LoadFood_Error;
+export const changeSideNavPosition = createAction(
+  '[Menu] changeSideNavPosition',
+  props<{ position: string }>()
+);
 ```
 
-Modify Food Effects:
+Create the reducer in `app.reducer.ts`:
+
+```typescript
+import { createReducer, on } from '@ngrx/store';
+import {
+  changeSideNavPosition,
+  changeSideNavVisible,
+  setSideNavEnabled,
+  toggleSideNav,
+} from './app.actions';
+
+export const appFeatureKey = 'app';
+
+export interface AppState {
+  sideNavEnabled: boolean;
+  sideNavVisible: boolean;
+  sideNavPosition: string;
+}
+
+export const initialAppState: AppState = {
+  sideNavEnabled: true,
+  sideNavVisible: true,
+  sideNavPosition: 'side',
+};
+
+export const appReducer = createReducer(
+  initialAppState,
+  on(toggleSideNav, (state) => ({
+    ...state,
+    sideNavVisible: !state.sideNavVisible,
+  })),
+  on(setSideNavEnabled, (state, action) => ({
+    ...state,
+    sideNavEnabled: action.enabled,
+    sideNavVisible: action.enabled,
+  })),
+  on(changeSideNavVisible, (state) => ({
+    ...state,
+    sideNavVisible: !state.sideNavVisible,
+  })),
+  on(changeSideNavPosition, (state, action) => ({
+    ...state,
+    sideNavPosition: action.position,
+  }))
+);
+```
+
+Create the selectors in `app.selectors.ts`:
+
+```typescript
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { appFeatureKey, AppState } from './app.reducer';
+
+export const getAppState = createFeatureSelector<AppState>(appFeatureKey);
+
+export const getSideNavVisible = createSelector(
+  getAppState,
+  (state: AppState) => state.sideNavVisible
+);
+
+export const getSideNavEnabled = createSelector(
+  getAppState,
+  (state: AppState) => state.sideNavEnabled
+);
+
+export const getSideNavPosition = createSelector(
+  getAppState,
+  (state: AppState) => state.sideNavPosition
+);
+```
+
+Create a menu.facades.ts file and add the following code:
 
 ```typescript
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable, of } from 'rxjs';
-import { Action } from '@ngrx/store';
-import { mergeMap, map, catchError } from 'rxjs/operators';
-import * as foodActions from '../actions/food.actions';
-import { FoodItem } from '../../food.model';
-import { FoodService } from '../../food.service';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { Store } from '@ngrx/store';
 
-@Injectable()
-export class FoodEffects {
-  constructor(private actions$: Actions, private fs: FoodService) {}
+import { combineLatest } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import {
+  changeSideNavPosition,
+  changeSideNavVisible,
+  setSideNavEnabled,
+  toggleSideNav
+} from './app.actions';
+import { AppState } from './app.reducer';
+import {
+  getSideNavEnabled, getSideNavPosition, getSideNavVisible
+} from './app.selector';
 
-  @Effect()
-  loadFood$: Observable<Action> = this.actions$.pipe(
-    ofType(foodActions.FoodActionTypes.LoadFoods),
-    mergeMap((action) =>
-      this.fs.getFood().pipe(
-        map((food: FoodItem[]) => new foodActions.LoadFood_Success(food)),
-        catchError((err) => of(new foodActions.LoadFood_Error(err)))
-      )
-    )
-  );
-}
-```
+@Injectable({
+  providedIn: 'root',
+})
+export class MenuFacade {
+  constructor(
+    private mediaObserver: MediaObserver,
+    private store: Store<AppState>
+  ) {
+    this.init();
+  }
 
-Modify FoodReducer:
+  get sideNavEnabled() {
+    return this.store.select(getSideNavEnabled);
+  }
 
-```typescript
-export interface FoodState extends EntityState<FoodItem> {}
+  get sideNavVisible() {
+    return this.store.select(getSideNavVisible);
+  }
 
-export const foodAdapter: EntityAdapter<FoodItem> = createEntityAdapter<
-  FoodItem
->();
+  get sideNavPosition() {
+    return this.store.select(getSideNavPosition);
+  }
 
-export const defaultFoodState: FoodState = {
-  ids: [],
-  entities: {},
-};
+  private init() {
+    combineLatest([
+      this.mediaObserver.asObservable().pipe(
+        filter((changes: MediaChange[]) => changes.length > 0),
+        map((changes: MediaChange[]) => changes[0])
+      ),
+      this.sideNavEnabled,
+    ]).subscribe(([change, enabled]) => {
+      const visible = this.adjustSidenavToScreen(change.mqAlias);
+      const position = this.adjustSidenavToScreen(change.mqAlias)
+        ? 'side'
+        : 'over';
 
-export const initialState = foodAdapter.getInitialState(defaultFoodState);
+      this.store.dispatch(changeSideNavPosition({ position }));
+      this.store.dispatch(changeSideNavVisible({ visible }));
+    });
+  }
 
-export function FoodReducer(
-  state = initialState,
-  action: FoodActions
-): FoodState {
-  switch (action.type) {
-    case FoodActionTypes.LoadFoods: {
-      return state;
+  setSideNavEnabled(enabled: boolean) {
+    this.store.dispatch(setSideNavEnabled({ enabled }));
+  }
+
+  adjustSidenavToScreen(mq: string): boolean {
+    switch (mq) {
+      case 'xs':
+        return false;
+      case 'sm':
+        return false;
+      case 'md':
+        return false;
+      default:
+        return true;
     }
-    case FoodActionTypes.LoadFoods_Success: {
-      return foodAdapter.addAll(action.payload, {
-        ...state,
-      });
-    }
-    case FoodActionTypes.LoadFoods_Error: {
-      return { ...state };
-    }
-    default:
-      return state;
+  }
+
+  toggleMenuVisibility() {
+    this.store.dispatch(toggleSideNav());
   }
 }
 ```
 
-Create Selectios in `..food/store/selectors/food.selectors.ts`:
+>Note: As `@angular/flex-layout` is in a deprecation state in future implementations you could use `@angular/cdk/layout` to detect the screen size.
+
+Add the following modules and imports to `app.module.ts`:
 
 ```typescript
-import {
-  foodFeatureKey,
-  foodAdapter,
-  FoodState,
-} from '../reducers/food.reducer';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './state';
+import { environment } from 'src/environments/environment';
 
-export const getFoodState = createFeatureSelector<FoodState>(foodFeatureKey);
+...
 
-export const getFoodEntities = createSelector(
-  getFoodState,
-  foodAdapter.getSelectors().selectAll
-);
-
-export const getAllFood = createSelector(getFoodEntities, (entities) => {
-  return Object.keys(entities).map((id) => entities[parseInt(id, 10)]);
-});
+StoreModule.forRoot(reducers),
+EffectsModule.forRoot([]),
+EntityDataModule.forRoot({}),
+StoreDevtoolsModule.instrument({
+    logOnly: environment.production,
+}),
 ```
 
-### Consuming State
+Run the app and check the [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd). You should see the initial state of the app.
 
-Modifiy `food-container.component.ts`:
+![Redux DevTools](_images/redux-dev-tools.png)
+
+Open `navbar.component.ts` and inject the MenuFacade insted of the MenuService:
 
 ```typescript
-import { LoadFoods } from '../store/actions/food.actions';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { getAllFood } from '../store/selectors/food.selectors';
+constructor(private ms: MenuFacade) { }
 
-@Component({
-  selector: 'app-food-container',
-  templateUrl: './food-container.component.html',
-  styleUrls: ['./food-container.component.scss']
-})
-export class FoodContainerComponent implements OnInit {
-  constructor(private store: Store<FoodState>) {}
+...
 
-  food$: Observable<Array<FoodItem>> = this.store
-    .select(getAllFood)
-    .pipe(tap(data => console.log('data received from store', data)));
+toggleMenu() {
+    this.ms.toggleMenuVisibility();
+}
 ```
+
+Open `app.component.ts` and inject the MenuFacade insted of the MenuService:
+
+```typescript
+constructor(private ms: MenuFacade) { }
+```
+
+Update the code in in app.component.html:
+
+```html
+<mat-sidenav
+    #sidenav
+    [opened]="ms.sideNavVisible | async"
+    [mode]="ms.sideNavPosition | async"
+    class="sidebar">
+    Sidenav content
+</mat-sidenav>
+```
+
+Congratulations! You have successfully migrated the responsive side menu to NgRx.

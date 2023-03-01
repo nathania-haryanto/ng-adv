@@ -1,14 +1,14 @@
 <mat-card appearance="outlined">
-  <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-card-content fxLayout="row" fxLayoutGap="10px">
     <mat-form-field>
       <input
         matInput
-        (keyup)="applyFilter($event.target.value)"
+        [formControl]="filter"
         placeholder="Filter"
       />
     </mat-form-field>
 
-    <button mat-raised-button (click)="addFood()">
+    <button mat-raised-button (click)="addFood()" color="primary">
       <mat-icon>add_circle</mat-icon>
     </button>
   </mat-card-content>

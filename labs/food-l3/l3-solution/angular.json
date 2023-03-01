@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "food-app": {
+    "FirstAngular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/food-app",
+            "outputPath": "dist/FirstAngular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "food-app:build"
+            "browserTarget": "FirstAngular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "food-app:build:production"
+              "browserTarget": "FirstAngular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "food-app:build"
+            "browserTarget": "FirstAngular:build"
           }
         },
         "test": {
@@ -107,11 +107,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "food-app:serve"
+            "devServerTarget": "FirstAngular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "food-app:serve:production"
+              "devServerTarget": "FirstAngular:serve:production"
             }
           }
         }
@@ -120,8 +120,8 @@
   },
   "cli": {
     "analytics": false,
-    "schematicCollections": [
-      "@ngrx/schematics"
-    ]
+    "cache": {
+      "enabled": false
+    }
   }
 }

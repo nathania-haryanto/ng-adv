@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuFacade } from './store/facades/menu.facade';
+import { MenuFacade } from './state/menu.facade';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,6 @@ import { MenuFacade } from './store/facades/menu.facade';
 })
 export class AppComponent {
   title = 'FirstAngular';
-  menuVisible$ = this.mf.sideNavVisible;
-  menuPosition$ = this.mf.sideNavPosition;
 
-  constructor(public mf: MenuFacade) {}
+  constructor(public ms: MenuFacade) { }
 }

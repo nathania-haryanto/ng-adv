@@ -8,5 +8,6 @@ import { MenuService } from './menu/menu.service';
 })
 export class AppComponent {
   title = 'FirstAngular';
+
   constructor(public ms: MenuService) {}
 }

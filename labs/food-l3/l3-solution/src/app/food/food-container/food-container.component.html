@@ -1,11 +1,11 @@
 <app-food-list
-  [food]="food$ | async"
+  [food]="food"
   (editSelected)="selectFood($event)"
   (deleteSelected)="deleteFood($event)"
 ></app-food-list>
 
 <app-food-edit
-  *ngIf="selected$ | async as selected"
+  *ngIf="selected"
   [food]="selected"
   (saveFood)="foodSaved($event)"
 ></app-food-edit>
