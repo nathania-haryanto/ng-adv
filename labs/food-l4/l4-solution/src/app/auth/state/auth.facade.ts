@@ -27,7 +27,7 @@ export class AuthFacade {
       combineLatestWith(this.store.select(getAuthEnabled)),
       map(([loggedIn, authEnabled]) => {
         console.log('loggedIn', loggedIn);
-        return authEnabled == false || loggedIn;
+        return authEnabled == false || loggedIn?.length > 0;
       })
     );
   }

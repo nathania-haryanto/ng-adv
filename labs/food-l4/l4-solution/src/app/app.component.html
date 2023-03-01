@@ -1,5 +1,4 @@
-<div *ngIf="(loggedIn$ | async) == true">
-  abc
+<div *ngIf="(isAuthenticated | async) == true">
   <div>
     <app-navbar></app-navbar>
   </div>
@@ -21,11 +20,11 @@
 </div>
 
 <div
-  *ngIf="(loggedIn$ | async) == false"
+  *ngIf="(isAuthenticated | async) == false"
   fxLayout="column"
   fxLayoutAlign="center center"
   class="loginsplash"
->sdf
+>
   <app-login-splash>
     <div class="login">
       <app-login></app-login>

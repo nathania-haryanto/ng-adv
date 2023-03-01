@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { of, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthFacade } from './auth/state/auth.facade';
 import { MenuFacade } from './state/menu.facade';
@@ -12,11 +12,13 @@ import { MenuFacade } from './state/menu.facade';
 export class AppComponent {
   menuVisible$ = this.mf.sideNavVisible;
   menuPosition$ = this.mf.sideNavPosition;
-  loggedIn$ = !environment.authEnabled
-    ? of(true)
-    : this.af
-      .isAuthenticated()
-      .pipe(tap((loggedin) => console.log('logged in', loggedin)));
+  isAuthenticated: Observable<boolean> = of(false);
 
-  constructor(public mf: MenuFacade, public af: AuthFacade) { }
+  constructor(public mf: MenuFacade, public auth: AuthFacade) { }
+
+  ngOnInit() {
+    this.isAuthenticated = this.auth
+      .isAuthenticated()
+      .pipe(tap((auth) => console.log('auth changed to autheticated: ', auth)));
+  }
 }

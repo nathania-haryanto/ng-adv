@@ -7,6 +7,14 @@ mat-card-title {
   width: 400px;
 }
 
+.mat-mdc-card-header{height: 4rem;}
+
+.switch{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 mat-card-subtitle {
   text-align: center;
 }
