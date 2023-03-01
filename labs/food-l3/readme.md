@@ -4,7 +4,6 @@
 
 - Refactor the "food"-folder to be a lazy loaded feature module 
 - Refactor MenuService to use NgRx. You can take the demo app as a reference or use the guide below
-- Migrate to NgRx the food module to use @ngrx/data. You can take https://github.com/arambazamba/ng-adv/tree/main/demos/04-state/tutorials/ngrx-data as a reference or use the guide below
 
 ## Guide: Getting Started with NgRx
 
@@ -274,8 +273,3 @@ Update the code in in app.component.html:
 ```
 
 Congratulations! You have successfully migrated the responsive side menu to NgRx.
-
-## Guide: Migrate to NgRx the food.module.ts to use @ngrx/data
-
->Note: This guide assumes that you have already completed the previous guide or at least have done a basic setup of NgRx.
-
