@@ -1,79 +1,45 @@
-@import '~@angular/material/theming';
-@import 'stylevars.scss';
+//Provides theme functionality
+@use '@angular/material' as mat;
+@include mat.core();
+@import '@angular/material/theming';
 
-@include mat-core();
+//Pick colors here: https://material.io/resources/color/
+$primary: mat.define-palette(mat.$brown-palette, 400);
+$accent: mat.define-palette(mat.$grey-palette, 400);
+$warn: mat.define-palette(mat.$red-palette);
+$fg: mat.define-palette(mat.$grey-palette, 100);
+$bg: mat.define-palette(mat.$blue-grey-palette, 100);
 
-$app-primary: mat-palette($mat-brown, 400);
-$app-accent: mat-palette($mat-grey, 400);
-$app-warn: mat-palette($mat-red);
-$app-fg: mat-palette($mat-grey, 200);
-$app-bg: mat-palette($mat-brown, 100);
+//Build theme
+$theme: mat.define-light-theme((
+ color: (
+   primary: $primary,
+   accent: $accent,
+   warn: $warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
 
-$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+//Include theme
+@include angular-material-theme($theme);
 
-@include angular-material-theme($app-theme);
+//Export global vars from design system for easy use
+:root {
+  --color-primary: #{mat-color($primary)};
+  --color-accent: #{mat-color($accent)};
+  --color-warn: #{mat-color($warn)};
+  --color-fg: #{mat-color($fg)};
+  --color-bg: #{mat-color($bg)};
 
-@mixin toolbar-theme($theme) {
-  $accent: map-get($theme, accent);
-
-  .mat-toolbar {
-    background-color: mat-color($accent, 400);
-  }
+  --gap-small: 0.5rem;
+  --gap-medium: 0.8rem;
+  --gap-big: 1.1rem;
+  --toolbar-xl: 85px;
+  --toolbar-big: 70px;
+  --toolbar-medium: 40px;
+  --toolbar-small: 35px;
+  --font-small: 0.9rem;
+  --font-medium: 1.2rem;
+  --font-big: 1.4rem;
 }
-
-@include toolbar-theme($app-theme);
-
-@mixin mat-card-theme($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-
-  .mat-card {
-    background-color: mat-color($accent, 400);
-    margin-bottom: $big-gap;
-    padding: 0 !important;
-  }
-
-  .mat-card-header {
-    background-color: mat-color($primary, 400);
-    color: white;
-    min-height: $medium-toolbar;
-    padding-top: $small-gap;
-  }
-
-  .mat-card-content {
-    padding: $medium-gap;
-    margin-bottom: 0 !important;
-  }
-
-  .mat-card-actions {
-    padding: $medium-gap;
-    margin-left: $medium-gap !important;
-    margin-right: $medium-gap !important;
-    padding-bottom: $medium-gap !important;
-
-    button {
-      background-color: mat-color($app-bg, 700);
-      color: mat-color($app-fg);
-    }
-  }
-}
-
-@include mat-card-theme($app-theme);
-
-@mixin mat-table-theme($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-
-  .mat-table {
-    background: mat-color($accent);
-  }
-
-  .mat-header-cell {
-    background-color: mat-color($primary);
-    color: white;
-    font-size: 1rem;
-    padding-top: 1rem !important;
-  }
-}
-
-@include mat-table-theme($app-theme);

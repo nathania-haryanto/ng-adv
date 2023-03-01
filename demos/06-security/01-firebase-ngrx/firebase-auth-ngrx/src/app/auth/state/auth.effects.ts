@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
 import { exhaustMap, pluck } from 'rxjs/operators';
 import { LoginCredentials } from '../credential.model';
 import { FBAuthService } from '../fbauth.service';
@@ -21,8 +19,7 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     private as: FBAuthService,
-    private router: Router
-  ) {}
+  ) { }
 
   loginUser$ = createEffect(() =>
     this.actions$.pipe(
@@ -57,34 +54,4 @@ export class AuthEffects {
       exhaustMap(() => this.as.logOut().then(() => logOutComplete()))
     )
   );
-
-  // Redirect to login page
-
-  // loginRedirect$ = createEffect(
-  //   () =>
-  //     this.actions$.pipe(
-  //       ofType(this.loginRedirect$),
-  //       pluck('payload'),
-  //       exhaustMap(() => {
-  //         this.router.navigate(['demos', 'login']);
-  //         return EMPTY;
-  //       })
-  //     ),
-  //   { dispatch: false }
-  // );
-
-  // Redirects after RegisterSuccess and RegisterErr
-
-  // registerUserResult$ = createEffect(
-  //   () =>
-  //     this.actions$.pipe(
-  //       ofType(registerSuccess, registerFailure),
-  //       pluck('payload'),
-  //       exhaustMap(() => {
-  //         this.router.navigate(['demos']);
-  //         return EMPTY;
-  //       })
-  //     ),
-  //   { dispatch: false }
-  // );
 }

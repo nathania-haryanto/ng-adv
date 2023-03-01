@@ -1,9 +1,6 @@
-@import 'reset.scss';
-@import 'theme.scss';
-
-mat-form-field {
-  width: 100%;
-}
+@import "reset.scss";
+@import "theme.scss";
+@import "mat-overrides";
 
 html,
 body {
@@ -11,5 +8,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

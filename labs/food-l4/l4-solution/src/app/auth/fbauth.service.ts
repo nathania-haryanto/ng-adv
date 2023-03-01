@@ -1,41 +1,73 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Store } from '@ngrx/store';
-import { SetToken } from './store/actions/auth.actions';
-import { AuthState } from './store/reducers/auth.reducer';
+import { AuthFacade } from './state/auth.facade';
+
 @Injectable({
   providedIn: 'root',
 })
 export class FBAuthService {
+  private persistence = 'none';
+
   constructor(
     private fireAuth: AngularFireAuth,
-    private store: Store<AuthState>
+    private authFacade: AuthFacade
   ) {
     this.onUserChanged();
   }
 
-  private fbUser: firebase.default.User = null;
-
   private onUserChanged() {
-    this.fireAuth.authState.subscribe((user) => {
-      this.fbUser = user;
-      if (user != null) {
-        this.fbUser.getIdToken().then((token) => {
-          this.store.dispatch(new SetToken(token));
+    this.fireAuth.authState.subscribe((user: any) =>
+      this.authFacade.userChanged(user)
+    );
+  }
+
+  isAuthenticated() {
+    return this.authFacade.isAuthenticated();
+  }
+
+  createUser(
+    email: string,
+    password: string
+  ): Promise<firebase.default.auth.UserCredential> {
+    return new Promise<firebase.default.auth.UserCredential>(
+      (resolve, reject) => {
+        this.fireAuth.setPersistence(this.persistence).then(() => {
+          this.fireAuth
+            .createUserWithEmailAndPassword(email, password)
+            .then((cred) => resolve(cred))
+            .catch((err) => {
+              console.log('Error logging in', err);
+              reject(err);
+            });
         });
       }
-    });
+    );
   }
 
-  async createUser(email: string, password: string): Promise<any> {
-    return await this.fireAuth.createUserWithEmailAndPassword(email, password);
+  logIn(
+    email: string,
+    password: string
+  ): Promise<firebase.default.auth.UserCredential> {
+    return new Promise<firebase.default.auth.UserCredential>(
+      (resolve, reject) => {
+        this.fireAuth.setPersistence(this.persistence).then(() => {
+          this.fireAuth
+            .signInWithEmailAndPassword(email, password)
+            .then((cred) => {
+              return resolve(cred);
+            })
+            .catch((err) => {
+              console.log('Error logging in', err);
+              reject(err);
+            });
+        });
+      }
+    );
   }
 
-  async logOn(user, password) {
-    return await this.fireAuth.signInWithEmailAndPassword(user, password);
-  }
-
-  async logOff() {
-    return await this.fireAuth.signOut();
+  logOut() {
+    return this.fireAuth
+      .signOut()
+      .catch((err) => console.log('Error logging out', err));
   }
 }

@@ -1,7 +1,8 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -12,12 +13,10 @@ import { AppComponent } from './app.component';
 import { FBAuthInterceptor } from './auth/fbauth.interceptor';
 import { FBAuthModule } from './auth/fbauth.module';
 import { ErrPageComponent } from './error/err-page/err-page.component';
-import { GlobalErrService } from './error/global-err-handler';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { metaReducers, reducers } from './state';
-import { EntityDataModule } from '@ngrx/data';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrPageComponent],

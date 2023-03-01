@@ -1,6 +1,7 @@
-export class LoginVM {
-  email: string;
-  password: string;
+export class LoginCredentials {
+  email: string = '';
+  password: string = '';
   passwordRepeat?: string;
+  remember?: boolean;
   displayName?: string;
 }
