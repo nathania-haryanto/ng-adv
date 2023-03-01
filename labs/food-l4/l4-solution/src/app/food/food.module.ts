@@ -3,28 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FoodContainerComponent } from './food-container/food-container.component';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodEditComponent } from './food-edit/food-edit.component';
+import { FoodRoutingModule } from './food-routing.module';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { foodFeatureKey, FoodReducer } from './store/reducers/food.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { FoodEffects } from './store/effects/food.effects';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FoodRoutingModule } from './food-routing.module';
-
-const comps = [FoodContainerComponent, FoodListComponent, FoodEditComponent];
 
 @NgModule({
-  declarations: comps,
-  exports: comps,
+  declarations: [FoodContainerComponent, FoodListComponent, FoodEditComponent],
   imports: [
     CommonModule,
-    MaterialModule,
-    FlexLayoutModule,
-    ReactiveFormsModule,
     FoodRoutingModule,
-    StoreModule.forFeature(foodFeatureKey, FoodReducer),
-    EffectsModule.forFeature([FoodEffects]),
-  ],
+    MaterialModule,
+    ReactiveFormsModule
+  ]
 })
-export class FoodModule {}
+export class FoodModule { }
