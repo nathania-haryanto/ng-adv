@@ -26,6 +26,7 @@ export class AuthFacade {
     return this.store.select(getLoggedIn).pipe(
       combineLatestWith(this.store.select(getAuthEnabled)),
       map(([loggedIn, authEnabled]) => {
+        console.log('loggedIn', loggedIn);
         return authEnabled == false || loggedIn;
       })
     );

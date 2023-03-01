@@ -7,9 +7,9 @@ import { MenuFacade } from './store/facades/menu.facade';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'FirstAngular';
+  title = 'Food App';
   menuVisible$ = this.mf.sideNavVisible;
   menuPosition$ = this.mf.sideNavPosition;
 
-  constructor(public mf: MenuFacade) {}
+  constructor(public mf: MenuFacade) { }
 }

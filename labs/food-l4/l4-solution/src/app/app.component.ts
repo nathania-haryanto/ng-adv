@@ -10,8 +10,6 @@ import { MenuFacade } from './state/menu.facade';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'FirstAngular';
-
   menuVisible$ = this.mf.sideNavVisible;
   menuPosition$ = this.mf.sideNavPosition;
   loggedIn$ = !environment.authEnabled
