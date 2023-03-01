@@ -1,18 +1,37 @@
-<div>
-  <app-navbar></app-navbar>
+<div *ngIf="(loggedIn$ | async) == true">
+  abc
+  <div>
+    <app-navbar></app-navbar>
+  </div>
+  <div class="mainrow">
+    <mat-sidenav-container style="width: 100%">
+      <mat-sidenav
+        #sidenav
+        [opened]="menuVisible$ | async"
+        [mode]="menuPosition$ | async"
+        class="sidebar"
+      >
+        <app-sidebar></app-sidebar>
+      </mat-sidenav>
+      <mat-sidenav-content class="workbench">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 </div>
-<div class="mainrow">
 
-  <mat-sidenav-container style="width: 100%">
-    <mat-sidenav
-      #sidenav
-      [opened]="ms.sideNavVisible | async"
-      [mode]="ms.sideNavPosition | async"
-      class="sidebar">
-      Sidenav content
-    </mat-sidenav>
-    <mat-sidenav-content class="workbench">
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<div
+  *ngIf="(loggedIn$ | async) == false"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  class="loginsplash"
+>sdf
+  <app-login-splash>
+    <div class="login">
+      <app-login></app-login>
+    </div>
+    <div class="register">
+      <app-register></app-register>
+    </div>
+  </app-login-splash>
 </div>

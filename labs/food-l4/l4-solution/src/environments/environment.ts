@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  authEnabled: false,
+  authEnabled: true,
   firebaseConfig: {
     apiKey: 'AIzaSyBX2RrBnZnf08NZqrHCzaZeMOYdOVD3Arg',
     authDomain: 'github-auth-d1033.firebaseapp.com',

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { of, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { AuthFacade } from './auth/state/auth.facade';
 import { MenuFacade } from './state/menu.facade';
 
 @Component({
@@ -9,5 +12,13 @@ import { MenuFacade } from './state/menu.facade';
 export class AppComponent {
   title = 'FirstAngular';
 
-  constructor(public ms: MenuFacade) { }
+  menuVisible$ = this.mf.sideNavVisible;
+  menuPosition$ = this.mf.sideNavPosition;
+  loggedIn$ = !environment.authEnabled
+    ? of(true)
+    : this.af
+      .isAuthenticated()
+      .pipe(tap((loggedin) => console.log('logged in', loggedin)));
+
+  constructor(public mf: MenuFacade, public af: AuthFacade) { }
 }
