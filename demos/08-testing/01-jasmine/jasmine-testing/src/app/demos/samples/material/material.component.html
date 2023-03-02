@@ -5,6 +5,12 @@
   <mat-card-content fxLayout="column">
     <form [formGroup]="sliderForm" fxLayout="column" fxLayoutGap="16px">
       <div>
+        <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <input matInput value="Sushi" name="favorite-food">
+        </mat-form-field>
+      </div>
+      <div>
         <mat-slider min="1"
         max="100">
           <input matSliderThumb formControlName="slider">
