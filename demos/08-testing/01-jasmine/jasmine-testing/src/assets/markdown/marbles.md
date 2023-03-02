@@ -1,5 +1,4 @@
-Investigate the contet of the marbles folder
+Examine the `*.spec` files in `/component-marbles`.
 
 - marble-syntax.spec.ts
-- marble-tests.spec.ts
 - user-marbles.component.spec.ts

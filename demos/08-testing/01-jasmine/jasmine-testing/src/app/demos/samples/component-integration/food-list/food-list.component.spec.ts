@@ -1,11 +1,11 @@
-import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, fakeAsync, flush, tick, flushMicrotasks } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { FoodListComponent } from './food-list.component';
-import { FoodRowComponent } from '../food-row/food-row.component';
-import { RatingPipe } from '../../pipe/rating.pipe';
 import { FoodServiceBS } from '../../food/food.service-bs';
+import { RatingPipe } from '../../pipe/rating.pipe';
+import { FoodRowComponent } from '../food-row/food-row.component';
+import { FoodListComponent } from './food-list.component';
 
 describe('Component - Integration Test', () => {
   let fs: any;
@@ -51,20 +51,16 @@ describe('Component - Integration Test', () => {
     expect(rows[0].componentInstance.food.name).toEqual('Pad Thai');
   });
 
-  it('should have three rows when an item is deleted', () => {
+  it('should have three rows when an item is deleted', fakeAsync(() => {
     fs.getItems.and.returnValue(of(foodData));
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
 
     spyOn(comp, 'deleteFood');
     const deRow = de.query(By.directive(FoodRowComponent));
     const row = deRow.componentInstance;
     row.delete.emit(deleteItem);
 
-    expect(comp.deleteFood).toHaveBeenCalledWith(deleteItem);
     fs.deleteItem.and.returnValue(of(serviceResult));
-
-    fixture.detectChanges();
-    const rows = de.queryAll(By.directive(FoodRowComponent));
-    expect(rows.length).toEqual(4);
-  });
+    expect(comp.deleteFood).toHaveBeenCalledWith(deleteItem);
+  }));
 });

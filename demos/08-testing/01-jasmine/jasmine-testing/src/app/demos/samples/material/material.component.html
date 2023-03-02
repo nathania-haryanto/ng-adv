@@ -5,6 +5,12 @@
   <mat-card-content fxLayout="column">
     <form [formGroup]="sliderForm" fxLayout="column" fxLayoutGap="16px">
       <div>
+        <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <input matInput value="Sushi" name="favorite-food">
+        </mat-form-field>
+      </div>
+      <div>
         <mat-slider min="1"
         max="100">
           <input matSliderThumb formControlName="slider">
@@ -33,7 +39,6 @@
       <div *ngIf="sliderForm.valid">
         Slider has a <b><i>valid </i> </b> value {{ value }}.
       </div>
-      <br />
       <div *ngIf="sliderForm.pristine">
         Slider having state <b><i>pristine.</i></b> Slider value not yet changed
         by user.
@@ -41,7 +46,6 @@
       <div *ngIf="sliderForm.dirty">
         Slider having state <b><i>dirty.</i> </b> Slider value changed by user.
       </div>
-      <br />
       <div *ngIf="sliderForm.untouched">
         Slider having state <b><i>untouched.</i></b> Slider has not visited by
         user.

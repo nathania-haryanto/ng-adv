@@ -1,0 +1,6 @@
+<div class="democontainer">
+    <h3>Demos</h3>
+    <div *ngFor="let demo of demos | async">
+      <div class="underlined">{{ demo.title + ", visible: " + demo.visible }}</div>
+    </div>
+  </div>

@@ -1,8 +1,8 @@
 {
   "demos": [
     {
-      "url": "unittesting",
-      "title": "Into Unit Testing",
+      "url": "testing-intro",
+      "title": "Testing Intro",
       "id": 1,
       "topicid": 1,
       "visible": true,
@@ -50,7 +50,7 @@
     },
     {
       "url": "component-class",
-      "title": "Test Comp Class",
+      "title": "Comp Test Class",
       "id": 77,
       "topicid": 1,
       "visible": true,
@@ -82,7 +82,7 @@
     },
     {
       "url": "component-write",
-      "title": "Component Write",
+      "title": "Comp Write / Read",
       "id": 63,
       "topicid": 1,
       "visible": true,
@@ -90,23 +90,23 @@
     },
     {
       "url": "component-events",
-      "title": "Component Events",
+      "title": "Comp Events",
       "id": 89,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "integrationtests",
-      "title": "Component Integration",
-      "id": 6,
+      "url": "material",
+      "title": "Comp Material Harness",
+      "id": 19,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
       "url": "async",
-      "title": "Component Async",
+      "title": "Comp Async",
       "id": 9,
       "topicid": 1,
       "visible": true,
@@ -114,32 +114,16 @@
     },
     {
       "url": "material-async",
-      "title": "Component Material",
+      "title": "Comp Material Async",
       "id": 12,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "material",
-      "title": "Component Harness",
-      "id": 19,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
-      "url": "marbles",
-      "title": "Component Marbles",
-      "id": 10,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
-      "url": "ngrx",
-      "title": "NgRx Tests",
-      "id": 11,
+      "url": "integrationtests",
+      "title": "Comp Integration",
+      "id": 6,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -153,14 +137,6 @@
       "sortOrder": 0
     },
     {
-      "url": "ngrx-mock-selectors",
-      "title": "NgRx Mock Selectors",
-      "id": 52,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "ngrx-selectors",
       "title": "NgRx Selectors",
       "id": 53,
@@ -169,16 +145,8 @@
       "sortOrder": 0
     },
     {
-      "url": "ngrx-reducers",
-      "title": "NgRx Reducers",
-      "id": 54,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "cypress",
-      "title": "Cypress",
+      "title": "Cypress Intro",
       "id": 66,
       "topicid": 1,
       "visible": true,
