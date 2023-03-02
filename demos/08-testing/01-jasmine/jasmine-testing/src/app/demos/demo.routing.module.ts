@@ -30,7 +30,7 @@ export const demoRoutes: Routes = [
     path: '',
     component: DemoContainerComponent,
     children: [
-      { path: 'unittesting', component: UnitTestingComponent },
+      { path: 'testing-intro', component: UnitTestingComponent },
       { path: 'component-events', component: ComponentEventsComponent },
       { path: 'component-write', component: ComponentWriteComponent },
       { path: 'testpipe', component: TestPipeComponent },

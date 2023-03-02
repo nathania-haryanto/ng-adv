@@ -1,8 +1,8 @@
 {
   "demos": [
     {
-      "url": "unittesting",
-      "title": "Into Unit Testing",
+      "url": "testing-intro",
+      "title": "Testing Intro",
       "id": 1,
       "topicid": 1,
       "visible": true,
@@ -178,7 +178,7 @@
     },
     {
       "url": "cypress",
-      "title": "Cypress",
+      "title": "Cypress Intro",
       "id": 66,
       "topicid": 1,
       "visible": true,
