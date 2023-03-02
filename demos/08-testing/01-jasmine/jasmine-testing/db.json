@@ -152,14 +152,14 @@
       "visible": true,
       "sortOrder": 0
     },
-    {
-      "url": "ngrx-reducers",
-      "title": "NgRx Reducers",
-      "id": 54,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
+    // {
+    //   "url": "ngrx-reducers",
+    //   "title": "NgRx Reducers",
+    //   "id": 54,
+    //   "topicid": 1,
+    //   "visible": true,
+    //   "sortOrder": 0
+    // },
     {
       "url": "cypress",
       "title": "Cypress Intro",
