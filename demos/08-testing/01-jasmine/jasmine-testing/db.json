@@ -137,14 +137,6 @@
       "sortOrder": 0
     },
     {
-      "url": "ngrx",
-      "title": "NgRx Tests",
-      "id": 11,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "ngrx-mock-store",
       "title": "NgRx Mock Store",
       "id": 51,

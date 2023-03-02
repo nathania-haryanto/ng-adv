@@ -49,7 +49,6 @@ import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
-import { NgrxComponent } from './samples/ngrx/ngrx.component';
 import { PhonenumberPipe } from './samples/pipe/phonenumber.pipe';
 import { RatingPipe } from './samples/pipe/rating.pipe';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
@@ -78,7 +77,6 @@ import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors
     UseMockComponent,
     AsyncComponent,
     MarblesComponent,
-    NgrxComponent,
     MockStoreComponent,
     PhonenumberPipe,
     SimpleAuthAsyncComponent,

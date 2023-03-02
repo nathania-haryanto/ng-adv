@@ -20,7 +20,6 @@ import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component'
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
-import { NgrxComponent } from './samples/ngrx/ngrx.component';
 import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 
@@ -48,7 +47,6 @@ export const demoRoutes: Routes = [
       { path: 'cypress', component: CypressComponent },
       { path: 'component-class', component: ComponentClassComponent },
       { path: 'spy', component: SpyHostComponent },
-      { path: 'ngrx', component: NgrxComponent },
       { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
       { path: 'ngrx-selectors', component: NgrxSelectorsComponent },
       { path: 'ngrx-reducers', component: NgrxReducersComponent },
