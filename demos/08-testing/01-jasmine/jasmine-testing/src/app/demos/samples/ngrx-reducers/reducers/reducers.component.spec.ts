@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgrxReducersComponent } from './ngrx-reducers.component';
+import { ReducersComponent } from './reducers.component';
 
-describe('NgrxReducersComponent', () => {
-  let component: NgrxReducersComponent;
-  let fixture: ComponentFixture<NgrxReducersComponent>;
+describe('ReducersComponent', () => {
+  let component: ReducersComponent;
+  let fixture: ComponentFixture<ReducersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgrxReducersComponent ]
+      declarations: [ ReducersComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NgrxReducersComponent);
+    fixture = TestBed.createComponent(ReducersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

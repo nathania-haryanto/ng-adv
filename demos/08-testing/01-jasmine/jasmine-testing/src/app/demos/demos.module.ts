@@ -57,6 +57,7 @@ import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
 import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors.component';
+import { ReducersComponent } from './samples/ngrx-reducers/reducers/reducers.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors
     HttpTestsBsComponent,
     TimerComponent,
     MockstoreComponent,
-    SelectorsComponent
+    SelectorsComponent,
+    ReducersComponent
   ],
   imports: [
     CommonModule,
