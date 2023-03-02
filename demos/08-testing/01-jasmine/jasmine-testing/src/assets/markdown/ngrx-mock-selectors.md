@@ -1,1 +1,0 @@
-Examine the mockstore.component.spec.ts.spec files in /ngrx-mock-selector.

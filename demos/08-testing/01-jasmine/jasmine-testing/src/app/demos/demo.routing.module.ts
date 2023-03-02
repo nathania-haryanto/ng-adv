@@ -17,7 +17,6 @@ import { MaterialComponent } from './samples/material/material.component';
 import { MockStoreComponent } from './samples/mock-store/mock-store.component';
 import { MockHostComponent } from './samples/mocking/mock-host/mock-host.component';
 import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
-import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
@@ -51,7 +50,6 @@ export const demoRoutes: Routes = [
       { path: 'spy', component: SpyHostComponent },
       { path: 'ngrx', component: NgrxComponent },
       { path: 'ngrx-mock-store', component: NgrxMockstoreComponent },
-      { path: 'ngrx-mock-selectors', component: NgrxMockSelectorsComponent },
       { path: 'ngrx-selectors', component: NgrxSelectorsComponent },
       { path: 'ngrx-reducers', component: NgrxReducersComponent },
     ],

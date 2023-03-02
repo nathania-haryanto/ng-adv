@@ -46,7 +46,6 @@ import { MockHostComponent } from './samples/mocking/mock-host/mock-host.compone
 import { SpyHostComponent } from './samples/mocking/spy-host/spy-host.component';
 import { UseMockComponent } from './samples/mocking/use-mock/use-mock.component';
 import { UseSpyComponent } from './samples/mocking/use-spy/use-spy.component';
-import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-mock-selectors.component';
 import { NgrxMockstoreComponent } from './samples/ngrx-mockstore/ngrx-mockstore.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
@@ -58,7 +57,7 @@ import { SimpleServiceComponent } from './samples/simple-service/simple-service.
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
-import { MockselectorComponent } from './samples/ngrx-mock-selectors/mockselector/mockselector.component';
+import { SelectorsComponent } from './samples/ngrx-selectors/selectors/selectors.component';
 
 @NgModule({
   declarations: [
@@ -102,13 +101,12 @@ import { MockselectorComponent } from './samples/ngrx-mock-selectors/mockselecto
     SpyHostComponent,
     DirectiveHostComponent,
     NgrxMockstoreComponent,
-    NgrxMockSelectorsComponent,
     NgrxSelectorsComponent,
     NgrxReducersComponent,
     HttpTestsBsComponent,
     TimerComponent,
     MockstoreComponent,
-    MockselectorComponent
+    SelectorsComponent
   ],
   imports: [
     CommonModule,

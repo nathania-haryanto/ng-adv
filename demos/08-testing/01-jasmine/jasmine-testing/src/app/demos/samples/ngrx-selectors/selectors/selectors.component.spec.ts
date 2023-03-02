@@ -1,26 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { MemoizedSelector } from '@ngrx/store';
-import { MockselectorComponent } from './mockselector.component';
+import { MockStore, provideMockStore } from '@ngrx/store/testing'
 import { DemoState } from '../../../state/demos.reducer';
 import { DemoItem } from '../../../demo-base/demo-item.model';
 import { mockselectorData } from './mockselector.data';
 
-describe('MockselectorComponent', () => {
-  let component: MockselectorComponent;
-  let fixture: ComponentFixture<MockselectorComponent>;
+import { SelectorsComponent } from './selectors.component';
+
+describe('SelectorsComponent', () => {
+  let component: SelectorsComponent;
+  let fixture: ComponentFixture<SelectorsComponent>;
   let mockStore: MockStore<DemoState>;
-  let mockSelector: MemoizedSelector<object, DemoItem[]>;
   const initialState = mockselectorData;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MockselectorComponent],
+      declarations: [SelectorsComponent],
       providers: [provideMockStore({ initialState })]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(MockselectorComponent);
+    fixture = TestBed.createComponent(SelectorsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
