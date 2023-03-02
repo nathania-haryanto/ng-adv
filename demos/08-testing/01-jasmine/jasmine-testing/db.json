@@ -82,7 +82,7 @@
     },
     {
       "url": "component-write",
-      "title": "Component Write",
+      "title": "Comp Write",
       "id": 63,
       "topicid": 1,
       "visible": true,
@@ -90,23 +90,23 @@
     },
     {
       "url": "component-events",
-      "title": "Component Events",
+      "title": "Comp Events",
       "id": 89,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "integrationtests",
-      "title": "Component Integration",
-      "id": 6,
+      "url": "material",
+      "title": "Comp Material Harness",
+      "id": 19,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
       "url": "async",
-      "title": "Component Async",
+      "title": "Comp Async",
       "id": 9,
       "topicid": 1,
       "visible": true,
@@ -114,24 +114,24 @@
     },
     {
       "url": "material-async",
-      "title": "Component Material",
+      "title": "Comp Material Async",
       "id": 12,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "material",
-      "title": "Component Harness",
-      "id": 19,
+      "url": "marbles",
+      "title": "Comp Marbles",
+      "id": 10,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "marbles",
-      "title": "Component Marbles",
-      "id": 10,
+      "url": "integrationtests",
+      "title": "Comp Integration",
+      "id": 6,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0

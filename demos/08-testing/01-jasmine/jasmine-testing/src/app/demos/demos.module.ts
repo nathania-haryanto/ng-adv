@@ -56,6 +56,7 @@ import { NgrxMockSelectorsComponent } from './samples/ngrx-mock-selectors/ngrx-m
 import { NgrxSelectorsComponent } from './samples/ngrx-selectors/ngrx-selectors.component';
 import { NgrxReducersComponent } from './samples/ngrx-reducers/ngrx-reducers.component';
 import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.component';
+import { TimerComponent } from './samples/async/timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { HttpTestsBsComponent } from './samples/http-tests-bs/http-tests-bs.comp
     NgrxMockSelectorsComponent,
     NgrxSelectorsComponent,
     NgrxReducersComponent,
-    HttpTestsBsComponent
+    HttpTestsBsComponent,
+    TimerComponent
   ],
   imports: [
     CommonModule,

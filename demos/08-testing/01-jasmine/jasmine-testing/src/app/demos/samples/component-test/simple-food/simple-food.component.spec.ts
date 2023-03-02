@@ -6,7 +6,7 @@ describe('Component - Spy - FoodComponent:', () => {
   let comp: SimpleFoodComponent;
   let fs;
 
-  beforeEach(() => {});
+  beforeEach(() => { });
 
   it('removes the item from the list', () => {
     // in real life this would happen in beforeEach
@@ -31,17 +31,13 @@ describe('Component - Spy - FoodComponent:', () => {
     comp.deleteFood(foodData[3]);
     expect(fs.deleteItem).toHaveBeenCalledWith(foodData[3]);
   });
-it('should call getItems to subscribe data',()=>{
-  // in real life this would happen in beforeEach
-  fs = jasmine.createSpyObj(['getItems', 'deleteItem']);
-  comp = new SimpleFoodComponent(fs);
-
-  fs.getItems.and.returnValue(of(foodData))
-  comp.ngOnInit()
-
-  expect(comp.food.length).toBe(4)
-  // Do not test yourself :-)
-  // expect(foodData.length).toBe(4)
-})
+  it('should call getItems to subscribe data', () => {
+    // in real life this would happen in beforeEach
+    fs = jasmine.createSpyObj(['getItems', 'deleteItem']);
+    comp = new SimpleFoodComponent(fs);
+    fs.getItems.and.returnValue(of(foodData))
+    comp.ngOnInit()
+    expect(comp.food.length).toBe(4)
+  })
 
 });
