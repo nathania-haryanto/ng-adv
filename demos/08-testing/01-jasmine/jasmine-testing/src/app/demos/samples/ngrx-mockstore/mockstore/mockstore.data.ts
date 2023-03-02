@@ -1,4 +1,4 @@
-export const mockstore = {
+export const mockstoreData = {
     "demos": {
         "ids": [
             1,
@@ -18,7 +18,7 @@ export const mockstore = {
                 "title": "Test Pipe",
                 "id": 2,
                 "topicid": 1,
-                "visible": true,
+                "visible": false,
                 "sortOrder": 0
             }
         }

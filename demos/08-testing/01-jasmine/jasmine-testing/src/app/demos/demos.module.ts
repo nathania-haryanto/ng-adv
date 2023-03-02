@@ -58,6 +58,7 @@ import { SimpleServiceComponent } from './samples/simple-service/simple-service.
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
+import { MockselectorComponent } from './samples/ngrx-mock-selectors/mockselector/mockselector.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore
     NgrxReducersComponent,
     HttpTestsBsComponent,
     TimerComponent,
-    MockstoreComponent
+    MockstoreComponent,
+    MockselectorComponent
   ],
   imports: [
     CommonModule,

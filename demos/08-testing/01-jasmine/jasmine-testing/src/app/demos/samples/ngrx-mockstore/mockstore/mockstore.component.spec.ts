@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { mockstore } from './mock.data';
 import { MockstoreComponent } from './mockstore.component';
 import { DemoState } from '../../../state/demos.reducer';
+import { mockstoreData } from './mockstore.data';
 
 
 describe('MockstoreComponent', () => {
   let component: MockstoreComponent;
   let fixture: ComponentFixture<MockstoreComponent>;
   let mockStore: MockStore<DemoState>;
-  const initialState = mockstore; // just to point to the import - could be used directly
+  const initialState = mockstoreData;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

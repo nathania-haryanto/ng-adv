@@ -18,3 +18,7 @@ export const { selectAll, selectEntities, selectIds, selectTotal } =
   demosAdapter.getSelectors();
 
 export const getAllDemos = createSelector(getDemoState, selectAll);
+
+export const getVisibleDemos = createSelector(getDemoState, (state) =>
+  selectAll(state).filter((item) => item.visible)
+);
