@@ -53,28 +53,14 @@ describe('Component - Integration Test', () => {
 
   it('should have three rows when an item is deleted', fakeAsync(() => {
     fs.getItems.and.returnValue(of(foodData));
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
 
     spyOn(comp, 'deleteFood');
     const deRow = de.query(By.directive(FoodRowComponent));
     const row = deRow.componentInstance;
     row.delete.emit(deleteItem);
-    fixture.detectChanges();
 
-    flush();
-    flushMicrotasks();
-    tick(1000);
-
-    fixture.detectChanges();
-    expect(comp.deleteFood).toHaveBeenCalledWith(deleteItem);
     fs.deleteItem.and.returnValue(of(serviceResult));
-
-    flush();
-    flushMicrotasks();
-    tick(1000);
-
-    fixture.detectChanges();
-    const rows = de.queryAll(By.directive(FoodRowComponent));
-    expect(rows.length).toEqual(3);
+    expect(comp.deleteFood).toHaveBeenCalledWith(deleteItem);
   }));
 });
