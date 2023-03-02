@@ -21,6 +21,6 @@ export const mockstoreData = {
                 "visible": false,
                 "sortOrder": 0
             }
-        }
+        },
     }
 }

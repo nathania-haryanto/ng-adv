@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { getVisibleDemos } from 'src/app/demos/state/demo.selectors';
 import { DemoState } from 'src/app/demos/state/demos.reducer';
-import { getVisibleDemos } from '../../../state/demo.selectors';
 
 @Component({
   selector: 'app-mockselector',
@@ -9,6 +9,7 @@ import { getVisibleDemos } from '../../../state/demo.selectors';
   styleUrls: ['./mockselector.component.scss']
 })
 export class MockselectorComponent {
+
   demos = this.store.select(getVisibleDemos);
 
   constructor(private store: Store<DemoState>) { }

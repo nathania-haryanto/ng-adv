@@ -16,7 +16,7 @@ import {
 // State
 export const demosFeatureKey = 'demos';
 
-// internal entity structure
+// internal entity structure provided by extending EntityState<T>
 // interface EntityState<T> {
 //   ids: string[];
 //   entities: { [id: string]: T };

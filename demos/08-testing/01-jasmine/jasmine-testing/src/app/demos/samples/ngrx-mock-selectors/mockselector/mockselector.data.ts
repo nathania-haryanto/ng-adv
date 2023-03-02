@@ -21,6 +21,6 @@ export const mockselectorData = {
                 "visible": false,
                 "sortOrder": 0
             }
-        }
+        },
     }
 }
