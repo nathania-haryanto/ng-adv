@@ -57,6 +57,7 @@ import { TestPipeComponent } from './samples/pipe/test-pipe.component';
 import { SimpleServiceComponent } from './samples/simple-service/simple-service.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { MockstoreComponent } from './samples/ngrx-mockstore/mockstore/mockstore.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     NgrxSelectorsComponent,
     NgrxReducersComponent,
     HttpTestsBsComponent,
-    TimerComponent
+    TimerComponent,
+    MockstoreComponent
   ],
   imports: [
     CommonModule,

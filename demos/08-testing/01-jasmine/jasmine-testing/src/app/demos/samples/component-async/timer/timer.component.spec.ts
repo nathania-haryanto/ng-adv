@@ -21,7 +21,7 @@ describe('TimerComponent', async () => {
     tick(200);
     fixture.detectChanges();
     console.log(fixture.debugElement.nativeElement.innerHTML);
-    let items = fixture.debugElement.queryAll(By.css('.timed'));
+    let items = fixture.debugElement.queryAll(By.css('.underlined'));
     expect(items.length).toBe(3);
   }));
 
@@ -29,7 +29,7 @@ describe('TimerComponent', async () => {
     fixture.autoDetectChanges();
     tick(200);
     console.log(fixture.debugElement.nativeElement.innerHTML);
-    let items = fixture.debugElement.queryAll(By.css('.timed'));
+    let items = fixture.debugElement.queryAll(By.css('.underlined'));
     expect(items.length).toBe(3);
   }));
 
@@ -38,7 +38,7 @@ describe('TimerComponent', async () => {
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      let items = fixture.debugElement.queryAll(By.css('.timed'));
+      let items = fixture.debugElement.queryAll(By.css('.underlined'));
       console.log(fixture.debugElement.nativeElement.innerHTML);
       expect(items.length).toBe(3);
     });
