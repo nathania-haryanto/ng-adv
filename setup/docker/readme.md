@@ -14,7 +14,7 @@ Create an account at [Docker Hub](https://hub.docker.com/) and signin to Docker
 
 ![docker-signin](_images/docker-signin.png)
 
-Configure Cocker:
+Configure Docker:
 
 ![wsl-engine](_images/wsl-engine.png)
 
