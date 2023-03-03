@@ -5,7 +5,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force;
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install chrome-remote-desktop-chrome -y
+choco install googlechrome -y
 choco install vscode -y
 choco install dotnet-6.0-sdk
 choco install azure-cli -y
