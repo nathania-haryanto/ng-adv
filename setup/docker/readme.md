@@ -6,25 +6,24 @@ Download & Install [Docker Desktop for Windows](https://desktop.docker.com/win/m
 
 ```powershell
 choco install docker-desktop -y
+logoff
 ```
 
-Double Click on Docker Desktop to start the installation. After installation you will be asked to log out and log in again.
-
-Create an account at [Docker Hub](https://hub.docker.com/) and signin to Docker
-
-![docker-signin](_images/docker-signin.png)
+Double Click on `Docker Desktop Icon` that will be present on the Windows Desktop, to start the installation. After installation you will be asked to log out and log in again.
 
 Configure Docker:
 
 ![wsl-engine](_images/wsl-engine.png)
-
-![wsl-engine-resources](_images/wsl-engine-resources.png)
 
 Enable Kubernetes:
 
 ![kubernetes](_images/kubernetes.png)
 
 Press Appy & Restart to complete Docker Setup
+
+Create an account at [Docker Hub](https://hub.docker.com/) and signin to Docker
+
+![docker-sign-in](_images/docker-sign-in.png)
 
 ## Test Installation
 

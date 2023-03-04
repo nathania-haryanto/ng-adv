@@ -9,7 +9,12 @@ wsl --install
 Restart-Computer
 ```
 
-Finish installation of Ubuntu 20.04 LTS from the Microsoft Store:
+Finish installation of Ubuntu 20.04 LTS from the Microsoft Store and set wsl user and password:
+
+```
+user=labadmin
+pwd=Lab@dmin1234
+```
 
 ![wsl-finish](_images/wsl-finish.png)
 
