@@ -11,8 +11,6 @@
 
 To install Software run the script `setup-angular-dev.ps1` from an elevated PowerShell prompt:
 
-> Note: The script usese Node Version Manager (NVM) to install Node 16.x and Angular CLI. If you have Node 16.x installed already you can skip the installation of NVM and Node 16.x. Before using NVM you need to uninstall your existing Node installation.
-
 ![run-as](_images/run-as.jpg)
 
 ```powershell
