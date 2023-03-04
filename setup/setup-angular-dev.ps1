@@ -11,7 +11,7 @@ choco install dotnet-6.0-sdk -y
 choco install azure-cli -y
 choco install git -y
 choco install curl -y
-choco install nodejs-lts --version=16.15.0
+choco install nodejs-lts --version=16.15.0 -y
 
 # Install VS Code Extensions
 Write-Host "VS Code Extensions - 2/4" -ForegroundColor yellow
@@ -42,7 +42,6 @@ Write-Host "Installing Node using NVM, Angular & json-server - 4/4" -ForegroundC
 npm install -g json-server
 
 # Install Node & Angular
-npx @angular/cli@latest analytics off
 npm i -g @angular/cli
 
 # Finished Msg
