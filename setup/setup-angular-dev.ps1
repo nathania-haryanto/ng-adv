@@ -5,13 +5,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force;
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install chrome-remote-desktop-chrome -y
+choco install googlechrome -y
 choco install vscode -y
-choco install dotnet-6.0-sdk
+choco install dotnet-6.0-sdk -y
 choco install azure-cli -y
 choco install git -y
 choco install curl -y
-choco install nvm -y
+choco install nodejs-lts --version=16.15.0 -y
 
 # Install VS Code Extensions
 Write-Host "VS Code Extensions - 2/4" -ForegroundColor yellow
@@ -37,14 +37,11 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 # Install NVM
 Write-Host "Installing Node using NVM, Angular & json-server - 4/4" -ForegroundColor yellow
-nvm install 16.15.0
-nvm use 16.15.0
 
 # Install Json-server
 npm install -g json-server
 
 # Install Node & Angular
-npx @angular/cli@latest analytics off
 npm i -g @angular/cli
 
 # Finished Msg

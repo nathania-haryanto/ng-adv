@@ -7,6 +7,8 @@
 
 ## Install Software
 
+>Note: Create Lab VM is an optional step that you could execute if you want to develop on azure hosted VM. If you want to develop on your local machine you can skip this step.
+
 To install Software run the script `setup-angular-dev.ps1` from an elevated PowerShell prompt:
 
 > Note: The script usese Node Version Manager (NVM) to install Node 16.x and Angular CLI. If you have Node 16.x installed already you can skip the installation of NVM and Node 16.x. Before using NVM you need to uninstall your existing Node installation.
