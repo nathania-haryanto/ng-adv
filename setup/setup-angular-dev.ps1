@@ -10,11 +10,17 @@ choco install vscode -y
 choco install dotnet-6.0-sdk -y
 choco install azure-cli -y
 choco install git -y
+choco install gh -y
 choco install curl -y
 choco install nodejs-lts --version=16.15.0 -y
 
+# Refresh Path Env
+Write-Host "Refresh Path Env - 2/4" -ForegroundColor yellow
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+
 # Install VS Code Extensions
-Write-Host "VS Code Extensions - 2/4" -ForegroundColor yellow
+Write-Host "VS Code Extensions - 3/4" -ForegroundColor yellow
 
 code --install-extension ms-dotnettools.csharp
 code --install-extension ms-vscode.azurecli
@@ -29,11 +35,6 @@ code --install-extension mhutchie.git-graph
 code --install-extension hbenl.vscode-test-explorer
 code --install-extension raagh.angular-karma-test-explorer
 code --install-extension xabikos.jasminesnippets
-
-# Refresh Path Env
-Write-Host "Refresh Path Env - 3/4" -ForegroundColor yellow
-
-$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
 # Install NVM
 Write-Host "Installing Node using NVM, Angular & json-server - 4/4" -ForegroundColor yellow

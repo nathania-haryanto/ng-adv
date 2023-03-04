@@ -15,7 +15,7 @@ env=$RANDOM
 loc=westeurope
 grp=ng-adv
 vmname=ng-adv-$env
-user=nglabadmin
+user=labadmin
 pwd=Lab@dmin1234
 
 az group create -n $grp -l $loc
@@ -44,7 +44,7 @@ Sign In & Remember:
 Credentials:
 
 ```
-user=nglabadmin
+user=labadmin
 pwd=Lab@dmin1234
 ```
 
