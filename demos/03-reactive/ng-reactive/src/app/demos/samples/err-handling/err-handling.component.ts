@@ -20,11 +20,11 @@ import { VouchersService } from '../../vouchers/voucher.service';
   styleUrls: ['./err-handling.component.scss'],
 })
 export class ErrHandlingComponent implements OnInit {
-  constructor(private vs: VouchersService, private ds: DemoService) {}
+  constructor(private vs: VouchersService, private ds: DemoService) { }
 
   sub: SubSink = new SubSink();
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   whereToHandle() {
     const obs = of('cleo', 'flora', 'giro', 'soi', 3);
@@ -96,8 +96,6 @@ export class ErrHandlingComponent implements OnInit {
       )
       .subscribe(
         (res) => console.log('HTTP response', res),
-        (err) => console.log('HTTP Error', err),
-        () => console.log('HTTP request completed.')
       );
   }
 
@@ -112,9 +110,7 @@ export class ErrHandlingComponent implements OnInit {
         catchError((err) => err)
       )
       .subscribe(
-        (val) => console.log(val),
-        (err) => console.log(err),
-        () => console.log('Complete')
+        (val) => console.log(val)
       );
   }
 }

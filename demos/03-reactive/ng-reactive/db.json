@@ -123,7 +123,38 @@
       "completed": false
     }
   ],
-  "topics": [],
+  "topics": [
+    {
+      "id": 1,
+      "title": "a new topic",
+      "sortOrder": 9
+    },
+    {
+      "id": 2,
+      "title": "a new topic",
+      "sortOrder": 9
+    },
+    {
+      "id": 3,
+      "title": "a new topic",
+      "sortOrder": 9
+    },
+    {
+      "id": 4,
+      "title": "a new topic",
+      "sortOrder": 9
+    },
+    {
+      "id": 5,
+      "title": "a new topic",
+      "sortOrder": 9
+    },
+    {
+      "id": 6,
+      "title": "a new topic",
+      "sortOrder": 9
+    }
+  ],
   "vouchers": [
     {
       "ID": 2,
