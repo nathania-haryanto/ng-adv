@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, interval, of } from 'rxjs';
 import { TopicService } from '../../topics/topic.service';
-import { tap } from 'rxjs/operators';
+import { tap, take } from 'rxjs/operators';
 import {
   concatMap,
   delay,
@@ -20,28 +20,16 @@ import {
 export class TransformationComponent implements OnInit {
   @ViewChild('btnSave', { static: true }) saveButton: ElementRef;
 
-  constructor(private ts: TopicService) {}
+  constructor(private ts: TopicService) { }
 
-  ngOnInit() {}
-
-  ngAfterViewInit(): void {
-    this.hookExhaustMap();
-  }
-
-  // can be used like an "event handler"
-  useMapTo() {
-    const clicks = fromEvent(document, 'click');
-    //deprecation
-    clicks.pipe(mapTo('You clicked the button')).subscribe(console.log);
-    //using map
-    clicks.pipe(map(() => 'You clicked the button')).subscribe(console.log);
-  }
+  ngOnInit() { }
 
   useSwitchMap() {
+    console.clear();
     fromEvent(document, 'click')
       .pipe(
         // restart counter on every click
-        switchMap(() => interval(1000))
+        switchMap(() => interval(1000).pipe(take(5)))
       )
       .subscribe(console.log);
   }
@@ -83,8 +71,8 @@ export class TransformationComponent implements OnInit {
       .subscribe((r) => console.log('Saved!', r));
   }
 
-  hookExhaustMap() {
-    fromEvent(this.saveButton.nativeElement, 'click')
+  useExhaustMap() {
+    fromEvent(document, 'click')
       .pipe(
         exhaustMap(() =>
           this.ts.insertTopicSlow({ id: 0, title: 'a new topic', sortOrder: 9 })

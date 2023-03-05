@@ -7,14 +7,14 @@ import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
   styleUrls: ['./subjects.component.scss'],
 })
 export class SubjectsComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   sub$: Subject<number> = new Subject<number>();
   bs$: BehaviorSubject<number> = new BehaviorSubject<number>(-1); // -1 is initialization value - requires
   rs$: ReplaySubject<number> = new ReplaySubject<number>(2); // 2 is number of replay subjects
-  as$: AsyncSubject<number> = new AsyncSubject();
+  as$: AsyncSubject<number> = new AsyncSubject<number>();
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   runSubjectInit() {
     console.log('init subject');
@@ -55,7 +55,7 @@ export class SubjectsComponent implements OnInit {
   }
 
   runASubjectInit() {
-    console.log('init async subject');
+    console.log('init async subject - nothing will be emitted until complete is called');
     this.as$.next(0);
     this.as$.subscribe((val) => console.log('RS Subsciber A', val));
     this.as$.subscribe((val) => console.log('RS Subsciber B', val));
@@ -64,7 +64,7 @@ export class SubjectsComponent implements OnInit {
 
   emitNextAS() {
     this.as$.subscribe((val) => console.log('Subsciber Late', val));
-    console.log('complete');
+    console.log('completing async subject in order to emit last value');
     this.as$.complete();
   }
 }

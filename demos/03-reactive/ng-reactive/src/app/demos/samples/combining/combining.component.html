@@ -1,3 +1,5 @@
+<app-markdown-renderer [md]="'combining'"></app-markdown-renderer>
+
 <mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title>
@@ -10,9 +12,9 @@
     fxLayoutAlign="center start"
     class="cmdItems"
   >
+  <a mat-raised-button color="accent" (click)="useMerge()">merge()</a>
+  <a mat-raised-button color="accent" (click)="useZip()">zip()</a>
     <a mat-raised-button color="accent" (click)="useConcat()">concat()</a>
-    <a mat-raised-button color="accent" (click)="useMerge()">merge()</a>
-    <a mat-raised-button color="accent" (click)="useZip()">zip()</a>
     <a mat-raised-button color="accent" (click)="useForkJoin()">forkJoin()</a>
     <a mat-raised-button color="accent" (click)="leftJoin()">combineLatestWith() - left join</a>
   </mat-card-content>
