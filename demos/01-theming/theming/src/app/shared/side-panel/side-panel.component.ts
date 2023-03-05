@@ -13,28 +13,33 @@ export class SidePanelComponent implements OnInit {
   constructor(
     private sns: SnackbarService,
     private eb: SidePanelService,
-    private ts: ThemeService
-  ) {}
+    private ts: ThemeService,
+  ) { }
 
   editorDisplayed: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.editorDisplayed = false;
+  }
 
   toggleTheme() {
     this.ts.toggleTheme();
   }
 
   toggleEditor() {
-    this.editorDisplayed = !this.editorDisplayed;
-    this.eb.triggerCmd(
-      this.editorDisplayed
-        ? SidebarActions.SHOW_MARKDOWN
-        : SidebarActions.HIDE_MARKDOWN
-    );
+    if (this.editorDisplayed) {
+      this.eb.triggerCmd(SidebarActions.HIDE_MARKDOWN);
+    } else {
+      this.eb.triggerCmd(SidebarActions.SHOW_MARKDOWN);
+    }
     this.editorDisplayed = !this.editorDisplayed;
   }
 
   showUpload() {
-    this.sns.displayAlert('Info', 'Not implemented - just a Demo');
+    this.sns.displayAlert('Info', 'Uploading to Cloud');
+  }
+
+  addDemo() {
+
   }
 }
