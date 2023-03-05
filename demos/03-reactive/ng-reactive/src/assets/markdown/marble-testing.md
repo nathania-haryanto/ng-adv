@@ -12,4 +12,3 @@ it('test with operator', () => {
 ```
 
 ![marbles](assets/images/marbles.jpg)
-
