@@ -20,7 +20,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw
 
 > Note: This script will run for approx 15 min. 
 
-## Setup Git Clone Repository
+## Setup Git & Clone Class Repository
 
 Login to GitHub using [GitHub CLI](https://cli.github.com/manual/):
 
