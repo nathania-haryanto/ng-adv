@@ -145,6 +145,14 @@
       "sortOrder": 0
     },
     {
+      "url": "ngrx-reducers",
+      "title": "NgRx Reducers",
+      "id": 59,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "cypress",
       "title": "Cypress Intro",
       "id": 66,
