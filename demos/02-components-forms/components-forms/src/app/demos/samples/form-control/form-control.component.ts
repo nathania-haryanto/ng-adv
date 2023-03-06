@@ -7,9 +7,9 @@ import { UntypedFormControl, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./form-control.component.scss'],
 })
 export class FormControlComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  name = new FormControl('Giro', [
+  name = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
   ]);
@@ -31,9 +31,5 @@ export class FormControlComponent implements OnInit {
 
   updateName() {
     this.name.setValue('Soi');
-  }
-
-  resetName() {
-    this.name.reset('Giro');
   }
 }
