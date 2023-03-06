@@ -4,7 +4,7 @@
 
 [Material Design Specification](https://material.io)
 
-[Material Color Tool](https://material.io/tools/color/)
+[Material Color Tool](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors)
 
 [Angular Flex Layout](https://github.com/angular/flex-layout/wiki)
 
