@@ -33,6 +33,7 @@
   <mat-card-content>
     <div *ngFor="let t of arTasks">
       <span>{{ t.title }}</span>
+      <span>{{t.completed }}</span>
     </div>
   </mat-card-content>
 </mat-card>
@@ -69,6 +70,6 @@
       <ng-container *ngIf="tasks$ | async as tasks">
         <div>tasks[0].id: {{ tasks[0].id }}</div>
         <div>tasks[0].title: {{ tasks[0].title }}</div>
-      </ng-container>            
+      </ng-container>
   </mat-card-content>
 </mat-card>

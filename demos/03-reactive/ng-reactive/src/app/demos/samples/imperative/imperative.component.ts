@@ -22,7 +22,7 @@ export class ImperativeComponent implements OnInit {
   //destroy$ is a Subject that will emit a value when the component is destroyed. Implemented in ngOnDestroy()
   private destroy$ = new Subject();
 
-  constructor(private service: SkillsService) {}
+  constructor(private service: SkillsService) { }
 
   ngOnInit(): void {
     this.service
@@ -40,7 +40,7 @@ export class ImperativeComponent implements OnInit {
         this.view =
           val == ''
             ? this.skills
-            : this.skills.filter((skill) => skill.title.includes(val));
+            : this.skills.filter((skill) => skill.name.includes(val));
       });
   }
 
