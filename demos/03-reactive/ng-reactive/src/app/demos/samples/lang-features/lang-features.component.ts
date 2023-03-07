@@ -94,7 +94,5 @@ export class LangFeaturesComponent implements OnInit {
         })
       )
       .subscribe();
-
-    ch
   }
 }
