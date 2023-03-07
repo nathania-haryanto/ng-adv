@@ -64,15 +64,6 @@
       "sortOrder": 0
     },
     {
-      "url": "auxilary",
-      "title": "Auxiliary Routes",
-      "component": "AuxilaryRoutesComponent",
-      "id": 321,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "preload-ngrx",
       "title": "NgRx Preloading",
       "component": "PreloadingNgrxComponent",
