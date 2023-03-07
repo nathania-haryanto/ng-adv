@@ -22,7 +22,7 @@ export class GetRawValueComponent implements OnInit {
     wealth: [''],
   });
 
-  constructor(private fb: FormBuilder, private ps: PersonService) {}
+  constructor(private fb: FormBuilder, private ps: PersonService) { }
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {
@@ -44,5 +44,9 @@ export class GetRawValueComponent implements OnInit {
 
   savePerson(): void {
     this.ps.save(this.personForm as unknown as NgForm);
+  }
+
+  getRawValue(): void {
+    console.log('Getting raw value of id:', this.personForm.getRawValue().id);
   }
 }

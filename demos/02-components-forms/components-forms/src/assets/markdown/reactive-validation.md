@@ -1,4 +1,4 @@
-When combining form options as nonNullable or updateOn with Validators or asyncValidators:
+The options nonNullable or updateOn with Validators or asyncValidators allow you to control details of the validator.
 
 ```typescript
 email: [
