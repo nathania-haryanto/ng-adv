@@ -13,6 +13,7 @@ import {
   styleUrls: ['./reactive-typed-validaton.component.scss'],
 })
 export class ReactiveTypedValidatonComponent {
+  // NOTE: don't declare strongly typed forms in ngOnInit!
   registerForm = new FormGroup(
     {
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,7 +28,7 @@ export class ReactiveTypedValidatonComponent {
       }),
     },
     {
-      updateOn: 'blur',
+      updateOn: 'blur', // NOTE: updateOn = when the validators should be triggered
       validators: [this.passwordsMatchValidator],
     }
   );

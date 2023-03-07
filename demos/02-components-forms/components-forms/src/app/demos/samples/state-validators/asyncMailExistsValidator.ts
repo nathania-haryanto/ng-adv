@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PersonService } from '../person/person.service';
 
+//NOTE: AsyncValidator
 @Injectable({ providedIn: 'root' })
 export class AsyncMailExistsValidator implements AsyncValidator {
   constructor(private ps: PersonService) {}

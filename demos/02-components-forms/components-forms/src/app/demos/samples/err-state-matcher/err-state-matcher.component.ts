@@ -12,7 +12,10 @@ import { CustomStateMatcher } from './custom-state-matcher';
   selector: 'app-err-state-matcher',
   templateUrl: './err-state-matcher.component.html',
   styleUrls: ['./err-state-matcher.component.scss'],
-  // providers: [{ provide: ErrorStateMatcher, useClass: CustomStateMatcher }],
+  // NOTE: instead of using updateOn on each FormControl and/or FormGroup,
+  // we can use ErrorStateMatcher on the component or module level to specify when
+  // certain validators are triggered.
+  providers: [{ provide: ErrorStateMatcher, useClass: CustomStateMatcher }],
 })
 export class ErrStateMatcherComponent {
   matcher = new CustomStateMatcher();
