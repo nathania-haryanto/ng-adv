@@ -1,5 +1,8 @@
-- The mock markdown-editor is using effects and the actions are created using createActionGroup:
+- Use the Mock Markdown Editor to update a Comment of your choice. Check the `db.json` file in the root of the project if it has been updated. Display of the editor is controlled by `sidepanel.service.ts`
 
+![md-editor](assets/images/md-editor.jpg)
+
+- The mock markdown-editor located in `/shared/markdown-editor` is using actions that are created using createActionGroup and implements effects for editor comments CRUD operations.
 
 - Effects are basically async actions that typically interact with the data store
 
@@ -15,21 +18,30 @@ saveComment(item: CommentItem) {
 }
 ```
 
-- Examine how it is consumed be the effect
+- Examine how it is consumed be the effect implemented in `editor.effects.ts`
 
-
-- Use the Mock Markdown Editor to update a Comment of your choice. Check the `db.json` file in the root of the project if it has been updated.
-
-![md-editor](assets/images/md-editor.jpg)
-
-- Also notice on how to respond on completed effects in a facade:
+- ANotice on how to respond on completed effects in a facade:
 
 ```javascript
 this.subs = this.actions
-.pipe(
+  .pipe(
     ofType(
-        '[Comments] saveComment Success',
-        '[Comments] deleteComment Success',
+      MarkdownEditorActions.savecommentssuccess,
+      MarkdownEditorActions.savecommentsfailure,
+      MarkdownEditorActions.deletecommentssuccess,
+      MarkdownEditorActions.deletecommentsfailure
     )
-)
+  )
+  .subscribe((data) => {
+    console.log('action complete', data);
+    this.callCompletedSub.next(true);
+  });
+```
+
+This is used in `editor-container.component.ts` to toggle display of the editor
+
+```javascript
+this.ef.callCompleted$.subscribe(() => {
+  this.editorEdit = false;
+});
 ```
