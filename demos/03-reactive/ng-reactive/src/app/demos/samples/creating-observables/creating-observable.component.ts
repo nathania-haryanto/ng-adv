@@ -40,6 +40,7 @@ export class CreatingObservableComponent implements OnInit {
     of([2, 5, 9, 12, 22]).subscribe((data) => console.log('of(): ', data));
   }
 
+  //NOTE: anti pattern! don't use
   useOfwithSpread() {
     of(...[2, 5, 9, 12, 22]).subscribe((data) => console.log(data));
   }
@@ -59,6 +60,10 @@ export class CreatingObservableComponent implements OnInit {
     ];
 
     //Manually create skills obs where each skill is emitted one after the other with 500ms delay
+    // NOTE: avoid this!
+    // let skills$ = of(skills).pipe(delay(500)) is better
+    // However, sometimes you need to manually wrap a high order function into an observable 
+    // so you have to manually create it like the geoLocation example below.
     let skills$ = new Observable((observer) => {
       setTimeout(() => {
         observer.next(skills);

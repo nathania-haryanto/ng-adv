@@ -23,7 +23,7 @@ export class ReifiedReactiveComponent implements OnInit {
       map(([skills, filter]) => {
         return filter == ''
           ? skills
-          : skills.filter((skill) => skill.title.includes(filter));
+          : skills.filter((skill) => skill.name.includes(filter));
       })
     );
   }
