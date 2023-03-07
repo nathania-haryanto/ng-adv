@@ -18,6 +18,7 @@ export class SubjectsComponent implements OnInit {
 
   runSubjectInit() {
     console.log('init subject');
+    this.sub$.next(0);
     this.sub$.subscribe((val) => console.log('Subsciber A', val));
     this.sub$.subscribe((val) => console.log('Subsciber B', val));
     this.sub$.next(10);
