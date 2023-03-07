@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatestWith, map, Observable, startWith } from 'rxjs';
 import { SkillsService } from '../../skills/skills.service';
@@ -22,9 +22,4 @@ export class ReifiedReactiveComponent {
   );
 
   constructor(private service: SkillsService) { }
-
-  // ngOnInit(): void {
-  //   // no unsubscribe needed because use of async pipe in template
-  //   this.skills$ =
-  // }
 }
