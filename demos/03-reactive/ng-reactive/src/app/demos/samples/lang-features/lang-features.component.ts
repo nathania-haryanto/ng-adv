@@ -9,9 +9,9 @@ import { map, tap } from 'rxjs/operators';
   styleUrls: ['./lang-features.component.scss'],
 })
 export class LangFeaturesComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   copySpread() {
     //Spread operator on arrays
@@ -81,8 +81,8 @@ export class LangFeaturesComponent implements OnInit {
   }
 
   useDestructuring() {
-    const nbrs$ = of(['a', 'b', 'c']);
-    const chrs$ = of([1, 2, 3]);
+    const chrs$ = of(['a', 'b', 'c']);
+    const nbrs$ = of([1, 2, 3]);
 
     //when used like here destructuring works like aliasing
     combineLatest([nbrs$, chrs$])
@@ -94,5 +94,7 @@ export class LangFeaturesComponent implements OnInit {
         })
       )
       .subscribe();
+
+    ch
   }
 }
