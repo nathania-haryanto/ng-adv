@@ -11,7 +11,7 @@ import { PersonService } from '../person/person.service';
 export class FormBuilderComponent implements OnInit {
   person: Person = new Person();
   wealthOpts = wealthOptsValues;
-  genderPattern = '^(male|female)';
+  genderPattern = '^(male|female|diverse)';
 
   personForm = this.fb.group({
     id: [0],
@@ -22,7 +22,7 @@ export class FormBuilderComponent implements OnInit {
     wealth: [''],
   });
 
-  constructor(private fb: FormBuilder, private ps: PersonService) {}
+  constructor(private fb: FormBuilder, private ps: PersonService) { }
 
   ngOnInit() {
     this.ps.getPerson().subscribe((p) => {

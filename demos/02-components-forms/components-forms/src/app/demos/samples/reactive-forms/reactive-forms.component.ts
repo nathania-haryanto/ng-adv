@@ -20,7 +20,8 @@ export class ReactiveFormsComponent implements OnInit {
   personForm = new FormGroup({
     //include the id even if you do not want to render it to support updated
     id: new FormControl(this.person.id),
-    name: new FormControl(this.person.name, Validators.required),
+    name: new FormControl(this.person.name,
+      [Validators.required, Validators.minLength(3)]),
     lastname: new FormControl(this.person.lastname, Validators.required),
     age: new FormControl(this.person.age),
     email: new FormControl(this.person.email),
@@ -28,7 +29,7 @@ export class ReactiveFormsComponent implements OnInit {
     wealth: new FormControl(this.person.wealth),
   });
 
-  constructor(private ps: PersonService) {}
+  constructor(private ps: PersonService) { }
 
   ngOnInit() {
     this.initForm();
