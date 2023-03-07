@@ -4,10 +4,9 @@ import {
   FormBuilder,
   FormControl,
   ValidationErrors,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { map, Observable } from 'rxjs';
-import { PersonService } from '../person/person.service';
 
 @Component({
   selector: 'app-form-errors',
@@ -26,7 +25,7 @@ export class FormErrorsComponent implements OnInit {
 
   errors$: Observable<ValidationErrors[]> | undefined;
 
-  constructor(private fb: FormBuilder, private ps: PersonService) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.errors$ = this.skillForm.valueChanges.pipe(
