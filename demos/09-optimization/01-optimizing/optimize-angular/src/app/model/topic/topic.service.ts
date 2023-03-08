@@ -9,7 +9,7 @@ import { Topic } from "./topic";
   providedIn: "root"
 })
 export class TopicService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   getTopics(): Observable<Topic[]> {
     return this.httpClient
@@ -21,15 +21,15 @@ export class TopicService {
     return this.httpClient.get<Topic>(environment.apiUrl + "topics" + id);
   }
 
-  insertTopic(Topic: Topic): Observable<any> {
+  insertTopic(Topic: Topic) {
     return this.httpClient.post<Topic>(environment.apiUrl + "topics", Topic);
   }
 
-  updateTopic(Topic: Topic): Observable<any> {
+  updateTopic(Topic: Topic) {
     return this.httpClient.put<Topic>(environment.apiUrl + "topics", Topic);
   }
 
-  deleteTopic(id: number): Observable<any> {
+  deleteTopic(id: number) {
     return this.httpClient.delete(environment.apiUrl + "topics" + id);
   }
 }
