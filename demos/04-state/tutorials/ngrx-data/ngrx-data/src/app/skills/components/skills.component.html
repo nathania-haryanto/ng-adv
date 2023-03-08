@@ -1,5 +1,7 @@
+<button (click)="addSkill()">Add Skill</button>
 <ul>
-    <li *ngFor="let skill of skills$ ">
+    <li *ngFor="let skill of skills$ | async">
         <p>{{skill.name}}</p>
+        <button (click)="deleteSkill(skill)">Delete Skill</button>
     </li>
 </ul>
