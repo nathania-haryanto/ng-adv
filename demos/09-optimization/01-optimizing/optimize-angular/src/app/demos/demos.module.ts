@@ -27,6 +27,7 @@ import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { A11yComponent } from './samples/a11y/a11y.component';
+import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
 
 @NgModule({
   declarations: [
@@ -60,6 +61,11 @@ import { A11yComponent } from './samples/a11y/a11y.component';
     MarkdownEditorModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
+    LoggerModule.forRoot({
+      serverLoggingUrl: '/api/logs',
+      level: NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR
+    }),
   ],
   providers: [],
 })
