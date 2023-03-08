@@ -69,7 +69,7 @@ const demoRoutes: Routes = [
           {
             path: 'prime',
             component: PrimeComponent,
-            canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard],
+            canActivate: [OnlyAuthenticatedGuard, OnlyPrimeMembersGuard], //NOTE: guards will be executed in order (in this case Authenticated then PrimeMember)
           },
         ],
       },
