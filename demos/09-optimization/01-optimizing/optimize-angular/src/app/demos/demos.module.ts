@@ -26,6 +26,7 @@ import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.
 import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { A11yComponent } from './samples/a11y/a11y.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     NgforComponent,
     DynamicLoadingComponent,
     SimpleComponent,
+    A11yComponent,
   ],
   imports: [
     CommonModule,

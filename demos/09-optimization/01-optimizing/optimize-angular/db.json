@@ -63,6 +63,15 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
+    },
+    {
+      "url": "a11y",
+      "title": "a11y",
+      "component": "A11yComponent",
+      "id": 66,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
     }
   ],
   "food": [

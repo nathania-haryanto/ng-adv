@@ -9,6 +9,7 @@ import { LoggerComponent } from './samples/logger/logger.component';
 import { NgforComponent } from './samples/ngfor/ngfor.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
+import { A11yComponent } from './samples/a11y/a11y.component';
 
 export const demoRoutes: Routes = [
   {
@@ -23,6 +24,7 @@ export const demoRoutes: Routes = [
       { path: 'debug-statements', component: DebugStatementsComponent },
       { path: 'vscroll', component: VirtualScrollComponent },
       { path: 'ngfor', component: NgforComponent },
+      { path: 'a11y', component: A11yComponent },
       {
         path: 'dynamic-loading',
         component: DynamicLoadingComponent,
