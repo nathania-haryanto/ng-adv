@@ -9,7 +9,7 @@ import { MarkdownEditorActions } from './editor.actions';
 export class EditorEffects {
   constructor(private actions$: Actions, private service: CommentService) { }
 
-  loadDemos$ = createEffect(() =>
+  loadComments$ = createEffect(() =>
     this.actions$.pipe(
       ofType(MarkdownEditorActions.loadcomments),
       mergeMap(() =>
