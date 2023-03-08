@@ -13,7 +13,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "stats": "ng build --configuration production --stats-json",
-    "analyze": "webpack-bundle-analyzer ./dist/ng-demoapp/stats.json -p 5010"
+    "analyze": "webpack-bundle-analyzer ./dist/optimize-angular/stats.json -p 5010"
   },
   "private": true,
   "dependencies": {
