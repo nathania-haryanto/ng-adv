@@ -10,6 +10,7 @@ import { NgforComponent } from './samples/ngfor/ngfor.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
 import { A11yComponent } from './samples/a11y/a11y.component';
+import { EslintComponent } from './samples/eslint/eslint.component';
 
 export const demoRoutes: Routes = [
   {
@@ -24,6 +25,7 @@ export const demoRoutes: Routes = [
       { path: 'vscroll', component: VirtualScrollComponent, title: 'Demos - Virtual Scroll' },
       { path: 'ngfor', component: NgforComponent, title: 'Demos - NgFor' },
       { path: 'a11y', component: A11yComponent, title: 'Demos - A11y' },
+      { path: 'eslint', component: EslintComponent, title: 'Demos - ESLint' },
       {
         path: 'dynamic-loading',
         component: DynamicLoadingComponent,

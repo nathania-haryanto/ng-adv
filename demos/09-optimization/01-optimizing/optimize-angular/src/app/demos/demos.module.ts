@@ -28,6 +28,7 @@ import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
 import { A11yComponent } from './samples/a11y/a11y.component';
 import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
+import { EslintComponent } from './samples/eslint/eslint.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
     DynamicLoadingComponent,
     SimpleComponent,
     A11yComponent,
+    EslintComponent,
   ],
   imports: [
     CommonModule,
