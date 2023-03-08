@@ -1,5 +1,7 @@
 # NgRx Data
 
+>Note: A completed solution is `ngrx-data-base-entity-service`
+
 ## Scaffold and Preperation
 
 Create project:
@@ -38,8 +40,6 @@ json-server db.json --watch
 
 ## Add ngrx/data with a base EntityDataService
 
->Note: A completed solution is `ngrx-data-base-entity-service`
-
 Add `skills/skills.model.ts`:
 
 ```typescript
@@ -50,7 +50,7 @@ export interface Skill {
 }
 ```
 
-Update `skills/entity-metadata.ts`:
+Create skills metadata in `skills/entity-metadata.ts`:
 
 ```typescript
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
@@ -76,7 +76,7 @@ export const entityConfig: EntityDataModuleConfig = {
 };
 ```
 
-Add basic ngrx modules to `app.module.ts`:
+Register NgRx StoreModule and EntityDataModule in `app.module.ts`:
 
 ```typescript
 @NgModule({
@@ -90,9 +90,7 @@ Add basic ngrx modules to `app.module.ts`:
   ],
 ```
 
->Note: This tutorial shows how to register @ngrx/data in the root module. The main demo registeres it at a feature module `skills`
-
-@ngrx/data exprects rest urls in the format /api/{entityName}/{id}. To change this behavior, you can create a custom url generator.
+@ngrx/data exprects rest urls in the format `/api/{entityName}/{id}`. To change this behavior, you can create a CustomurlHttpGenerator.
 
 Add a custom URL Generator in `skills/custom-urlgenerator.ts`. 
 
@@ -121,7 +119,7 @@ export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
 }
 ```
 
-The custom URL generator is registered in `app.module.ts`:
+The custom URL generator needs to be registered in `app.module.ts`:
 
 ```typescript
 providers: [
@@ -132,17 +130,7 @@ providers: [
 ],
 ```
 
-There are two ways of creating the base EntityService:
-  
-- In the component using the EntityCollectionServiceFactory
-
-  ```typescript
-  constructor(private factory: EntityCollectionServiceFactory) {
-    this.skillsService = this.factory.create<Skill>('Skill');
-    this.skills$ = this.skillsService.entities$;
-  }
-  ```
-- Using an explicit service `skills-entity.service.ts`. Use this approach if you want to use the service in multiple components. 
+Create the EntityDataService in `skills-entity.service.ts`. If you do not want to override the methods, that is all you will have to do in order to load entity data.
 
   ```typescript
   @Injectable({
@@ -155,13 +143,11 @@ There are two ways of creating the base EntityService:
   }
   ```
 
->Note: For this lab we are using the second approach.  
-
-Implement the UI that uses the SkillsEntityService:
+Implement the User Interface that uses the SkillsEntityService:
 
 ![base-ui](_images/base-ui.jpg)
 
-Add the following html to `skills.component.html`:
+Add the following html to `skills/skills.component.html`:
 
 ```html
 <h2>Skills</h2>
