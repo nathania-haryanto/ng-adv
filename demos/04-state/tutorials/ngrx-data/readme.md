@@ -157,6 +157,29 @@ There are two ways of creating the base EntityService:
 
 >Note: For this lab we are using the second approach.  
 
+Implement the UI that uses the SkillsEntityService:
+
+![base-ui](_images/base-ui.jpg)
+
+Add the following html to `skills.component.html`:
+
+```html
+<h2>Skills</h2>
+
+<div class="container">
+  <div>
+    <button (click)="addSkill()">Add Skill</button>
+  </div>
+
+  <div *ngFor="let sk of skills$ | async">
+    <div class="row">
+      <div class="label">{{ sk.name }}</div>
+      <button (click)="deleteSkill(sk)">Delete</button>
+    </div>
+  </div>
+</div>
+```
+
 Add a `skills/skills.component.ts` using the Angular CLI and add the following code to it:
 
 ```typescript
@@ -190,7 +213,3 @@ Add the skills component to `app.component.html`:
   <app-skills></app-skills>
 </div>
 ```
-
-Implement the UI that uses this methods:
-
-![base-ui](_images/base-ui.jpg)
