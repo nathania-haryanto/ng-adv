@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoadingService } from './loading.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
@@ -17,12 +18,14 @@ export class LoadingInterceptor implements HttpInterceptor {
   constructor(
     private loaderService: LoadingService,
     private sbs: SnackbarService
-  ) {}
+  ) { }
 
   removeRequest(req: HttpRequest<any>) {
     const i = this.requests.indexOf(req);
     if (i >= 0) {
-      console.log('removing request from queue: ', req.url);
+      if (environment.logLoading) {
+        console.log('removing request from queue: ', req.url);
+      }
       this.requests.splice(i, 1);
     }
     this.loaderService.setLoading(this.requests.length > 0);
@@ -32,10 +35,12 @@ export class LoadingInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(
-      'pushing request to queue at index: ' + this.requests.length,
-      req.url
-    );
+    if (environment.logLoading) {
+      console.log(
+        'pushing request to queue at index: ' + this.requests.length,
+        req.url
+      );
+    }
     this.requests.push(req);
 
     this.loaderService.setLoading(true);

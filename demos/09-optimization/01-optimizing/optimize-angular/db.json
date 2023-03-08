@@ -18,21 +18,20 @@
       "visible": true,
       "sortOrder": 0
     },
-
-    {
-      "url": "logger",
-      "title": "Logger",
-      "component": "LoggerComponent",
-      "id": 3,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
     {
       "url": "bundles",
       "title": "Bundle Analyzer",
       "component": "BundlesComponent",
       "id": 2,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "logger",
+      "title": "Logging",
+      "component": "LoggerComponent",
+      "id": 3,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -63,13 +62,77 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
+    },
+    {
+      "url": "a11y",
+      "title": "a11y",
+      "component": "A11yComponent",
+      "id": 66,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
     }
   ],
   "food": [
-    { "name": "Pad Thai", "rating": 1 },
-    { "name": "Butter Chicken", "rating": 2 },
-    { "name": "Cannelloni", "rating": 2 },
-    { "name": "Cordon Bleu", "rating": 4 }
+    {
+      "name": "Pad Thai",
+      "rating": 1
+    },
+    {
+      "name": "Butter Chicken",
+      "rating": 2
+    },
+    {
+      "name": "Cannelloni",
+      "rating": 2
+    },
+    {
+      "name": "Cordon Bleu",
+      "rating": 4
+    }
   ],
-  "logs": []
+  "skills": [
+    {
+      "id": 1,
+      "name": "RxJs",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "name": "NgRx",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "name": "Angular",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "name": "TypeScript",
+      "completed": true
+    },
+    {
+      "id": 5,
+      "name": "Material",
+      "completed": true
+    },
+    {
+      "id": 6,
+      "name": "Node",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "name": "Forms",
+      "completed": true
+    },
+    {
+      "id": 8,
+      "name": "Authentication",
+      "completed": true
+    }
+  ],
+  "logs": [
+  ]
 }
