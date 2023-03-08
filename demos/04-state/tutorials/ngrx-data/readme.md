@@ -92,7 +92,9 @@ Add basic ngrx modules to `app.module.ts`:
 
 >Note: This tutorial shows how to register @ngrx/data in the root module. The main demo registeres it at a feature module `skills`
 
-Add a custom URL Generator in `skills/custom-urlgenerator.ts`:
+@ngrx/data exprects rest urls in the format /api/{entityName}/{id}. To change this behavior, you can create a custom url generator.
+
+Add a custom URL Generator in `skills/custom-urlgenerator.ts`. 
 
 ```typescript
 @Injectable()
@@ -119,28 +121,41 @@ export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
 }
 ```
 
->Note: There are two ways of creating the base EntityService:
+The custom URL generator is registered in `app.module.ts`:
+
+```typescript
+providers: [
+  {
+    provide: HttpUrlGenerator,
+    useClass: CustomurlHttpGenerator,
+  },
+],
+```
+
+There are two ways of creating the base EntityService:
   
-  - In the component using the EntityCollectionServiceFactory
+- In the component using the EntityCollectionServiceFactory
 
-    ```typescript
-    constructor(private factory: EntityCollectionServiceFactory) {
-      this.skillsService = this.factory.create<Skill>('Skill');
-      this.skills$ = this.skillsService.entities$;
-    }
-    ```
-  - Using an explicit service that is reusable -ie `skills-entity.service.ts`
+  ```typescript
+  constructor(private factory: EntityCollectionServiceFactory) {
+    this.skillsService = this.factory.create<Skill>('Skill');
+    this.skills$ = this.skillsService.entities$;
+  }
+  ```
+- Using an explicit service `skills-entity.service.ts`. Use this approach if you want to use the service in multiple components. 
 
-    ```typescript
-    @Injectable({
-      providedIn: 'root',
-    })
-    export class SkillsEntityService extends EntityCollectionServiceBase<Skill> {
-      constructor(factory: EntityCollectionServiceElementsFactory) {
-        super('Skill', factory);
-      }
+  ```typescript
+  @Injectable({
+    providedIn: 'root',
+  })
+  export class SkillsEntityService extends EntityCollectionServiceBase<Skill> {
+    constructor(factory: EntityCollectionServiceElementsFactory) {
+      super('Skill', factory);
     }
-    ```
+  }
+  ```
+
+>Note: For this lab we are using the second approach.  
 
 Add a `skills/skills.component.ts` using the Angular CLI and add the following code to it:
 
