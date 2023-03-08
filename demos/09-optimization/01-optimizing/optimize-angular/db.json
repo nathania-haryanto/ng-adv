@@ -19,19 +19,19 @@
       "sortOrder": 0
     },
     {
-      "url": "logger",
-      "title": "Logger",
-      "component": "LoggerComponent",
-      "id": 3,
+      "url": "bundles",
+      "title": "Bundle Analyzer",
+      "component": "BundlesComponent",
+      "id": 2,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
     },
     {
-      "url": "bundles",
-      "title": "Bundle Analyzer",
-      "component": "BundlesComponent",
-      "id": 2,
+      "url": "logger",
+      "title": "Logging",
+      "component": "LoggerComponent",
+      "id": 3,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
