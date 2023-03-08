@@ -37,6 +37,15 @@
       "sortOrder": 0
     },
     {
+      "url": "locationsrv",
+      "title": "Location Service",
+      "component": "LocServiceComponent",
+      "id": 77,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
       "url": "multi-interceptor",
       "title": "Interceptors",
       "component": "MultiInterceptorComponent",
@@ -77,14 +86,6 @@
       "title": "NgRx Preloading",
       "component": "PreloadingNgrxComponent",
       "id": 311,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },    {
-      "url": "router-animations",
-      "title": "Router Animations",
-      "component": "RouterAnimationsComponent",
-      "id": 21,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
