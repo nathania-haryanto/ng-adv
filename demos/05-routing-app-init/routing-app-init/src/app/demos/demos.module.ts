@@ -30,12 +30,17 @@ import { AppInitComponent } from './samples/app-init/app-init.component';
 import { PreloadingNgrxComponent } from './samples/preloading-ngrx/preloading-ngrx.component';
 import { CodeSplittingComponent } from './samples/code-splitting/code-splitting.component';
 import { AuxilaryRoutesComponent } from './samples/auxilary-routes/auxilary-routes.component';
+import { DiInjectComponent } from './samples/di-inject/di-inject.component';
 
 const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
     children: [
+      {
+        path: 'inject',
+        component: DiInjectComponent,
+      },
       {
         path: 'app-init',
         component: AppInitComponent,
@@ -122,6 +127,7 @@ const demoRoutes: Routes = [
     PreloadingNgrxComponent,
     CodeSplittingComponent,
     AuxilaryRoutesComponent,
+    DiInjectComponent,
   ],
   imports: [
     CommonModule,
@@ -140,4 +146,4 @@ const demoRoutes: Routes = [
   ],
   providers: [],
 })
-export class DemosModule {}
+export class DemosModule { }
