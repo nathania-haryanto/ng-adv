@@ -34,6 +34,8 @@ Start json-server:
 json-server db.json --watch
 ```
 
+>Note: You can use the db.json located in this folder
+
 ## Add ngrx/data with a base EntityDataService
 
 >Note: A completed solution is `ngrx-data-base-entity-service`
@@ -164,6 +166,14 @@ export class SkillsComponent implements OnInit {
     this.skillsService.delete(item);
   }
 }
+```
+
+Add the skills component to `app.component.html`:
+
+```html
+<div class="content" role="main">
+  <app-skills></app-skills>
+</div>
 ```
 
 Implement the UI that uses this methods:
