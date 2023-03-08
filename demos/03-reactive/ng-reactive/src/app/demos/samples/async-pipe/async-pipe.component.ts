@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { filter, mergeMap } from 'rxjs/operators';
+import { filter, mergeMap, tap } from 'rxjs/operators';
 import { TaskItem } from '../../tasks/task-item.model';
 import { TaskService } from '../../tasks/task.service';
 
@@ -10,13 +10,14 @@ import { TaskService } from '../../tasks/task.service';
   styleUrls: ['./async-pipe.component.scss'],
 })
 export class AsyncPipeComponent implements OnInit {
-  constructor(private ts: TaskService) {}
+  constructor(private ts: TaskService) { }
 
   // Classic subscribe Pattern
   tasks: TaskItem[];
 
   // Reactive declarative Approach using async pipe
-  tasks$: Observable<TaskItem[]> = this.ts.getTasks();
+  tasks$: Observable<TaskItem[]> = this.ts.getTasks().pipe(tap((data) => console.log(data)));
+
   completed$: Observable<TaskItem> = this.tasks$.pipe(
     mergeMap((tasks: TaskItem[]) => tasks),
     filter((t) => t.completed)

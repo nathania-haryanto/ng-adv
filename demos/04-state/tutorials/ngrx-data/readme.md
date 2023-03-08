@@ -1,5 +1,7 @@
 # NgRx Data
 
+>Note: A completed solution is `ngrx-data-base-entity-service`
+
 ## Scaffold and Preperation
 
 Create project:
@@ -34,9 +36,9 @@ Start json-server:
 json-server db.json --watch
 ```
 
-## Add ngrx/data with a base EntityDataService
+>Note: You can use the db.json located in this folder
 
->Note: A completed solution is `ngrx-data-base-entity-service`
+## Add ngrx/data with a base EntityDataService
 
 Add `skills/skills.model.ts`:
 
@@ -48,7 +50,7 @@ export interface Skill {
 }
 ```
 
-Update `skills/entity-metadata.ts`:
+Create skills metadata in `skills/entity-metadata.ts`:
 
 ```typescript
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
@@ -74,7 +76,7 @@ export const entityConfig: EntityDataModuleConfig = {
 };
 ```
 
-Add basic ngrx modules to `app.module.ts`:
+Register NgRx StoreModule and EntityDataModule in `app.module.ts`:
 
 ```typescript
 @NgModule({
@@ -88,9 +90,9 @@ Add basic ngrx modules to `app.module.ts`:
   ],
 ```
 
->Note: This tutorial shows how to register @ngrx/data in the root module. The main demo registeres it at a feature module `skills`
+@ngrx/data exprects rest urls in the format `/api/{entityName}/{id}`. To change this behavior, you can create a CustomurlHttpGenerator.
 
-Add a custom URL Generator in `skills/custom-urlgenerator.ts`:
+Add a custom URL Generator in `skills/custom-urlgenerator.ts`. 
 
 ```typescript
 @Injectable()
@@ -117,28 +119,52 @@ export class CustomurlHttpGenerator extends DefaultHttpUrlGenerator {
 }
 ```
 
->Note: There are two ways of creating the base EntityService:
-  
-  - In the component using the EntityCollectionServiceFactory
+The custom URL generator needs to be registered in `app.module.ts`:
 
-    ```typescript
-    constructor(private factory: EntityCollectionServiceFactory) {
-      this.skillsService = this.factory.create<Skill>('Skill');
-      this.skills$ = this.skillsService.entities$;
-    }
-    ```
-  - Using an explicit service that is reusable -ie `skills-entity.service.ts`
+```typescript
+providers: [
+  {
+    provide: HttpUrlGenerator,
+    useClass: CustomurlHttpGenerator,
+  },
+],
+```
 
-    ```typescript
-    @Injectable({
-      providedIn: 'root',
-    })
-    export class SkillsEntityService extends EntityCollectionServiceBase<Skill> {
-      constructor(factory: EntityCollectionServiceElementsFactory) {
-        super('Skill', factory);
-      }
+Create the EntityDataService in `skills-entity.service.ts`. If you do not want to override the methods, that is all you will have to do in order to load entity data.
+
+  ```typescript
+  @Injectable({
+    providedIn: 'root',
+  })
+  export class SkillsEntityService extends EntityCollectionServiceBase<Skill> {
+    constructor(factory: EntityCollectionServiceElementsFactory) {
+      super('Skill', factory);
     }
-    ```
+  }
+  ```
+
+Implement the User Interface that uses the SkillsEntityService:
+
+![base-ui](_images/base-ui.jpg)
+
+Add the following html to `skills/skills.component.html`:
+
+```html
+<h2>Skills</h2>
+
+<div class="container">
+  <div>
+    <button (click)="addSkill()">Add Skill</button>
+  </div>
+
+  <div *ngFor="let sk of skills$ | async">
+    <div class="row">
+      <div class="label">{{ sk.name }}</div>
+      <button (click)="deleteSkill(sk)">Delete</button>
+    </div>
+  </div>
+</div>
+```
 
 Add a `skills/skills.component.ts` using the Angular CLI and add the following code to it:
 
@@ -166,6 +192,10 @@ export class SkillsComponent implements OnInit {
 }
 ```
 
-Implement the UI that uses this methods:
+Add the skills component to `app.component.html`:
 
-![base-ui](_images/base-ui.jpg)
+```html
+<div class="content" role="main">
+  <app-skills></app-skills>
+</div>
+```

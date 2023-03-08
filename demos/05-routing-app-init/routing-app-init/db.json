@@ -1,10 +1,10 @@
 {
   "demos": [
-    {
-      "url": "code-splitting",
-      "title": "Code Splitting",
-      "component": "CodeSplittingComponent",
-      "id": 91,
+        {
+      "url": "inject",
+      "title": "Inject",
+      "component": "DiInjectComponent",
+      "id": 63,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -18,11 +18,29 @@
       "visible": true,
       "sortOrder": 0
     },
+        {
+      "url": "code-splitting",
+      "title": "Code Splitting",
+      "component": "CodeSplittingComponent",
+      "id": 91,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
     {
       "url": "multi-guard",
       "title": "Route Guards",
       "component": "MultiGuardComponent",
       "id": 7,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 0
+    },
+    {
+      "url": "locationsrv",
+      "title": "Location Service",
+      "component": "LocServiceComponent",
+      "id": 77,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0
@@ -64,27 +82,10 @@
       "sortOrder": 0
     },
     {
-      "url": "auxilary",
-      "title": "Auxiliary Routes",
-      "component": "AuxilaryRoutesComponent",
-      "id": 321,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },
-    {
       "url": "preload-ngrx",
       "title": "NgRx Preloading",
       "component": "PreloadingNgrxComponent",
       "id": 311,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 0
-    },    {
-      "url": "router-animations",
-      "title": "Router Animations",
-      "component": "RouterAnimationsComponent",
-      "id": 21,
       "topicid": 1,
       "visible": true,
       "sortOrder": 0

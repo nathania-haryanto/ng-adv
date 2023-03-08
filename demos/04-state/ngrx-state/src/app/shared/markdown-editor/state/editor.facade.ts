@@ -22,7 +22,6 @@ export class EditorFacade implements OnDestroy {
   ) {
     //Could be used to respond to effects completion to trigger an action in the UI
     //As an alternative you could also hook into the loading indicator
-    //TODO: Refactor to Reactive approach
     this.subs = this.actions
       .pipe(
         ofType(

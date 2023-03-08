@@ -1,14 +1,12 @@
-@import "stylevars.scss";
-
 .container {
   min-height: 500px;
   height: 100%;
 }
 
 .split-main {
-  padding: $small-gap;
+  padding: var(--gap-small);
 }
 
 .split-sidebar {
-  padding: $small-gap;
+  padding: var(--gap-small);
 }

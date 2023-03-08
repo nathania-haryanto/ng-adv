@@ -1,8 +1,6 @@
 <mat-card appearance="outlined">
   <mat-card-header>
-    <mat-card-title>
-      Watch console for output
-    </mat-card-title>
+    <mat-card-title> Watch console for output </mat-card-title>
   </mat-card-header>
 
   <mat-card-content
@@ -10,12 +8,20 @@
     fxLayoutAlign="space-between start"
     class="cmdItems"
   >
-    <a mat-raised-button color="accent" (click)="copySpread()">Shallow Clone</a>
-    <a mat-raised-button color="accent" (click)="deepCloning()">Deep Cloning</a>
-    <a mat-raised-button color="accent" (click)="impureFunction()">Impure</a>
-    <a mat-raised-button color="accent" (click)="pureFunction()">Pure</a>
-    <a mat-raised-button color="accent" (click)="useDestructuring()"
-      >Destructuring</a
-    >
+    <button mat-raised-button color="accent" (click)="copySpread()">
+      Shallow Clone
+    </button>
+    <button mat-raised-button color="accent" (click)="deepCloning()">
+      Deep Cloning
+    </button>
+    <button mat-raised-button color="accent" (click)="impureFunction()">
+      Impure
+    </button>
+    <button mat-raised-button color="accent" (click)="pureFunction()">
+      Pure
+    </button>
+    <button mat-raised-button color="accent" (click)="useDestructuring()">
+      Destructuring
+    </button>
   </mat-card-content>
 </mat-card>

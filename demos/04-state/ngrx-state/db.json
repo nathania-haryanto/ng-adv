@@ -91,6 +91,15 @@
       "sortOrder": 3
     },
     {
+      "url": "component-store",
+      "title": "@ngrx/component-store",
+      "component": "ComponentStoreComponent",
+      "id": 44,
+      "topicid": 1,
+      "visible": true,
+      "sortOrder": 3
+    },
+    {
       "url": "cd-intro",
       "title": "Change Detection",
       "component": "ChangeDetectionComponent",
@@ -113,15 +122,6 @@
       "title": "ChangeDetectorRef",
       "component": "ChangeDetectorRefComponent",
       "id": 14,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
-    },
-    {
-      "url": "component-store",
-      "title": "@ngrx/component-store",
-      "component": "ComponentStoreComponent",
-      "id": 44,
       "topicid": 1,
       "visible": true,
       "sortOrder": 3
@@ -173,7 +173,7 @@
     {
       "id": 1,
       "url": "",
-      "title": "Placeholder",
+      "title": "Test",
       "comment": "abc",
       "saved": "2020-09-16T20:10:06.925Z"
     },
