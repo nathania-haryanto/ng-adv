@@ -4,19 +4,12 @@ import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { CommentService } from '../comment.service';
 import { MarkdownEditorActions } from './editor.actions';
-// import { deleteComment, deleteCommentFailure, loadComments, MockEditorActions } from './editor.actions';
-// import {
-//   loadComments,
-//   loadCommentsFailure,
-//   saveComment,
-//   saveCommentFailure,
-// } from './editor.actions';
 
 @Injectable()
 export class EditorEffects {
-  constructor(private actions$: Actions, private service: CommentService) {}
+  constructor(private actions$: Actions, private service: CommentService) { }
 
-  loadDemos$ = createEffect(() =>
+  loadComments$ = createEffect(() =>
     this.actions$.pipe(
       ofType(MarkdownEditorActions.loadcomments),
       mergeMap(() =>

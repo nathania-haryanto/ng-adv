@@ -9,10 +9,10 @@ import { CommentItem } from './comment.model';
 export class CommentService {
   url = environment.apiUrl + 'comments';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   saveComment(item: CommentItem) {
-    if (item.id === undefined) {
+    if (item.id === undefined || item.id === 0) {
       return this.http.post<CommentItem>(this.url, item);
     } else {
       return this.http.put<CommentItem>(`${this.url}/${item.id}`, item);

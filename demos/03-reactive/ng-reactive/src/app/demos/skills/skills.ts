@@ -4,7 +4,7 @@ export class Skill {
   id: number;
   topicId: number;
   topic?: Topic;
-  title: string;
+  name: string;
   hours: number;
   completed: boolean;
   duedate: Date;
