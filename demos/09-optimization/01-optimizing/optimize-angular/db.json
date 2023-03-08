@@ -18,7 +18,6 @@
       "visible": true,
       "sortOrder": 0
     },
-
     {
       "url": "logger",
       "title": "Logger",
@@ -75,10 +74,23 @@
     }
   ],
   "food": [
-    { "name": "Pad Thai", "rating": 1 },
-    { "name": "Butter Chicken", "rating": 2 },
-    { "name": "Cannelloni", "rating": 2 },
-    { "name": "Cordon Bleu", "rating": 4 }
+    {
+      "name": "Pad Thai",
+      "rating": 1
+    },
+    {
+      "name": "Butter Chicken",
+      "rating": 2
+    },
+    {
+      "name": "Cannelloni",
+      "rating": 2
+    },
+    {
+      "name": "Cordon Bleu",
+      "rating": 4
+    }
   ],
-  "logs": []
+  "logs": [
+  ]
 }
