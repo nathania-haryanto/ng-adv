@@ -16,25 +16,16 @@
 
 [ngx-quickling - preloading](https://github.com/mgechev/ngx-quicklink)
 
-### Source Maps Explorer
+## Accessibilty
 
-Install Source Map Explorer:
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 
-```
-npm i -S source-map-explorer
-```
+https://angular.io/guide/accessibility
 
-Create Production Build:
+https://material.angular.io/cdk/a11y/overview
 
-```
-ng build --prod
-```
+https://codelabs.developers.google.com/angular-a11y
 
-Analyze Chunks:
-
-```
-source-map-explorer dist/main-es5.28a67cbad0b0a3f17e1e.js
-```
 
 ## Change Detection
 
