@@ -1,6 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DemoService } from '../../demo-base/demo.service';
-import { getAllDemos } from '../../state/demo.selectors';
 
 @Component({
   selector: 'app-di-inject',
