@@ -1,4 +1,10 @@
+declare global {
+  interface Window {
+    env: any;
+  }
+}
+
 export const environment = {
   production: true,
-  funcEP: 'https://foodorders-22158.azurewebsites.net/api',
+  funcEP: window['env'].FUNC_EP,
 };
