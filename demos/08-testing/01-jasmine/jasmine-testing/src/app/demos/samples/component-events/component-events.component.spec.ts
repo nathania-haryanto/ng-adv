@@ -32,18 +32,19 @@ describe('Component - Events - EventsComponent', () => {
     expect(component.count).toBe(1);
     fixture.detectChanges();
 
-    const divResult = fixture.debugElement.query(By.css('.result'));
+    const divResult = fixture.debugElement.query(By.css('#result'));
     expect(divResult.nativeElement.innerText).toContain('1');
   });
 
   it('should increment the count - Native Api', () => {
     const divClick = fixture.debugElement.query(By.css('#clickable'));
     divClick.nativeElement.click();
+    divClick.nativeElement.click();
 
-    expect(component.count).toBe(1);
+    expect(component.count).toBe(2);
     fixture.detectChanges();
 
-    const divResult = fixture.debugElement.query(By.css('.result'));
-    expect(divResult.nativeElement.innerText).toContain('1');
+    const divResult = fixture.debugElement.query(By.css('#result'));
+    expect(divResult.nativeElement.innerText).toContain('2');
   });
 });
