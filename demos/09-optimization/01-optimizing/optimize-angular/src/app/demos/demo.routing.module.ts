@@ -9,20 +9,23 @@ import { LoggerComponent } from './samples/logger/logger.component';
 import { NgforComponent } from './samples/ngfor/ngfor.component';
 import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.component';
 import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
+import { A11yComponent } from './samples/a11y/a11y.component';
+import { EslintComponent } from './samples/eslint/eslint.component';
 
 export const demoRoutes: Routes = [
   {
     path: '',
     component: DemoContainerComponent,
     children: [
-      { path: 'logger', component: LoggerComponent },
-      { path: 'bundles', component: BundlesComponent },
-      { path: 'inject-config', component: InjectConfigComponent },
-      { path: 'webworker', component: WebWorkerComponent },
-      { path: 'lighthouse', component: LighthouseComponent },
-      { path: 'debug-statements', component: DebugStatementsComponent },
-      { path: 'vscroll', component: VirtualScrollComponent },
-      { path: 'ngfor', component: NgforComponent },
+      { path: 'logger', component: LoggerComponent, title: 'Demos - Logger' },
+      { path: 'bundles', component: BundlesComponent, title: 'Demos - Analyze Bundles' },
+      { path: 'webworker', component: WebWorkerComponent, title: 'Demos - Web Workers' },
+      { path: 'lighthouse', component: LighthouseComponent, title: 'Demos - Lighthouse KPIs' },
+      { path: 'debug-statements', component: DebugStatementsComponent, title: 'Demos - Debug Statements' },
+      { path: 'vscroll', component: VirtualScrollComponent, title: 'Demos - Virtual Scroll' },
+      { path: 'ngfor', component: NgforComponent, title: 'Demos - NgFor' },
+      { path: 'a11y', component: A11yComponent, title: 'Demos - A11y' },
+      { path: 'eslint', component: EslintComponent, title: 'Demos - ESLint' },
       {
         path: 'dynamic-loading',
         component: DynamicLoadingComponent,

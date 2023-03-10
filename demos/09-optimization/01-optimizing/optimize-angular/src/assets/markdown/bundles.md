@@ -11,7 +11,7 @@ npm i -S source-map-explorer
 Create Production Build:
 
 ```
-ng build --prod
+ng build -c production
 ```
 
 Analyze Chunks:
@@ -31,18 +31,21 @@ Investigate `package.json`:
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "withdb": "concurrently \"json-server --watch db.json\" \"ng serve\"",
     "build:stats": "ng build --statsJson",
-    "analyze": "webpack-bundle-analyzer ./dist/ngDemoApp/stats-es2015.json -p 5010"
+    "analyze": "webpack-bundle-analyzer ./dist/optimize-angular/stats.json -p 5010"
   },
 ```
 
-Run `build:stats` and `analyze` using `npm run`.
+Show bundle limits in angular.json. Create stats and analyze:
+
+```bash
+npm run stats
+npm run analyze
+```
 
 Find Moment.js and look at its size
 
-Replace Moment.js by date-fns
+Replace Moment.js by date-fns in `bundles.component.ts`
 
 ```
 npm install date-fns --save

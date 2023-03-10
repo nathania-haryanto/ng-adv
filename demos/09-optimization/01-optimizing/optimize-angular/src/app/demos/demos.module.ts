@@ -26,6 +26,9 @@ import { VirtualScrollComponent } from './samples/virtual-scroll/virtual-scroll.
 import { WebWorkerComponent } from './samples/web-worker/web-worker.component';
 import { DemosEffects } from './state/demos.effects';
 import { demoReducer, demosFeatureKey } from './state/demos.reducer';
+import { A11yComponent } from './samples/a11y/a11y.component';
+import { LoggerModule, NgxLoggerLevel } from "ngx-logger";
+import { EslintComponent } from './samples/eslint/eslint.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,8 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     NgforComponent,
     DynamicLoadingComponent,
     SimpleComponent,
+    A11yComponent,
+    EslintComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +63,11 @@ import { demoReducer, demosFeatureKey } from './state/demos.reducer';
     MarkdownEditorModule,
     StoreModule.forFeature(demosFeatureKey, demoReducer),
     EffectsModule.forFeature([DemosEffects]),
+    LoggerModule.forRoot({
+      serverLoggingUrl: 'http://localhost:3000/logs',
+      level: NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR
+    }),
   ],
   providers: [],
 })

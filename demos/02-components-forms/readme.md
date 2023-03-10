@@ -15,14 +15,22 @@
 - Handling FormErrors & ErrorStateMatcher
 - Dynamic Form Generation
 
-## Standalone Components: Bootstrapping
+## Standalone Components
+
+Existing apps can be migrated to Standalone Components using Schematics:
+
+```
+ng g @angular/core:standalone
+```
+
+### Bootstrapping
 
 Update main.ts:
 
 ```typescript
 import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
+import { AppComponent } from './app/app.component';ö
 import { environment } from './environments/environment';
 
 if (environment.production) {

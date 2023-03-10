@@ -14,7 +14,7 @@ import { SnackbarService } from '../../../shared/snackbar/snackbar.service';
   providedIn: 'root',
 })
 export class OnlyAuthenticatedGuard implements CanActivate {
-  constructor(private as: MockAuthService, private sns: SnackbarService) {}
+  constructor(private as: MockAuthService, private sns: SnackbarService) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -25,8 +25,8 @@ export class OnlyAuthenticatedGuard implements CanActivate {
     | boolean
     | UrlTree {
     return this.as.isLoggedIn().pipe(
-      tap((ps) => {
-        if (!ps) {
+      tap((authenticated) => {
+        if (!authenticated) {
           this.sns.displayAlert(
             'No Access',
             'Access only for authenticated users'

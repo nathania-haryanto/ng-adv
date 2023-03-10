@@ -35,7 +35,7 @@ describe('Component - AsyncTest - FakeAsync', () => {
     fixture.detectChanges();
     tick();
     component.ngOnInit();
-    tick(400);
+    tick(300);
     fixture.detectChanges();
     expect(
       fixture.debugElement

@@ -8,33 +8,21 @@
 
 [Airbnb Style Guide](https://github.com/webdev-tools/tslint-airbnb-styleguide)
 
-[Configuring CommonJS dependencies](https://angular.io/guide/build#configuring-commonjs-dependencies)
-
 ## Analyzing Bundles
 
 [Performance Budget Calculator](https://perf-budget-calculator.firebaseapp.com/)
 
 [ngx-quickling - preloading](https://github.com/mgechev/ngx-quicklink)
 
-### Source Maps Explorer
+## Accessibilty
 
-Install Source Map Explorer:
+[Accessible Rich Internet Applications - ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 
-```
-npm i -S source-map-explorer
-```
+[Angular A11y Guide](https://angular.io/guide/accessibility)
 
-Create Production Build:
+[Material A11y](https://material.angular.io/cdk/a11y/overview)
 
-```
-ng build --prod
-```
-
-Analyze Chunks:
-
-```
-source-map-explorer dist/main-es5.28a67cbad0b0a3f17e1e.js
-```
+[Lab: Angular A11y](https://codelabs.developers.google.com/angular-a11y)
 
 ## Change Detection
 

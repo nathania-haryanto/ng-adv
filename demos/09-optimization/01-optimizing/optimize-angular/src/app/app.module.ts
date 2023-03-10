@@ -16,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoadingInterceptor } from './shared/loading/loading-interceptor';
 import { LoadingService } from './shared/loading/loading.service';
 import { EntityDataModule } from '@ngrx/data';
+import { metaReducers } from './state/index';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -27,7 +28,7 @@ import { EntityDataModule } from '@ngrx/data';
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot({}),
     StoreDevtoolsModule.instrument({
@@ -40,4 +41,4 @@ import { EntityDataModule } from '@ngrx/data';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

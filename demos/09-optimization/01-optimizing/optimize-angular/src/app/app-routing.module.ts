@@ -6,6 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    title: "Demo App Home"
   },
   {
     path: 'demos',
@@ -23,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

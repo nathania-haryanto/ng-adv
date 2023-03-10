@@ -116,15 +116,6 @@
       "topicid": 1,
       "visible": true,
       "sortOrder": 3
-    },
-    {
-      "url": "change-detector-ref",
-      "title": "ChangeDetectorRef",
-      "component": "ChangeDetectorRefComponent",
-      "id": 14,
-      "topicid": 1,
-      "visible": true,
-      "sortOrder": 3
     }
   ],
   "skills": [
