@@ -8,8 +8,6 @@
 
 [Airbnb Style Guide](https://github.com/webdev-tools/tslint-airbnb-styleguide)
 
-[Configuring CommonJS dependencies](https://angular.io/guide/build#configuring-commonjs-dependencies)
-
 ## Analyzing Bundles
 
 [Performance Budget Calculator](https://perf-budget-calculator.firebaseapp.com/)
@@ -18,14 +16,13 @@
 
 ## Accessibilty
 
-https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+[Accessible Rich Internet Applications - ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 
-https://angular.io/guide/accessibility
+[Angular A11y Guide](https://angular.io/guide/accessibility)
 
-https://material.angular.io/cdk/a11y/overview
+[Material A11y](https://material.angular.io/cdk/a11y/overview)
 
-https://codelabs.developers.google.com/angular-a11y
-
+[Lab: Angular A11y](https://codelabs.developers.google.com/angular-a11y)
 
 ## Change Detection
 
